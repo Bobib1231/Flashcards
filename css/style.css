@@ -125,8 +125,37 @@ body {
 }
 
 /* --- Knapper (Submit-btn general styling) --- */
-/* Fjernet specifik styling her og stoler på Tailwind klasser i HTML */
+/* Disse stilarter er nu mere robuste for at sikre, at knapperne altid ser korrekte ud */
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    padding: 0.85rem 2rem; /* Tilføjet padding for bedre udseende og klikområde */
+    border-radius: 0.75rem; /* Afrundede hjørner */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Shadow-md */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    border: none; /* Fjern standard browser border */
+    text-align: center; /* Sørg for tekst er centreret */
+    white-space: nowrap; /* Undgå tekstombrydning på knapper */
+}
 
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px); /* Subtilt løft ved hover */
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+}
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0); /* "Tryk ned" effekt */
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none; /* Ingen løft når disabled */
+    box-shadow: none; /* Ingen skygge når disabled */
+}
 
 /* --- Resultatbeskeder --- */
 .result-message {
