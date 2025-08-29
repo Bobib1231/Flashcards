@@ -1,0 +1,174 @@
+/* Generel styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Lighter background */
+    color: #1e293b; /* Darker text */
+}
+.container {
+    max-width: 64rem; /* max-w-4xl */
+    margin: 0 auto;
+    padding: 1rem;
+}
+/* --- Flashcard Styles --- */
+.flashcard-section {
+    display: block; /* Vises som standard */
+}
+.card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother flip */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+    border: 1px solid #e2e8f0; /* Subtle border */
+}
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem; /* More padding */
+    text-align: center;
+    border-radius: 1.5rem; /* Consistent rounded corners */
+}
+.card-front-display {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 700; /* Bolder font */
+    font-size: 2.5rem; /* Larger font */
+    line-height: 1.2;
+}
+.card-back-display {
+    background-color: #3b82f6; /* Blue-500 */
+    color: white;
+    font-weight: 500;
+    font-size: 2rem; /* Slightly smaller for back */
+    line-height: 1.4;
+    transform: rotateY(180deg);
+}
+.card-container-wrapper {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.card-container-wrapper.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* --- Quiz Styles --- */
+.quiz-section {
+    display: none; /* Skjult som standard */
+}
+.chapter-title {
+    font-size: 2.5rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    color: #1e293b; /* text-slate-900 */
+    margin-top: 3rem; /* mt-12 */
+    margin-bottom: 2rem; /* mb-8 */
+    border-bottom: 3px solid #cbd5e1; /* border-slate-300 */
+    padding-bottom: 0.75rem;
+    text-align: center;
+}
+.question-card {
+    background-color: white;
+    border-radius: 1.5rem; /* rounded-3xl */
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+    padding: 2.5rem; /* p-10 */
+    margin-bottom: 2rem; /* mb-8 */
+    border: 1px solid #e2e8f0; /* Subtle border */
+}
+.answer-option {
+    display: flex;
+    align-items: flex-start; /* Align text to start */
+    padding: 1rem 1.25rem; /* py-4 px-5 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    background-color: #f8fafc; /* bg-slate-50 */
+    border-radius: 0.75rem; /* rounded-xl */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s ease-out;
+    border: 1px solid #e2e8f0; /* border-slate-200 */
+}
+.answer-option:hover:not(.correct-answer):not(.incorrect-answer) {
+    background-color: #f1f5f9; /* bg-slate-100 */
+    transform: translateY(-2px);
+}
+.answer-option input[type="radio"] {
+    margin-top: 0.25rem; /* Align radio button with text */
+    margin-right: 1rem; /* mr-4 */
+    transform: scale(1.2); /* Slightly larger radio button */
+}
+.correct-answer {
+    background-color: #dcfce7; /* bg-green-100 */
+    border-color: #22c55e; /* border-green-500 */
+    font-weight: 600;
+}
+.incorrect-answer {
+    background-color: #fee2e2; /* bg-red-100 */
+    border-color: #ef4444; /* border-red-500 */
+    font-weight: 600;
+}
+.explanation {
+    margin-top: 1rem;
+    font-size: 0.95rem; /* Slightly larger text-sm */
+    color: #475569; /* text-slate-700 */
+    line-height: 1.5;
+}
+.submit-btn {
+    background-color: #2563eb; /* bg-blue-700 */
+    color: white;
+    font-weight: 600; /* font-semibold */
+    padding: 0.85rem 2rem; /* py-3.5 px-8 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: background-color 0.2s, transform 0.1s ease-out, box-shadow 0.2s;
+}
+.submit-btn:hover:not(:disabled) {
+    background-color: #1d4ed8; /* bg-blue-800 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+}
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.result-message {
+    margin-top: 1.5rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+}
+.correct {
+    color: #16a34a; /* text-green-600 */
+}
+.incorrect {
+    color: #dc2626; /* text-red-600 */
+}
+.quiz-mode-container {
+    display: none; /* Hidden by default, shown by JS */
+}
+
+/* Specific styles for select elements */
+select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem; /* Make space for the custom arrow */
+}
+select:focus {
+    border-color: #3b82f6; /* Blue focus ring */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+select[multiple] {
+    height: auto !important; /* Allow multiple select to grow */
+    background-image: none; /* Remove arrow for multiselect */
+    padding-right: 0.75rem;
+}
