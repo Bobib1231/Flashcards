@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Udviklingsniveauer", back: "Inddeling af udviklingslinjer efter kompleksitet og inklusion (f.eks. egocentrisk, etnocentrisk, verdenscentrisk)." },
             { front: "Egocentrisk niveau", back: "Perspektiv centreret omkring en selv; ens egne meninger og ønsker prioriteres over andres ('mig mod verden')." },
             { front: "Etnocentrisk niveau", back: "Perspektiv, der omfatter den gruppe eller de relationer, man er en del af; åben for forskellighed inden for gruppens rammer ('mig med os, os mod dem')." },
-            { front: "Verdenscentrisk niveau", back: "Perspektiv, der inkluderer mennesker, man aldrig har mødt, og synspunkter man er uenig i; evne til at forholde sig til andres synspunkter og se jorden som en helhed." நீர },
+            { front: "Verdenscentrisk niveau", back: "Perspektiv, der inkluderer mennesker, man aldrig har mødt, og synspunkter man er uenig i; evne til at forholde sig til andres synspunkter og se jorden som en helhed." },
             { front: "Meningsfuld uenighed", back: "Evnen til at anerkende andres synspunkter som 'delsandheder' og bruge uenigheden konstruktivt til at skabe et bredere perspektiv og helhedsforståelse." },
             { front: "Kvadrantlogisk organisationsanalyse", back: "Anvendelse af kvadrantmodellen til at analysere og samtale om, hvordan en organisation har udviklet sig (fortid, nutid, fremtid) med fokus på adfærd, oplevelse, system og kulturstrukturer." },
             { front: "Looking At-perspektiv", back: "At se på en person udefra som en funktionel genstand og vurdere dennes kompetence til at mestre funktioner i de fire kvadranter." },
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Social perception", back: "Studiet af hvordan vi former vores indtryk af andre og udleder konklusioner på det. Hjælper os med at forstå og forudse den sociale sfære." },
             { front: "Nonverbal kommunikation", back: "Ansigtsmimik, øjenkontakt, kropssprog, osv. Vigtigt for førstehåndsindtryk og forståelse af følelser. Kan variere kulturelt (emblemer)." },
             { front: "Darwin og ansigtsmimik", back: "Hypotese: Universalitet i ansigtsmimik for grundfølelser som angst, afsky, stolthed (men ikke skam i alle kulturer)." },
-            { front: "Affect blends (Følelsesblandinger)", back: "Mennesker viser ofte flere følelser på ét ansigt samtidigt (f.eks. afsky og vrede), hvilket gør afkodning swærere." },
+            { front: "Affect blends (Følelsesblandinger)", back: "Mennesker viser ofte flere følelser på ét ansigt samtidigt (f.eks. afsky og vrede), hvilket gør afkodning sværere." },
             { front: "Emblemer", back: "Kulturspecifikke kropsudtryk (f.eks. 'fuckfingeren'), der ikke forstås universelt og kan give misforståelser." },
             { front: "Førstehåndsindtryk", back: "Hurtige vurderinger (under 100 ms) baseret på ansigtsudtryk. F.eks. baby-lignende ansigter antages at være naive/underdanige." },
             { front: "Thin-slicing (Tyndskæring)", back: "Vores evne til at lave meningsfulde vurderinger af mennesker på meget kort tid. Ofte ingen stor forskel fra langvarige indtryk i samme domæne." },
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             options: [
                 "Social psychology focuses on what makes one person unique, while personality psychology focuses on the shared features that make cultures different or similar to each other.",
                 "Social psychology focuses on individual differences. Personality psychology looks at how most people would behave in a situation.",
-                "Social psychology examines similarities in the ways that social influences can affect most people, whereas personality psychology examines the differences between individuals.",
+                    "Social psychology examines similarities in the ways that social influences can affect most people, whereas personality psychology examines the differences between individuals.",
                 "Social psychology focuses on personality traits whereas personality psychology examines the reasons that these personality traits came to be."
             ],
             correctAnswer: "c",
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "It is the only method that can determine causal relationships.",
                 "It is the only method that can determine relationships between variables.",
                 "It is the easiest method to conduct."
-            ],
+                ],
             correctAnswer: "b",
             feedback: "Den eksperimentelle metode er den eneste, der kan etablere årsagssammenhænge (kausalitet) mellem variable."
         },
@@ -592,7 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
             chapter: "Chapter 3",
             question: "10. The representativeness heuristic is a mental shortcut whereby people classify something according to:",
             options: [
-                "How easily they can recall instances of it.",
+                    "How easily they can recall instances of it.",
                 "How well it matches a typical case.",
                 "The number of times it has occurred in the past.",
                 "The emotional impact it has on them."
@@ -722,7 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
             feedback: "Vi starter ofte med en hurtig, intern (dispositionel) vurdering, som vi så justerer, hvis vi har tid og motivation til at overveje situationelle faktorer."
         }
     ];
-
 
     // --- DOM Elements ---
     // Main sections
