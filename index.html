@@ -313,7 +313,7 @@
                     { front: "Metodisk reduktion", back: "Når man vælger at fokusere på én eller få kvadranter og bevidst ser bort fra andre for at skærpe sit fokus i en specifik kontekst." },
                     { front: "Udviklingslinjer", back: "Forskellige kapaciteter (f.eks. kognitiv, emotionel, moralsk), der udvikler sig relativt uafhængigt inden for hver kvadrant." },
                     { front: "Udviklingsniveauer", back: "Inddeling af udviklingslinjer efter kompleksitet og inklusion (f.eks. egocentrisk, etnocentrisk, verdenscentrisk)." },
-                    { front: "Egocentrisk niveau", back: "Perspektiv centreret omkring en selv; ens egne meninger og ønsker prioriteres over andres ('mig mod verden')." },
+                    { front: "Egocentrisk niveau", back: "Perspektiv centreret omkring en selv; ens egne meninger og ønsker prioriteter over andres ('mig mod verden')." },
                     { front: "Etnocentrisk niveau", back: "Perspektiv, der omfatter den gruppe eller de relationer, man er en del af; åben for forskellighed inden for gruppens rammer ('mig med os, os mod dem')." },
                     { front: "Verdenscentrisk niveau", back: "Perspektiv, der inkluderer mennesker, man aldrig har mødt, og synspunkter man er uenig i; evne til at forholde sig til andres synspunkter og se jorden som en helhed." },
                     { front: "Meningsfuld uenighed", back: "Evnen til at anerkende andres synspunkter som 'delsandheder' og bruge uenigheden konstruktivt til at skabe et bredere perspektiv og helhedsforståelse." },
@@ -421,9 +421,9 @@
 
             };
 
-            // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Kapitel 1 & 2 nu) ---
+            // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
             const quizQuestions = [
-                // Chapter 1
+              // Chapter 1
                 {
                     chapter: "Chapter 1",
                     question: "1. Social psychology is the scientific study of",
@@ -1743,8 +1743,8 @@
             const card = document.getElementById('flashcard');
             const frontTextElement = document.getElementById('card-front-text');
             const backTextElement = document.getElementById('card-back-text');
-            const prevBtn = document.getElementById('prev-btn'); // Still exists, but disabled by JS for feedback flow
-            const nextBtn = document.getElementById('next-btn'); // Still exists, but disabled by JS for feedback flow
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
             const progressText = document.getElementById('progress-text');
             const categorySelect = document.getElementById('category-select');
             const shuffleBtn = document.getElementById('shuffle-btn');
@@ -1759,7 +1759,9 @@
 
             // Quiz elements (common)
             const quizChapterSelect = document.getElementById('quiz-chapter-select');
-            const allChapters = [...new Set(quizQuestions.map(q => q.chapter))]; // Get all unique chapter names
+            // Check if quizQuestions is empty before trying to map chapters
+            const allChapters = quizQuestions.length > 0 ? [...new Set(quizQuestions.map(q => q.chapter))] : []; // Get all unique chapter names
+
 
             // All Questions Mode elements
             const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
@@ -1799,7 +1801,7 @@
 
             // --- Quiz State (Common) ---
             // Default to only Chapter 1 initially
-            let selectedQuizChapters = allChapters.filter(chapter => parseInt(chapter.replace('Chapter ', '')) === 1); 
+            let selectedQuizChapters = allChapters.length > 0 ? allChapters.filter(chapter => parseInt(chapter.replace('Chapter ', '')) === 1) : []; 
             let filteredQuizQuestions = [];
 
             // --- All Questions Mode State ---
@@ -1940,10 +1942,19 @@
                     flashcardFeedbackButtons.classList.add('hidden'); // Skjul feedback-knapper
                 }
 
-                // Deaktiver navigationsknapper, da feedback-knapperne nu styrer navigationen
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-                // Aktiver shuffle knappen igen hvis der er kort, selvom navigation er deaktiveret
+                // Deaktiver feedback-knapperne, hvis der ikke er aktive kort, eller hvis alle kort er gennemgået
+                if (currentFlashcards.length === 0 || currentFlashcardIndex === -1) {
+                    feedbackCorrectBtn.disabled = true;
+                    feedbackUnsureBtn.disabled = true;
+                    feedbackIncorrectBtn.disabled = true;
+                } else {
+                    feedbackCorrectBtn.disabled = false;
+                    feedbackUnsureBtn.disabled = false;
+                    feedbackIncorrectBtn.disabled = false;
+                }
+
+                prevBtn.disabled = currentFlashcardIndex === 0 || currentFlashcards.length === 0;
+                nextBtn.disabled = currentFlashcardIndex === currentFlashcards.length - 1 || currentFlashcards.length === 0 || currentFlashcardIndex === -1;
                 shuffleBtn.disabled = currentFlashcards.length === 0;
                 
                 if (isFlipped) {
@@ -1952,8 +1963,6 @@
                 }
             }
 
-            // Denne funktion bruges ikke længere direkte til navigation via knapper, men kan beholdes
-            // hvis du ønsker at genaktivere pil-navigation manuelt.
             function navigateFlashcards(direction) {
                 console.log(`Navigating flashcards: ${direction}`);
                 if (currentFlashcards.length === 0) return;
@@ -2050,8 +2059,13 @@
                 masteredCards = [];
                 currentDeck = [...currentFlashcards]; // Sæt det aktuelle dæk til alle kort ved start
                 shuffleArray(currentDeck); // Bland kortene i det initiale dæk
-                currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); // Sørg for at index peger på første kort i det blandede dæk
-                flashcardFeedbackButtons.classList.add('hidden'); // Skjul knapperne indtil der er et kort
+                if (currentDeck.length > 0) {
+                    currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); // Sørg for at index peger på første kort i det blandede dæk
+                    flashcardFeedbackButtons.classList.remove('hidden'); // Vis knapperne, hvis der er kort
+                } else {
+                    currentFlashcardIndex = -1; // Ingen aktive kort
+                    flashcardFeedbackButtons.classList.add('hidden'); // Skjul knapperne
+                }
             }
 
             // --- Flashcard Event Listeners ---
@@ -2062,10 +2076,21 @@
                 }
             });
 
-            // De gamle prevBtn og nextBtn event listeners er bevidst inaktive for at feedback-flowet styrer navigationen.
-            // Hvis du ønsker at genaktivere dem med den nye logik, skal du overveje hvordan det interagerer med feedback.
-            // prevBtn.addEventListener('click', () => navigateFlashcards(-1));
-            // nextBtn.addEventListener('click', () => navigateFlashcards(1));
+            // Genskab event listener for nextBtn for simpel fremad-navigation
+            nextBtn.addEventListener('click', () => {
+                // Hvis der er kort, og vi ikke er ved det sidste kort, navigér.
+                if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length - 1) {
+                    navigateFlashcards(1);
+                }
+            });
+
+            // Genskab event listener for prevBtn for simpel bagud-navigation
+            prevBtn.addEventListener('click', () => {
+                // Hvis der er kort, og vi ikke er ved det første kort, navigér.
+                if (currentFlashcards.length > 0 && currentFlashcardIndex > 0) {
+                    navigateFlashcards(-1);
+                }
+            });
             
             categorySelect.addEventListener('change', (event) => loadCategory(event.target.value));
             shuffleBtn.addEventListener('click', shuffleCurrentCards);
@@ -2077,7 +2102,11 @@
             
             document.addEventListener('keydown', (e) => {
                 if (flashcardSection.style.display === 'block' && currentFlashcards.length > 0 && currentFlashcardIndex !== -1) { // Kun respondere hvis flashcard sektionen er aktiv og der er et aktivt kort
-                    if (e.key === ' ') { // Mellemrum til at vende kort
+                    if (e.key === 'ArrowLeft' && !prevBtn.disabled) { // Pil venstre for 'Forrige'
+                        navigateFlashcards(-1);
+                    } else if (e.key === 'ArrowRight' && !nextBtn.disabled) { // Pil højre for 'Næste'
+                        navigateFlashcards(1);
+                    } else if (e.key === ' ') { // Mellemrum til at vende kort
                         e.preventDefault();
                         card.classList.toggle('is-flipped');
                         isFlipped = !isFlipped;
@@ -2105,18 +2134,31 @@
                 console.log("Populating quiz chapter select...");
                 quizChapterSelect.innerHTML = '';
                 
-                allChapters.forEach(chapter => {
+                // Kun populér, hvis der er spørgsmål
+                if (allChapters.length > 0) {
+                    allChapters.forEach(chapter => {
+                        const option = document.createElement('option');
+                        option.value = chapter;
+                        option.textContent = chapter;
+                        // Select only Chapter 1 by default initially
+                        if (parseInt(chapter.replace('Chapter ', '')) === 1) {
+                            option.selected = true;
+                        }
+                        quizChapterSelect.appendChild(option);
+                    });
+                    // Initial filter based on default selection
+                    filterQuizQuestions();
+                } else {
                     const option = document.createElement('option');
-                    option.value = chapter;
-                    option.textContent = chapter;
-                    // Select only Chapter 1 by default initially
-                    if (parseInt(chapter.replace('Chapter ', '')) === 1) {
-                        option.selected = true;
-                    }
+                    option.value = '';
+                    option.textContent = 'Ingen quiz-spørgsmål tilgængelige';
+                    option.disabled = true;
+                    option.selected = true;
                     quizChapterSelect.appendChild(option);
-                });
-                // Initial filter based on default selection
-                filterQuizQuestions();
+                    // Deaktiver startknapper, hvis ingen spørgsmål
+                    startAllQuizBtn.disabled = true;
+                    startOneByOneQuizBtn.disabled = true;
+                }
             }
 
             function filterQuizQuestions() {
