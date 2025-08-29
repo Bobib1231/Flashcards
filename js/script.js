@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed. Initializing app...");
 
     // --- DATA: Flashcard content opdelt efter kategori ---
+    // Flashcard data skal kun deklareres én gang her
     const allFlashcardCategories = {
         "Keltner 2006 - Evolution & Følelser": [
             { front: "Social-funktionel tilgang", back: "En tilgang hvor psykologiske fænomener ses som havende et socialt formål og en evolutionær funktion for at løse overlevelses- og reproduktionsproblemer." },
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         "Aronson Kapitel 2: Metodologi": [
             { front: "Hindsight Bias (Bagklogskabsbias)", back: "Tendensen til at tro, at svaret var åbenlyst, efter man har fået svaret ('Jeg vidste det jo hele tiden!')." },
-            { front: "Observationsmetoden", back: "Forskeren beskriver fænomener ved at observere dem. Inkluderer etnografi og arkivanalyse. Begrænset til 'hvad', ikke 'hvorfor'." },
+            { front: "Observationsmetoden", back: "Forskeren beskriver fænomener ved at observere dem. Inkluderer etnografi og arkivanalyse. Begrænset til 'hvad', ikke 'hvorfor'." நீர },
             { front: "Etnografi", back: "Metode hvor forskere undersøger en kultur indefra uden at forcere en forudantagelse over kulturen." },
             { front: "Interjudge reliability (Interbedømmerpålidelighed)", back: "Flere uafhængige observatører er enige om observationer, hvilket styrker evidensen (f.eks. hvis 5 personer har givet samme vurdering)." },
             { front: "Arkivanalyse", back: "Forskeren undersøger tilgængelige tekster og materialer (sociale medier, dagbøger) om et subjekt for at vurdere det." },
@@ -76,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Førstehåndsindtryk", back: "Hurtige vurderinger (under 100 ms) baseret på ansigtsudtryk. F.eks. baby-lignende ansigter antages at være naive/underdanige." },
             { front: "Thin-slicing (Tyndskæring)", back: "Vores evne til at lave meningsfulde vurderinger af mennesker på meget kort tid. Ofte ingen stor forskel fra langvarige indtryk i samme domæne." },
             { front: "Primæreffekten (Primacy effect)", back: "Den information vi lærer først om en person, har størst betydning for, hvordan vi tolker efterfølgende information. Vi udfylder huller ud fra det første indtryk." },
-            { front: "Overbevisningsvedholdenhed (Belief Perseverance)", back: "Tendensen til at fastholde tidligere overbevisninger, selv når de vises at være forkerte. En grund til førstehåndsindtryks magt." நீர },
+            { front: "Overbevisningsvedholdenhed (Belief Perseverance)", back: "Tendensen til at fastholde tidligere overbevisninger, selv når de vises at være forkerte. En grund til førstehåndsindtryks magt." },
             { front: "Causal attribution (Årsagsforklaring)", back: "Studiet af hvordan vi udleder vurderinger af årsager til folks adfærd. Skelner mellem interne og eksterne forklaringer." },
-            { front: "Intern (dispositionel) forklaring (Internal attribution)", back: "Personens adfærd forklares ved noget inde i ham/hende (personlighed, evner, intentioner)." },
+            { front: "Intern (dispositionel) forklaring (Internal attribution)", back: "Personens adfærd forklares ved noget inde i ham/hende (personlighed, evner, intentioner)." நீர },
             { front: "Ekstern (situationel) forklaring (External attribution)", back: "Personens adfærd forklares gennem årsager, der kommer udefra (situationen, held, andres handlinger)." },
             { front: "Kovariationsmodellen (The Covariation Model)", back: "Model der forklarer, hvordan vi bruger information fra flere situationer til at afgøre, om adfærd skyldes interne (personlige) eller eksterne (situationelle) årsager." },
             { front: "Konsistens (Consistency)", back: "Opfører personen sig på samme måde i denne situation på forskellige tidspunkter? (Del af kovariationsmodellen)." },
@@ -111,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Sociale og kulturelle domæne", back: "Fokus på hvordan kulturer, geografi og køn påvirker vores personlighed og relationer." },
             { front: "Tilvænningsdomænet (Adjustments)", back: "Fokus på hvordan personlighed bestemmer tilpasning til miljøer/situationer, risikovillighed, og studiet af personlighedsforstyrrelser som mangel på tilpasningsevne." },
             { front: "En god personlighedsteori", back: "Skal 1. Vejlede forskere, 2. Organisere kendte fund, 3. Lave forudsigelser, 4. Have 'Parsimony' (simpelhed), 5. Have Kompatibilitet (med andre teorier)." },
-            { front: "Klinisk psykolog vs. computerdata (Larsen)", back: "Debat om forudsigelsesevne. Computerdata er ofte god, men klinisk psykolog er bedre til undtagelser og variabler, computeren ikke tager højde for." },
-            { front: "Parsimony", back: "En god teori er overordnet simpel med få antagelser og præmisser, men skal stadig kunne forklare komplekse nuancer." },
+            { front: "Parsimony (parsimoni)", back: "En god teori er overordnet simpel med få antagelser og præmisser, men skal stadig kunne forklare komplekse nuancer." },
             { front: "Kompatibilitet (Larsen)", back: "En god teori passer også ind i andre domæner (f.eks. gener og fysiologi) uden at stride imod velfunderede teorier." }
         ],
         "Kapitel 8, Larsen": [
@@ -1564,7 +1564,13 @@ document.addEventListener('DOMContentLoaded', () => {
             showAllQuestionsModeBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
             showOneByOneModeBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
             showOneByOneModeBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
-            renderQuizAllQuestions(); // Render the quiz if chapters are selected
+            // Ensure quiz is rendered only if there are questions selected
+            if (selectedQuizChapters.length > 0) {
+                 renderQuizAllQuestions();
+            } else {
+                 quizQuestionContainer.innerHTML = '<p class="text-center text-slate-600 text-lg font-medium">Vælg venligst mindst ét kapitel for at starte quizzen.</p>';
+                 submitQuizBtn.disabled = true;
+            }
         } else { // one_by_one
             oneByOneModeContainer.style.display = 'block';
             showOneByOneModeBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
@@ -1636,7 +1642,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCardContent() {
         if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length) {
             const cardData = currentFlashcards[currentFlashcardIndex];
-            if (isFlipped) { // Check isFlipped to ensure correct face is showing
+            // Fix: ensure correct side is shown based on isFlipped and showBackFirst
+            if (isFlipped) {
                 if (showBackFirst) {
                     frontTextElement.textContent = cardData.front;
                     backTextElement.textContent = cardData.back;
@@ -1645,7 +1652,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     backTextElement.textContent = cardData.front;
                 }
             } else {
-                 if (showBackFirst) {
+                if (showBackFirst) {
                     frontTextElement.textContent = cardData.back;
                     backTextElement.textContent = cardData.front;
                 } else {
