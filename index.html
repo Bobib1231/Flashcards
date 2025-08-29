@@ -285,7 +285,7 @@
 
             // --- DATA: Flashcard content opdelt efter kategori ---
             const allFlashcardCategories = {
-                "Keltner 2006 - Evolution & Følelser": [
+                 "Keltner 2006 - Evolution & Følelser": [
                     { front: "Social-funktionel tilgang", back: "En tilgang hvor psykologiske fænomener ses som havende et socialt formål og en evolutionær funktion for at løse overlevelses- og reproduktionsproblemer." },
                     { front: "De 4 analyseniveauer for følelser", back: "Intra-individuel (individets respons), Dyadisk (interaktion mellem to), Gruppe (fælles mål), og Kulturel (normer og værdier)." },
                     { front: "Reciprok altruisme", back: "At hjælpe en anden med forventning om gengældelse senere. En form for langsigtet, gensidig samarbejde, der er grundlaget for social udveksling." },
@@ -613,7 +613,7 @@
                         "People almost always form accurate impressions about the social world.",
                         "People rarely form accurate impressions of the social world.",
                         "When viewing the social world, people's main goal is to feel good about themselves.",
-                        "Even when people are trying to perceive the social world as accurately as they can, there are many ways in which they can go wrong, ending up with the wrong impressions."
+                    "Even when people are trying to perceive the social world as accurately as they can, there are many ways in which they can go wrong, ending up with the wrong impressions."
                     ],
                     correctAnswer: "d",
                     feedback: "Selv med ønsket om præcision kan kognitive processer føre til fejl."
@@ -697,9 +697,9 @@
                     question: "7. Which of the following is true about external validity?",
                     options: [
                         "It refers to the degree to which a researcher can make cause and effect conclusions from a study.",
-                        "It is usually achieved by maximizing internal validity.",
-                        "It refers to the extent to which the results of a study can be generalized to other situations and to other people.",
-                        "It refers to a method used to test if research is replicable."
+                    "It is usually achieved by maximizing internal validity.",
+                    "It refers to the extent to which the results of a study can be generalized to other situations and to other people.",
+                    "It refers to a method used to test if research is replicable."
                     ],
                     correctAnswer: "c",
                     feedback: "Ekstern validitet handler om, hvorvidt et studies resultater kan overføres til andre kontekster og befolkningsgrupper."
@@ -982,7 +982,7 @@
                     correctAnswer: "b",
                     feedback: "Vi starter ofte med en hurtig, intern (dispositionel) vurdering, som vi så justerer, hvis vi har tid og motivation til at overveje situationelle faktorer."
                 },
-            // Chapter 5
+                // Chapter 5
                 {
                     chapter: "Chapter 5",
                     question: "1. The overall set of beliefs that people have about their personal attributes is called:",
@@ -1103,7 +1103,7 @@
                     correctAnswer: "b",
                     feedback: "Indre motivation driver os til at gøre ting for nydelsens skyld."
                 },
-            // Chapter 6
+                // Chapter 6
                 {
                     chapter: "Chapter 6",
                     question: "1. The feeling of discomfort caused by performing an action that is discrepant from one's customary (typically positive) self-conception is called:",
@@ -1224,7 +1224,7 @@
                     correctAnswer: "b",
                     feedback: "Hykleri-induktion er en effektiv måde at bruge dissonans til at fremme positiv adfærd."
                 },
-            // Chapter 7
+                // Chapter 7
                 {
                     chapter: "Chapter 7",
                     question: "1. An evaluation of a person, object, or idea is called a(n):",
@@ -1345,7 +1345,7 @@
                     correctAnswer: "b",
                     feedback: "Den centrale rute, som involverer grundig overvejelse af argumenter, fører til mere varige holdningsændringer."
                 },
-            // Chapter 8
+                // Chapter 8
                 {
                     chapter: "Chapter 8",
                     question: "1. A change in one’s behavior due to the real or imagined influence of other people is called:",
@@ -1466,7 +1466,7 @@
                     correctAnswer: "b",
                     feedback: "Foot-in-the-door-teknikken fungerer, fordi folk ønsker at være konsekvente med deres tidligere handlinger."
                 },
-            // Chapter 9
+                // Chapter 9
                 {
                     chapter: "Chapter 9",
                     question: "1. A group is defined as two or more people who:",
@@ -1587,7 +1587,7 @@
                     correctAnswer: "b",
                     feedback: "En relationsorienteret leder fokuserer på at opbygge morale og løse konflikter i gruppen."
                 },
-            // Chapter 10
+                // Chapter 10
                 {
                     chapter: "Chapter 10",
                     question: "1. The single best predictor of whether two people will get together is:",
@@ -1694,7 +1694,7 @@
                         "Attachment theory."
                     ],
                     correctAnswer: "c",
-                feedback: "Ligevægtsteorien hævder, at folk trives bedst i forhold, der føles retfærdige for begge parter."
+                    feedback: "Ligevægtsteorien hævder, at folk trives bedst i forhold, der føles retfærdige for begge parter."
                 },
                 {
                     chapter: "Chapter 10",
@@ -1838,18 +1838,21 @@
             function populateCategorySelect() {
                 console.log("Populating category select...");
                 categorySelect.innerHTML = '';
+                // Tilføj "Bland alle kapitler" som den første mulighed
+                const allCategoriesOption = document.createElement('option');
+                allCategoriesOption.value = 'all_chapters_shuffled';
+                allCategoriesOption.textContent = 'Bland alle kapitler';
+                categorySelect.appendChild(allCategoriesOption);
+
                 for (const category in allFlashcardCategories) {
                     const option = document.createElement('option');
                     option.value = category;
                     option.textContent = category;
                     categorySelect.appendChild(option);
                 }
-                if (Object.keys(allFlashcardCategories).length > 0) {
-                    categorySelect.value = Object.keys(allFlashcardCategories)[0];
-                    loadCategory(categorySelect.value);
-                } else {
-                    loadCategory(null);
-                }
+                // Vælg den første kategori (som nu er "Bland alle kapitler") som standard
+                categorySelect.value = 'all_chapters_shuffled';
+                loadCategory(categorySelect.value);
             }
 
             function shuffleArray(array) {
@@ -1861,7 +1864,17 @@
 
             function loadCategory(categoryName) {
                 console.log(`Loading category: ${categoryName}`);
-                currentFlashcards = [...(allFlashcardCategories[categoryName] || [])];
+                if (categoryName === 'all_chapters_shuffled') {
+                    // Saml alle kort fra alle kategorier
+                    let allCards = [];
+                    for (const category in allFlashcardCategories) {
+                        allCards = allCards.concat(allFlashcardCategories[category]);
+                    }
+                    currentFlashcards = allCards;
+                } else {
+                    currentFlashcards = [...(allFlashcardCategories[categoryName] || [])];
+                }
+                
                 shuffleArray(currentFlashcards);
                 currentFlashcardIndex = 0;
                 resetFlashcardFeedback(); // Nulstil feedback-status, når ny kategori indlæses
@@ -1876,10 +1889,6 @@
                 }
                 // When shuffling, we effectively reset the review process for the current category
                 loadCategory(categorySelect.value); // Reload the category to reset everything
-                // Or if we just want to shuffle the remaining cards in currentDeck:
-                // shuffleArray(currentDeck);
-                // currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); // Ensure index points to first card of new deck
-                // updateFlashcardUI();
             }
 
             function updateCardContent() {
@@ -2277,6 +2286,8 @@
                     checkSingleAnswerBtn.classList.add('hidden');
                     nextSingleQuestionBtn.classList.add('hidden');
                     restartSingleQuizBtn.classList.remove('hidden');
+                    console.log("All single questions mastered.");
+                    return;
                 } else if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length) {
                     currentOneByOneQuestionIndex = oneByOneActiveQuestions.length - 1; // Stay on last question if navigated too far
                 }
