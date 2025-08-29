@@ -1,23 +1,37 @@
 /* Generel styling */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8fafc; /* Lighter background */
-    color: #1e293b; /* Darker text */
+    background-color: #f8fafc; /* Lighter background, Tailwind bg-slate-50 */
+    color: #1e293b; /* Darker text, Tailwind text-slate-900 */
 }
-.container {
-    max-width: 64rem; /* max-w-4xl */
-    margin: 0 auto;
-    padding: 1rem;
+
+/* --- Hovedoverskrifter og Tekst --- */
+.chapter-title {
+    font-size: 2.5rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    color: #1e293b; /* text-slate-900 */
+    margin-top: 3rem; /* mt-12 */
+    margin-bottom: 2rem; /* mb-8 */
+    border-bottom: 3px solid #cbd5e1; /* border-slate-300 */
+    padding-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: -0.025em; /* tracking-tight */
 }
-/* --- Flashcard Styles --- */
+
+/* --- Flashcard Sektion --- */
 .flashcard-section {
     display: block; /* Vises som standard */
 }
+
 .card {
     transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother flip */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease-in-out; /* Smoother flip and shadow transition */
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08); /* Deeper shadow for elevation */
     border: 1px solid #e2e8f0; /* Subtle border */
+    border-radius: 1.5rem; /* Consistent rounded corners */
+}
+.card:hover {
+    box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2), 0 6px 12px -3px rgba(0, 0, 0, 0.1); /* Even deeper shadow on hover */
 }
 .card.is-flipped {
     transform: rotateY(180deg);
@@ -37,13 +51,13 @@ body {
 }
 .card-front-display {
     background-color: white;
-    color: #1e293b;
+    color: #1e293b; /* text-slate-900 */
     font-weight: 700; /* Bolder font */
     font-size: 2.5rem; /* Larger font */
     line-height: 1.2;
 }
 .card-back-display {
-    background-color: #3b82f6; /* Blue-500 */
+    background-color: #4f46e5; /* Tailwind indigo-600 for consistency */
     color: white;
     font-weight: 500;
     font-size: 2rem; /* Slightly smaller for back */
@@ -58,20 +72,11 @@ body {
     transform: scale(0.95);
 }
 
-/* --- Quiz Styles --- */
+/* --- Quiz Sektion --- */
 .quiz-section {
     display: none; /* Skjult som standard */
 }
-.chapter-title {
-    font-size: 2.5rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    color: #1e293b; /* text-slate-900 */
-    margin-top: 3rem; /* mt-12 */
-    margin-bottom: 2rem; /* mb-8 */
-    border-bottom: 3px solid #cbd5e1; /* border-slate-300 */
-    padding-bottom: 0.75rem;
-    text-align: center;
-}
+
 .question-card {
     background-color: white;
     border-radius: 1.5rem; /* rounded-3xl */
@@ -93,12 +98,14 @@ body {
 }
 .answer-option:hover:not(.correct-answer):not(.incorrect-answer) {
     background-color: #f1f5f9; /* bg-slate-100 */
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.08); /* Soft shadow on hover */
 }
 .answer-option input[type="radio"] {
     margin-top: 0.25rem; /* Align radio button with text */
     margin-right: 1rem; /* mr-4 */
     transform: scale(1.2); /* Slightly larger radio button */
+    accent-color: #4f46e5; /* Custom color for checked radio */
 }
 .correct-answer {
     background-color: #dcfce7; /* bg-green-100 */
@@ -116,26 +123,29 @@ body {
     color: #475569; /* text-slate-700 */
     line-height: 1.5;
 }
+
+/* --- Knapper (Submit-btn general styling) --- */
 .submit-btn {
-    background-color: #2563eb; /* bg-blue-700 */
-    color: white;
-    font-weight: 600; /* font-semibold */
-    padding: 0.85rem 2rem; /* py-3.5 px-8 */
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    /* Tailwind classes define most of this, but added transition and hover for consistency */
     transition: background-color 0.2s, transform 0.1s ease-out, box-shadow 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .submit-btn:hover:not(:disabled) {
-    background-color: #1d4ed8; /* bg-blue-800 */
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Subtle lift on hover */
     box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+}
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 .submit-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+    transform: none; /* No lift when disabled */
+    box-shadow: none; /* No shadow when disabled */
 }
+
+/* --- Resultatbeskeder --- */
 .result-message {
     margin-top: 1.5rem;
     font-size: 1.25rem; /* text-xl */
@@ -152,23 +162,85 @@ body {
     display: none; /* Hidden by default, shown by JS */
 }
 
-/* Specific styles for select elements */
+/* --- Custom styles for select elements (overrides default browser styling) --- */
 select {
-    appearance: none; /* Remove default arrow */
+    appearance: none; /* Fjerner standard pil */
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+    /* Tilføjer en brugerdefineret SVG-pil */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1.5em 1.5em;
-    padding-right: 2.5rem; /* Make space for the custom arrow */
+    background-position: right 0.75rem center; /* Placerer pilen til højre */
+    background-size: 1.5em 1.5em; /* Størrelse på pilen */
+    padding-right: 2.5rem; /* Gør plads til den brugerdefinerede pil */
 }
 select:focus {
-    border-color: #3b82f6; /* Blue focus ring */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    border-color: #4f46e5; /* Tailwind indigo-600 fokusramme */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3); /* Blød skygge ved fokus */
 }
 select[multiple] {
-    height: auto !important; /* Allow multiple select to grow */
-    background-image: none; /* Remove arrow for multiselect */
+    height: auto !important; /* Tillad multiselect at vokse */
+    background-image: none; /* Fjern pil for multiselect */
     padding-right: 0.75rem;
+}
+
+/* --- Checkbox Styling (Custom form-checkbox like appearance for Tailwind forms) --- */
+input[type="checkbox"].form-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    height: 1.25rem; /* h-5 */
+    width: 1.25rem; /* w-5 */
+    border: 2px solid #94a3b8; /* border-slate-400 */
+    border-radius: 0.25rem; /* rounded-md */
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    vertical-align: middle;
+}
+
+input[type="checkbox"].form-checkbox:checked {
+    background-color: #4f46e5; /* Tailwind indigo-600 */
+    border-color: #4f46e5; /* Tailwind indigo-600 */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.5 2.5 L6 10 L2.5 6.5 L1.5 7.5 L6 12 L14.5 3.5 Z'/%3E%3C/svg%3E");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input[type="checkbox"].form-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3); /* Blød skygge ved fokus, som select */
+}
+
+/* --- Mobile Responsiveness Adjustments --- */
+@media (max-width: 640px) { /* Small screens (sm breakpoint in Tailwind) */
+    .chapter-title {
+        font-size: 2rem; /* text-3xl */
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .card-front-display {
+        font-size: 2rem; /* text-2xl */
+        padding: 1.5rem;
+    }
+    .card-back-display {
+        font-size: 1.5rem; /* text-xl */
+        padding: 1.5rem;
+    }
+    .question-card {
+        padding: 1.5rem; /* p-6 */
+        border-radius: 1rem; /* rounded-xl */
+    }
+    .answer-option {
+        padding: 0.75rem 1rem; /* py-3 px-4 */
+    }
+    .submit-btn {
+        padding: 0.75rem 1.5rem; /* py-3 px-6 */
+        font-size: 0.9rem;
+    }
+    .result-message {
+        font-size: 1rem; /* text-base */
+    }
 }
