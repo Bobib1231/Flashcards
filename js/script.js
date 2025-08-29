@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Personlighed 'Inde i individet'", back: "Personlighedens tendens til at være nogenlunde stabil over længere tid, selv ved forsøg på at nulstille den." },
             { front: "Organiseret personlighed", back: "Indre regler/hierarki bestemmer, hvornår og i hvilken rækkefølge lyster/impulser kommer. F.eks. at være vredeshyppig som personlighedstræk, fordi regelsættet oftere resulterer i vrede." },
             { front: "Selektioner (Larsen)", back: "De valg vi tager i livet (interesser, karriere, venner) er udtryk for vores personlighed. Vi er i mindre kontrol end vi tror." },
-            { front: "Evokationer", back: "De reaktioner og følelser vi vækker i andre, ofte ubevidst, som et resultat af vores væremåde og udseende." },
+            { front: "Evokationer", back: "De reaktioner og følelser vi vækker i andre, ofte ubevidst, som et resultat af vores væremåde og udseende." நீர },
             { front: "Manipulation (Larsen)", back: "Hvordan vi bevidst forsøger at ændre folks adfærd og beslutninger." },
             { front: "3 niveauer af personlighedsanalyse (Larsen)", back: "1. Menneskelig natur (universale), 2. Gruppe/individ plan (bestemte), 3. Individets unikhed." },
             { front: "Nomotetisk tilgang", back: "Statistiske sammenligninger mellem individer eller grupper for at finde generelle lovmæssigheder." },
@@ -909,32 +909,30 @@ document.addEventListener('DOMContentLoaded', () => {
         loadCategory(categorySelect.value); // Reload the category to reset everything
     }
 
+    // --- RETTET FUNKTION ---
     function updateCardContent() {
         if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length) {
             const cardData = currentFlashcards[currentFlashcardIndex];
-            // Fix: ensure correct side is shown based on isFlipped and showBackFirst
-            if (isFlipped) {
-                if (showBackFirst) {
-                    frontTextElement.textContent = cardData.front;
-                    backTextElement.textContent = cardData.back;
-                } else {
-                    frontTextElement.textContent = cardData.back;
-                    backTextElement.textContent = cardData.front;
-                }
+            
+            // Fysisk forside af kortet
+            if (showBackFirst) {
+                frontTextElement.textContent = cardData.back;
             } else {
-                if (showBackFirst) {
-                    frontTextElement.textContent = cardData.back;
-                    backTextElement.textContent = cardData.front;
-                } else {
-                    frontTextElement.textContent = cardData.front;
-                    backTextElement.textContent = cardData.back;
-                }
+                frontTextElement.textContent = cardData.front;
+            }
+
+            // Fysisk bagside af kortet
+            if (showBackFirst) {
+                backTextElement.textContent = cardData.front;
+            } else {
+                backTextElement.textContent = cardData.back;
             }
         } else {
             frontTextElement.textContent = "Ingen kort i denne kategori.";
             backTextElement.textContent = "Vælg en kategori for at starte.";
         }
     }
+    // --- SLUT PÅ RETTET FUNKTION ---
 
     function updateFlashcardUI() {
         console.log(`Updating Flashcard UI. Index: ${currentFlashcardIndex}, Total: ${currentFlashcards.length}`);
@@ -1080,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.toggle('is-flipped');
             isFlipped = !isFlipped;
             // After flipping, update content to show correct side
-            updateCardContent();
+            updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
         }
     });
 
@@ -1119,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.toggle('is-flipped');
                 isFlipped = !isFlipped;
                 // After flipping, update content to show correct side
-                updateCardContent();
+                updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
             } else if (e.key === '1') { // Tal 1 for Rigtigt
                 e.preventDefault();
                 handleFeedback('correct');
