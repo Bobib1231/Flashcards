@@ -125,25 +125,8 @@ body {
 }
 
 /* --- Knapper (Submit-btn general styling) --- */
-.submit-btn {
-    /* Tailwind classes define most of this, but added transition and hover for consistency */
-    transition: background-color 0.2s, transform 0.1s ease-out, box-shadow 0.2s;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-.submit-btn:hover:not(:disabled) {
-    transform: translateY(-2px); /* Subtle lift on hover */
-    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
-}
-.submit-btn:active:not(:disabled) {
-    transform: translateY(0); /* Press down effect */
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
-}
-.submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none; /* No lift when disabled */
-    box-shadow: none; /* No shadow when disabled */
-}
+/* Fjernet specifik styling her og stoler på Tailwind klasser i HTML */
+
 
 /* --- Resultatbeskeder --- */
 .result-message {
@@ -236,10 +219,7 @@ input[type="checkbox"].form-checkbox:focus {
     .answer-option {
         padding: 0.75rem 1rem; /* py-3 px-4 */
     }
-    .submit-btn {
-        padding: 0.75rem 1.5rem; /* py-3 px-6 */
-        font-size: 0.9rem;
-    }
+    /* Submit-btn er allerede responsiv via Tailwind, ingen specifikke overrides her */
     .result-message {
         font-size: 1rem; /* text-base */
     }
