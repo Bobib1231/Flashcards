@@ -48,6 +48,10 @@ body {
     padding: 2.5rem; /* More padding */
     text-align: center;
     border-radius: 1.5rem; /* Consistent rounded corners */
+    /* Tilføjet for at håndtere overløb og lang tekst dynamisk */
+    overflow-y: auto; /* Tillader scrolling hvis tekst er for lang */
+    word-wrap: break-word; /* Bryder lange ord */
+    hyphens: auto; /* Tillader orddeling */
 }
 .card-front-display {
     background-color: white;
@@ -236,16 +240,20 @@ input[type="checkbox"].form-checkbox:focus {
         margin-bottom: 1.5rem;
     }
     .card {
-        height: auto;
-        min-height: 25rem; /* Giver mere plads til tekst på mobile enheder */
+        height: auto; /* Tillad højde at tilpasse sig indhold */
+        min-height: 20rem; /* Minimum højde for et pænt kort */
+        max-height: 80vh; /* Maksimal højde for at undgå for store kort på små skærme */
+    }
+    .card-face {
+        padding: 1.5rem; /* Lidt mindre padding på mobil */
     }
     .card-front-display {
-        font-size: 2rem; /* text-2xl */
-        padding: 1.5rem;
+        font-size: clamp(1.25rem, 6vw, 2rem); /* Dynamisk skriftstørrelse: min 1.25rem, ideal 6vw, max 2rem */
+        line-height: 1.3;
     }
     .card-back-display {
-        font-size: 1.5rem; /* text-xl */
-        padding: 1.5rem;
+        font-size: clamp(1rem, 5vw, 1.5rem); /* Dynamisk skriftstørrelse: min 1rem, ideal 5vw, max 1.5rem */
+        line-height: 1.4;
     }
     .question-card {
         padding: 1.5rem; /* p-6 */
@@ -254,7 +262,6 @@ input[type="checkbox"].form-checkbox:focus {
     .answer-option {
         padding: 0.75rem 1rem; /* py-3 px-4 */
     }
-    /* Submit-btn er allerede responsiv via Tailwind, ingen specifikke overrides her */
     .result-message {
         font-size: 1rem; /* text-base */
     }
