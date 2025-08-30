@@ -720,7 +720,733 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             correctAnswer: "b",
             feedback: "Vi starter ofte med en hurtig, intern (dispositionel) vurdering, som vi så justerer, hvis vi har tid og motivation til at overveje situationelle faktorer."
-        }
+        },
+        // Chapter 5
+                {
+                    chapter: "Chapter 5",
+                    question: "1. The overall set of beliefs that people have about their personal attributes is called:",
+                    options: [
+                        "Self-esteem.",
+                        "Self-concept.",
+                        "Self-awareness.",
+                        "Self-efficacy."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvkonceptet er den samlede opfattelse af ens egne træk og egenskaber."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "2. According to research, which of the following is true about how children's self-concept develops?",
+                    options: [
+                        "Young children's self-concept tends to be more abstract and complex than older children's.",
+                        "As children grow older, their self-concept shifts from focusing on concrete, observable characteristics to more abstract psychological traits.",
+                        "Children's self-concept is primarily shaped by their genetic predispositions.",
+                        "Self-concept remains relatively stable and consistent throughout childhood."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvkonceptet udvikler sig fra konkrete træk til mere abstrakte, når børn bliver ældre."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "3. The idea that we learn about our own abilities and attitudes by comparing ourselves to other people is called:",
+                    options: [
+                        "Social tuning.",
+                        "Self-perception theory.",
+                        "Social comparison theory.",
+                        "Two-factor theory of emotion."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Social sammenligningsteori handler om at vurdere os selv ved at sammenligne med andre."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "4. Comparing ourselves to people who are better than we are with regard to a particular trait or ability is called:",
+                    options: [
+                        "Upward social comparison.",
+                        "Downward social comparison.",
+                        "Lateral social comparison.",
+                        "Self-enhancement comparison."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Opadgående social sammenligning kan motivere os, men også gøre os ringere tilpas."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "5. When we are motivated to feel good about ourselves, we often engage in:",
+                    options: [
+                        "Upward social comparison.",
+                        "Downward social comparison.",
+                        "Accurate self-assessment.",
+                        "Self-verification."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Nedadgående social sammenligning øger vores selvværd ved at sammenligne os med dem, der klarer sig dårligere."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "6. The process whereby people adopt another person's attitudes is called:",
+                    options: [
+                        "Social identity.",
+                        "Social comparison.",
+                        "Social tuning.",
+                        "Self-affirmation."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Social 'tuning' beskriver, hvordan vi ubevidst overtager andres holdninger og meninger."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "7. When people focus their attention inward on themselves, they are experiencing:",
+                    options: [
+                        "Self-esteem.",
+                        "Self-concept.",
+                        "Self-awareness.",
+                        "Self-perception."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Selvbevidsthed er fokuseringen af opmærksomhed på ens indre tilstande og egenskaber."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "8. The theory that when our attitudes and feelings are uncertain or ambiguous, we infer these states by observing our behavior and the situation in which it occurs is called:",
+                    options: [
+                        "Cognitive dissonance theory.",
+                        "Self-perception theory.",
+                        "Social comparison theory.",
+                        "Two-factor theory of emotion."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvperceptionsteorien forklarer, hvordan vi udleder vores egne holdninger og følelser ud fra vores adfærd."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "9. Rewarding people for doing an activity they already enjoy can sometimes cause them to:",
+                    options: [
+                        "Enjoy the activity even more.",
+                        "Enjoy the activity less.",
+                        "Develop a stronger intrinsic motivation for the activity.",
+                        "Develop a stronger extrinsic motivation for the activity."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Overjustification effect: Eksterne belønninger kan underminere indre motivation."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "10. The desire to engage in an activity because we enjoy it or find it interesting, not because of external rewards or pressures, is called:",
+                    options: [
+                        "Extrinsic motivation.",
+                        "Intrinsic motivation.",
+                        "Self-efficacy.",
+                        "Self-control."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Indre motivation driver os til at gøre ting for nydelsens skyld."
+                },
+                // Chapter 6
+                {
+                    chapter: "Chapter 6",
+                    question: "1. The feeling of discomfort caused by performing an action that is discrepant from one's customary (typically positive) self-conception is called:",
+                    options: [
+                        "Self-affirmation.",
+                        "Cognitive dissonance.",
+                        "Self-perception.",
+                        "Self-justification."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Kognitiv dissonans opstår, når vores handlinger strider mod vores overbevisninger eller selvbillede, hvilket skaber ubehag."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "2. The way people reduce cognitive dissonance is by:",
+                    options: [
+                        "Changing their behavior.",
+                        "Changing their cognitions.",
+                        "Adding new cognitions.",
+                        "All of the above."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Alle disse strategier bruges til at reducere dissonans."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "3. When people change their attitudes to justify their past behavior, they are engaging in:",
+                    options: [
+                        "External justification.",
+                        "Internal justification.",
+                        "Counterattitudinal advocacy.",
+                        "Impact bias."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Intern retfærdiggørelse indebærer at ændre egne holdninger for at matche adfærd, uden ekstern belønning."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "4. The tendency to overestimate the intensity and duration of one's emotional reactions to future negative events is called:",
+                    options: [
+                        "Impact bias.",
+                        "Decision dissonance.",
+                        "Lowballing.",
+                        "Hypocrisy induction."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Impact bias betyder, at vi forudser stærkere og længerevarende følelsesmæssige reaktioner på negative begivenheder, end vi faktisk oplever."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "5. When a person states an opinion or attitude that runs counter to his or her private belief or attitude, this is called:",
+                    options: [
+                        "Insufficient punishment.",
+                        "Counterattitudinal advocacy.",
+                        "External justification.",
+                        "Hypocrisy induction."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Modholdningsargumentation opstår, når vi udtaler noget, vi ikke selv tror på, ofte for at opnå ekstern belønning eller undgå straf."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "6. The dissonance aroused when individuals lack sufficient external justification for having resisted a desired activity or object, usually resulting in the individual devaluing the forbidden activity or object, is called:",
+                    options: [
+                        "Insufficient punishment.",
+                        "Hypocrisy induction.",
+                        "Justification of effort.",
+                        "Counterattitudinal advocacy."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Utilstrækkelig straf fører til intern retfærdiggørelse og devaluering af den forbudte aktivitet."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "7. When people volunteer to perform a difficult, unpleasant, or embarrassing procedure to obtain a goal, they often come to like the goal more because of:",
+                    options: [
+                        "The foot-in-the-door technique.",
+                        "The door-in-the-face technique.",
+                        "Justification of effort.",
+                        "Lowballing."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Retfærdiggørelse af anstrengelse: Jo mere vi kæmper for noget, jo mere værdsætter vi det."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "8. A sales strategy whereby a customer is first offered a low price, then is informed of additional costs, is called:",
+                    options: [
+                        "Lowballing.",
+                        "Foot-in-the-door technique.",
+                        "Door-in-the-face technique.",
+                        "Pre-giving."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Lowballing er en overtalelsesteknik, hvor man først får en lav pris, der senere øges."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "9. The process of making people aware of the dissonance between what they are doing and what they preach to others is called:",
+                    options: [
+                        "Self-affirmation.",
+                        "Hypocrisy induction.",
+                        "System justification.",
+                        "Terror management theory."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Hykleri-induktion bruges til at ændre adfærd ved at gøre folk opmærksomme på deres inkonsekvens."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "10. Which of the following is true about how cognitive dissonance can be used to promote prosocial behavior?",
+                    options: [
+                        "It is most effective when people are forced to change their attitudes.",
+                        "It is most effective when people are made to feel that they are acting hypocritically.",
+                        "It is most effective when people are given large external rewards for prosocial behavior.",
+                        "It is most effective when people are unaware of the dissonance they are experiencing."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Hykleri-induktion er en effektiv måde at bruge dissonans til at fremme positiv adfærd."
+                },
+                // Chapter 7
+                {
+                    chapter: "Chapter 7",
+                    question: "1. An evaluation of a person, object, or idea is called a(n):",
+                    options: [
+                        "Belief.",
+                        "Value.",
+                        "Attitude.",
+                        "Opinion."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En holdning er en vurdering af et objekt, en person eller en idé, der har en affektiv komponent."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "2. The three components of attitudes are:",
+                    options: [
+                        "Cognitive, affective, and behavioral.",
+                        "Positive, negative, and neutral.",
+                        "Explicit, implicit, and ambivalent.",
+                        "Stable, unstable, and changing."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Holdninger består typisk af en tankemæssig (kognitiv), en følelsesmæssig (affektiv) og en adfærdsmæssig komponent."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "3. Attitudes based primarily on people's beliefs about the properties of an attitude object are called:",
+                    options: [
+                        "Affectively based attitudes.",
+                        "Behaviorally based attitudes.",
+                        "Cognitively based attitudes.",
+                        "Implicit attitudes."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Kognitivt baserede holdninger bygger på fakta og objektive egenskaber."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "4. Attitudes based more on people's feelings and values than on their beliefs about the nature of an attitude object are called:",
+                    options: [
+                        "Affectively based attitudes.",
+                        "Behaviorally based attitudes.",
+                        "Cognitively based attitudes.",
+                        "Explicit attitudes."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Affektivt baserede holdninger er rodfæstet i følelser og værdier."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "5. The theory that under certain conditions, people don't know how they feel until they see how they behave is called:",
+                    options: [
+                        "Cognitive dissonance theory.",
+                        "Self-perception theory.",
+                        "Social judgment theory.",
+                        "Theory of planned behavior."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvperceptionsteorien beskriver, hvordan vi udleder vores egne holdninger ud fra observation af vores adfærd."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "6. Attitudes that we consciously endorse and can easily report are called:",
+                    options: [
+                        "Implicit attitudes.",
+                        "Explicit attitudes.",
+                        "Ambivalent attitudes.",
+                        "Affective attitudes."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Eksplicitte holdninger er dem, vi er bevidst om og kan udtrykke."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "7. Attitudes that exist outside of conscious awareness are called:",
+                    options: [
+                        "Implicit attitudes.",
+                        "Explicit attitudes.",
+                        "Cognitive attitudes.",
+                        "Behavioral attitudes."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Implicitte holdninger er ubevidste og kan påvirke vores adfærd, uden at vi er klar over det."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "8. The theory that the best predictors of people's planned, deliberate behaviors are their attitudes toward specific behaviors, subjective norms, and perceived behavioral control is called:",
+                    options: [
+                        "The Elaboration Likelihood Model.",
+                        "The Heuristic-Systematic Model.",
+                        "The Theory of Planned Behavior.",
+                        "The Self-Perception Theory."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Teorien om planlagt adfærd fokuserer på specifikke holdninger, sociale normer og opfattet kontrol som forudsigere for adfærd."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "9. The two routes to persuasion according to the Elaboration Likelihood Model are:",
+                    options: [
+                        "Cognitive and affective.",
+                        "Explicit and implicit.",
+                        "Central and peripheral.",
+                        "Direct and indirect."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Central og perifer rute er de to hovedveje, hvorpå holdningsændringer sker ifølge ELM."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "10. Which route to persuasion is most likely to result in long-lasting attitude change?",
+                    options: [
+                        "The peripheral route.",
+                        "The central route.",
+                        "The implicit route.",
+                        "The affective route."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Den centrale rute, som involverer grundig overvejelse af argumenter, fører til mere varige holdningsændringer."
+                },
+                // Chapter 8
+                {
+                    chapter: "Chapter 8",
+                    question: "1. A change in one’s behavior due to the real or imagined influence of other people is called:",
+                    options: [
+                        "Conformity.",
+                        "Obedience.",
+                        "Compliance.",
+                        "Persuasion."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Konformitet er en adfærdsændring forårsaget af reelt eller forestillet pres fra andre."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "2. The desire to go along with a group to be liked and accepted is called:",
+                    options: [
+                        "Informational social influence.",
+                        "Normative social influence.",
+                        "Obedience.",
+                        "Compliance."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Normativ social indflydelse er, når vi tilpasser os for at passe ind og blive accepteret."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "3. The influence of other people that leads us to conform because we see them as a source of information to guide our behavior is called:",
+                    options: [
+                        "Informational social influence.",
+                        "Normative social influence.",
+                        "Obedience.",
+                        "Compliance."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Informationel social indflydelse opstår, når vi bruger andre som informationskilde i usikre situationer."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "4. Which of the following conditions is most likely to lead to conformity due to informational social influence?",
+                    options: [
+                        "When the situation is ambiguous.",
+                        "When the group is a large crowd.",
+                        "When the group is composed of friends.",
+                        "When the situation is not important."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Usikkerhed driver os til at se til andre for information og vejledning."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "5. The most crucial factor in whether people will conform to the group in an ambiguous situation is:",
+                    options: [
+                        "The number of people in the group.",
+                        "The person's desire to be liked by the group.",
+                        "Whether the situation is a crisis.",
+                        "The importance of being accurate."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Jo vigtigere det er at have ret, jo mere sandsynligt er det, at vi lader os påvirke informationelt."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "6. The classic study on obedience to authority was conducted by:",
+                    options: [
+                        "Solomon Asch.",
+                        "Stanley Milgram.",
+                        "Philip Zimbardo.",
+                        "Muzafer Sherif."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Milgrams forsøg er berømt for at vise, hvor langt folk vil gå i lydighed over for en autoritet."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "7. In Milgram's original study, what percentage of participants administered the full 450-volt shock?",
+                    options: [
+                        "10%.",
+                        "35%.",
+                        "65%.",
+                        "90%."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Milgrams studie viste, at 65% af deltagerne adlød autoriteten til det yderste."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "8. The finding that when people obey authority, they often justify their behavior by saying, “I was only following orders,” is consistent with the concept of:",
+                    options: [
+                        "Self-justification.",
+                        "Cognitive dissonance.",
+                        "Social identity.",
+                        "Agentic state."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Den agentiske tilstand beskriver, når en person ser sig selv som et redskab for en autoritet, og derfor ikke er ansvarlig for sine handlinger."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "9. A major difference between Asch's study and Milgram's study is that:",
+                    options: [
+                        "Asch's study involved peer pressure, while Milgram's involved obedience to an authority figure.",
+                        "Asch's study involved obedience, while Milgram's involved conformity.",
+                        "Asch's study involved aggression, while Milgram's involved helping.",
+                        "Asch's study was an experiment, while Milgram's was a correlational study."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Asch's forsøg handlede om konformitet til en gruppe, mens Milgrams handlede om lydighed over for en autoritetsfigur."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "10. The finding that people are more likely to comply with a request if they have a personal relationship with the requester is an example of:",
+                    options: [
+                        "The norm of reciprocity.",
+                        "The foot-in-the-door technique.",
+                        "The door-in-the-face technique.",
+                        "Commitment and consistency."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Foot-in-the-door-teknikken fungerer, fordi folk ønsker at være konsekvente med deres tidligere handlinger."
+                },
+                // Chapter 9
+                {
+                    chapter: "Chapter 9",
+                    question: "1. A group is defined as two or more people who:",
+                    options: [
+                        "Are in the same place at the same time.",
+                        "Interact with each other and are interdependent.",
+                        "Share the same opinions and beliefs.",
+                        "Are related by blood or marriage."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "En gruppe er kendetegnet ved interaktion og gensidig afhængighed, hvor de påvirker hinanden."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "2. The tendency for people to perform better on simple tasks and worse on complex tasks when in the presence of others is called:",
+                    options: [
+                        "Social loafing.",
+                        "Social facilitation.",
+                        "Deindividuation.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Social facilitation er effekten af andres tilstedeværelse på vores præstation."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "3. The tendency for people to do worse on simple tasks but better on complex tasks when they are in the presence of others and their individual performance cannot be evaluated is called:",
+                    options: [
+                        "Social facilitation.",
+                        "Social loafing.",
+                        "Deindividuation.",
+                        "Group polarization."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Social loafing (social dovenskab) opstår, når man slapper mere af, fordi man ikke bliver individuelt vurderet."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "4. The loosening of normal constraints on behavior when people can't be identified (such as when they are in a crowd) is called:",
+                    options: [
+                        "Social facilitation.",
+                        "Social loafing.",
+                        "Deindividuation.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Deindividuation fører til, at folk føler sig mindre ansvarlige og er mere tilbøjelige til at handle impulsivt, når de er anonyme i en gruppe."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "5. The idea that groups can lead to poorer decisions because they prioritize group harmony over critical thinking is called:",
+                    options: [
+                        "Group polarization.",
+                        "Transactive memory.",
+                        "Process loss.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Groupthink er en beslutningsproces, hvor enighed prioriteres over rationel beslutningstagning."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "6. Which of the following is a symptom of groupthink?",
+                    options: [
+                        "The group seeks out and considers all available information.",
+                        "The group members express their dissenting opinions freely.",
+                        "The illusion of invulnerability and moral certainty.",
+                        "The group actively encourages a devil's advocate."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En illusion om usårlighed er et centralt symptom på groupthink, hvor gruppen overvurderer sine evner."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "7. The tendency for groups to make decisions that are more extreme than the initial inclinations of their members is called:",
+                    options: [
+                        "Groupthink.",
+                        "Group polarization.",
+                        "Social loafing.",
+                        "Deindividuation."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Gruppepolarisering sker, når gruppemedlemmernes holdninger bliver mere ekstreme efter diskussion."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "8. The cooperative strategy of giving up an initial position and changing to accommodate the other person's position is a characteristic of:",
+                    options: [
+                        "Integrative solutions.",
+                        "Conciliation.",
+                        "Bargaining.",
+                        "Negotiation."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Forhandling er en kommunikationsform, der har til formål at nå til en gensidigt acceptabel løsning."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "9. When a leader of a group focuses on getting the work done, he is performing what kind of leadership?",
+                    options: [
+                        "Relationship-oriented.",
+                        "Transactional.",
+                        "Task-oriented.",
+                        "Transformational."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En opgaveorienteret leder fokuserer på at opnå gruppens mål."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "10. When a leader focuses on the feelings and well-being of group members, he is performing what kind of leadership?",
+                    options: [
+                        "Task-oriented.",
+                        "Relationship-oriented.",
+                        "Transactional.",
+                        "Transformational."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "En relationsorienteret leder fokuserer på at opbygge morale og løse konflikter i gruppen."
+                },
+                // Chapter 10
+                {
+                    chapter: "Chapter 10",
+                    question: "1. The single best predictor of whether two people will get together is:",
+                    options: [
+                        "Physical attractiveness.",
+                        "Similarity.",
+                        "Propinquity.",
+                        "Reciprocal liking."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Nærhedseffekten er den bedste enkeltfaktor til at forudsige, om to mennesker bliver tæt på hinanden."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "2. The finding that the more we see and interact with people, the more likely we are to start a relationship with them, is called:",
+                    options: [
+                        "The mere exposure effect.",
+                        "The propinquity effect.",
+                        "The similarity effect.",
+                        "The proximity effect."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Nærhedseffekten, også kaldet propinquity, er en af de stærkeste faktorer for tiltrækning."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "3. The finding that the more we are exposed to a stimulus, the more we are to like it, is called:",
+                    options: [
+                        "The propinquity effect.",
+                        "The mere exposure effect.",
+                        "The similarity effect.",
+                        "The reciprocal liking effect."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Blot eksponering øger vores positive følelser over for en stimulus."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "4. The belief that “birds of a feather flock together” reflects which of the following principles of attraction?",
+                    options: [
+                        "Propinquity.",
+                        "Mere exposure.",
+                        "Similarity.",
+                        "Reciprocal liking."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Ligheder i holdninger, værdier og personlighed er en stærk tiltrækningsfaktor."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "5. People who are physically attractive are often seen as possessing other desirable traits. This phenomenon is called:",
+                    options: [
+                        "The halo effect.",
+                        "The similarity effect.",
+                        "The physical attractiveness stereotype.",
+                        "The matching hypothesis."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Den fysiske attraktions-stereotype er antagelsen om, at smukke mennesker også er gode mennesker."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "6. The finding that we like others who like us is called:",
+                    options: [
+                        "Reciprocal liking.",
+                        "Similarity.",
+                        "The halo effect.",
+                        "The propinquity effect."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Gensidig tiltrækning er en af de mest basale og stærkeste forudsigere for venskab og romantiske forhold."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "7. The two types of love proposed by Elaine Hatfield are:",
+                    options: [
+                        "Companionate love and passionate love.",
+                        "Infatuated love and romantic love.",
+                        "Fatuous love and consummate love.",
+                        "Liking and loving."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Hatfield skelner mellem lidenskabelig kærlighed (intens, kortvarig) og kammeratlig kærlighed (dyb, stabil)."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "8. The theory that our satisfaction in a relationship depends on our perceptions of the rewards and costs, our comparison level, and our comparison level for alternatives is called:",
+                    options: [
+                        "Attachment theory.",
+                        "Social exchange theory.",
+                        "The investment model.",
+                        "The equity theory."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Teorien om social udveksling ser forhold som en 'økonomisk' transaktion, hvor vi vejer omkostninger mod belønninger."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "9. The theory that people are happiest with relationships in which the rewards and costs experienced by both parties are roughly equal is called:",
+                    options: [
+                        "Social exchange theory.",
+                        "The investment model.",
+                        "The equity theory.",
+                        "Attachment theory."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Ligevægtsteorien hævder, at folk trives bedst i forhold, der føles retfærdige for begge parter."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "10. According to the investment model, which of the following predicts whether people will stay in a relationship?",
+                    options: [
+                        "Their satisfaction with the relationship.",
+                        "The level of investment in the relationship.",
+                        "The quality of alternatives to the relationship.",
+                        "All of the above."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Investeringsmodellen ser på tilfredshed, investering og alternativer som nøglefaktorer for, om et forhold holder."
+                }
     ];
 
     // --- DOM Elements ---
