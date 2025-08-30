@@ -156,11 +156,8 @@ body {
     transform: none; /* Ingen løft når disabled */
     box-shadow: none; /* Ingen skygge når disabled */
 }
-.start-quiz-btn {
+.action-btn {
     background-color: #312e81;
-}
-.check-answer-btn {
-    background-color: #4f46e5;
 }
 
 /* --- Resultatbeskeder --- */
