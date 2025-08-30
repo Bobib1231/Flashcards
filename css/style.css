@@ -186,7 +186,6 @@ select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center; /* Placerer pilen til højre */
-    background-size: 1.5em 1.5em; /* Størrelse på pilen */
     padding-right: 2.5rem; /* Gør plads til den brugerdefinerede pil */
 }
 select:focus {
@@ -235,6 +234,10 @@ input[type="checkbox"].form-checkbox:focus {
         font-size: 2rem; /* text-3xl */
         margin-top: 2rem;
         margin-bottom: 1.5rem;
+    }
+    .card {
+        height: auto;
+        min-height: 25rem; /* Giver mere plads til tekst på mobile enheder */
     }
     .card-front-display {
         font-size: 2rem; /* text-2xl */
