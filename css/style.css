@@ -248,11 +248,11 @@ input[type="checkbox"].form-checkbox:focus {
         padding: 1.5rem; /* Lidt mindre padding på mobil */
     }
     .card-front-display {
-        font-size: clamp(1.25rem, 6vw, 2rem); /* Dynamisk skriftstørrelse: min 1.25rem, ideal 6vw, max 2rem */
+        font-size: clamp(1rem, 5vw, 2rem); /* Dynamisk skriftstørrelse: min 1rem, ideal 5vw, max 2rem */
         line-height: 1.3;
     }
     .card-back-display {
-        font-size: clamp(1rem, 5vw, 1.5rem); /* Dynamisk skriftstørrelse: min 1rem, ideal 5vw, max 1.5rem */
+        font-size: clamp(0.9rem, 4.5vw, 1.5rem); /* Dynamisk skriftstørrelse: min 0.9rem, ideal 4.5vw, max 1.5rem */
         line-height: 1.4;
     }
     .question-card {
