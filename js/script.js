@@ -135,7 +135,23 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Tilhørsbehovet", back: "Et grundlæggende, universelt menneskeligt behov om at tilhøre en gruppe og undgå social udstødelse. Dette behov er drevet af evolutionære fordele ved samarbejde, gensidig støtte og beskyttelse i grupper." },
             { front: "Social pain theory", back: "Teori om, at social udstødelse eller afvisning aktiverer de samme hjerneregioner, som er forbundet med fysisk smerte. Dette signalerer en form for 'social fare', der forbereder individet på at reagere og potentielt genoprette sociale bånd." },
             { front: "Altruisme (evolutionær forklaring)", back: "Hjælpsom adfærd over for andre, selv med en omkostning for en selv. Evolutionært forklares det ofte gennem slægtsselektion (hjælp til genetisk beslægtede) og gensidig altruisme (hjælp med forventning om gengældelse). Sociale normer kan også påvirke hjælpsomhed." }
-        ]
+        ],
+        "Høgh Olesen 2020": [
+        { front: "Nøglestimuli (Key stimuli)", back: "En ekstra kraftfuld form for stimuli, som man er forprogrammeret til at give ekstra opmærksomhed. Den fungerer som en 'alfa-stimuli', der stiller sig øverst i hierarkiet." },
+        { front: "Power objekt (fetish)", back: "Et emne eller en genstand, der indeholder en nøglestimuli." },
+        { front: "Æstetik", back: "De ting, der appellerer til vores sanser og følelser på grund af deres skønhed eller harmoni. Æstetik har været en god vejleder for 'fitness' gennem evolution." },
+        { front: "Menneskelig skønhed", back: "Hvad mennesker finder smukt, er bundet i vores natur og er konsistent på tværs af kulturer. Det kan indikere genetisk kvalitet og sundhed." },
+        { front: "Timeglasfigur", back: "En talje-til-hofte-ratio på 0,7, som er evolutionært attraktiv, da den signalerer høj fertilitet og modstandsdygtighed mod sygdomme." },
+        { front: "Superstimuli", back: "En overdrivelse af en nøglestimuli, der gør den endnu mere kraftfuld og for nogle uimodståelig." },
+        { front: "Farven rød som nøglestimuli", back: "Forårsager fysiologisk aktivering (højere puls/blodtryk) og kan virke seksuelt tiltrækkende. Evolutionært koblet til signaler om parringsparathed." },
+        { front: "Skinnende materialer", back: "Mennesker er tiltrukket af skinnende objekter, da de historisk har indikeret værdifulde ressourcer, især vand." },
+        { front: "Afsky og vammelse", back: "Det er et overlevelsesværktøj og en medfødt, essentiel reaktion på frastødende stimuli. Hjernens insula-område er ansvarligt for afsky." },
+        { front: "Forsigtighedssystemet", back: "En medfødt frygt, hvor vi er genetisk disponerede for at frygte visse ting, der historisk set var farlige, som slanger og edderkopper." },
+        { front: "Alpha temaer i fiktion", back: "De universelle hovedfortællinger, som der ikke findes uendelige mængder af. Eksempler inkluderer at overvinde monsteret, at søge, komedie og tragedie." },
+        { front: "Neofile dyr", back: "En betegnelse for, at mennesker er nysgerrige og søger nye stimuli." },
+        { front: "Gøre specielt (Making special)", back: "Vores æstetiske sans kan ikke reduceres til kun nøglestimuli. Kulturel indflydelse, socialt pres, tradition og læring spiller også en stor rolle." },
+        { front: "Neoteni", back: "En organisme, der beholder juvenile (ungdommelige) egenskaber ind i voksenalderen. Dette ses især i den menneskelige hjerne og visse kropslige træk." }
+    ]
     };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
