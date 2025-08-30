@@ -26,183 +26,187 @@ body {
 .card {
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease-in-out; /* Smoother flip and shadow transition */
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 6px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08); /* Deeper shadow for elevation */
+    border: 1px solid #e2e8f0; /* Subtle border */
+    border-radius: 1.5rem; /* Consistent rounded corners */
 }
-
-.card.flipped {
+.card:hover {
+    box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2), 0 6px 12px -3px rgba(0, 0, 0, 0.1); /* Even deeper shadow on hover */
+}
+.card.is-flipped {
     transform: rotateY(180deg);
 }
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    text-align: center;
-}
-
 .card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    border: 1px solid #e2e8f0; /* Tailwind border-slate-200 */
+    justify-content: center;
+    padding: 2.5rem; /* More padding */
+    text-align: center;
+    border-radius: 1.5rem; /* Consistent rounded corners */
 }
-
-.card-front {
-    background-color: white; /* bg-white */
-    color: #1e293b;
+.card-front-display {
+    background-color: white;
+    color: #1e293b; /* text-slate-900 */
+    font-weight: 700; /* Bolder font */
+    font-size: 2.5rem; /* Larger font */
+    line-height: 1.2;
 }
-
-.card-back {
-    background-color: #4f46e5; /* bg-indigo-600 */
+.card-back-display {
+    background-color: #4f46e5; /* Tailwind indigo-600 for consistency */
     color: white;
+    font-weight: 500;
+    font-size: 2rem; /* Slightly smaller for back */
+    line-height: 1.4;
     transform: rotateY(180deg);
 }
-
-.card-content-front,
-.card-content-back {
-    text-align: center;
-    max-width: 100%;
-    word-wrap: break-word; /* Ensures long words don't overflow */
+.card-container-wrapper {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
-.card-content-front h3 {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 1rem;
-    line-height: 1.25;
-}
-
-.card-content-back p {
-    font-size: 1.25rem; /* text-xl */
-    line-height: 1.5;
+.card-container-wrapper.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
 }
 
 /* --- Quiz Sektion --- */
-/* Base styling for buttons in the quiz section */
-.submit-btn {
-    background-color: #4f46e5; /* Solved: This makes the button non-transparent. */
-    color: white;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s; /* Added transform for hover effect */
-    white-space: nowrap;
-    border: none;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-}
-
-.submit-btn:hover {
-    background-color: #4338ca; /* A slightly darker shade on hover */
-    transform: translateY(-2px); /* A slight lift on hover */
-    box-shadow: 0 6px 10px -2px rgba(0,0,0,0.15), 0 3px 6px -1px rgba(0,0,0,0.08);
+.quiz-section {
+    display: none; /* Skjult som standard */
 }
 
 .question-card {
     background-color: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 1.5rem;
-    padding: 2.5rem;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 6px 10px -5px rgba(0, 0, 0, 0.04);
+    border-radius: 1.5rem; /* rounded-3xl */
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+    padding: 2.5rem; /* p-10 */
+    margin-bottom: 2rem; /* mb-8 */
+    border: 1px solid #e2e8f0; /* Subtle border */
 }
-
-.options-container {
+.answer-option {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.option-label {
-    display: flex;
-    align-items: center;
-    border: 1px solid #cbd5e1;
-    background-color: #f1f5f9;
-    padding: 1rem;
-    border-radius: 0.75rem;
+    align-items: flex-start; /* Align text to start */
+    padding: 1rem 1.25rem; /* py-4 px-5 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    background-color: #f8fafc; /* bg-slate-50 */
+    border-radius: 0.75rem; /* rounded-xl */
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s ease-out;
+    border: 1px solid #e2e8f0; /* border-slate-200 */
 }
-
-.option-label:hover {
-    background-color: #e2e8f0;
-    border-color: #94a3b8;
+.answer-option:hover:not(.correct-answer):not(.incorrect-answer) {
+    background-color: #f1f5f9; /* bg-slate-100 */
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.08); /* Soft shadow on hover */
 }
-
-.option-input {
-    margin-right: 1rem;
-    appearance: none;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    border: 2px solid #64748b;
-    position: relative;
-    cursor: pointer;
+.answer-option input[type="radio"] {
+    margin-top: 0.25rem; /* Align radio button with text */
+    margin-right: 1rem; /* mr-4 */
+    transform: scale(1.2); /* Slightly larger radio button */
+    accent-color: #4f46e5; /* Custom color for checked radio */
 }
-
-.option-input:checked {
-    border-color: #4f46e5;
-}
-
-.option-input:checked::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: #4f46e5;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.result-message {
-    padding: 1.5rem;
-    border-radius: 1.5rem;
-    text-align: center;
-    font-size: 1.125rem;
+.correct-answer {
+    background-color: #dcfce7; /* bg-green-100 */
+    border-color: #22c55e; /* border-green-500 */
     font-weight: 600;
 }
-
-.correct {
-    background-color: #d1fae5; /* bg-green-100 */
-    color: #065f46; /* text-green-700 */
-}
-
-.incorrect {
+.incorrect-answer {
     background-color: #fee2e2; /* bg-red-100 */
-    color: #b91c1c; /* text-red-700 */
+    border-color: #ef4444; /* border-red-500 */
+    font-weight: 600;
+}
+.explanation {
+    margin-top: 1rem;
+    font-size: 0.95rem; /* Slightly larger text-sm */
+    color: #475569; /* text-slate-700 */
+    line-height: 1.5;
 }
 
-.hidden {
-    display: none;
-}
-
-/* --- Chapter Select and Nav buttons --- */
-.chapter-select-container {
-    margin-bottom: 2rem;
-}
-
-.nav-buttons-container {
-    display: flex;
+/* --- Knapper (Submit-btn general styling) --- */
+/* Disse stilarter er nu mere robuste for at sikre, at knapperne altid ser korrekte ud */
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    color: white;
+    font-weight: 600;
+    padding: 0.85rem 2rem; /* Tilføjet padding for bedre udseende og klikområde */
+    border-radius: 0.75rem; /* Afrundede hjørner */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Shadow-md */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    border: none; /* Fjern standard browser border */
+    text-align: center; /* Sørg for tekst er centreret */
+    white-space: nowrap; /* Undgå tekstombrydning på knapper */
 }
 
-/* --- Checkbox Styling --- */
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px); /* Subtilt løft ved hover */
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+}
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0); /* "Tryk ned" effekt */
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none; /* Ingen løft når disabled */
+    box-shadow: none; /* Ingen skygge når disabled */
+}
+
+/* --- Resultatbeskeder --- */
+.result-message {
+    margin-top: 1.5rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+}
+.correct {
+    color: #16a34a; /* text-green-600 */
+}
+.incorrect {
+    color: #dc2626; /* text-red-600 */
+}
+.quiz-mode-container {
+    display: none; /* Hidden by default, shown by JS */
+}
+
+/* --- Custom styles for select elements (overrides default browser styling) --- */
+select {
+    appearance: none; /* Fjerner standard pil */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Tilføjer en brugerdefineret SVG-pil */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center; /* Placerer pilen til højre */
+    background-size: 1.5em 1.5em; /* Størrelse på pilen */
+    padding-right: 2.5rem; /* Gør plads til den brugerdefinerede pil */
+}
+select:focus {
+    border-color: #4f46e5; /* Tailwind indigo-600 fokusramme */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3); /* Blød skygge ved fokus */
+}
+select[multiple] {
+    height: auto !important; /* Tillad multiselect at vokse */
+    background-image: none; /* Fjern pil for multiselect */
+    padding-right: 0.75rem;
+}
+
+/* --- Checkbox Styling (Custom form-checkbox like appearance for Tailwind forms) --- */
 input[type="checkbox"].form-checkbox {
     appearance: none;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 2px solid #94a3b8; /* Tailwind slate-400 */
-    border-radius: 0.375rem; /* Rounded corners for the checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    height: 1.25rem; /* h-5 */
+    width: 1.25rem; /* w-5 */
+    border: 2px solid #94a3b8; /* border-slate-400 */
+    border-radius: 0.25rem; /* rounded-md */
+    background-color: #fff;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
     vertical-align: middle;
@@ -229,75 +233,23 @@ input[type="checkbox"].form-checkbox:focus {
         margin-top: 2rem;
         margin-bottom: 1.5rem;
     }
-
-    .nav-buttons-container {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .nav-buttons-container .submit-btn {
-        width: 100%;
-        margin-left: 0 !important;
-    }
-
-    .card,
-    .question-card {
+    .card-front-display {
+        font-size: 2rem; /* text-2xl */
         padding: 1.5rem;
     }
-
-    .card-content-front h3 {
-        font-size: 1.25rem; /* text-xl */
+    .card-back-display {
+        font-size: 1.5rem; /* text-xl */
+        padding: 1.5rem;
     }
-
-    .card-content-back p {
+    .question-card {
+        padding: 1.5rem; /* p-6 */
+        border-radius: 1rem; /* rounded-xl */
+    }
+    .answer-option {
+        padding: 0.75rem 1rem; /* py-3 px-4 */
+    }
+    /* Submit-btn er allerede responsiv via Tailwind, ingen specifikke overrides her */
+    .result-message {
         font-size: 1rem; /* text-base */
     }
-
-    .chapter-select-container {
-        margin-bottom: 1.5rem;
-    }
-
-    .quiz-stats-container {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .stat-value {
-        font-size: 1.75rem;
-    }
-}
-
-/* --- Quiz Statistik Boks --- */
-.quiz-stats-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem; /* Spacing between the stat items */
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: #f1f5f9; /* Tailwind bg-slate-100 */
-    border-radius: 1.5rem; /* Consistent rounded corners */
-    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-}
-
-.stat-value {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.875rem; /* text-sm */
-    color: #64748b; /* Tailwind text-slate-500 */
-    font-weight: 600; /* font-semibold */
-    text-transform: uppercase;
-    letter-spacing: 0.05em; /* tracking-wider */
-    margin-top: 0.25rem;
 }
