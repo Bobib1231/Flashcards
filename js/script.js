@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { front: "Alpha temaer i fiktion", back: "De universelle hovedfortællinger, som der ikke findes uendelige mængder af. Eksempler inkluderer at overvinde monsteret, at søge, komedie og tragedie." },
         { front: "Neofile dyr", back: "En betegnelse for, at mennesker er nysgerrige og søger nye stimuli." },
         { front: "Gøre specielt (Making special)", back: "Vores æstetiske sans kan ikke reduceres til kun nøglestimuli. Kulturel indflydelse, socialt pres, tradition og læring spiller også en stor rolle." },
-        { front: "Neoteni", back: "En organisme, der beholder juvenile (ungdommelige) egenskaber ind i voksenalderen. Dette ses især i den menneskelige hjerne og visse kropslige træk." }
     ]
     };
 
