@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             options: [
                 "Social psychology focuses on what makes one person unique, while personality psychology focuses on the shared features that make cultures different or similar to each other.",
                 "Social psychology focuses on individual differences. Personality psychology looks at how most people would behave in a situation.",
-                "Social psychology examines similarities in the ways that social influences can affect most people, whereas personality psychology examines the differences between individuals.",
+                    "Social psychology examines similarities in the ways that social influences can affect most people, whereas personality psychology examines the differences between individuals.",
                 "Social psychology focuses on personality traits whereas personality psychology examines the reasons that these personality traits came to be."
             ],
             correctAnswer: "c",
@@ -390,498 +390,1831 @@ document.addEventListener('DOMContentLoaded', () => {
                 "The observational method.",
                 "The correlational method.",
                 "The experimental method.",
-                "All of the above."
+                "The quasi-experimental method."
             ],
             correctAnswer: "b",
-            feedback: "Korrelation handler om at finde sammenhænge mellem variabler, ikke nødvendigvis kausalitet."
+            feedback: "Korrelationsmetoden bruges til at finde sammenhænge og forudsige forholdet mellem variable."
         },
         {
             chapter: "Chapter 2",
-            question: "4. Which of the following is the main difference between observational and correlational method?",
+            question: "4. Which of the following research methods is usually used in social psychology?",
             options: [
-                "Observational method cannot explain why a phenomenon occurred, whereas correlational method is able to explain that.",
-                "Observational method can be conducted in the lab, whereas correlational method has to be conducted in the field.",
-                "Correlational method can show cause-and-effect relationship, whereas observational method cannot.",
-                "None of the above."
+                "Only laboratory experiments.",
+                "Only field experiments.",
+                "Mostly correlational and experimental methods.",
+                "Only observational studies and qualitative research methods."
+            ],
+            correctAnswer: "c",
+            feedback: "Socialpsykologer bruger primært korrelations- og eksperimentelle metoder, da de giver indsigt i både sammenhænge og årsagssammenhænge."
+        },
+        {
+            chapter: "Chapter 2",
+            question: "5. Why is the experimental method most preferred by social psychologists?",
+            options: [
+                "It is the only method where researchers can study social behavior in its natural settings.",
+                "It is the only method that can determine causal relationships.",
+                "It is the only method that can determine relationships between variables.",
+                "It is the easiest method to conduct."
+                ],
+            correctAnswer: "b",
+            feedback: "Den eksperimentelle metode er den eneste, der kan etablere årsagssammenhænge (kausalitet) mellem variable."
+        },
+        {
+            chapter: "Chapter 2",
+            question: "6. Which of the following is true about internal validity?",
+            options: [
+                "It refers to the extent to which the results of an experiment can be generalized to other situations and to other people.",
+                "It refers to the process of making sure that nothing besides the independent variable can affect the dependent variable.",
+                "It refers to how people react when they realize they are in an experiment.",
+                "It refers to the level of confidence that the findings of a study are true and unbiased."
+            ],
+            correctAnswer: "b",
+            feedback: "Intern validitet sikrer, at kun den uafhængige variabel forårsager ændringen i den afhængige variabel, typisk gennem kontrol og randomisering."
+        },
+        {
+            chapter: "Chapter 2",
+            question: "7. Which of the following is true about external validity?",
+            options: [
+                "It refers to the degree to which a researcher can make cause and effect conclusions from a study.",
+                "It is usually achieved by maximizing internal validity.",
+                "It refers to the extent to which the results of a study can be generalized to other situations and to other people.",
+                "It refers to a method used to test if research is replicable."
+            ],
+            correctAnswer: "c",
+            feedback: "Ekstern validitet handler om, hvorvidt et studies resultater kan overføres til andre kontekster og befolkningsgrupper."
+        },
+        {
+            chapter: "Chapter 2",
+            question: "8. A researcher randomly assigns participants to conditions in order to",
+            options: [
+                "Ensure that groups are comparable at the outset.",
+                "Ensure that participants are representative of the larger population.",
+                "Maximize the generalizability of the findings.",
+                "Enhance the replicability of the findings."
             ],
             correctAnswer: "a",
-            feedback: "Observationsmetoden beskriver 'hvad', mens korrelationsmetoden kan forudsige 'hvorfor' der er en sammenhæng."
+            feedback: "Randomisering sikrer, at grupperne er så ens som muligt ved eksperimentets start, hvilket øger den interne validitet."
         },
         {
             chapter: "Chapter 2",
-            question: "5. Why do most social psychologists prefer to use experimental methods over correlational ones?",
+            question: "9. Which of the following is true about the basic dilemma of the social psychologist?",
             options: [
-                "Because it is more affordable to conduct experiments.",
-                "Because it is easier to recruit participants for experiments.",
-                "Because it allows researchers to conclude cause-and-effect relationship.",
-                "Because it can be used to study many variables at once."
+                "It is the trade-off between external and internal validity.",
+                "It is the choice between using the observational method or the experimental method.",
+                "It is the choice between using basic research or applied research.",
+                "It is the choice between using laboratory experiments or field experiments."
             ],
-            correctAnswer: "c",
-            feedback: "Kun eksperimentel metode kan fastslå årsag-og-virkning (kausalitet)."
+            correctAnswer: "a",
+            feedback: "Det grundlæggende dilemma er afvejningen mellem at opretholde kontrol (intern validitet) og at generalisere resultater (ekstern validitet)."
         },
         {
             chapter: "Chapter 2",
-            question: "6. Which of the following statements about internal validity is FALSE?",
+            question: "10. In basic research, psychologists try to find the best answer to the question of why people behave as they do, purely for reasons of intellectual curiosity. In applied research, psychologists",
             options: [
-                "It is the degree to which a study can be generalized across situations.",
-                "It is the degree to which a study can be generalized across people.",
-                "It is about ensuring that the independent variable is the only one that influences the dependent variable.",
-                "Both (a) and (b)."
+                "Try to solve a specific social problem.",
+                "Apply the scientific method to real-world problems.",
+                "Look for solutions to basic scientific questions that could be used by companies and industries.",
+                "Try to combine scientific questions and theories."
             ],
-            correctAnswer: "d",
-            feedback: "Ekstern validitet handler om generalisering på tværs af situationer og mennesker."
+            correctAnswer: "a",
+            feedback: "Anvendt forskning er rettet mod at løse konkrete sociale problemer eller udfordringer."
         },
+        // Chapter 3
         {
-            chapter: "Chapter 2",
-            question: "7. How do social psychologists ensure internal validity in their experiments?",
+            chapter: "Chapter 3",
+            question: "1. Which of the following is true about social cognition?",
             options: [
-                "By having more variables in their studies.",
-                "By conducting studies in natural settings.",
-                "By assigning participants to different conditions randomly.",
-                "All of the above."
-            ],
-            correctAnswer: "c",
-            feedback: "Tilfældig tildeling (random assignment) sikrer, at grupper er sammenlignelige fra start."
-        },
-        {
-            chapter: "Chapter 2",
-            question: "8. Which of the following is the main advantage of conducting field experiments?",
-            options: [
-                "It has higher internal validity than lab experiments.",
-                "It is easier to control confounding variables.",
-                "It has higher external validity than lab experiments.",
-                "It is easier to conduct field experiments."
-            ],
-            correctAnswer: "c",
-            feedback: "Feltstudier har højere ekstern validitet, da de foregår i naturlige omgivelser."
-        },
-        {
-            chapter: "Chapter 2",
-            question: "9. A researcher finds that the probability level (p-value) of her study is 0.08. What can she conclude about her study?",
-            options: [
-                "Her study is statistically significant.",
-                "The findings of her study are likely due to chance.",
-                "The findings of her study are not likely due to chance.",
-                "Her study has high external validity."
+                "It is the study of how people form impressions of and make inferences about other people.",
+                "It is the study of how people think about themselves and the social world.",
+                "It is the study of how people communicate with each other through verbal and nonverbal behaviors.",
+                "It is the study of how people interpret and explain the causes of their own and others' behavior."
             ],
             correctAnswer: "b",
-            feedback: "En p-værdi over 0.05 anses for at være statistisk insignifikant, hvilket betyder at resultatet er mere tilfældigt."
+            feedback: "Social kognition handler om, hvordan vi tænker om os selv og vores sociale omgivelser."
         },
         {
-            chapter: "Chapter 2",
-            question: "10. Which of the following is the main difference between basic and applied research?",
+            chapter: "Chapter 3",
+            question: "2. The two types of social cognition are:",
             options: [
-                "Basic research is less expensive to conduct than applied research.",
-                "Basic research is designed to solve a social problem, whereas applied research is designed to find answers out of intellectual curiosity.",
-                "Basic research is designed to find answers out of intellectual curiosity, whereas applied research is designed to solve a social problem.",
-                "None of the above."
+                "Controlled thinking and automatic thinking.",
+                "Schema thinking and heuristic thinking.",
+                "Rational thinking and emotional thinking.",
+                "Unconscious thinking and conscious thinking."
+            ],
+            correctAnswer: "a",
+            feedback: "Vores tænkning i sociale situationer kan opdeles i automatisk (hurtig, ubevidst) og kontrolleret (langsom, bevidst) tænkning."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "3. Which of the following statements about schemas is FALSE?",
+            options: [
+                "Schemas help us to organize and interpret new information.",
+                "Schemas are mental structures that organize our knowledge about the social world.",
+                "Schemas always lead to accurate judgments and decisions.",
+                "Schemas are useful for helping us deal with ambiguous information."
             ],
             correctAnswer: "c",
-            feedback: "Grundforskning er drevet af nysgerrighed, mens anvendt forskning er målrettet mod at løse et specifikt problem."
+            feedback: "Skemaer kan være nyttige, men de kan også føre til fejl og bias, da de kan forvrænge vores opfattelse af ny information."
         },
-        // Her slutter kapitel 2
+        {
+            chapter: "Chapter 3",
+            question: "4. When schemas are applied to members of a social group such as a gender, race, or religion, they are called:",
+            options: [
+                "Scripts.",
+                "Stereotypes.",
+                "Heuristics.",
+                "Prototypes."
+            ],
+            correctAnswer: "b",
+            feedback: "Stereotyper er generaliserede skemaer om sociale grupper."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "5. The extent to which schemas and concepts are at the forefront of people's minds and are therefore likely to be used when making judgments about the social world is called:",
+            options: [
+                "Accessibility.",
+                "Priming.",
+                "Heuristics.",
+                "Automaticity."
+            ],
+            correctAnswer: "a",
+            feedback: "Tilgængelighed refererer til, hvor let et skema kommer i tankerne, og hvor sandsynligt det er, at det bliver brugt."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "6. Which of the following is an example of priming?",
+            options: [
+                "Reading a book about a new topic.",
+                "Watching a movie that makes you feel happy.",
+                "Being exposed to words related to politeness, and then being more likely to act politely.",
+                "Solving a complex math problem."
+            ],
+            correctAnswer: "c",
+            feedback: "Priming er fænomenet, hvor nylig eksponering for stimuli påvirker senere tanker, følelser eller adfærd."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "7. Which of the following is true about the self-fulfilling prophecy?",
+            options: [
+                "It is a conscious process in which people deliberately try to make their beliefs come true.",
+                "It is a process by which people's expectations about others lead them to behave in ways that confirm those expectations.",
+                "It is a process by which people's expectations about themselves lead them to behave in ways that confirm those expectations.",
+                "It is a process by which people's actions are determined by their personality traits rather than their expectations."
+            ],
+            correctAnswer: "b",
+            feedback: "Selvopfyldende profetier opstår, når vores forventninger til en anden person får os til at handle på en måde, der bekræfter disse forventninger hos den anden."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "8. Which of the following is true about judgmental heuristics?",
+            options: [
+                "They are mental shortcuts that people use to make judgments quickly and efficiently.",
+                "They are always accurate and lead to optimal decisions.",
+                "They are complex and time-consuming cognitive processes.",
+                "They are only used by people who have limited cognitive abilities."
+            ],
+            correctAnswer: "a",
+            feedback: "Heuristikker er mentale genveje, der gør os i stand til at træffe hurtige, men ikke altid perfekte, beslutninger."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "9. The availability heuristic is a mental shortcut whereby people base a judgment on:",
+            options: [
+                "The ease with which they can bring something to mind.",
+                "How similar it is to a typical case.",
+                "The number of relevant examples they can think of.",
+                "The amount of effort they put into processing information."
+            ],
+            correctAnswer: "a",
+            feedback: "Tilgængelighedsheuristikken betyder, at vi vurderer sandsynligheden af noget ud fra, hvor nemt det er at komme i tanke om eksempler."
+        },
+        {
+            chapter: "Chapter 3",
+            question: "10. The representativeness heuristic is a mental shortcut whereby people classify something according to:",
+            options: [
+                    "How easily they can recall instances of it.",
+                "How well it matches a typical case.",
+                "The number of times it has occurred in the past.",
+                "The emotional impact it has on them."
+            ],
+            correctAnswer: "b",
+            feedback: "Repræsentativitetsheuristikken indebærer, at vi klassificerer noget baseret på, hvor meget det ligner en typisk repræsentant for en kategori."
+        },
+        // Chapter 4
+        {
+            chapter: "Chapter 4",
+            question: "1. Which of the following is true about social perception?",
+            options: [
+                "It is the study of how people form impressions of and make inferences about other people.",
+                "It is the study of how people think about themselves and the social world.",
+                "It is the study of how people communicate with each other through verbal and nonverbal behaviors.",
+                "It is the study of how people influence each other's attitudes and beliefs."
+            ],
+            correctAnswer: "a",
+            feedback: "Social perception handler om, hvordan vi danner indtryk og drager konklusioner om andre mennesker."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "2. Which of the following is NOT a channel of nonverbal communication?",
+            options: [
+                "Facial expressions.",
+                "Eye gaze.",
+                "Body language.",
+                "Verbal communication."
+            ],
+            correctAnswer: "d",
+            feedback: "Verbal kommunikation er sprog, mens nonverbal kommunikation er ansigtsudtryk, kropssprog, øjenkontakt osv."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "3. The six universal basic emotions that are recognized across cultures are:",
+            options: [
+                "Happiness, sadness, anger, fear, surprise, and disgust.",
+                "Love, hate, jealousy, envy, pride, and shame.",
+                "Excitement, boredom, anxiety, relief, hope, and despair.",
+                "Amusement, contempt, embarrassment, guilt, pride, and relief."
+            ],
+            correctAnswer: "a",
+            feedback: "Disse seks følelser er almindeligt anerkendt som universelle i deres udtryk og genkendelse."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "4. The tendency to believe that our own perceptions of the world are objective and accurate, and that others who disagree with us are biased, is called:",
+            options: [
+                "Confirmation bias.",
+                "Hindsight bias.",
+                "Naïve realism.",
+                "Self-serving bias."
+            ],
+            correctAnswer: "c",
+            feedback: "Naiv realisme er troen på, at vores egen opfattelse af virkeligheden er objektiv og sand."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "5. The tendency for information presented early in a sequence to have a greater impact on impressions than information presented later is called:",
+            options: [
+                "The recency effect.",
+                "The primacy effect.",
+                "The halo effect.",
+                "The confirmation bias."
+            ],
+            correctAnswer: "b",
+            feedback: "Primæreffekten beskriver, hvordan den første information, vi modtager om en person, farver vores efterfølgende indtryk."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "6. The process by which people explain the causes of their own and others' behavior is called:",
+            options: [
+                "Social perception.",
+                "Attribution.",
+                "Social cognition.",
+                "Schema."
+            ],
+            correctAnswer: "b",
+            feedback: "Attribution handler om at forklare årsagerne til adfærd, enten som intern (personlighed) eller ekstern (situation)."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "7. When we explain someone's behavior in terms of their personality, attitudes, or character, we are making a:",
+            options: [
+                "Situational attribution.",
+                "Dispositional attribution.",
+                "External attribution.",
+                "Consensus attribution."
+            ],
+            correctAnswer: "b",
+            feedback: "Dispositionel attribution fokuserer på interne årsager som personlighedstræk."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "8. According to Kelley's covariation model, people are most likely to make an internal attribution when:",
+            options: [
+                "Consensus is low, distinctiveness is high, and consistency is high.",
+                "Consensus is high, distinctiveness is low, and consistency is high.",
+                "Consensus is low, distinctiveness is low, and consistency is high.",
+                "Consensus is high, distinctiveness is high, and consistency is low."
+            ],
+            correctAnswer: "c",
+            feedback: "Lav konsensus (kun denne person), lav særpræg (personen gør det altid) og høj konsistens (personen gør det gentagne gange i denne situation) peger på en intern forklaring."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "9. The tendency to overestimate the extent to which other people's behavior is due to internal, dispositional factors and to underestimate the role of situational factors is called:",
+            options: [
+                "The self-serving bias.",
+                "The actor-observer bias.",
+                "The fundamental attribution error.",
+                "The just-world hypothesis."
+            ],
+            correctAnswer: "c",
+            feedback: "Den fundamentale attributionsfejl er kernen i social attribution og vores tendens til at se personlighed over situation."
+        },
+        {
+            chapter: "Chapter 4",
+            question: "10. The two-step process of attribution involves first making a spontaneous ________ attribution, and then, with conscious effort, adjusting to consider ________ factors.",
+            options: [
+                "situational; dispositional",
+                "dispositional; situational",
+                "external; internal",
+                "internal; external"
+            ],
+            correctAnswer: "b",
+            feedback: "Vi starter ofte med en hurtig, intern (dispositionel) vurdering, som vi så justerer, hvis vi har tid og motivation til at overveje situationelle faktorer."
+        },
+        // Chapter 5
+                {
+                    chapter: "Chapter 5",
+                    question: "1. The overall set of beliefs that people have about their personal attributes is called:",
+                    options: [
+                        "Self-esteem.",
+                        "Self-concept.",
+                        "Self-awareness.",
+                        "Self-efficacy."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvkonceptet er den samlede opfattelse af ens egne træk og egenskaber."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "2. According to research, which of the following is true about how children's self-concept develops?",
+                    options: [
+                        "Young children's self-concept tends to be more abstract and complex than older children's.",
+                        "As children grow older, their self-concept shifts from focusing on concrete, observable characteristics to more abstract psychological traits.",
+                        "Children's self-concept is primarily shaped by their genetic predispositions.",
+                        "Self-concept remains relatively stable and consistent throughout childhood."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvkonceptet udvikler sig fra konkrete træk til mere abstrakte, når børn bliver ældre."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "3. The idea that we learn about our own abilities and attitudes by comparing ourselves to other people is called:",
+                    options: [
+                        "Social tuning.",
+                        "Self-perception theory.",
+                        "Social comparison theory.",
+                        "Two-factor theory of emotion."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Social sammenligningsteori handler om at vurdere os selv ved at sammenligne med andre."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "4. Comparing ourselves to people who are better than we are with regard to a particular trait or ability is called:",
+                    options: [
+                        "Upward social comparison.",
+                        "Downward social comparison.",
+                        "Lateral social comparison.",
+                        "Self-enhancement comparison."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Opadgående social sammenligning kan motivere os, men også gøre os ringere tilpas."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "5. When we are motivated to feel good about ourselves, we often engage in:",
+                    options: [
+                        "Upward social comparison.",
+                        "Downward social comparison.",
+                        "Accurate self-assessment.",
+                        "Self-verification."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Nedadgående social sammenligning øger vores selvværd ved at sammenligne os med dem, der klarer sig dårligere."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "6. The process whereby people adopt another person's attitudes is called:",
+                    options: [
+                        "Social identity.",
+                        "Social comparison.",
+                        "Social tuning.",
+                        "Self-affirmation."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Social 'tuning' beskriver, hvordan vi ubevidst overtager andres holdninger og meninger."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "7. When people focus their attention inward on themselves, they are experiencing:",
+                    options: [
+                        "Self-esteem.",
+                        "Self-concept.",
+                        "Self-awareness.",
+                        "Self-perception."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Selvbevidsthed er fokuseringen af opmærksomhed på ens indre tilstande og egenskaber."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "8. The theory that when our attitudes and feelings are uncertain or ambiguous, we infer these states by observing our behavior and the situation in which it occurs is called:",
+                    options: [
+                        "Cognitive dissonance theory.",
+                        "Self-perception theory.",
+                        "Social comparison theory.",
+                        "Two-factor theory of emotion."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvperceptionsteorien forklarer, hvordan vi udleder vores egne holdninger og følelser ud fra vores adfærd."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "9. Rewarding people for doing an activity they already enjoy can sometimes cause them to:",
+                    options: [
+                        "Enjoy the activity even more.",
+                        "Enjoy the activity less.",
+                        "Develop a stronger intrinsic motivation for the activity.",
+                        "Develop a stronger extrinsic motivation for the activity."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Overjustification effect: Eksterne belønninger kan underminere indre motivation."
+                },
+                {
+                    chapter: "Chapter 5",
+                    question: "10. The desire to engage in an activity because we enjoy it or find it interesting, not because of external rewards or pressures, is called:",
+                    options: [
+                        "Extrinsic motivation.",
+                        "Intrinsic motivation.",
+                        "Self-efficacy.",
+                        "Self-control."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Indre motivation driver os til at gøre ting for nydelsens skyld."
+                },
+                // Chapter 6
+                {
+                    chapter: "Chapter 6",
+                    question: "1. The feeling of discomfort caused by performing an action that is discrepant from one's customary (typically positive) self-conception is called:",
+                    options: [
+                        "Self-affirmation.",
+                        "Cognitive dissonance.",
+                        "Self-perception.",
+                        "Self-justification."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Kognitiv dissonans opstår, når vores handlinger strider mod vores overbevisninger eller selvbillede, hvilket skaber ubehag."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "2. The way people reduce cognitive dissonance is by:",
+                    options: [
+                        "Changing their behavior.",
+                        "Changing their cognitions.",
+                        "Adding new cognitions.",
+                        "All of the above."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Alle disse strategier bruges til at reducere dissonans."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "3. When people change their attitudes to justify their past behavior, they are engaging in:",
+                    options: [
+                        "External justification.",
+                        "Internal justification.",
+                        "Counterattitudinal advocacy.",
+                        "Impact bias."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Intern retfærdiggørelse indebærer at ændre egne holdninger for at matche adfærd, uden ekstern belønning."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "4. The tendency to overestimate the intensity and duration of one's emotional reactions to future negative events is called:",
+                    options: [
+                        "Impact bias.",
+                        "Decision dissonance.",
+                        "Lowballing.",
+                        "Hypocrisy induction."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Impact bias betyder, at vi forudser stærkere og længerevarende følelsesmæssige reaktioner på negative begivenheder, end vi faktisk oplever."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "5. When a person states an opinion or attitude that runs counter to his or her private belief or attitude, this is called:",
+                    options: [
+                        "Insufficient punishment.",
+                        "Counterattitudinal advocacy.",
+                        "External justification.",
+                        "Hypocrisy induction."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Modholdningsargumentation opstår, når vi udtaler noget, vi ikke selv tror på, ofte for at opnå ekstern belønning eller undgå straf."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "6. The dissonance aroused when individuals lack sufficient external justification for having resisted a desired activity or object, usually resulting in the individual devaluing the forbidden activity or object, is called:",
+                    options: [
+                        "Insufficient punishment.",
+                        "Hypocrisy induction.",
+                        "Justification of effort.",
+                        "Counterattitudinal advocacy."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Utilstrækkelig straf fører til intern retfærdiggørelse og devaluering af den forbudte aktivitet."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "7. When people volunteer to perform a difficult, unpleasant, or embarrassing procedure to obtain a goal, they often come to like the goal more because of:",
+                    options: [
+                        "The foot-in-the-door technique.",
+                        "The door-in-the-face technique.",
+                        "Justification of effort.",
+                        "Lowballing."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Retfærdiggørelse af anstrengelse: Jo mere vi kæmper for noget, jo mere værdsætter vi det."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "8. A sales strategy whereby a customer is first offered a low price, then is informed of additional costs, is called:",
+                    options: [
+                        "Lowballing.",
+                        "Foot-in-the-door technique.",
+                        "Door-in-the-face technique.",
+                        "Pre-giving."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Lowballing er en overtalelsesteknik, hvor man først får en lav pris, der senere øges."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "9. The process of making people aware of the dissonance between what they are doing and what they preach to others is called:",
+                    options: [
+                        "Self-affirmation.",
+                        "Hypocrisy induction.",
+                        "System justification.",
+                        "Terror management theory."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Hykleri-induktion bruges til at ændre adfærd ved at gøre folk opmærksomme på deres inkonsekvens."
+                },
+                {
+                    chapter: "Chapter 6",
+                    question: "10. Which of the following is true about how cognitive dissonance can be used to promote prosocial behavior?",
+                    options: [
+                        "It is most effective when people are forced to change their attitudes.",
+                        "It is most effective when people are made to feel that they are acting hypocritically.",
+                        "It is most effective when people are given large external rewards for prosocial behavior.",
+                        "It is most effective when people are unaware of the dissonance they are experiencing."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Hykleri-induktion er en effektiv måde at bruge dissonans til at fremme positiv adfærd."
+                },
+                // Chapter 7
+                {
+                    chapter: "Chapter 7",
+                    question: "1. An evaluation of a person, object, or idea is called a(n):",
+                    options: [
+                        "Belief.",
+                        "Value.",
+                        "Attitude.",
+                        "Opinion."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En holdning er en vurdering af et objekt, en person eller en idé, der har en affektiv komponent."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "2. The three components of attitudes are:",
+                    options: [
+                        "Cognitive, affective, and behavioral.",
+                        "Positive, negative, and neutral.",
+                        "Explicit, implicit, and ambivalent.",
+                        "Stable, unstable, and changing."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Holdninger består typisk af en tankemæssig (kognitiv), en følelsesmæssig (affektiv) og en adfærdsmæssig komponent."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "3. Attitudes based primarily on people's beliefs about the properties of an attitude object are called:",
+                    options: [
+                        "Affectively based attitudes.",
+                        "Behaviorally based attitudes.",
+                        "Cognitively based attitudes.",
+                        "Implicit attitudes."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Kognitivt baserede holdninger bygger på fakta og objektive egenskaber."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "4. Attitudes based more on people's feelings and values than on their beliefs about the nature of an attitude object are called:",
+                    options: [
+                        "Affectively based attitudes.",
+                        "Behaviorally based attitudes.",
+                        "Cognitively based attitudes.",
+                        "Explicit attitudes."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Affektivt baserede holdninger er rodfæstet i følelser og værdier."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "5. The theory that under certain conditions, people don't know how they feel until they see how they behave is called:",
+                    options: [
+                        "Cognitive dissonance theory.",
+                        "Self-perception theory.",
+                        "Social judgment theory.",
+                        "Theory of planned behavior."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Selvperceptionsteorien beskriver, hvordan vi udleder vores egne holdninger ud fra observation af vores adfærd."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "6. Attitudes that we consciously endorse and can easily report are called:",
+                    options: [
+                        "Implicit attitudes.",
+                        "Explicit attitudes.",
+                        "Ambivalent attitudes.",
+                        "Affective attitudes."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Eksplicitte holdninger er dem, vi er bevidst om og kan udtrykke."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "7. Attitudes that exist outside of conscious awareness are called:",
+                    options: [
+                        "Implicit attitudes.",
+                        "Explicit attitudes.",
+                        "Cognitive attitudes.",
+                        "Behavioral attitudes."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Implicitte holdninger er ubevidste og kan påvirke vores adfærd, uden at vi er klar over det."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "8. The theory that the best predictors of people's planned, deliberate behaviors are their attitudes toward specific behaviors, subjective norms, and perceived behavioral control is called:",
+                    options: [
+                        "The Elaboration Likelihood Model.",
+                        "The Heuristic-Systematic Model.",
+                        "The Theory of Planned Behavior.",
+                        "The Self-Perception Theory."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Teorien om planlagt adfærd fokuserer på specifikke holdninger, sociale normer og opfattet kontrol som forudsigere for adfærd."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "9. The two routes to persuasion according to the Elaboration Likelihood Model are:",
+                    options: [
+                        "Cognitive and affective.",
+                        "Explicit and implicit.",
+                        "Central and peripheral.",
+                        "Direct and indirect."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Central og perifer rute er de to hovedveje, hvorpå holdningsændringer sker ifølge ELM."
+                },
+                {
+                    chapter: "Chapter 7",
+                    question: "10. Which route to persuasion is most likely to result in long-lasting attitude change?",
+                    options: [
+                        "The peripheral route.",
+                        "The central route.",
+                        "The implicit route.",
+                        "The affective route."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Den centrale rute, som involverer grundig overvejelse af argumenter, fører til mere varige holdningsændringer."
+                },
+                // Chapter 8
+                {
+                    chapter: "Chapter 8",
+                    question: "1. A change in one’s behavior due to the real or imagined influence of other people is called:",
+                    options: [
+                        "Conformity.",
+                        "Obedience.",
+                        "Compliance.",
+                        "Persuasion."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Konformitet er en adfærdsændring forårsaget af reelt eller forestillet pres fra andre."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "2. The desire to go along with a group to be liked and accepted is called:",
+                    options: [
+                        "Informational social influence.",
+                        "Normative social influence.",
+                        "Obedience.",
+                        "Compliance."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Normativ social indflydelse er, når vi tilpasser os for at passe ind og blive accepteret."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "3. The influence of other people that leads us to conform because we see them as a source of information to guide our behavior is called:",
+                    options: [
+                        "Informational social influence.",
+                        "Normative social influence.",
+                        "Obedience.",
+                        "Compliance."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Informationel social indflydelse opstår, når vi bruger andre som informationskilde i usikre situationer."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "4. Which of the following conditions is most likely to lead to conformity due to informational social influence?",
+                    options: [
+                        "When the situation is ambiguous.",
+                        "When the group is a large crowd.",
+                        "When the group is composed of friends.",
+                        "When the situation is not important."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Usikkerhed driver os til at se til andre for information og vejledning."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "5. The most crucial factor in whether people will conform to the group in an ambiguous situation is:",
+                    options: [
+                        "The number of people in the group.",
+                        "The person's desire to be liked by the group.",
+                        "Whether the situation is a crisis.",
+                        "The importance of being accurate."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Jo vigtigere det er at have ret, jo mere sandsynligt er det, at vi lader os påvirke informationelt."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "6. The classic study on obedience to authority was conducted by:",
+                    options: [
+                        "Solomon Asch.",
+                        "Stanley Milgram.",
+                        "Philip Zimbardo.",
+                        "Muzafer Sherif."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Milgrams forsøg er berømt for at vise, hvor langt folk vil gå i lydighed over for en autoritet."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "7. In Milgram's original study, what percentage of participants administered the full 450-volt shock?",
+                    options: [
+                        "10%.",
+                        "35%.",
+                        "65%.",
+                        "90%."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Milgrams studie viste, at 65% af deltagerne adlød autoriteten til det yderste."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "8. The finding that when people obey authority, they often justify their behavior by saying, “I was only following orders,” is consistent with the concept of:",
+                    options: [
+                        "Self-justification.",
+                        "Cognitive dissonance.",
+                        "Social identity.",
+                        "Agentic state."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Den agentiske tilstand beskriver, når en person ser sig selv som et redskab for en autoritet, og derfor ikke er ansvarlig for sine handlinger."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "9. A major difference between Asch's study and Milgram's study is that:",
+                    options: [
+                        "Asch's study involved peer pressure, while Milgram's involved obedience to an authority figure.",
+                        "Asch's study involved obedience, while Milgram's involved conformity.",
+                        "Asch's study involved aggression, while Milgram's involved helping.",
+                        "Asch's study was an experiment, while Milgram's was a correlational study."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Asch's forsøg handlede om konformitet til en gruppe, mens Milgrams handlede om lydighed over for en autoritetsfigur."
+                },
+                {
+                    chapter: "Chapter 8",
+                    question: "10. The finding that people are more likely to comply with a request if they have a personal relationship with the requester is an example of:",
+                    options: [
+                        "The norm of reciprocity.",
+                        "The foot-in-the-door technique.",
+                        "The door-in-the-face technique.",
+                        "Commitment and consistency."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Foot-in-the-door-teknikken fungerer, fordi folk ønsker at være konsekvente med deres tidligere handlinger."
+                },
+                // Chapter 9
+                {
+                    chapter: "Chapter 9",
+                    question: "1. A group is defined as two or more people who:",
+                    options: [
+                        "Are in the same place at the same time.",
+                        "Interact with each other and are interdependent.",
+                        "Share the same opinions and beliefs.",
+                        "Are related by blood or marriage."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "En gruppe er kendetegnet ved interaktion og gensidig afhængighed, hvor de påvirker hinanden."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "2. The tendency for people to perform better on simple tasks and worse on complex tasks when in the presence of others is called:",
+                    options: [
+                        "Social loafing.",
+                        "Social facilitation.",
+                        "Deindividuation.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Social facilitation er effekten af andres tilstedeværelse på vores præstation."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "3. The tendency for people to do worse on simple tasks but better on complex tasks when they are in the presence of others and their individual performance cannot be evaluated is called:",
+                    options: [
+                        "Social facilitation.",
+                        "Social loafing.",
+                        "Deindividuation.",
+                        "Group polarization."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Social loafing (social dovenskab) opstår, når man slapper mere af, fordi man ikke bliver individuelt vurderet."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "4. The loosening of normal constraints on behavior when people can't be identified (such as when they are in a crowd) is called:",
+                    options: [
+                        "Social facilitation.",
+                        "Social loafing.",
+                        "Deindividuation.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Deindividuation fører til, at folk føler sig mindre ansvarlige og er mere tilbøjelige til at handle impulsivt, når de er anonyme i en gruppe."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "5. The idea that groups can lead to poorer decisions because they prioritize group harmony over critical thinking is called:",
+                    options: [
+                        "Group polarization.",
+                        "Transactive memory.",
+                        "Process loss.",
+                        "Groupthink."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Groupthink er en beslutningsproces, hvor enighed prioriteres over rationel beslutningstagning."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "6. Which of the following is a symptom of groupthink?",
+                    options: [
+                        "The group seeks out and considers all available information.",
+                        "The group members express their dissenting opinions freely.",
+                        "The illusion of invulnerability and moral certainty.",
+                        "The group actively encourages a devil's advocate."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En illusion om usårlighed er et centralt symptom på groupthink, hvor gruppen overvurderer sine evner."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "7. The tendency for groups to make decisions that are more extreme than the initial inclinations of their members is called:",
+                    options: [
+                        "Groupthink.",
+                        "Group polarization.",
+                        "Social loafing.",
+                        "Deindividuation."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Gruppepolarisering sker, når gruppemedlemmernes holdninger bliver mere ekstreme efter diskussion."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "8. The cooperative strategy of giving up an initial position and changing to accommodate the other person's position is a characteristic of:",
+                    options: [
+                        "Integrative solutions.",
+                        "Conciliation.",
+                        "Bargaining.",
+                        "Negotiation."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Forhandling er en kommunikationsform, der har til formål at nå til en gensidigt acceptabel løsning."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "9. When a leader of a group focuses on getting the work done, he is performing what kind of leadership?",
+                    options: [
+                        "Relationship-oriented.",
+                        "Transactional.",
+                        "Task-oriented.",
+                        "Transformational."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "En opgaveorienteret leder fokuserer på at opnå gruppens mål."
+                },
+                {
+                    chapter: "Chapter 9",
+                    question: "10. When a leader focuses on the feelings and well-being of group members, he is performing what kind of leadership?",
+                    options: [
+                        "Task-oriented.",
+                        "Relationship-oriented.",
+                        "Transactional.",
+                        "Transformational."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "En relationsorienteret leder fokuserer på at opbygge morale og løse konflikter i gruppen."
+                },
+                // Chapter 10
+                {
+                    chapter: "Chapter 10",
+                    question: "1. The single best predictor of whether two people will get together is:",
+                    options: [
+                        "Physical attractiveness.",
+                        "Similarity.",
+                        "Propinquity.",
+                        "Reciprocal liking."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Nærhedseffekten er den bedste enkeltfaktor til at forudsige, om to mennesker bliver tæt på hinanden."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "2. The finding that the more we see and interact with people, the more likely we are to start a relationship with them, is called:",
+                    options: [
+                        "The mere exposure effect.",
+                        "The propinquity effect.",
+                        "The similarity effect.",
+                        "The proximity effect."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Nærhedseffekten, også kaldet propinquity, er en af de stærkeste faktorer for tiltrækning."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "3. The finding that the more we are exposed to a stimulus, the more we are to like it, is called:",
+                    options: [
+                        "The propinquity effect.",
+                        "The mere exposure effect.",
+                        "The similarity effect.",
+                        "The reciprocal liking effect."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Blot eksponering øger vores positive følelser over for en stimulus."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "4. The belief that “birds of a feather flock together” reflects which of the following principles of attraction?",
+                    options: [
+                        "Propinquity.",
+                        "Mere exposure.",
+                        "Similarity.",
+                        "Reciprocal liking."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Ligheder i holdninger, værdier og personlighed er en stærk tiltrækningsfaktor."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "5. People who are physically attractive are often seen as possessing other desirable traits. This phenomenon is called:",
+                    options: [
+                        "The halo effect.",
+                        "The similarity effect.",
+                        "The physical attractiveness stereotype.",
+                        "The matching hypothesis."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Den fysiske attraktions-stereotype er antagelsen om, at smukke mennesker også er gode mennesker."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "6. The finding that we like others who like us is called:",
+                    options: [
+                        "Reciprocal liking.",
+                        "Similarity.",
+                        "The halo effect.",
+                        "The propinquity effect."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Gensidig tiltrækning er en af de mest basale og stærkeste forudsigere for venskab og romantiske forhold."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "7. The two types of love proposed by Elaine Hatfield are:",
+                    options: [
+                        "Companionate love and passionate love.",
+                        "Infatuated love and romantic love.",
+                        "Fatuous love and consummate love.",
+                        "Liking and loving."
+                    ],
+                    correctAnswer: "a",
+                    feedback: "Hatfield skelner mellem lidenskabelig kærlighed (intens, kortvarig) og kammeratlig kærlighed (dyb, stabil)."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "8. The theory that our satisfaction in a relationship depends on our perceptions of the rewards and costs, our comparison level, and our comparison level for alternatives is called:",
+                    options: [
+                        "Attachment theory.",
+                        "Social exchange theory.",
+                        "The investment model.",
+                        "The equity theory."
+                    ],
+                    correctAnswer: "b",
+                    feedback: "Teorien om social udveksling ser forhold som en 'økonomisk' transaktion, hvor vi vejer omkostninger mod belønninger."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "9. The theory that people are happiest with relationships in which the rewards and costs experienced by both parties are roughly equal is called:",
+                    options: [
+                        "Social exchange theory.",
+                        "The investment model.",
+                        "The equity theory.",
+                        "Attachment theory."
+                    ],
+                    correctAnswer: "c",
+                    feedback: "Ligevægtsteorien hævder, at folk trives bedst i forhold, der føles retfærdige for begge parter."
+                },
+                {
+                    chapter: "Chapter 10",
+                    question: "10. According to the investment model, which of the following predicts whether people will stay in a relationship?",
+                    options: [
+                        "Their satisfaction with the relationship.",
+                        "The level of investment in the relationship.",
+                        "The quality of alternatives to the relationship.",
+                        "All of the above."
+                    ],
+                    correctAnswer: "d",
+                    feedback: "Investeringsmodellen ser på tilfredshed, investering og alternativer som nøglefaktorer for, om et forhold holder."
+                }
     ];
 
-
-    // --- DOM Referencer ---
+    // --- DOM Elements ---
+    // Main sections
     const flashcardSection = document.getElementById('flashcard-section');
     const quizSection = document.getElementById('quiz-section');
     const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
     const showQuizBtn = document.getElementById('show-quiz-btn');
-    
-    // Flashcard
-    const categorySelect = document.getElementById('category-select');
-    const prevCardBtn = document.getElementById('prev-card-btn');
-    const nextCardBtn = document.getElementById('next-card-btn');
-    const flashcardContainer = document.getElementById('flashcard-container');
 
-    // Quiz Mode Selection
-    const quizModeSelectContainer = document.getElementById('quiz-mode-select-container');
+    // Flashcard elements
+    const card = document.getElementById('flashcard');
+    const frontTextElement = document.getElementById('card-front-text');
+    const backTextElement = document.getElementById('card-back-text');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const progressText = document.getElementById('progress-text');
+    const categorySelect = document.getElementById('category-select');
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    const showBackFirstToggle = document.getElementById('show-back-first-toggle');
+    const cardContainerWrapper = document.getElementById('card-container-wrapper');
+
+    // --- Nye Flashcard Feedback Elements ---
+    const flashcardFeedbackButtons = document.getElementById('flashcard-feedback-buttons');
+    const feedbackCorrectBtn = document.getElementById('feedback-correct-btn');
+    const feedbackUnsureBtn = document.getElementById('feedback-unsure-btn');
+    const feedbackIncorrectBtn = document.getElementById('feedback-incorrect-btn');
+
+    // Quiz elements (common)
+    const quizChapterSelect = document.getElementById('quiz-chapter-select');
+
+    // All Questions Mode elements
     const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
+    const startAllQuizBtn = document.getElementById('start-all-quiz-btn');
+    const quizQuestionContainer = document.getElementById('quiz-question-container');
+    const submitQuizBtn = document.getElementById('submit-quiz-btn');
+    const restartAllQuizBtn = document.getElementById('restart-all-quiz-btn');
+    const quizResults = document.getElementById('quiz-results');
+
+    // One Question at a Time Mode elements
     const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
     const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
     const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
-    const quizChapterSelectContainer = document.getElementById('quiz-chapter-select-container');
-    const quizChapterSelect = document.getElementById('quiz-chapter-select');
-
-    // All Questions Quiz
-    const startAllQuizBtn = document.getElementById('start-all-quiz-btn');
-    const allQuestionsQuizForm = document.getElementById('all-questions-quiz-form');
-    const allQuestionsContainer = document.getElementById('all-questions-container');
-    const submitQuizBtn = document.getElementById('submit-quiz-btn');
-    const restartAllQuizBtn = document.getElementById('restart-all-quiz-btn');
-    const allQuestionsResults = document.getElementById('all-questions-results');
-
-    // One Question at a Time Quiz
+    const activeChaptersDisplay = document.getElementById('active-chapters-display');
     const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
     const singleQuestionDisplay = document.getElementById('single-question-display');
     const singleQuestionText = document.getElementById('single-question-text');
     const singleOptionsContainer = document.getElementById('single-options-container');
-    const singleQuizProgressText = document.getElementById('single-quiz-progress');
+    const singleExplanationText = document.getElementById('single-explanation-text');
     const checkSingleAnswerBtn = document.getElementById('check-single-answer-btn');
     const nextSingleQuestionBtn = document.getElementById('next-single-question-btn');
     const restartSingleQuizBtn = document.getElementById('restart-single-quiz-btn');
-    const notSureBtn = document.createElement('button'); // Created a new button for "Not sure"
-
-    // New variables for tracking stats
-    let correctCount = 0;
-    let incorrectCount = 0;
-    let notSureCount = 0;
-
-    const correctCountDisplay = document.getElementById('correct-count');
-    const incorrectCountDisplay = document.getElementById('incorrect-count');
-    const notSureCountDisplay = document.getElementById('not-sure-count');
-    const statsContainer = document.getElementById('quiz-stats-container');
+    const singleQuizProgress = document.getElementById('single-quiz-progress');
     const singleQuizResults = document.getElementById('single-quiz-results');
 
-    // --- STATE Variabler ---
-    let currentCategory = "Keltner 2006 - Evolution & Følelser";
-    let currentCardIndex = 0;
-    let quizQuestionsFiltered = [];
-    let currentQuestionIndex = 0;
-    let quizActive = false;
 
+    // --- Flashcard State ---
+    let currentFlashcards = []; // All flashcards in the currently selected category
+    let currentFlashcardIndex = 0;
+    let isFlipped = false;
+    let showBackFirst = false;
 
-    // --- FUNKTIONER ---
-    
-    // Generelle UI-funktioner
+    // --- Nye Flashcard Feedback State Variabler ---
+    let cardsToReview = []; // Kort markeret som 'Ikke sikker' eller 'Forkert'
+    let masteredCards = []; // Kort markeret som 'Rigtigt' (skal ikke ses igen i denne session)
+    let currentDeck = []; // Den *aktuelle* bunke kort, vi gennemgår (kan indeholde kort fra cardsToReview)
+
+    // --- Quiz State (Common) ---
+    // selectedQuizChapters will be set in populateQuizChapterSelect and filterQuizQuestions
+    let selectedQuizChapters = []; 
+    let filteredQuizQuestions = [];
+
+    // --- All Questions Mode State ---
+    let allUserAnswers = {}; // Store user's selected answers for "all questions" mode
+
+    // --- One Question at a Time Mode State ---
+    let oneByOneActiveQuestions = []; // Questions currently in play for one-by-one mode
+    let currentOneByOneQuestionIndex = 0;
+    let oneByOneCorrectStreaks = {}; // Tracks correct streaks for each question ID
+    let oneByOneUserAnswer = null; // Stores selected answer for current single question
+
+    // --- Section & Mode Visibility ---
     function showMainSection(sectionId) {
-        flashcardSection.classList.add('hidden');
-        quizSection.classList.add('hidden');
-        document.getElementById(sectionId).classList.remove('hidden');
-        if (sectionId === 'quiz-section') {
-            quizModeSelectContainer.classList.remove('hidden');
-            allQuestionsModeContainer.classList.add('hidden');
-            oneByOneModeContainer.classList.add('hidden');
-            quizChapterSelectContainer.classList.add('hidden');
+        console.log(`Showing section: ${sectionId}`);
+        flashcardSection.style.display = 'none';
+        quizSection.style.display = 'none';
+        document.getElementById(sectionId).style.display = 'block';
+
+        if (sectionId === 'flashcard-section') {
+            showFlashcardsBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+            showFlashcardsBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+            showQuizBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+            showQuizBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
+        } else { // Quiz Section
+            showFlashcardsBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+            showFlashcardsBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
+            showQuizBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+            showQuizBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+            // Default to all questions mode when quiz section is opened
+            showQuizMode('all_questions');
         }
     }
 
     function showQuizMode(mode) {
-        quizModeSelectContainer.classList.add('hidden');
-        quizChapterSelectContainer.classList.remove('hidden');
+        console.log(`Showing quiz mode: ${mode}`);
+        allQuestionsModeContainer.style.display = 'none';
+        oneByOneModeContainer.style.display = 'none';
+
         if (mode === 'all_questions') {
-            allQuestionsModeContainer.classList.remove('hidden');
-            oneByOneModeContainer.classList.add('hidden');
-            startAllQuizBtn.classList.remove('hidden');
-            allQuestionsQuizForm.classList.add('hidden');
-            allQuestionsResults.classList.add('hidden');
-            statsContainer.classList.add('hidden');
-        } else {
-            oneByOneModeContainer.classList.remove('hidden');
-            allQuestionsModeContainer.classList.add('hidden');
-            startOneByOneQuizBtn.classList.remove('hidden');
-            singleQuestionDisplay.classList.add('hidden');
-            singleQuizResults.classList.add('hidden');
-            statsContainer.classList.add('hidden');
+            allQuestionsModeContainer.style.display = 'block';
+            showAllQuestionsModeBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+            showAllQuestionsModeBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+            showOneByOneModeBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+            showOneByOneModeBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
+            // Ensure quiz is rendered only if there are questions selected
+            if (filteredQuizQuestions.length > 0) { // Brug filteredQuizQuestions her
+                 renderQuizAllQuestions();
+            } else {
+                 quizQuestionContainer.innerHTML = '<p class="text-center text-slate-600 text-lg font-medium">Vælg venligst mindst ét kapitel for at starte quizzen.</p>';
+                 submitQuizBtn.disabled = true;
+            }
+        } else { // one_by_one
+            oneByOneModeContainer.style.display = 'block';
+            showOneByOneModeBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+            showOneByOneModeBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+            showAllQuestionsModeBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+            showAllQuestionsModeBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
+            updateActiveChaptersDisplay();
+            resetOneByOneQuiz(); // Prepare the one-by-one quiz
         }
     }
-    
-    // Flashcard Funktioner
+
+    // --- Flashcard Functions ---
     function populateCategorySelect() {
+        console.log("Populating category select...");
+        categorySelect.innerHTML = '';
+        // Tilføj "Bland alle kapitler" som den første mulighed
+        const allCategoriesOption = document.createElement('option');
+        allCategoriesOption.value = 'all_chapters_shuffled';
+        allCategoriesOption.textContent = 'Bland alle kapitler';
+        categorySelect.appendChild(allCategoriesOption);
+
         for (const category in allFlashcardCategories) {
             const option = document.createElement('option');
             option.value = category;
             option.textContent = category;
             categorySelect.appendChild(option);
         }
-        renderFlashcard(currentCardIndex);
+        // Vælg den første kategori (som nu er "Bland alle kapitler") som standard
+        categorySelect.value = 'all_chapters_shuffled';
+        loadCategory(categorySelect.value);
     }
 
-    function renderFlashcard(index) {
-        if (Object.keys(allFlashcardCategories).length === 0) return;
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
 
-        const cards = allFlashcardCategories[currentCategory];
-        if (index < 0 || index >= cards.length) {
-            alert("Ingen flere flashcards i denne kategori.");
+    function loadCategory(categoryName) {
+        console.log(`Loading category: ${categoryName}`);
+        if (categoryName === 'all_chapters_shuffled') {
+            // Saml alle kort fra alle kategorier
+            let allCards = [];
+            for (const category in allFlashcardCategories) {
+                allCards = allCards.concat(allFlashcardCategories[category]);
+            }
+            currentFlashcards = allCards;
+        } else {
+            currentFlashcards = [...(allFlashcardCategories[categoryName] || [])];
+        }
+        
+        shuffleArray(currentFlashcards);
+        currentFlashcardIndex = 0;
+        resetFlashcardFeedback(); // Nulstil feedback-status, når ny kategori indlæses
+        updateFlashcardUI();
+    }
+
+    function shuffleCurrentCards() {
+        console.log("Shuffling current cards...");
+        if (currentFlashcards.length === 0) {
+            console.log("No cards to shuffle.");
+            return;
+        }
+        // When shuffling, we effectively reset the review process for the current category
+        loadCategory(categorySelect.value); // Reload the category to reset everything
+    }
+
+    // --- RETTET FUNKTION ---
+    function updateCardContent() {
+        if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length) {
+            const cardData = currentFlashcards[currentFlashcardIndex];
+            
+            // Fysisk forside af kortet
+            if (showBackFirst) {
+                frontTextElement.textContent = cardData.back;
+            } else {
+                frontTextElement.textContent = cardData.front;
+            }
+
+            // Fysisk bagside af kortet
+            if (showBackFirst) {
+                backTextElement.textContent = cardData.front;
+            } else {
+                backTextElement.textContent = cardData.back;
+            }
+        } else {
+            frontTextElement.textContent = "Ingen kort i denne kategori.";
+            backTextElement.textContent = "Vælg en kategori for at starte.";
+        }
+    }
+    // --- SLUT PÅ RETTET FUNKTION ---
+
+    function updateFlashcardUI() {
+        console.log(`Updating Flashcard UI. Index: ${currentFlashcardIndex}, Total: ${currentFlashcards.length}`);
+        updateCardContent();
+        if (currentFlashcards.length > 0) {
+            progressText.textContent = `Kort ${currentFlashcardIndex + 1} / ${currentFlashcards.length}`;
+            flashcardFeedbackButtons.classList.remove('hidden'); // Vis feedback-knapper
+        } else {
+            progressText.textContent = `Kort 0 / 0`;
+            flashcardFeedbackButtons.classList.add('hidden'); // Skjul feedback-knapper
+        }
+
+        // Deaktiver feedback-knapperne, hvis der ikke er aktive kort, eller hvis alle kort er gennemgået
+        if (currentFlashcards.length === 0 || currentFlashcardIndex === -1) {
+            feedbackCorrectBtn.disabled = true;
+            feedbackUnsureBtn.disabled = true;
+            feedbackIncorrectBtn.disabled = true;
+        } else {
+            feedbackCorrectBtn.disabled = false;
+            feedbackUnsureBtn.disabled = false;
+            feedbackIncorrectBtn.disabled = false;
+        }
+
+        prevBtn.disabled = currentFlashcardIndex === 0 || currentFlashcards.length === 0;
+        nextBtn.disabled = currentFlashcardIndex === currentFlashcards.length - 1 || currentFlashcards.length === 0 || currentFlashcardIndex === -1;
+        shuffleBtn.disabled = currentFlashcards.length === 0;
+        
+        // Ensure card is not flipped when updating UI initially
+        if (card.classList.contains('is-flipped')) {
+            card.classList.remove('is-flipped');
+            isFlipped = false;
+        }
+    }
+
+    function navigateFlashcards(direction) {
+        console.log(`Navigating flashcards: ${direction}`);
+        if (currentFlashcards.length === 0) return;
+
+        cardContainerWrapper.classList.add('fade-out');
+
+        setTimeout(() => {
+            currentFlashcardIndex += direction;
+            if (currentFlashcardIndex < 0) currentFlashcardIndex = 0;
+            if (currentFlashcardIndex >= currentFlashcards.length) currentFlashcardIndex = currentFlashcards.length - 1;
+            
+            updateFlashcardUI();
+            
+            cardContainerWrapper.classList.remove('fade-out');
+        }, 300);
+    }
+
+    function handleFeedback(feedbackType) {
+        console.log(`Handling feedback: ${feedbackType}`);
+        if (currentFlashcards.length === 0 || currentFlashcardIndex < 0 || currentFlashcardIndex >= currentFlashcards.length) {
+            console.log("No current flashcard to give feedback on.");
             return;
         }
 
-        const cardData = cards[index];
-        const cardHtml = `
-            <div class="card absolute w-full h-full cursor-pointer transition-transform duration-500 ease-in-out">
-                <div class="card-inner w-full h-full relative">
-                    <div class="card-face card-front w-full h-full flex flex-col justify-center items-center text-center p-8 rounded-2xl bg-white border border-slate-200">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4">${cardData.front}</h3>
-                    </div>
-                    <div class="card-face card-back w-full h-full flex flex-col justify-center items-center text-center p-8 rounded-2xl bg-indigo-600 text-white">
-                        <p class="text-xl leading-relaxed">${cardData.back}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        flashcardContainer.innerHTML = cardHtml;
-        flashcardContainer.classList.remove('hidden');
-        currentCardIndex = index;
+        const currentCard = currentFlashcards[currentFlashcardIndex];
         
-        const card = flashcardContainer.querySelector('.card');
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-        });
+        // Remove the card from cardsToReview and masteredCards first to ensure correct state after feedback
+        cardsToReview = cardsToReview.filter(card => card !== currentCard);
+        masteredCards = masteredCards.filter(card => card !== currentCard);
+
+        switch (feedbackType) {
+            case 'correct':
+                masteredCards.push(currentCard);
+                console.log("Card marked as correct.");
+                break;
+            case 'unsure':
+                cardsToReview.push(currentCard);
+                console.log("Card marked as unsure.");
+                break;
+            case 'incorrect':
+                cardsToReview.push(currentCard);
+                console.log("Card marked as incorrect.");
+                break;
+        }
+
+        // Gå til næste kort
+        navigateToNextFlashcardAfterFeedback();
     }
 
-    // Quiz Funktioner
+    function navigateToNextFlashcardAfterFeedback() {
+        console.log("Navigating to next flashcard after feedback.");
+        cardContainerWrapper.classList.add('fade-out');
+
+        setTimeout(() => {
+            // Update currentDeck based on latest feedback
+            currentDeck = [];
+            // Add cards to review first, then other unmastered cards (that are not already in cardsToReview)
+            currentDeck.push(...cardsToReview);
+            currentDeck.push(...currentFlashcards.filter(card => 
+                !masteredCards.includes(card) && !cardsToReview.includes(card)
+            ));
+            shuffleArray(currentDeck); // Shuffle the deck for next round of review
+
+            console.log(`Current Deck length: ${currentDeck.length}, Mastered Cards: ${masteredCards.length}, Cards To Review: ${cardsToReview.length}`);
+
+            if (currentDeck.length === 0) {
+                // All cards mastered or reviewed
+                frontTextElement.textContent = "Alle kort er gennemgået! Godt arbejde!";
+                backTextElement.textContent = "Du kan blande kortene for at starte forfra eller vælge en ny kategori.";
+                progressText.textContent = "Færdig!";
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                shuffleBtn.disabled = false; // Allow shuffling to restart
+                flashcardFeedbackButtons.classList.add('hidden');
+                cardContainerWrapper.classList.remove('fade-out');
+                currentFlashcardIndex = -1; // Indicate no card is currently active
+                console.log("All cards completed.");
+                return;
+            }
+
+            // Find the index of the next card in the *original* currentFlashcards array
+            // This ensures currentFlashcardIndex always refers to the original array
+            currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); 
+            console.log(`Next card index in original array: ${currentFlashcardIndex}`);
+            
+            updateFlashcardUI();
+            cardContainerWrapper.classList.remove('fade-out');
+        }, 300);
+    }
+
+    function resetFlashcardFeedback() {
+        console.log("Resetting flashcard feedback and deck.");
+        cardsToReview = [];
+        masteredCards = [];
+        currentDeck = [...currentFlashcards]; // Sæt det aktuelle dæk til alle kort ved start
+        shuffleArray(currentDeck); // Bland kortene i det initiale dæk
+        if (currentDeck.length > 0) {
+            currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); // Sørg for at index peger på første kort i det blandede dæk
+            flashcardFeedbackButtons.classList.remove('hidden'); // Vis knapperne, hvis der er kort
+        } else {
+            currentFlashcardIndex = -1; // Ingen aktive kort
+            flashcardFeedbackButtons.classList.add('hidden'); // Skjul knapperne
+        }
+    }
+
+    // --- Flashcard Event Listeners ---
+    card.addEventListener('click', () => {
+        if (currentFlashcards.length > 0 && currentFlashcardIndex !== -1) { // Check if a card is active
+            card.classList.toggle('is-flipped');
+            isFlipped = !isFlipped;
+            // After flipping, update content to show correct side
+            updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
+        }
+    });
+
+    // Genskab event listener for nextBtn for simpel fremad-navigation
+    nextBtn.addEventListener('click', () => {
+        // Hvis der er kort, og vi ikke er ved det sidste kort, navigér.
+        if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length - 1) {
+            navigateFlashcards(1);
+        }
+    });
+
+    // Genskab event listener for prevBtn for simpel bagud-navigation
+    prevBtn.addEventListener('click', () => {
+        // Hvis der er kort, og vi ikke er ved det første kort, navigér.
+        if (currentFlashcards.length > 0 && currentFlashcardIndex > 0) {
+            navigateFlashcards(-1);
+        }
+    });
+    
+    categorySelect.addEventListener('change', (event) => loadCategory(event.target.value));
+    shuffleBtn.addEventListener('click', shuffleCurrentCards);
+
+    showBackFirstToggle.addEventListener('change', () => {
+        showBackFirst = showBackFirstToggle.checked;
+        updateFlashcardUI();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (flashcardSection.style.display === 'block' && currentFlashcards.length > 0 && currentFlashcardIndex !== -1) { // Kun respondere hvis flashcard sektionen er aktiv og der er et aktivt kort
+            if (e.key === 'ArrowLeft' && !prevBtn.disabled) { // Pil venstre for 'Forrige'
+                navigateFlashcards(-1);
+            } else if (e.key === 'ArrowRight' && !nextBtn.disabled) { // Pil højre for 'Næste'
+                navigateFlashcards(1);
+            } else if (e.key === ' ') { // Mellemrum til at vende kort
+                e.preventDefault();
+                card.classList.toggle('is-flipped');
+                isFlipped = !isFlipped;
+                // After flipping, update content to show correct side
+                updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
+            } else if (e.key === '1') { // Tal 1 for Rigtigt
+                e.preventDefault();
+                handleFeedback('correct');
+            } else if (e.key === '2') { // Tal 2 for Ikke sikker
+                e.preventDefault();
+                handleFeedback('unsure');
+            } else if (e.key === '3') { // Tal 3 for Forkert
+                e.preventDefault();
+                handleFeedback('incorrect');
+            }
+        }
+    });
+
+    // --- Flashcard Feedback Event Listeners ---
+    feedbackCorrectBtn.addEventListener('click', () => handleFeedback('correct'));
+    feedbackUnsureBtn.addEventListener('click', () => handleFeedback('unsure'));
+    feedbackIncorrectBtn.addEventListener('click', () => handleFeedback('incorrect'));
+
+
+    // --- Quiz Functions (Common) ---
     function populateQuizChapterSelect() {
-        // Assuming quizQuestions is an array of objects, each with a 'chapter' property.
-        // We need to extract unique chapter names.
-        const chapters = [...new Set(quizQuestions.map(q => q.chapter))];
-        chapters.forEach(chapter => {
+        console.log("Populating quiz chapter select...");
+        quizChapterSelect.innerHTML = '';
+
+        // Initialiser allChapters her, lige før brug
+        const allChapters = quizQuestions.length > 0 ? [...new Set(quizQuestions.map(q => q.chapter))] : []; 
+
+        if (allChapters.length > 0) {
+            // Tilføj "Bland alle kapitler" som den første mulighed for quizzen
+            const allQuizChaptersOption = document.createElement('option');
+            allQuizChaptersOption.value = 'all_quiz_chapters_shuffled';
+            allQuizChaptersOption.textContent = 'Bland alle kapitler';
+            quizChapterSelect.appendChild(allQuizChaptersOption);
+
+            allChapters.forEach(chapter => {
+                const option = document.createElement('option');
+                option.value = chapter;
+                option.textContent = chapter;
+                // Select only Chapter 1 by default initially if 'all_quiz_chapters_shuffled' is not selected
+                if (parseInt(chapter.replace('Chapter ', '')) === 1 && selectedQuizChapters.length === 0) { // Kun vælg Kap 1, hvis ingen er valgt
+                    option.selected = true;
+                    selectedQuizChapters.push(chapter); // Tilføj Kapitel 1 til valgte kapitler som standard
+                }
+                quizChapterSelect.appendChild(option);
+            });
+            // Hvis intet kapitel var valgt, og der er quizspørgsmål, vælg "Bland alle kapitler" som standard
+            if (selectedQuizChapters.length === 0 && quizQuestions.length > 0) {
+                quizChapterSelect.value = 'all_quiz_chapters_shuffled';
+                selectedQuizChapters = ['all_quiz_chapters_shuffled'];
+            }
+            filterQuizQuestions();
+        } else {
             const option = document.createElement('option');
-            option.value = chapter;
-            option.textContent = chapter;
+            option.value = '';
+            option.textContent = 'Ingen quiz-spørgsmål tilgængelige';
+            option.disabled = true;
+            option.selected = true;
             quizChapterSelect.appendChild(option);
-        });
-        filterQuizQuestions();
+            // Deaktiver startknapper, hvis ingen spørgsmål
+            startAllQuizBtn.disabled = true;
+            startOneByOneQuizBtn.disabled = true;
+        }
     }
 
     function filterQuizQuestions() {
-        const selectedChapter = quizChapterSelect.value;
-        quizQuestionsFiltered = quizQuestions.filter(q => q.chapter === selectedChapter);
-        // Reset quiz when a new chapter is selected
-        quizActive = false;
-        allQuestionsQuizForm.classList.add('hidden');
-        allQuestionsResults.classList.add('hidden');
-        startAllQuizBtn.classList.remove('hidden');
-        singleQuestionDisplay.classList.add('hidden');
-        singleQuizResults.classList.add('hidden');
-        startOneByOneQuizBtn.classList.remove('hidden');
-        statsContainer.classList.add('hidden');
+        console.log("Filtering quiz questions...");
+        selectedQuizChapters = Array.from(quizChapterSelect.selectedOptions).map(option => option.value);
+        
+        if (selectedQuizChapters.includes('all_quiz_chapters_shuffled')) {
+            filteredQuizQuestions = [...quizQuestions]; // Inkluder alle spørgsmål
+        } else {
+            filteredQuizQuestions = quizQuestions.filter(q => selectedQuizChapters.includes(q.chapter));
+        }
+        
+        shuffleArray(filteredQuizQuestions); // Shuffle filtered questions
+        
+        // Reset state for both quiz modes
+        resetAllQuestionsQuiz();
+        resetOneByOneQuiz();
+        
+        updateActiveChaptersDisplay(); // Update display for one-by-one mode
     }
 
-    // All Questions Quiz Funktioner
+    // --- Quiz Functions (All Questions Mode) ---
     function renderQuizAllQuestions() {
-        startAllQuizBtn.classList.add('hidden');
-        allQuestionsQuizForm.classList.remove('hidden');
-        quizActive = true;
-        allQuestionsContainer.innerHTML = '';
-        quizQuestionsFiltered.forEach((question, index) => {
-            const questionElement = document.createElement('div');
-            questionElement.classList.add('p-6', 'rounded-xl', 'bg-white', 'shadow-md');
-            questionElement.innerHTML = `
-                <p class="font-semibold text-lg mb-4 text-slate-800">${index + 1}. ${question.question}</p>
-                <div class="space-y-2">
-                    ${question.options.map((option, optionIndex) => `
-                        <div>
-                            <input type="radio" id="q${index}-${String.fromCharCode(97 + optionIndex)}" name="q${index}" value="${String.fromCharCode(97 + optionIndex)}" class="form-radio text-indigo-600 focus:ring-indigo-500">
-                            <label for="q${index}-${String.fromCharCode(97 + optionIndex)}" class="ml-2 text-slate-700">${option}</label>
-                        </div>
+        console.log("Rendering all questions quiz...");
+        quizQuestionContainer.innerHTML = '';
+        if (filteredQuizQuestions.length === 0) {
+            quizQuestionContainer.innerHTML = '<p class="text-center text-slate-600 text-lg font-medium">Vælg venligst mindst ét kapitel for at starte quizzen.</p>';
+            submitQuizBtn.disabled = true;
+            startAllQuizBtn.disabled = true; // Deaktiver startknappen hvis ingen spørgsmål
+            return;
+        }
+        startAllQuizBtn.disabled = false; // Aktiver startknappen, hvis der er spørgsmål
+
+        filteredQuizQuestions.forEach((q, qIndex) => {
+            const questionCard = document.createElement('div');
+            questionCard.className = 'question-card';
+            questionCard.innerHTML = `
+                <p class="font-semibold text-xl mb-6 text-slate-900">${q.question}</p>
+                <div class="options-container">
+                    ${q.options.map((option, oIndex) => `
+                        <label class="answer-option" data-question-index="${qIndex}" data-option-index="${String.fromCharCode(97 + oIndex)}">
+                            <input type="radio" name="question-${qIndex}" value="${String.fromCharCode(97 + oIndex)}" class="form-radio text-blue-600">
+                            <span class="ml-2">${String.fromCharCode(97 + oIndex)}. ${option}</span>
+                        </label>
                     `).join('')}
                 </div>
+                <p class="explanation mt-4 hidden" id="explanation-${qIndex}"></p>
             `;
-            allQuestionsContainer.appendChild(questionElement);
+            quizQuestionContainer.appendChild(questionCard);
         });
+
+        // Re-attach event listeners for radio buttons to store answers
+        quizQuestionContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', (event) => {
+                const qIndex = event.target.name.split('-')[1];
+                allUserAnswers[qIndex] = event.target.value;
+                checkAllQuestionsAnswered();
+            });
+        });
+        checkAllQuestionsAnswered(); // Initial check
     }
 
-    function submitAllQuestionsQuiz(event) {
-        event.preventDefault();
-        if (!quizActive) return;
+    function checkAllQuestionsAnswered() {
+        // RETTELSE HER: Brug allUserAnswers for "Alle spørgsmål" tilstand
+        const allAnswered = filteredQuizQuestions.every((_, index) => allUserAnswers.hasOwnProperty(index));
+        submitQuizBtn.disabled = !allAnswered;
+    }
 
+    function submitAllQuestionsQuiz() {
+        console.log("Submitting all questions quiz...");
         let correctCount = 0;
-        let totalQuestions = quizQuestionsFiltered.length;
-        
-        quizQuestionsFiltered.forEach((question, index) => {
-            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
-            if (selectedOption && selectedOption.value === question.correctAnswer) {
+        filteredQuizQuestions.forEach((q, qIndex) => {
+            const selectedOption = allUserAnswers[qIndex];
+            const correctOption = q.correctAnswer;
+            const optionsContainer = quizQuestionContainer.querySelector(`[name="question-${qIndex}"]`).closest('.options-container');
+            const explanationElement = document.getElementById(`explanation-${qIndex}`);
+
+            // Disable all radio buttons for this question
+            optionsContainer.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+
+            optionsContainer.querySelectorAll('.answer-option').forEach(label => {
+                const optionValue = label.querySelector('input').value;
+                if (optionValue === correctOption) {
+                    label.classList.add('correct-answer');
+                }
+                if (optionValue === selectedOption && optionValue !== correctOption) {
+                    label.classList.add('incorrect-answer');
+                }
+            });
+
+            if (selectedOption === correctOption) {
                 correctCount++;
+                explanationElement.textContent = `Korrekt! ${q.feedback}`;
+                explanationElement.classList.add('correct');
+                explanationElement.classList.remove('incorrect');
+            } else {
+                explanationElement.textContent = `Forkert. Det korrekte svar var ${correctOption.toUpperCase()}. ${q.feedback}`;
+                explanationElement.classList.add('incorrect');
+                explanationElement.classList.remove('correct');
             }
+            explanationElement.classList.remove('hidden');
         });
-        
-        const score = (correctCount / totalQuestions) * 100;
-        allQuestionsResults.textContent = `Du fik ${correctCount} ud af ${totalQuestions} spørgsmål rigtigt. Din score er ${score.toFixed(0)}%.`;
-        allQuestionsResults.classList.remove('hidden');
-        
-        submitQuizBtn.classList.add('hidden');
+
+        quizResults.textContent = `Du svarede korrekt på ${correctCount} ud af ${filteredQuizQuestions.length} spørgsmål.`;
+        quizResults.classList.remove('hidden');
+        submitQuizBtn.disabled = true;
         restartAllQuizBtn.classList.remove('hidden');
-        quizActive = false;
     }
 
     function resetAllQuestionsQuiz() {
-        allQuestionsQuizForm.classList.add('hidden');
-        allQuestionsResults.classList.add('hidden');
-        startAllQuizBtn.classList.remove('hidden');
-        submitQuizBtn.classList.remove('hidden');
+        console.log("Resetting all questions quiz...");
+        allUserAnswers = {};
+        quizResults.classList.add('hidden');
         restartAllQuizBtn.classList.add('hidden');
+        renderQuizAllQuestions(); // Re-render quiz with current chapter selection
+        submitQuizBtn.disabled = filteredQuizQuestions.length === 0;
     }
-    
-    // One Question at a Time Quiz Funktioner
-    function updateStatsDisplay() {
-        correctCountDisplay.textContent = correctCount;
-        incorrectCountDisplay.textContent = incorrectCount;
-        notSureCountDisplay.textContent = notSureCount;
-        statsContainer.classList.remove('hidden');
+
+    // --- Quiz Functions (One Question at a Time Mode) ---
+    function updateActiveChaptersDisplay() {
+        console.log("Updating active chapters display...");
+        if (selectedQuizChapters.length > 0) {
+            // Filtrer "Bland alle kapitler" fra, hvis andre specifikke kapitler er valgt
+            const displayChapters = selectedQuizChapters.filter(chapter => chapter !== 'all_quiz_chapters_shuffled');
+            if (displayChapters.length === 0 && selectedQuizChapters.includes('all_quiz_chapters_shuffled')) {
+                activeChaptersDisplay.textContent = 'Alle kapitler (tilfældigt)';
+            } else if (displayChapters.length > 0) {
+                activeChaptersDisplay.textContent = displayChapters.join(', ');
+            } else {
+                activeChaptersDisplay.textContent = 'Ingen kapitler valgt';
+            }
+        } else {
+            activeChaptersDisplay.textContent = 'Ingen kapitler valgt';
+        }
     }
 
     function startOneByOneQuiz() {
-        // Reset stats for a new quiz
-        correctCount = 0;
-        incorrectCount = 0;
-        notSureCount = 0;
-        updateStatsDisplay();
+        console.log("Starting one-by-one quiz...");
+        // Reinitialize active questions based on current filtered questions
+        oneByOneActiveQuestions = filteredQuizQuestions.map(q => ({
+            ...q,
+            correctStreak: oneByOneCorrectStreaks[q.question] || 0 // Restore streak if exists
+        }));
+        
+        // Remove questions already mastered from previous sessions if they meet criterion
+        oneByOneActiveQuestions = oneByOneActiveQuestions.filter(q => q.correctStreak < 2);
 
-        currentQuestionIndex = 0;
-        startOneByOneQuizBtn.classList.add('hidden');
-        singleQuestionDisplay.classList.remove('hidden');
+        shuffleArray(oneByOneActiveQuestions);
+        currentOneByOneQuestionIndex = 0;
+
         singleQuizResults.classList.add('hidden');
-        
-        checkSingleAnswerBtn.disabled = true;
-
-        // Append the "Not sure" button
-        checkSingleAnswerBtn.parentNode.insertBefore(notSureBtn, checkSingleAnswerBtn.nextSibling);
-
-        checkSingleAnswerBtn.classList.remove('hidden');
-        nextSingleQuestionBtn.classList.add('hidden');
         restartSingleQuizBtn.classList.add('hidden');
-        
-        notSureBtn.classList.remove('hidden');
-        
-        renderSingleQuestion(currentQuestionIndex);
-    }
-    
-    function renderSingleQuestion(questionIndex) {
-        if (questionIndex >= quizQuestionsFiltered.length) {
-            // Quiz is over
-            showSingleQuizResults();
-            return;
-        }
 
-        const question = quizQuestionsFiltered[questionIndex];
+        if (oneByOneActiveQuestions.length > 0) {
+            singleQuestionDisplay.classList.remove('hidden');
+            renderSingleQuestion(oneByOneActiveQuestions[currentOneByOneQuestionIndex]);
+            updateSingleQuizUI();
+        } else {
+            singleQuestionDisplay.classList.add('hidden');
+            singleQuizProgress.textContent = "Ingen spørgsmål tilgængelige. Vælg kapitler eller start forfra.";
+            checkSingleAnswerBtn.disabled = true;
+            nextSingleQuestionBtn.classList.add('hidden');
+            restartSingleQuizBtn.classList.remove('hidden');
+        }
+    }
+
+    function renderSingleQuestion(question) {
+        console.log("Rendering single question...");
         singleQuestionText.textContent = question.question;
         singleOptionsContainer.innerHTML = '';
-        
-        // Render options for the single question
-        question.options.forEach((option, optionIndex) => {
-            const optionLabel = document.createElement('label');
-            optionLabel.classList.add('option-label', 'flex', 'items-center', 'cursor-pointer');
-            optionLabel.innerHTML = `
-                <input type="radio" name="single-option" value="${String.fromCharCode(97 + optionIndex)}" class="option-input">
-                <span class="ml-4">${option}</span>
+        singleExplanationText.classList.add('hidden');
+        singleExplanationText.classList.remove('correct', 'incorrect');
+        oneByOneUserAnswer = null; // Reset user answer for the new question
+
+        question.options.forEach((option, oIndex) => {
+            const label = document.createElement('label');
+            label.className = 'answer-option';
+            label.innerHTML = `
+                <input type="radio" name="single-question-option" value="${String.fromCharCode(97 + oIndex)}" class="form-radio text-blue-600">
+                <span class="ml-2">${String.fromCharCode(97 + oIndex)}. ${option}</span>
             `;
-            singleOptionsContainer.appendChild(optionLabel);
-        });
-
-        singleQuizProgressText.textContent = `Spørgsmål ${questionIndex + 1} / ${quizQuestionsFiltered.length}`;
-        checkSingleAnswerBtn.disabled = true; // Disable until an option is selected
-
-        // Event listener for radio buttons to enable the check button
-        singleOptionsContainer.querySelectorAll('input[type="radio"]').forEach(input => {
-            input.addEventListener('change', () => {
-                checkSingleAnswerBtn.disabled = false;
+            label.addEventListener('click', () => {
+                if (label.querySelector('input').disabled === false) { // Only allow selection if not already checked
+                    oneByOneUserAnswer = String.fromCharCode(97 + oIndex);
+                    checkSingleAnswerBtn.disabled = false; // Enable check button on selection
+                }
             });
+            singleOptionsContainer.appendChild(label);
         });
+
+        // Enable check button, disable next button
+        checkSingleAnswerBtn.disabled = true; // Initially disabled until an option is chosen
+        nextSingleQuestionBtn.classList.add('hidden');
+        singleQuestionDisplay.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function updateSingleQuizUI() {
+        console.log("Updating single quiz UI...");
+        singleQuizProgress.textContent = `Spørgsmål ${currentOneByOneQuestionIndex + 1} / ${oneByOneActiveQuestions.length}`;
+        // checkSingleAnswerBtn.disabled = (oneByOneUserAnswer === null); // Removed, now enabled by option click
+        if (oneByOneActiveQuestions.length === 0) {
+            singleQuizProgress.textContent = `Færdig! Du har mestret alle ${filteredQuizQuestions.length} spørgsmål i de valgte kapitler.`;
+            singleQuestionDisplay.classList.add('hidden');
+            checkSingleAnswerBtn.classList.add('hidden');
+            nextSingleQuestionBtn.classList.add('hidden');
+            restartSingleQuizBtn.classList.remove('hidden');
+            console.log("All single questions mastered.");
+            return;
+        } else if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length) {
+            currentOneByOneQuestionIndex = oneByOneActiveQuestions.length - 1; // Stay on last question if navigated too far
+        }
     }
 
     function checkSingleAnswer() {
-        const selectedAnswer = document.querySelector('input[name="single-option"]:checked');
-        if (!selectedAnswer) {
-            alert('Vælg venligst et svar.');
-            return;
-        }
+        console.log("Checking single answer...");
+        const currentQuestion = oneByOneActiveQuestions[currentOneByOneQuestionIndex];
+        const selectedOptionValue = oneByOneUserAnswer;
+        const correctOptionValue = currentQuestion.correctAnswer;
+        const options = singleOptionsContainer.querySelectorAll('.answer-option');
 
-        const selectedValue = selectedAnswer.value;
-        const currentQuestion = quizQuestionsFiltered[currentQuestionIndex];
-        const isCorrect = (selectedValue === currentQuestion.correctAnswer);
-
-        // Update stats based on the answer
-        if (isCorrect) {
-            correctCount++;
-            alert("Korrekt!");
-        } else {
-            incorrectCount++;
-            alert(`Forkert. Det korrekte svar er: ${currentQuestion.options[currentQuestion.correctAnswer.charCodeAt(0) - 'a'.charCodeAt(0)]}.`);
-        }
-
-        // Hide Check and show Next
-        checkSingleAnswerBtn.classList.add('hidden');
-        notSureBtn.classList.add('hidden');
+        // Disable all options and check button after checking
+        options.forEach(label => {
+            label.querySelector('input').disabled = true;
+            const optionValue = label.querySelector('input').value;
+            if (optionValue === correctOptionValue) {
+                label.classList.add('correct-answer');
+            }
+            if (optionValue === selectedOptionValue && optionValue !== correctOptionValue) {
+                label.classList.add('incorrect-answer');
+            }
+        });
+        checkSingleAnswerBtn.disabled = true;
         nextSingleQuestionBtn.classList.remove('hidden');
-        updateStatsDisplay(); // Update display after counting
-    }
 
-    function handleNotSure() {
-        notSureCount++;
-        updateStatsDisplay();
-        // Then just move to the next question without checking
-        nextSingleQuestion();
+        if (selectedOptionValue === correctOptionValue) {
+            singleExplanationText.textContent = `Korrekt! ${currentQuestion.feedback}`;
+            singleExplanationText.classList.add('correct');
+            singleExplanationText.classList.remove('incorrect');
+            currentQuestion.correctStreak = (currentQuestion.correctStreak || 0) + 1;
+            // Store streak globally for persistent tracking across restarts for this mode
+            oneByOneCorrectStreaks[currentQuestion.question] = currentQuestion.correctStreak; 
+        } else {
+            singleExplanationText.textContent = `Forkert. Det korrekte svar var ${correctOptionValue.toUpperCase()}. ${currentQuestion.feedback}`;
+            singleExplanationText.classList.add('incorrect');
+            singleExplanationText.classList.remove('correct');
+            currentQuestion.correctStreak = 0; // Reset streak on incorrect answer
+            oneByOneCorrectStreaks[currentQuestion.question] = 0;
+        }
+        singleExplanationText.classList.remove('hidden');
     }
 
     function nextSingleQuestion() {
-        currentQuestionIndex++;
-        renderSingleQuestion(currentQuestionIndex);
+        console.log("Moving to next single question...");
+        const currentQuestion = oneByOneActiveQuestions[currentOneByOneQuestionIndex];
 
-        // Hide Next and show Check
-        nextSingleQuestionBtn.classList.add('hidden');
-        if (currentQuestionIndex < quizQuestionsFiltered.length) {
-            checkSingleAnswerBtn.classList.remove('hidden');
-            notSureBtn.classList.remove('hidden');
+        // If question is mastered (correct twice), remove it from active questions
+        if (currentQuestion.correctStreak >= 2) {
+            oneByOneActiveQuestions.splice(currentOneByOneQuestionIndex, 1);
+            // Adjust index if we removed the last question
+            if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length && oneByOneActiveQuestions.length > 0) {
+                currentOneByOneQuestionIndex = oneByOneActiveQuestions.length - 1;
+            } else if (oneByOneActiveQuestions.length === 0) {
+                currentOneByOneQuestionIndex = 0; // Reset to 0 if all are gone
+            }
+        } else {
+            currentOneByOneQuestionIndex++;
         }
-    }
 
-    function showSingleQuizResults() {
-        singleQuestionDisplay.classList.add('hidden');
+        // If all questions are done, or no more active questions
+        if (oneByOneActiveQuestions.length === 0) {
+            singleQuizProgress.textContent = `Færdig! Du har mestret alle spørgsmål i de valgte kapitler.`;
+            singleQuestionDisplay.classList.add('hidden');
+            checkSingleAnswerBtn.classList.add('hidden');
+            nextSingleQuestionBtn.classList.add('hidden');
+            restartSingleQuizBtn.classList.remove('hidden');
+            console.log("All single questions mastered.");
+            return;
+        }
+
+        // Loop back to the start if we reach the end and there are still questions
+        if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length) {
+            currentOneByOneQuestionIndex = 0; // Loop back to the first remaining question
+            shuffleArray(oneByOneActiveQuestions); // Reshuffle remaining questions for variety
+        }
+
+        renderSingleQuestion(oneByOneActiveQuestions[currentOneByOneQuestionIndex]);
+        updateSingleQuizUI();
+        checkSingleAnswerBtn.classList.remove('hidden');
         nextSingleQuestionBtn.classList.add('hidden');
-        checkSingleAnswerBtn.classList.add('hidden');
-        notSureBtn.classList.add('hidden');
-        
-        const totalQuestions = quizQuestionsFiltered.length;
-        const score = (correctCount / totalQuestions) * 100;
-
-        singleQuizResults.textContent = `Quiz færdig! Du fik ${correctCount} rigtige, ${incorrectCount} forkerte, og ${notSureCount} usikre. Din score er ${score.toFixed(0)}%.`;
-        singleQuizResults.classList.remove('hidden');
-        
-        restartSingleQuizBtn.classList.remove('hidden');
     }
-    
+
     function resetOneByOneQuiz() {
-        // Reset stats display
-        correctCount = 0;
-        incorrectCount = 0;
-        notSureCount = 0;
-        updateStatsDisplay();
-
-        // Reset UI elements
-        singleQuizResults.classList.add('hidden');
-        startOneByOneQuizBtn.classList.remove('hidden');
-        restartSingleQuizBtn.classList.add('hidden');
-        singleQuestionDisplay.classList.add('hidden');
-        statsContainer.classList.add('hidden');
+        console.log("Resetting one-by-one quiz...");
+        // Reset all streaks for questions in the original filtered set
+        // It's important to reset streaks for the *original* questions, not just the currently active subset
+        filteredQuizQuestions.forEach(q => oneByOneCorrectStreaks[q.question] = 0);
+        startOneByOneQuiz(); // Restart the quiz
     }
 
 
-    // --- EVENT LISTENERS ---
-    
-    // Main Navigation
+    // --- Quiz Event Listeners (Common and Specific) ---
+    // Main Section Navigation
     showFlashcardsBtn.addEventListener('click', () => showMainSection('flashcard-section'));
     showQuizBtn.addEventListener('click', () => showMainSection('quiz-section'));
 
-    // Flashcard Navigation
-    categorySelect.addEventListener('change', (e) => {
-        currentCategory = e.target.value;
-        currentCardIndex = 0;
-        renderFlashcard(currentCardIndex);
-    });
-
-    prevCardBtn.addEventListener('click', () => {
-        const cards = allFlashcardCategories[currentCategory];
-        if (currentCardIndex > 0) {
-            renderFlashcard(currentCardIndex - 1);
-        } else {
-            alert("Du er ved det første flashcard.");
-        }
-    });
-
-    nextCardBtn.addEventListener('click', () => {
-        const cards = allFlashcardCategories[currentCategory];
-        if (currentCardIndex < cards.length - 1) {
-            renderFlashcard(currentCardIndex + 1);
-        } else {
-            alert("Du er ved det sidste flashcard.");
-        }
-    });
-    
     // Quiz Mode Navigation
     showAllQuestionsModeBtn.addEventListener('click', () => showQuizMode('all_questions'));
     showOneByOneModeBtn.addEventListener('click', () => showQuizMode('one_by_one'));
-    
+
     // Chapter Selection (applies to both quiz modes)
     quizChapterSelect.addEventListener('change', filterQuizQuestions); // Filter questions when chapter selection changes
 
@@ -889,21 +2222,18 @@ document.addEventListener('DOMContentLoaded', () => {
     startAllQuizBtn.addEventListener('click', renderQuizAllQuestions);
     submitQuizBtn.addEventListener('click', submitAllQuestionsQuiz);
     restartAllQuizBtn.addEventListener('click', resetAllQuestionsQuiz);
-    
+
     // One Question at a Time Mode Specific
     startOneByOneQuizBtn.addEventListener('click', startOneByOneQuiz);
     checkSingleAnswerBtn.addEventListener('click', checkSingleAnswer);
     nextSingleQuestionBtn.addEventListener('click', nextSingleQuestion);
     restartSingleQuizBtn.addEventListener('click', resetOneByOneQuiz);
-    notSureBtn.addEventListener('click', handleNotSure);
-
-    // Initial styling and setup for the new button
-    notSureBtn.textContent = 'Ikke sikker';
-    notSureBtn.classList.add('submit-btn', 'text-lg', 'ml-6', 'bg-yellow-500', 'hover:bg-yellow-600', 'hidden');
+    
+    // Initial setup for quiz chapter selection (to be done on page load)
+    populateQuizChapterSelect();
 
     // --- Initialisation ---
     populateCategorySelect(); // Populate flashcard categories
-    populateQuizChapterSelect();
     showMainSection('flashcard-section'); // Show flashcards by default
     
     console.log("App initialization complete.");
