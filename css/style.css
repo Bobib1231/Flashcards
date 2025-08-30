@@ -159,6 +159,9 @@ body {
 .start-quiz-btn {
     background-color: #4f46e5;
 }
+.check-answer-btn {
+    background-color: #4f46e5;
+}
 
 /* --- Resultatbeskeder --- */
 .result-message {
