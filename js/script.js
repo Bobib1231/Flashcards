@@ -171,6 +171,18 @@ document.addEventListener('DOMContentLoaded', () => {
         { front: "Androgyni", back: "Tanken om at kunne bevæge sig forbi opsatte kønsrammer og -roller. [cite_start]Studier viser, at mænd, der er mere maskuline og i forhold med kvinder, der er mere feminine, har et længere forhold[cite: 3]." },
         { front: "Instrumentality", back: "Et personlighedstræk, der handler om interesse for objekter, at få gjort ting effektivt og være uafhængig. [cite_start]Dette er typisk associeret med maskulinitet[cite: 3]." },
         { front: "Expressiveness", back: "Et personlighedstræk, der handler om at kunne vise følelser. [cite_start]Dette er typisk associeret med femininitet[cite: 3]." }
+    ],
+        "Kenrick 2012 - Økonomi og Evolutionær Psykologi": [
+        { front: "Homo economicus", back: "Det traditionelle billede af mennesket inden for økonomi. Ifølge denne model er mennesket fuldt rationelt og motiveres udelukkende af at maksimere 'nyttevirkning'." },
+        { front: "Adferdsøkonomi (Behavioral economics)", back: "Et felt, der kombinerer psykologi og økonomi for at undersøge de psykologiske faktorer, der påvirker økonomiske beslutninger og adfærd." },
+        { front: "Heuristikker", back: "Mentale genveje eller 'tommelfingerregler', som hjernen bruger til hurtigt at træffe beslutninger. De er effektive, men ikke altid perfekte og kan føre til biases." },
+        { front: "Deep Rationality (Dybe rationalitet)", back: "Konceptet, der siger, at menneskelig adfærd, som ofte anses for at være irrationel, i virkeligheden er en evolutionært betinget og adaptiv form for rationalitet. Adfærd, der maksimerer vores 'inklusiv fitness', selvom det ikke altid giver økonomisk mening." },
+        { front: "Conspicuous consumption (Iøjnefaldende forbrug)", back: "Tendensen til at købe dyre ting for at signalere høj status og rigdom. Dette er et eksempel på adfærd, der ifølge teksten er drevet af evolutionære motiver, såsom at tiltrække en partner." },
+        { front: "Loss Aversion (Tapsaversion)", back: "Den psykologiske tendens, hvor en person oplever tab som mere negativt og smertefuldt, end en tilsvarende gevinst føles positiv. Dette er en bias, der modarbejder 'homo economicus'-modellen." },
+        { front: "LHT (Life History Theory)", back: "En evolutionær teori, der forklarer, hvordan et individs livsforløb er formet af de ressourcer, der er tilgængelige. Den skelner mellem 'somatic effort' (overlevelse) og 'reproductive effort' (at skabe afkom)." },
+        { front: "Somatic effort", back: "Handlinger og adfærd, der handler om at opbygge og opretholde kroppen, dvs. overlevelse. Dette er et af de to centrale 'livshistorie' begreber i teksten." },
+        { front: "Reproductive effort", back: "Handlinger og adfærd, der handler om at skabe afkom. Dette er det andet centrale 'livshistorie' begreb, der driver mange af vores motivationer ifølge evolutionær teori." },
+        { front: "Fundamentale motiver (Subselver)", back: "En række sammenhængende delprogrammer, der er designet til at løse forskellige evolutionære udfordringer. De inkluderer selvbeskyttelse, sygdomsundgåelse, tilhørsforhold, status, partnervalg og parringsbevaring." }
     ]
 }
     };
