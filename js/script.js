@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Neofile dyr", back: "En betegnelse for, at mennesker er nysgerrige og søger nye stimuli." },
             { front: "Gøre specielt (Making special)", back: "Vores æstetiske sans kan ikke reduceres til kun nøglestimuli. Kulturel indflydelse, socialt pres, tradition og læring spiller også en stor rolle." },
         ],
-        "Kønsforskelle Larsen": [
+        "Kapitel 16, Larsen ": [
             { front: "Effektstørrelse (d-statistik)", back: "En måling for at bestemme, hvor store forskellene er. D-score på 0,20 er en lille forskel, 0,50 er medium, og 0,80 er stor. Et negativt tal betyder, at kvinder scorer højere, og et positivt tal betyder, at mænd scorer højere[cite: 3]." },
             { front: "Minimalist", back: "Udgangspunktet er, at forskellene mellem kønnene er minimale og har lille signifikans i hverdagen, selvom der er store overlap[cite: 3]." },
             { front: "Maksimalist", back: "Udgangspunktet er, at forskellene mellem kønnene er på niveau med andre psykologiske forskelle og kan have stor betydning over et helt liv, selvom forskellene i sig selv er små[cite: 3]." },
