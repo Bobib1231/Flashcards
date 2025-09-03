@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Reproductive effort", back: "Handlinger og adfærd, der handler om at skabe afkom. Dette er det andet centrale 'livshistorie' begreb, der driver mange af vores motivationer ifølge evolutionær teori." },
             { front: "Fundamentale motiver (Subselver)", back: "En række sammenhængende delprogrammer, der er designet til at løse forskellige evolutionære udfordringer. De inkluderer selvbeskyttelse, sygdomsundgåelse, tilhørsforhold, status, partnervalg og parringsbevaring." }
     ]
-    };
+};
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
     const quizQuestions = [
