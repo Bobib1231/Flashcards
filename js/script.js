@@ -183,6 +183,19 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Somatic effort", back: "Handlinger og adfærd, der handler om at opbygge og opretholde kroppen, dvs. overlevelse. Dette er et af de to centrale 'livshistorie' begreber i teksten." },
             { front: "Reproductive effort", back: "Handlinger og adfærd, der handler om at skabe afkom. Dette er det andet centrale 'livshistorie' begreb, der driver mange af vores motivationer ifølge evolutionær teori." },
             { front: "Fundamentale motiver (Subselver)", back: "En række sammenhængende delprogrammer, der er designet til at løse forskellige evolutionære udfordringer. De inkluderer selvbeskyttelse, sygdomsundgåelse, tilhørsforhold, status, partnervalg og parringsbevaring." }
+        ],
+        "Haidt - Moralpsykologi": [
+            { front: "Moralsk intuition", back: "En hurtig, automatisk følelse af, at noget er godt eller dårligt, uden at vi bevidst ved hvorfor." },
+            { front: "Moralsk ræsonnement", back: "En langsom, bevidst proces, hvor vi overvejer information for at nå frem til en moralsk dom." },
+            { front: "Post hoc ræsonnement", back: "Processen, hvor vi finder på argumenter for at retfærdiggøre en moralsk dom, som vi allerede har truffet intuitivt." },
+            { front: "Det social-intuitionistiske model", back: "Foreslår, at moralsk ræsonnement primært er et efterfølgende argument, og at moralsk forandring primært sker gennem social påvirkning." },
+            { front: "Princip 1: Intuitiv primat", back: "Moralske intuitioner opstår før moralsk ræsonnement. Følelser er det første skridt i en moralsk dom." },
+            { front: "Princip 2: Moralsk tænkning er til social brug", back: "Vores moralske ræsonnement fungerer mere som en advokat for at beskytte vores omdømme end som en dommer, der søger sandheden." },
+            { front: "Princip 3: Moral binder og bygger", back: "Moral handler ikke kun om at bedømme individer, men også om at skabe og vedligeholde stærke og samlede grupper." },
+            { front: "Princip 4: Moral handler om mere end skade og retfærdighed", back: "Moralske domme er også baseret på gruppeorienterede fundamenter som loyalitet, autoritet og renhed, ud over de traditionelle begreber om skade og retfærdighed." },
+            { front: "Moral Foundations Theory (Moralens grundlagsteori)", back: "Teorien identificerer fem grundlæggende moralske fundamenter: skade/omsorg, retfærdighed/gensidighed, loyalitet/ingroup, autoritet/respekt og renhed/hellighed." },
+            { front: "Moralsk stumhed ('Moral dumbfounding')", back: "Et fænomen, hvor folk ikke kan forklare, hvorfor noget er moralsk forkert, selvom de intuitivt føler, at det er det." },
+            { front: "Homo moralis", back: "Mennesket, der har sociale motivationer ud over egeninteresser." }
     ]
 };
 
