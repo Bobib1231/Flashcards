@@ -196,6 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Moral Foundations Theory (Moralens grundlagsteori)", back: "Teorien identificerer fem grundlæggende moralske fundamenter: skade/omsorg, retfærdighed/gensidighed, loyalitet/ingroup, autoritet/respekt og renhed/hellighed." },
             { front: "Moralsk stumhed ('Moral dumbfounding')", back: "Et fænomen, hvor folk ikke kan forklare, hvorfor noget er moralsk forkert, selvom de intuitivt føler, at det er det." },
             { front: "Homo moralis", back: "Mennesket, der har sociale motivationer ud over egeninteresser." }
+        ],
+        "Bateson 2006 - Forskning i samarbejde": [
+            { front: "Bateson - Forsøgets hypotese", back: "Mennesker vil donere flere penge, når der er et billede af øjne i deres synsfelt." },
+            { front: "Bateson - Forsøgets opsætning", back: "Deltagerne skulle betale for drikkevarer i en ærlighedsboks, hvor et billede af enten øjne eller blomster blev skiftet ud ugentligt." },
+            { front: "Bateson - Hovedresultat", back: "Folk betalte næsten tre gange så meget for deres drikkevarer, når billeder af øjne var til stede, sammenlignet med billeder af blomster." },
+            { front: "Bateson - Årsagen til resultatet", back: "Billederne af øjne motiverede en ubevidst følelse af at blive overvåget, hvilket øgede deltageres samarbejdsvillige adfærd." },
+            { front: "Bateson - Teori om ry (reputation)", back: "Mennesker er stærkt påvirkede af adfærd, der kan påvirke deres ry. Dette motiverer dem til at være gavmilde, selv når der ikke er en direkte gevinst." },
+            { front: "Bateson - Indirekte gengældelse", back: "Selv når man ikke hjælper en person direkte, kan et positivt ry, opbygget ved at være gavmild, føre til gensidighed fra andre i fremtiden." },
+            { front: "Bateson - Anonymitet i forsøget", back: "Selvom deltagerne troede, de var anonyme, var de ubevidst modtagelige for de subtile signaler fra øjnene." }
     ]
 };
 
