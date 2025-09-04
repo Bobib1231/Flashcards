@@ -205,7 +205,29 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Bateson - Teori om ry (reputation)", back: "Mennesker er stærkt påvirkede af adfærd, der kan påvirke deres ry. Dette motiverer dem til at være gavmilde, selv når der ikke er en direkte gevinst." },
             { front: "Bateson - Indirekte gengældelse", back: "Selv når man ikke hjælper en person direkte, kan et positivt ry, opbygget ved at være gavmild, føre til gensidighed fra andre i fremtiden." },
             { front: "Bateson - Anonymitet i forsøget", back: "Selvom deltagerne troede, de var anonyme, var de ubevidst modtagelige for de subtile signaler fra øjnene." }
-    ]
+        ],
+        "Kultur og personlighed - Larsen": [
+            { front: "WEIRD-folk", back: "Står for Western, Educated, Industrialized, Rich and Democratic. Denne gruppe udgør kun 12% af verdens befolkning, men 96% af psykologiske studier er baseret på dem." },
+            { front: "Kulturpsykologiens 3 mål", back: "1. At finde principperne der ligger til for de kulturelle forskelle. 2. Finde ud af hvordan menneskelig psykologi former menneskelig kultur. 3. Finde ud af hvordan menneskelig kultur former menneskelig psykologi." },
+            { front: "Evoked culture", back: "Kultur der opstår som et adaptivt svar på specifikke miljømæssige udfordringer." },
+            { front: "Transmitted culture", back: "En idé der opstår hos et individ og spredes til en hel gruppe, hvor den fæstner sig som kultur." },
+            { front: "Cultural universals", back: "De kulturelle fænomener, der er de samme på tværs af kulturer og derfor anses for at være en del af den menneskelige natur." },
+            { front: "Høj-varians betingelser", back: "En tilstand, hvor ressourcer er svære at finde, hvilket fremmer samarbejde og deling." },
+            { front: "Lav-varians betingelser", back: "En tilstand, hvor ressourcer er stabile. Dette fremmer en kultur, hvor man ønsker at beholde frugten af sin egen flid." },                   { front: "Egalitarianism", back: "En tro på at alle mennesker er lige værdifulde og bør have lige rettigheder og muligheder. Tæt forbundet med høj-varians betingelser." },
+            { front: "Tidlig seksuel erfaring", back: "Børn fra ustabile hjem har tendens til at få tidligere seksuel debut og indgå i mindre stabile forhold." },
+            { front: "Culture of honor", back: "En kultur, hvor man reagerer aggressivt på provokation for at opretholde et ry, især i samfund hvor levebrød (f.eks. kvæg) kan stjæles let." },
+            { front: "Independence (Uafhængighed)", back: "Et selvkoncept der fokuserer på at adskille sig fra andre og definere sig ud fra individuelle, abstrakte egenskaber (fx intelligent). Typisk for vestlige kulturer." },
+            { front: "Interdependence (Indbyrdes afhængighed)", back: "Et selvkoncept der fokuserer på ens relationer til gruppen og ens sociale rolle (fx medlem af et team). Typisk for asiatiske kulturer." },
+            { front: "Selvophøjelse", back: "Tendensen til at se sig selv som bedre end gennemsnittet. Det er universelt, men forekommer oftere i individualistiske kulturer som USA sammenlignet med Danmark og Japan." },
+            { front: "Holistisk tænkemåde", back: "En tænkemåde, der fokuserer på situationen og konteksten, snarere end på objektets kendetegn." },
+            { front: "Analytisk tænkemåde", back: "En tænkemåde, der fokuserer på objektets kendetegn og adskiller det fra konteksten." },
+            { front: "Acculturation (Akkulturation)", back: "Processen hvor individer, der flytter til et nyt land, gradvist tager den nye kulturs selvkoncept til sig." },
+            { front: "Impression management", back: "Det at kontrollere det indtryk, man giver andre." },
+            { front: "General evaluative bias", back: "En tendens til at se sig selv og andre i et bedre lys." },
+            { front: "Self-focused evaluative bias", back: "En tendens til kun at se sig selv i et bedre lys." },
+            { front: "Målingsinvarians", back: "En forudsætning for at kunne sammenligne resultater på tværs af kulturer, da det sikrer, at de samme begreber måles på samme måde." },
+            { front: "Lexical hypothesis (leksikalsk hypotese)", back: "Antagelsen om at de vigtigste personlighedsforskelle blandt mennesker er indlejret i sproget. Teorien bruges til at identificere centrale personlighedstræk, som for eksempel i udviklingen af Big Five-modellen." }
+      ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
