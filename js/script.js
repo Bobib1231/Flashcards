@@ -227,7 +227,27 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Self-focused evaluative bias", back: "En tendens til kun at se sig selv i et bedre lys." },
             { front: "Målingsinvarians", back: "En forudsætning for at kunne sammenligne resultater på tværs af kulturer, da det sikrer, at de samme begreber måles på samme måde." },
             { front: "Lexical hypothesis (leksikalsk hypotese)", back: "Antagelsen om at de vigtigste personlighedsforskelle blandt mennesker er indlejret i sproget. Teorien bruges til at identificere centrale personlighedstræk, som for eksempel i udviklingen af Big Five-modellen." }
-      ]
+      ],
+        "Høgh Olesen 2014 - Stimulations- og strukturbehov": [
+            { front: "Høgh Olesens model", back: "En model, der forbinder behovet for **stimulation** med behovet for **struktur** for at forstå menneskelig adfærd." },
+            { front: "Sensorisk deprivation", back: "En mangel på stimuli, der kan medføre koncentrationsbesvær, motorisk uro, emotionelle udsving og i alvorlige tilfælde hallucinationer." },
+            { front: "Konsekvens ved for lav stimulation", back: "Man keder sig, bliver passiv og har svært ved at finde på ting at lave." },
+            { front: "Konsekvens ved for høj stimulation", back: "Verden opleves som uoverskuelig, hvilket kan føre til stress, angst, tunnelsyn og panik." },
+            { front: "Optimal Stimulation Needs (OSN)", back: "Det optimale stimulationsniveau, som et individ trives bedst i. Forskelle i dette niveau er stort set genetisk bestemt." },
+            { front: "Arousal tonus", back: "Et individs indre beredskab og opmærksomhedsniveau, som forklarer, hvorfor mennesker trives ved forskellige stimulationsniveauer." },
+            { front: "De fire delfaktorer i stimulationssøgning", back: "1. **Thrill and adventure seeking:** Fysisk spænding. 2. **Experience seeking:** Nye sanseindtryk. 3. **Disinhibition:** Behov for frihed. 4. **Boredom susceptibility:** Følsomhed over for kedsomhed." },
+            { front: "Hvilke faktorer påvirker stimulationsbehovet?", back: "Mænd scorer generelt højere end kvinder (dog ikke på 'experience seeking'), og behovet topper i ungdommen og aftager med alderen." },
+            { front: "Flertydighedstolerance", back: "Et individs tolerance over for ustrukturerede og flertydige situationer." },
+            { front: "Apollinsk personlighedsposition", back: "En personlighedstype der søger **struktur** frem for stimulation. Kendetegnes ved pligtopfyldenhed, systematik og ordenssans." },
+            { front: "Prometisk personlighedsposition", back: "En personlighedstype der søger **stimulation** frem for struktur. Kendetegnes ved at være kreative, risikovillige og uden for sociale rammer." },
+            { front: "Dionysisk position", back: "Den ekstreme form for den prometiske position, hvor stimulussøgning er uden grænser og kan føre til maniske eller psykopatiske træk." },
+            { front: "Hermetisk position", back: "Den ekstreme form for den apollinske position, hvor forsigtighed fører til angst og lukkethed. Ses ofte ved tvangslidelser (OCD)." },
+            { front: "Karaktertræk ved den Apollinske position", back: "Pligtopfyldende, ordenssans, systematik og perfektionisme. I ekstreme tilfælde flertydighedsintolerance, livsangst og fremmedhad." },
+            { front: "Karaktertræk ved den Prometiske position", back: "Kreative, risikovillige og har svært ved at underordne sig sociale rammer." },
+            { front: "Hvilken position er idealiseret i Vesten?", back: "Den Prometiske position, hvor travlhed, risikovillighed og handlekraft idealiseres." },
+            { front: "Hvad er 'Asteni'?", back: "En tilstand af træthed og passivitet, der udtrykkes som 'Jeg orker ikke noget'." },
+            { front: "Hvorfor er OSN genetisk bestemt?", back: "Studier med tvillinger, der er vokset op i forskellige miljøer, viser, at OSN i høj grad er genetisk bestemt og kun påvirkes lidt af miljøet." },
+    ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
