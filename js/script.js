@@ -247,6 +247,32 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Hvilken position er idealiseret i Vesten?", back: "Den Prometiske position, hvor travlhed, risikovillighed og handlekraft idealiseres." },
             { front: "Hvad er 'Asteni'?", back: "En tilstand af træthed og passivitet, der udtrykkes som 'Jeg orker ikke noget'." },
             { front: "Hvorfor er OSN genetisk bestemt?", back: "Studier med tvillinger, der er vokset op i forskellige miljøer, viser, at OSN i høj grad er genetisk bestemt og kun påvirkes lidt af miljøet." },
+        ],
+        "Kapitel 3, Larsen": [
+            { front: "To basale formuleringer af personlighedstræk", back: "1. Som **interne, kausale egenskaber** (en drivkraft). 2. Som **udelukkende beskrivende resumeer** (baseret på observeret adfærd)." },
+            { front: "Træk som interne, kausale egenskaber", back: "Personlighedstræk er indre lyster og drifter, der driver din adfærd. De definerer din personlighed, selv når de ikke kommer til udtryk." },
+            { front: "Træk som udelukkende beskrivende resumeer", back: "Et træk er blot et udtryk for den adfærd, en person har vist, og antager ikke en indre årsag eller drift." },
+            { front: "Personligheds kohærens", back: "Den konsistens, der er i ens personlighedstræk over tid. Måden, et træk kommer til udtryk, kan ændre sig, men selve trækket forbliver det samme." },
+            { front: "Act Frequency Approach (Handlingshyppigheds tilgang)", back: "En tilgang der ser personlighedstræk som opsummeringer af generelle adfærdstendenser. Jo flere handlinger, der stemmer overens med et træk, desto højere scorer man på det." },
+            { front: "Act Nomination", back: "Processen med at knytte specifikke handlinger til en trækkategori ved at spørge mange mennesker, hvilken adfærd de forbinder med et træk." },
+            { front: "Prototypicality Judgement", back: "Processen med at vurdere, hvilke handlinger der er mest stereotype for et træk." },
+            { front: "Recording of Act Performance", back: "En metode til at registrere, hvor mange gange en person udfører en bestemt adfærd, der er associeret med et træk." },
+            { front: "Lexical Approach (Leksikalsk tilgang)", back: "Antagelsen om, at de vigtigste individuelle forskelle mellem mennesker er blevet kodificeret i det naturlige sprog." },
+            { front: "Statistical Approach (Statistisk tilgang)", back: "En metode der bruger statistiske teknikker som **faktoranalyse** til at identificere de vigtigste træk ud fra store mængder data." },
+            { front: "Theoretical Approach (Teoretisk tilgang)", back: "En metode, hvor en teori bestemmer, hvilke personlighedstræk der er vigtige." },
+            { front: "Faktoranalyse", back: "En matematisk metode, der sammensætter 'personlighedsgenstande', der minder meget om hinanden, i kategorier." },
+            { front: "Factor loadings", back: "Et tal, der indikerer, hvor meget en genstand korrelerer med en faktor." },
+            { front: "Eysencks PEN model", back: "En personlighedstaksonomi baseret på tre supertræk: **Psychoticism**, **Extraversion** og **Neuroticism**." },
+            { front: "Psychoticism (PEN)", back: "Et supertræk forbundet med selviskhed, aggressivitet, impulsivitet og manglende empati." },
+            { front: "Neuroticism (PEN)", back: "Et supertræk forbundet med følelsesmæssig ustabilitet, irritation, skyldfølelse og lavt selvværd." },
+            { front: "Extraversion (PEN)", back: "Et supertræk forbundet med socialitet, aktivitet, dominans og nysgerrighed." },
+            { front: "Circumplex taksonomi (Wiggins' model)", back: "En model, der primært fokuserer på interpersonelle træk, opdelt efter dimensionerne 'kærlighed' og 'status'." },
+            { front: "De tre typer af trækrelationer i Wiggins' model", back: "1. **Adjecency:** Jo tættere træk er på hinanden, jo større korrelation har de. 2. **Bipolaritet:** Modsatte træk har negativ korrelation. 3. **Ortogonalitet:** Vinkelrette træk har ingen korrelation." },
+            { front: "Sociosexual orientation", back: "En teori der påstår, at mænd og kvinder vælger mellem en begrænset og ubegrænset parringsstrategi." },
+            { front: "Self-handicapping", back: "Når man sætter begrænsninger for at opnå et mål for at opretholde et godt selvværd, hvis man fejler. Man giver sig selv en 'undskyldning' på forhånd." },
+            { front: "Taksonomi", back: "Klassificering af psykologiske begreber i et system." },
+            { front: "Fordele ved Act Frequency Approach", back: "1. Har specificeret hvilke adfærdsmønstre, der er regelmæssige. 2. Har fundet kulturelle forskelle i opfattelsen af adfærd. 3. Viser, hvilke træk der er mest synlige for andre." },
+            { front: "Kritik af Act Frequency Approach", back: "Det er ikke specificeret, hvor meget kontekst der skal gives til en handling. Træk, der kun kommer til udtryk i specifikke sammenhænge, observeres muligvis ikke." }
     ]
 };
 
