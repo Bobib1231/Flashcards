@@ -273,6 +273,26 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Taksonomi", back: "Klassificering af psykologiske begreber i et system." },
             { front: "Fordele ved Act Frequency Approach", back: "1. Har specificeret hvilke adfærdsmønstre, der er regelmæssige. 2. Har fundet kulturelle forskelle i opfattelsen af adfærd. 3. Viser, hvilke træk der er mest synlige for andre." },
             { front: "Kritik af Act Frequency Approach", back: "Det er ikke specificeret, hvor meget kontekst der skal gives til en handling. Træk, der kun kommer til udtryk i specifikke sammenhænge, observeres muligvis ikke." }
+        ],
+        "Kapitel 10, Larsen - Motiver og personlighed": [
+            { front: "Hvilke 5 fælles overbevisninger deler dispositionelle og intrapsykiske psykologer om motiver?", back: "1. Folk er forskellige i type og styrke af motiver. 2. Forskelle kan måles. 3. De kan føre til vigtige livsudfald. 4. De er stabile over tid. 5. Motiver kan måske forklare 'hvorfor' folk handler, som de gør." },
+            { front: "Murray's motivationsteori", back: "Antager, at motiver udelukkende er et resultat af fortiden." },
+            { front: "Need (behov)", back: "Et stadie af anspændthed, der kan lettes, når et behov er opfyldt. Behov er relateret til ønsker og drifter." },
+            { front: "Press (pres)", back: "Et behovsfremkaldende aspekt fra miljøet. Der er to typer: 'alpha press' (objektiv virkelighed) og 'beta press' (opfattet virkelighed)." },
+            { front: "Apperception", back: "Processen med at fortolke miljøet og give det en mening. Denne proces er påvirket af ens behov." },
+            { front: "Thematic Apperception Test (TAT)", back: "En projektiv test, hvor en person skal fortolke billeder. Den antager, at personens opfattelse af billederne afspejler hans egne motiver." },
+            { front: "State", back: "En midlertidig og kortvarig følelsesmæssig tilstand, som er en reaktion på miljøet." },
+            { front: "Trait", back: "Den underliggende, varige tendens til at opleve en bestemt følelse eller tilstand." },
+            { front: "Implict motivation (implicit motivation)", back: "De ubevidste motiver, der afspejler dybere ønsker og behov. Måles ofte via projektive test som TAT." },
+            { front: "Self-attributed motivation (selv-attribueret motivation)", back: "De bevidste motiver, der afspejler en persons bevidste holdninger. Måles ofte via selvrapportering." },
+            { front: "Independence training", back: "Træning af børn i selvstændighed for at fremme uafhængighed og et højt præstationsbehov." },
+            { front: "Power stress", back: "Den stress der opstår, når en persons forsøg på at udøve magt mislykkes." },
+            { front: "Flow", back: "Et subjektivt stadie, hvor en person er helt opslugt af en aktivitet og mister fornemmelsen af tid. Ses som en indikation af selvaktualisering." },
+            { front: "Fuldt fungerende person", back: "En person, der er på vej mod eller allerede har opnået selvaktualisering." },
+            { front: "Positive regard", back: "Behovet for positiv anerkendelse fra andre." },
+            { front: "Conditions of worth", back: "Betingelsen af, at en persons værdi er bundet op på andres anerkendelse." },
+            { front: "Conditional positive regard", back: "De betingelser, andre (især forældre) sætter for at give anerkendelse." },
+            { front: "Unconditional positive regard", back: "Betingelsesløs positiv anerkendelse, som er nødvendig for, at et barn kan opnå selvaktualisering." }
     ]
 };
 
