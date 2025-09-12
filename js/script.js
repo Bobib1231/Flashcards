@@ -293,7 +293,24 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Conditions of worth", back: "Betingelsen af, at en persons værdi er bundet op på andres anerkendelse." },
             { front: "Conditional positive regard", back: "De betingelser, andre (især forældre) sætter for at give anerkendelse." },
             { front: "Unconditional positive regard", back: "Betingelsesløs positiv anerkendelse, som er nødvendig for, at et barn kan opnå selvaktualisering." }
-    ]
+        ],
+        "Kapitel 4, Larsen": [
+            { front: "De tre fundamentale udgangspunkter for trækpsykologi", back: "1. Meningsfulde individuelle forskelle, 2. Konsistens og stabilitet over tid, 3. Stabilitet på tværs af situationer." },
+            { front: "Mischels kritik af trækpsykologi", back: "Han mente ikke, at der var statistisk grundlag for at sige noget om personlighedstrækkenes konsistens på tværs af situationer, hvilket førte til **situationisme**." },
+            { front: "Person-Situation interaktion", back: "Tanken om, at adfærd er en funktion af både personlighedstræk og situationelle kræfter, symboliseret ved formlen $B = f(P \\bullet S)$." },
+            { front: "Situation specificity", back: "Når en person opfører sig på en bestemt, specifik måde under særlige omstændigheder, som kan være i modstrid med deres personlighedstræk." },
+            { front: "Hvornår har personlighedstræk den stærkeste kraft?", back: "I svage situationer, hvor der er få sociale eller strukturelle begrænsninger for adfærd." },
+            { front: "De tre måder personlighed interagerer med situationer", back: "1. Situationel selektion (vi vælger situationer). 2. Evokation (vores træk fremprovokerer reaktioner fra andre). 3. Manipulation (vi påvirker intentionelt andres adfærd)." },
+            { front: "Situationel selektion", back: "Idéen om at personlighed påvirker, hvilke situationer vi vælger at udsætte os selv for. (F.eks. vælger ekstroverte ofte sociale sammenkomster)." },
+            { front: "Evokation", back: "Idéen om at specifikke personlighedstræk fremprovokerer specifikke reaktioner fra miljøet eller andre mennesker." },
+            { front: "Manipulation", back: "Idéen om at mennesker intentionelt påvirker andres adfærd til deres egen fordel." },
+            { front: "De tre problemer med måling af personlighed ved selvrapportering", back: "1. Ligegladhed (Demotiverede respondenter). 2. Defensivitet (Søger 'neutrale' svar). 3. Forfalskning af svar (Fremstiller sig selv i et bedre lys)." },
+            { front: "Infrequency scale", back: "En metode til at modvirke ligegladhed ved at inkludere åbenlyse spørgsmål (f.eks. \"Jeg går altid på hænder op ad trappen\") for at identificere respondenter, der ikke læser spørgsmålene ordentligt." },
+            { front: "Middle category endorsement", back: "Tendensen hos respondenter til at vælge middelkategorier som \"neutral\" eller \"ved ikke\", hvilket ikke giver meningsfuld information. Kan undgås ved at fjerne midterste svarmulighed." },
+            { front: "Socially desireable responding", back: "Tendensen til at forvride testresultater for at fremstå mere socialt ønskværdig. Især udbredt i jobscenarier." },
+            { front: "Latent træk vs. manifest variabel", back: "Et latent træk er en underliggende egenskab (f.eks. intelligens), mens en manifest variabel er den synlige adfærd, der bruges til at måle det latente træk (f.eks. en testscore)." },
+            { front: "Barnum statements", back: "Generelle udtalelser, der er så brede, at de kan gælde for næsten enhver. De udnyttes ofte i populære personlighedstests som Myers-Briggs (MBTI)." }
+      ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
