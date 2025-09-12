@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Thematic Apperception Test (TAT)", back: "En projektiv test, hvor en person skal fortolke billeder. Den antager, at personens opfattelse af billederne afspejler hans egne motiver." },
             { front: "State", back: "En midlertidig og kortvarig følelsesmæssig tilstand, som er en reaktion på miljøet." },
             { front: "Trait", back: "Den underliggende, varige tendens til at opleve en bestemt følelse eller tilstand." },
-            { front: "Implict motivation (implicit motivation)", back: "De ubevidste motiver, der afspejler dybere ønsker og behov. Måles ofte via projektive test som TAT." },
+            { front: "Implicit motivation", back: "De ubevidste motiver, der afspejler dybere ønsker og behov. Måles ofte via projektive test som TAT." },
             { front: "Self-attributed motivation (selv-attribueret motivation)", back: "De bevidste motiver, der afspejler en persons bevidste holdninger. Måles ofte via selvrapportering." },
             { front: "Independence training", back: "Træning af børn i selvstændighed for at fremme uafhængighed og et højt præstationsbehov." },
             { front: "Power stress", back: "Den stress der opstår, når en persons forsøg på at udøve magt mislykkes." },
