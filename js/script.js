@@ -310,7 +310,21 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Socially desireable responding", back: "Tendensen til at forvride testresultater for at fremstå mere socialt ønskværdig. Især udbredt i jobscenarier." },
             { front: "Latent træk vs. manifest variabel", back: "Et latent træk er en underliggende egenskab (f.eks. intelligens), mens en manifest variabel er den synlige adfærd, der bruges til at måle det latente træk (f.eks. en testscore)." },
             { front: "Barnum statements", back: "Generelle udtalelser, der er så brede, at de kan gælde for næsten enhver. De udnyttes ofte i populære personlighedstests som Myers-Briggs (MBTI)." }
-      ]
+       ],
+    "Kapitel 5, Larsen - Stabilitet og forandring": [
+            { front: "Personlighedsudvikling", back: "De stabile aspekter af personlighed og hvordan den ændres over tid." },
+            { front: "Rankordens stabilitet", back: "Vedligeholdelsen af en persons relative position i en gruppe over tid." },
+            { front: "Mean Level Stability", back: "Gennemsnitsniveauet af et personlighedstræk i en bestemt population forbliver stabilt over tid." },
+            { front: "Krav for en personlighedsforandring", back: "Forandringer skal være indre og nogenlunde stabile over tid." },
+            { front: "Temperaments stabilitet hos spædbørn (Mary Rothbart)", back: "Individuelle forskelle i temperament kan ses tidligt i livet og bliver mere stabile med alderen." },
+            { front: "Stabilitetskoefficient", back: "Korrelationen mellem to målinger af et træk taget på forskellige tidspunkter." },
+            { front: "Validitetskoefficient", back: "Korrelationen mellem forskellige målinger af det samme træk taget på samme tid." },
+            { front: "Almindelige personlighedsændringer med alderen", back: "Neuroticisme falder, venlighed og samvittighedsfuldhed stiger, og selvværd stiger." },
+            { front: "Social kohorte", back: "En gruppe af mennesker, der er født i samme historiske periode og deler lignende sociale oplevelser." },
+            { front: "Betydningen af tidlige personlighedstræk", back: "De kan forudsige senere adfærd og livsresultater (f.eks. impulsivitet i barndommen kan forudsige dårligere karakterer)." },
+            { front: "Arbejdserfaring og personlighed", back: "Succes på arbejdspladsen kan føre til øget selvværd og glæde." },
+            { front: "Social Investment Theory (SIT)", back: "Tanken om at ændringer i personlighed kommer som resultat af, at man bevæger sig ind i nye miljømæssige stadier i livet (arbejdslivet, forældrelivet osv.)" },
+    ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
