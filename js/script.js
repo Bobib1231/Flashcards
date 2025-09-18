@@ -332,6 +332,16 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Livsfortælling (Integrative Life Narrative)", back: "Den historie vi fortæller om os selv for at skabe mening ud af vores træk og tilpasninger, hvilket former vores identitet." },
             { front: "Hvordan påvirker kultur de tre niveauer?", back: "Kulturen påvirker, hvordan vi udtrykker træk, hvilke mål vi stræber efter, og hvilke historier vi bruger til at give mening til vores liv." },
             { front: "Display rules (visningsregler)", back: "Kulturelle regler, der påvirker, hvordan vi udtrykker vores dispositionelle træk." }
+        ],
+        "Paulhus 2014 - Dark personalities": [
+            { front: "Den Mørke Tetrade (The Dark Tetrad)", back: "Et sæt af fire 'socialt aversive' personlighedstræk: Machiavellianisme, narcissisme, (subklinisk) psykopati og hverdags sadisme." },
+            { front: "Machiavellianisme", back: "Et træk karakteriseret ved manipulerende, strategisk adfærd og kynisk foragt for andres moral." },
+            { front: "Narcissisme", back: "Et træk forbundet med overdreven selvglæde, en følelse af berettigelse og et behov for at blive beundret." },
+            { front: "Psykopati", back: "Et træk, der indebærer en mangel på empati, impulsivitet og antisocial adfærd." },
+            { front: "Hverdags sadisme", back: "En tendens til at få glæde eller nyde at udvise grusomhed eller aggression mod andre." },
+            { front: "Fælles træk for den mørke tetrade", back: "Alle fire træk er præget af 'hjerteløshed' (callousness), som er en mangel på empati." },
+            { front: "Construct creep", back: "Et fænomen hvor den oprindelige definition af et personlighedstræk udvides til at inkludere træk fra andre personligheder, hvilket skaber forvirring." },
+            { front: "Anvendelse af teorien", back: "Modellen kan bruges til screening i erhvervslivet for at identificere skadelig adfærd, særligt i miljøer som politi og militær." },
     ]
 };
 
