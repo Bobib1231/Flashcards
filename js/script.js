@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Latent træk vs. manifest variabel", back: "Et latent træk er en underliggende egenskab (f.eks. intelligens), mens en manifest variabel er den synlige adfærd, der bruges til at måle det latente træk (f.eks. en testscore)." },
             { front: "Barnum statements", back: "Generelle udtalelser, der er så brede, at de kan gælde for næsten enhver. De udnyttes ofte i populære personlighedstests som Myers-Briggs (MBTI)." }
        ],
-    "Kapitel 5, Larsen - Stabilitet og forandring": [
+        "Kapitel 5, Larsen - Stabilitet og forandring": [
             { front: "Personlighedsudvikling", back: "De stabile aspekter af personlighed og hvordan den ændres over tid." },
             { front: "Rankordens stabilitet", back: "Vedligeholdelsen af en persons relative position i en gruppe over tid." },
             { front: "Mean Level Stability", back: "Gennemsnitsniveauet af et personlighedstræk i en bestemt population forbliver stabilt over tid." },
@@ -324,6 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Betydningen af tidlige personlighedstræk", back: "De kan forudsige senere adfærd og livsresultater (f.eks. impulsivitet i barndommen kan forudsige dårligere karakterer)." },
             { front: "Arbejdserfaring og personlighed", back: "Succes på arbejdspladsen kan føre til øget selvværd og glæde." },
             { front: "Social Investment Theory (SIT)", back: "Tanken om at ændringer i personlighed kommer som resultat af, at man bevæger sig ind i nye miljømæssige stadier i livet (arbejdslivet, forældrelivet osv.)" },
+        ],
+        "McAdams - De tre niveauer af personlighed": [
+            { front: "McAdams's tre niveauer af personlighed", back: "1. Dispositionelle træk, 2. Karakteristiske tilpasninger, 3. Livsfortællinger." },
+            { front: "Dispositionelle træk", back: "Brede, grundlæggende forskelle mellem mennesker, formet af evolution." },
+            { front: "Karakteristiske tilpasninger", back: "Mål, værdier og strategier, der er formet af vores daglige liv og omgivelser." },
+            { front: "Livsfortælling (Integrative Life Narrative)", back: "Den historie vi fortæller om os selv for at skabe mening ud af vores træk og tilpasninger, hvilket former vores identitet." },
+            { front: "Hvordan påvirker kultur de tre niveauer?", back: "Kulturen påvirker, hvordan vi udtrykker træk, hvilke mål vi stræber efter, og hvilke historier vi bruger til at give mening til vores liv." },
+            { front: "Display rules (visningsregler)", back: "Kulturelle regler, der påvirker, hvordan vi udtrykker vores dispositionelle træk." }
     ]
 };
 
