@@ -374,6 +374,24 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Ængstelig (Avoidant) personlighedsforstyrrelse", back: "Karakteriseret ved ekstrem generthed, følelse af utilstrækkelighed og frygt for afvisning." },
             { front: "Dependent personlighedsforstyrrelse", back: "Præget af et overdrevent behov for at blive plejet, hvilket fører til underdanig adfærd og en frygt for at være alene." },
             { front: "Obsessiv-kompulsiv personlighedsforstyrrelse", back: "Karakteriseret ved en overdreven bekymring for orden, perfektionisme og kontrol, ofte på bekostning af fleksibilitet og effektivitet." }
+        ],
+    "Bandura 1994 - Opfattet Selveffektivitet": [
+            { front: "Opfattet selveffektivitet", back: "En persons overbevisning om egne evner til at organisere og udføre de handlinger, der kræves for at håndtere fremtidige situationer." },
+            { front: "Hvordan opfattet selveffektivitet påvirker mennesker", back: "Den bestemmer hvordan man føler, tænker, motiverer dem selv og handler." },
+            { front: "Mennesker med høj opfattelse af selveffektivitet", back: "De er mere ambitiøse, kommer sig hurtigere efter nederlag, ser udfordringer som opnåelige mål, er mere vedholdende, og oplever mindre stress og depression." },
+            { front: "Mennesker med lav opfattelse af selveffektivitet", back: "De undgår svære opgaver, har lave ambitioner, fokuserer på egne mangler, mister hurtigt troen på egne evner og er mere tilbøjelige til stress og depression." },
+            { front: "Den mest effektive kilde til selveffektive overbevisninger", back: "Mestringserfaringer (mastery experiences). Succeser bygger en robust tro på selveffektivitet, mens fejl svækker den." },
+            { front: "Vicarious experiences", back: "Den næstmest effektive kilde. Observation af succesfulde mennesker kan styrke troen på egne evner, især hvis man opfatter observanten som en, der ligner en selv." },
+            { front: "Social persuasion", back: "At blive overbevist verbalt af andre om, at man har de nødvendige kompetencer til at lykkes. Det kan styrke selveffektiviteten og øge indsatsen." },
+            { front: "Fysiologiske og affektive tilstande", back: "En person fortolker emotionelle reaktioner, såsom stress og nervøsitet, som et tegn på, at de mangler evnen til at udføre en opgave, hvilket kan sænke selveffektiviteten." },
+            { front: "Hvordan opfattet selveffektivitet påvirker kognitive processer", back: "Den påvirker, hvilke tanker folk har, og hvordan de visualiserer fremtiden. Høj selveffektivitet fører til mere optimistiske forventninger." },
+            { front: "Hvad er kognitive processer?", back: "Tankeprocesser involveret i indsamlingen, organiseringen og brugen af information." },
+            { front: "Opfattet selveffektivitets rolle i motivation", back: "Den påvirker valg af handling, samt intensiteten og udholdenheden af anstrengelsen. Høj selveffektivitet fører til et stærkere engagement i opgaver og mål." },
+            { front: "Hvilken type motivation er Bandura's teori?", back: "Han anser motivation som en proces, hvor man sætter mål for sig selv og er styret af fremtiden, modsat de teorier, der ser motivation som drevet af fortiden." },
+            { front: "Opfattet selveffektivitets rolle i alderdommen", back: "En høj følelse af selveffektivitet kan hjælpe ældre med at forblive kognitivt konkurrencedygtige på trods af en naturlig nedsættelse." },
+            { front: "Kulturens rolle i selveffektivitet", back: "Samfundets holdning til ældre påvirker deres selveffektivitet. Kulturer, der værdsætter udvikling hele livet, har mere produktive ældre borgere." },
+            { front: "Social selveffektivitet", back: "En opfattelse af egne evner til at navigere i sociale situationer. Mangel på social selveffektivitet øger sårbarheden over for stress i forbindelse med store livsændringer som pensionering eller tab af en ægtefælle." },
+            { front: "Affektive processer", back: "Processer, der regulerer emotionelle stadier og udløsningen af emotionelle reaktioner." }
     ]
 };
 
