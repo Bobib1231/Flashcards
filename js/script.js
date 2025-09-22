@@ -392,7 +392,38 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Kulturens rolle i selveffektivitet", back: "Samfundets holdning til ældre påvirker deres selveffektivitet. Kulturer, der værdsætter udvikling hele livet, har mere produktive ældre borgere." },
             { front: "Social selveffektivitet", back: "En opfattelse af egne evner til at navigere i sociale situationer. Mangel på social selveffektivitet øger sårbarheden over for stress i forbindelse med store livsændringer som pensionering eller tab af en ægtefælle." },
             { front: "Affektive processer", back: "Processer, der regulerer emotionelle stadier og udløsningen af emotionelle reaktioner." }
-    ]
+        ], 
+      "Kapitel 6 - Genetik og personlighed.pdf": [
+            { front: "Arvemasse", back: "Menneskets arvemasse består af 3,2 mia. basepar i DNA-strenge (ACTG) fordelt på 23 kromosompar. Vi har 20.000-50.000 gener, hvoraf kun en lille del koder for egenskaber." },
+            { front: "Kromosomer", back: "Alle har 23 kromosomer fra mor og 23 fra far. Mænd har XY, kvinder har XX i det 23. par. Rekombination skaber genetisk variation." },
+            { front: "Gen", back: "Et gen er en specifik sekvens af nukleotider, der koder for egenskaber, sygdomme og delvist adfærd." },
+            { front: "Nukleotider", back: "Byggestenene i DNA: Adenin, Thymin, Cytosin og Guanin." },
+            { front: "Alleler", back: "Forskellige versioner af det samme gen, fx blå eller brune øjne." },
+            { front: "Fænotypisk varians", back: "Observerede individuelle forskelle mellem mennesker." },
+            { front: "Genetisk varians", back: "Forskelle i den samlede samling af gener hos individer." },
+            { front: "Arvelighed (h²)", back: "Andelen af fænotypisk varians, der kan tilskrives genetisk varians. Fx betyder h²=0,20 at 20% af variationen skyldes gener." },
+            { front: "Misforståelser om arvelighed", back: "Arvelighed gælder ikke for individer, men for grupper. Den er ikke konstant og kan variere mellem kulturer og tidspunkter." },
+            { front: "Arv-miljø-debatten", back: "På individniveau er arv og miljø uadskillelige. På samfundsniveau kan man undersøge, hvilke faktorer der mest påvirker adfærd." },
+            { front: "Selektiv avl", back: "Metode hvor man undersøger, om bestemte egenskaber kan avles frem. Etisk uacceptabelt for mennesker, men bruges på dyr." },
+            { front: "Familiestudier", back: "Undersøger om genetisk overlap i familier fører til lighed i træk. Kan ikke adskille arv og fælles miljø." },
+            { front: "Tvillingestudier", back: "Sammenligner enæggede (monozygotiske) og tveæggede (dizygotiske) tvillinger for at vurdere arvelighed. Enæggede ligner hinanden mest." },
+            { front: "Adoptionsstudier", back: "Sammenligner adopterede børn med både biologiske og adoptivforældre for at adskille genetiske og miljømæssige effekter." },
+            { front: "Store fund fra genetisk forskning", back: "Tvillingestudier viser ofte dobbelt så stor arvelighed som adoptionsstudier for personlighedstræk." },
+            { front: "Arvelighed af personlighedstræk", back: "Ekstroversion: ca. 0,49. Neuroticisme: ca. 0,48. Generelle træk: ca. 0,40. Aggressivitet: 0,51-0,72. Impulsivitet: 0,50." },
+            { front: "Arvelighed af attituder", back: "Entreprenørskab: 57%. Traditionalisme: 50%. Politiske holdninger: 15-30%. Religiøsitet: ingen arvelighed som ung, 44% som voksen." },
+            { front: "Arvelighed af alkohol og rygning", back: "At begynde at ryge: 44%. Udholdenhed i rygning: 53%. Alkoholisme: 50-71% afhængigt af studie." },
+            { front: "Arvelighed og ægteskab", back: "68% arvelighed for at indgå ægteskab. 50% arvelighed for ægteskabstilfredshed hos kvinder." },
+            { front: "Molekylærgenetik", back: "Studerer specifikke gener forbundet med personlighed. DRD4-genet er undersøgt for nyhedssøgende adfærd, men effekten er lille." },
+            { front: "GWAS (genomdækkende studier)", back: "Undersøger millioner af DNA-variationer for at finde sammenhænge med personlighed. Kræver store stikprøver. Mange gener har små effekter." },
+            { front: "Polygeniske risikoscores", back: "Summen af mange små genetiske effekter kan forudsige træk som neuroticisme, men præcisionen er lav." },
+            { front: "Skjult arvelighed", back: "Tvillingestudier viser højere arvelighed end GWAS kan forklare. Skyldes sandsynligvis mange gener med små effekter eller sjældne varianter." },
+            { front: "Delt og unikt miljø", back: "Delt miljø: Fælles faktorer for søskende. Unikt miljø: Små forskelle i opvækst. Unikt miljø har størst betydning for personlighed." },
+            { front: "Gen-miljø interaktion", back: "Samme miljø kan påvirke personer forskelligt afhængigt af deres gener. Fx MAOA-genet og risiko for antisocial adfærd ved misbrug." },
+            { front: "Gen-miljø korrelationer", back: "Passiv: Forældre giver både gener og miljø. Reaktiv: Omgivelser reagerer på barnets træk. Aktiv: Personen opsøger miljøer, der matcher egne træk." },
+            { front: "Miljømæssig modulering af genudtryk", back: "Miljøet kan påvirke, hvilke gener der udtrykkes. Fx kan subjektiv ensomhed ændre genudtryk og øge risiko for sygdom." },
+            { front: "Rekombination", back: "Udveksling af genetisk materiale mellem kromosomer, hvilket skaber nye genkombinationer." },
+            { front: "Enviromentalisme", back: "Teori om at miljøet er den primære årsag til personlighed." }
+      ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
