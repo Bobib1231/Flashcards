@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Dependent personlighedsforstyrrelse", back: "Præget af et overdrevent behov for at blive plejet, hvilket fører til underdanig adfærd og en frygt for at være alene." },
             { front: "Obsessiv-kompulsiv personlighedsforstyrrelse", back: "Karakteriseret ved en overdreven bekymring for orden, perfektionisme og kontrol, ofte på bekostning af fleksibilitet og effektivitet." }
         ],
-      "Bandura 1994": [
+        "Bandura 1994": [
             { front: "Opfattet selveffektivitet", back: "Troen på egen evne til at håndtere udfordringer påvirker følelser, tanker og motivation." },
             { front: "Høj selveffektivitet", back: "Øget ambition, modstandskraft, målrettethed og lavere stress og depression." },
             { front: "Lav selveffektivitet", back: "Undgår udfordringer, lav motivation, høj stress og depression." },
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Begreb – Opfattet selveffektivitet", back: "Troen på egen kompetence til at gøre en forskel." },
             { front: "Begreb – Selvregulering", back: "Indflydelse over egen motivation, tanker, følelser og adfærd." }
         ],
-      "Kapitel 6 - Genetik og personlighed.pdf": [
+        "Kapitel 6 - Genetik og personlighed.pdf": [
             { front: "Arvemasse", back: "Menneskets arvemasse består af 3,2 mia. basepar i DNA-strenge (ACTG) fordelt på 23 kromosompar. Vi har 20.000-50.000 gener, hvoraf kun en lille del koder for egenskaber." },
             { front: "Kromosomer", back: "Alle har 23 kromosomer fra mor og 23 fra far. Mænd har XY, kvinder har XX i det 23. par. Rekombination skaber genetisk variation." },
             { front: "Gen", back: "Et gen er en specifik sekvens af nukleotider, der koder for egenskaber, sygdomme og delvist adfærd." },
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Miljømæssig modulering af genudtryk", back: "Miljøet kan påvirke, hvilke gener der udtrykkes. Fx kan subjektiv ensomhed ændre genudtryk og øge risiko for sygdom." },
             { front: "Rekombination", back: "Udveksling af genetisk materiale mellem kromosomer, hvilket skaber nye genkombinationer." },
             { front: "Enviromentalisme", back: "Teori om at miljøet er den primære årsag til personlighed." }
-      ],
+        ],
         "(del 1) Jørgensen (2020)": [
             { front: "Identitetens kompleksitet", back: "Identitet er et flertydigt begreb uden entydig definition, hvilket skaber problemer for forskning og praksis." },
             { front: "Eriksons bidrag", back: "Erikson ser identitet som en række forbundne fænomener, fra bevidst selvfornemmelse til ubevidst stræben efter kontinuitet." },
@@ -458,8 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Sociologiske perspektiver", back: "Symbolsk interaktionisme ser identitet som en social performance, afhængig af kontekst." },
             { front: "Identitetspolitik", back: "Identitet er blevet politiseret siden 1960'erne, hvilket både har fremmet lighed og skabt nye spændinger." },
             { front: "Konklusion", back: "Identitet er en dynamisk proces, der kræver en syntese af psykologiske og sociologiske tilgange for at forstås fuldt ud." }
-     ],
-    
+        ],
         "(del 2) Jørgensen 2020": [
             { front: "Fire niveauer af identitet", back: "Jeg-identitet, personlig identitet, social identitet og kollektiv identitet udgør en hierarkisk struktur." },
             { front: "Jeg-identitet", back: "Strukturel og ubevidst, skaber oplevelse af kontinuitet og er fundamentet for psykologisk resiliens." },
@@ -471,8 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Essens eller konstruktion?", back: "Identitet er både stabil og i udvikling – et intersubjektivt fænomen skabt i samspil med andre." },
             { front: "Resiliens og identitet", back: "En stærk jeg-identitet beskytter mod psykiske forstyrrelser og giver indre sammenhæng." },
             { front: "Afsluttende pointer", back: "Identitet er et dynamisk anker, der både stabiliserer og udvikles i samspil med omgivelserne." }
-    ],
-
+        ],
         "Bandura 1999": [
             { front: "Moral agency", back: "Evnen til både at undgå at gøre skade (inhibitive morality) og aktivt at handle godt (proactive morality)." },
             { front: "Selvregulering (self-regulation)", back: "Adfærd styres af personlige standarder og selvsanktioner (self-sanctions) som skyld, skam og stolthed." },
@@ -489,7 +487,48 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Udvikling hos børn", back: "Tidlig moral disengagement forudsiger lav prosocialitet, mere aggression og antisocial adfærd." },
             { front: "Personlige og sociale sanktioner", back: "Moralsk handling opstår i samspil mellem personlige standarder og sociale normer." },
             { front: "Forebyggelse", back: "Humanisering, pluralisme og ansvarlighed modvirker moralsk frakobling og fremmer moral engagement." }
-    ]
+        ],
+        "Kapitel 2 - Vurdering af personlighed, målinger og forskningsdesign": [
+            { front: "Selvrapportering (S-data)", back: "Personen vurderer sig selv via strukturerede eller ustrukturerede metoder. Fordel: adgang til indre information. Ulempe: risiko for uærlighed." },
+            { front: "Observantdata (O-data)", back: "Vurderinger fra personer der kender individet. Kan give adgang til adfærd i sociale kontekster. Inter-rater reliability måler enighed." },
+            { front: "Testdata (T-data)", back: "Data fra eksperimenter og målinger, fx fysiologiske tests og fMRI. Kan afsløre træk gennem adfærd." },
+            { front: "Livsdata (L-data)", back: "Objektive fakta om individet, fx ægteskabsstatus, alkoholforbrug. Bruges sammen med S- og O-data." },
+            { front: "Aggregering", back: "Sammenlægning af observationer for at reducere målefejl og øge pålidelighed." },
+            { front: "Triangulering", back: "Brug af flere datakilder til at bekræfte et fund og øge validitet." },
+            { front: "Metaanalyse", back: "Opsummering af mange studier for at vurdere konsistens og effektstørrelse." },
+            { front: "Troværdighed (reliability)", back: "Stabilitet i målinger over tid og intern konsistens i testelementer." },
+            { front: "Response sets", back: "Systematiske svarmønstre som acquiescence og ekstrem respons, der kan forvrænge data." },
+            { front: "Social desirability", back: "Tendens til at svare på en måde der fremstår positiv. Kan være bias eller et træk." },
+            { front: "Gyldighed (validity)", back: "Måler testen det, den påstår? Omfatter face, predictive, convergent, discriminant og construct validity." },
+            { front: "Generaliserbarhed", back: "Testens evne til at gælde på tværs af grupper, kulturer og situationer." }
+        ],  
+        "Kapitel 3, Social Kognition": [
+            { front: "Social kognition", back: "Hvordan mennesker tænker om sig selv og den sociale verden – vælger, fortolker og husker information." },
+            { front: "Skemaer", back: "Mentale strukturer der organiserer viden og styrer opmærksomhed og hukommelse." },
+            { front: "Tilgængelighed (accessibility)", back: "Hvor let et skema eller koncept aktiveres i hukommelsen og bruges i vurdering." },
+            { front: "Priming", back: "Tidligere erfaringer øger tilgængeligheden af et skema, træk eller koncept." },
+            { front: "Self-fulfilling prophecy", back: "En forventning skaber adfærd hos andre, som bekræfter forventningen." },
+            { front: "Automatisk tænkning", back: "Ubevidst, ufrivillig og hurtig tænkning (System 1)." },
+            { front: "Kontrolleret tænkning", back: "Bevidst, intentionel og energikrævende tænkning." },
+            { front: "Heuristikker", back: "Mentale genveje til hurtige vurderinger og beslutninger." },
+            { front: "Tilgængelighedsheuristik", back: "Vurdering baseret på hvor nemt noget kommer frem i hukommelsen." },
+            { front: "Repræsentativitetsheuristik", back: "Klassificering baseret på hvor typisk noget virker." },
+            { front: "Base rate information", back: "Statistisk information om hyppighed af kategorier i befolkningen." },
+            { front: "Kontrafaktisk tænkning (counterfactual thinking)", back: "Mentale forestillinger om alternative udfald af fortiden." },
+            { front: "Planning fallacy", back: "Tendens til at undervurdere hvor lang tid en opgave tager." },
+            { front: "Kulturelle forskelle", back: "Skemaindhold varierer mellem kulturer, fx holistisk vs. analytisk tænkning." }
+        ],    
+        "Csikszentmihalyi 1999": [
+            { front: "Lykke og filosofi", back: "Lykke har historisk været et centralt mål – både mentalt og socialt." },
+            { front: "Materialisme og trivsel", back: "Materiel rigdom fører ikke nødvendigvis til større lykke." },
+            { front: "Tre grunde til at penge ikke gør os lykkelige", back: "1) Eskalerende forventninger, 2) Relativ deprivation, 3) Tid og opmærksomhed." },
+            { front: "Psykologiske veje til lykke", back: "Selvaktualisering (Maslow), optimisme (Seligman), autonomi (Deci & Ryan)." },
+            { front: "Flow-oplevelsen", back: "En tilstand af total fordybelse og nydelse i en aktivitet." },
+            { front: "Kendetegn ved flow", back: "Klare mål, øjeblikkelig feedback, balance mellem evner og udfordring, kontrol, tab af selvbevidsthed." },
+            { front: "Autotelisk personlighed", back: "Personer der ofte oplever flow og har høj livstilfredshed." },
+            { front: "Flow og samfund", back: "Flow kan fremmes i skole, arbejde og fritid – kræver kompleksitet og udvikling." },
+            { front: "Begrænsninger ved flow", back: "Flow kan opstå i destruktive aktiviteter og er ikke altid lig med lykke." }
+        ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
