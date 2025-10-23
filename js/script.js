@@ -415,8 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Begreb – Motivation", back: "Aktivering til handling – vises i valg, intensitet og udholdenhed." },
             { front: "Begreb – Opfattet selveffektivitet", back: "Troen på egen kompetence til at gøre en forskel." },
             { front: "Begreb – Selvregulering", back: "Indflydelse over egen motivation, tanker, følelser og adfærd." }
-    ],
-
+        ],
       "Kapitel 6 - Genetik og personlighed.pdf": [
             { front: "Arvemasse", back: "Menneskets arvemasse består af 3,2 mia. basepar i DNA-strenge (ACTG) fordelt på 23 kromosompar. Vi har 20.000-50.000 gener, hvoraf kun en lille del koder for egenskaber." },
             { front: "Kromosomer", back: "Alle har 23 kromosomer fra mor og 23 fra far. Mænd har XY, kvinder har XX i det 23. par. Rekombination skaber genetisk variation." },
@@ -447,7 +446,50 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Miljømæssig modulering af genudtryk", back: "Miljøet kan påvirke, hvilke gener der udtrykkes. Fx kan subjektiv ensomhed ændre genudtryk og øge risiko for sygdom." },
             { front: "Rekombination", back: "Udveksling af genetisk materiale mellem kromosomer, hvilket skaber nye genkombinationer." },
             { front: "Enviromentalisme", back: "Teori om at miljøet er den primære årsag til personlighed." }
-      ]
+      ],
+        "(del 1) Jørgensen (2020)": [
+            { front: "Identitetens kompleksitet", back: "Identitet er et flertydigt begreb uden entydig definition, hvilket skaber problemer for forskning og praksis." },
+            { front: "Eriksons bidrag", back: "Erikson ser identitet som en række forbundne fænomener, fra bevidst selvfornemmelse til ubevidst stræben efter kontinuitet." },
+            { front: "Kerneelementer i identitet", back: "Identitet handler om spørgsmål som 'Hvem er jeg?' og 'Hvilke fællesskaber tilhører jeg?', og er forankret i historie, kultur og værdier." },
+            { front: "Social afgrænsning", back: "Identitet indebærer en afgrænsning mellem 'os' og 'dem', hvilket kan føre til eksklusion og konflikter." },
+            { front: "Historisk udvikling", back: "Identitetsbegrebet har rødder i filosofi og litteratur, med bidrag fra Augustin, Descartes, Locke og Hume." },
+            { front: "Modernitetens indflydelse", back: "I moderne samfund er identitet blevet et individuelt projekt, hvilket kan føre til angst og identitetskriser." },
+            { front: "Psykologiske perspektiver", back: "Teoretikere som Marcia, Kernberg og McAdams har udviklet forskellige modeller for identitetsudvikling." },
+            { front: "Sociologiske perspektiver", back: "Symbolsk interaktionisme ser identitet som en social performance, afhængig af kontekst." },
+            { front: "Identitetspolitik", back: "Identitet er blevet politiseret siden 1960'erne, hvilket både har fremmet lighed og skabt nye spændinger." },
+            { front: "Konklusion", back: "Identitet er en dynamisk proces, der kræver en syntese af psykologiske og sociologiske tilgange for at forstås fuldt ud." }
+     ],
+    
+        "(del 2) Jørgensen 2020": [
+            { front: "Fire niveauer af identitet", back: "Jeg-identitet, personlig identitet, social identitet og kollektiv identitet udgør en hierarkisk struktur." },
+            { front: "Jeg-identitet", back: "Strukturel og ubevidst, skaber oplevelse af kontinuitet og er fundamentet for psykologisk resiliens." },
+            { front: "Personlig identitet", back: "Bevidst og indholdsbaseret, knyttet til værdier, mål og selvbiografiske fortællinger." },
+            { front: "Social identitet", back: "Relateret til roller og grupper, mere synlig og fleksibel, giver følelse af tilhørighed." },
+            { front: "Kollektiv identitet", back: "Tilknytning til store grupper som nation og religion, fungerer som stabiliserende ramme." },
+            { front: "Paradoks: én eller flere identiteter?", back: "Man kan have mange sociale identiteter, men kun én integreret jeg-identitet." },
+            { front: "Selvskabelse vs. social tilskrivning", back: "Identitet er ikke frit konstruerbar – den er også afhængig af sociale og kulturelle rammer." },
+            { front: "Essens eller konstruktion?", back: "Identitet er både stabil og i udvikling – et intersubjektivt fænomen skabt i samspil med andre." },
+            { front: "Resiliens og identitet", back: "En stærk jeg-identitet beskytter mod psykiske forstyrrelser og giver indre sammenhæng." },
+            { front: "Afsluttende pointer", back: "Identitet er et dynamisk anker, der både stabiliserer og udvikles i samspil med omgivelserne." }
+    ],
+
+        "Bandura 1999": [
+            { front: "Moral agency", back: "Evnen til både at undgå at gøre skade (inhibitive morality) og aktivt at handle godt (proactive morality)." },
+            { front: "Selvregulering (self-regulation)", back: "Adfærd styres af personlige standarder og selvsanktioner (self-sanctions) som skyld, skam og stolthed." },
+            { front: "Moralsk retfærdiggørelse (moral justification)", back: "Skadelig adfærd fremstilles som tjeneste for et højere gode og bliver dermed moralsk acceptabel." },
+            { front: "Eufemistisk sprog (euphemistic labeling)", back: "Sprog bruges til at blødgøre og normalisere skadelig adfærd, fx 'surgical strike' i stedet for 'bombning'." },
+            { front: "Fordelagtig sammenligning (advantageous comparison)", back: "Egen adfærd fremstår mild ved at sammenlignes med værre alternativer." },
+            { front: "Ansvarsforskydning (displacement of responsibility)", back: "Skylden placeres hos autoriteter – 'jeg fulgte bare ordre'." },
+            { front: "Ansvarsudtynding (diffusion of responsibility)", back: "Gruppeansvar udvander personlig skyld – 'alle stod bag'." },
+            { front: "Tilsidesættelse af konsekvenser (disregard/distortion of consequences)", back: "Skade skjules, minimeres eller ignoreres, fx ved brug af teknologi og afstand." },
+            { front: "Dehumanisering (dehumanization)", back: "Ofre fratages menneskelighed, hvilket reducerer empati og øger risikoen for grusom adfærd." },
+            { front: "Skyldplacering (attribution of blame)", back: "Skylden lægges på offeret eller omstændighederne – 'de startede'." },
+            { front: "Gradvis frakobling (gradualistic moral disengagement)", back: "Moralsk frakobling sker trinvis – små overtrædelser baner vej for større uden skyldfølelse." },
+            { front: "Institutionel frakobling", back: "Industrier som våben- og tobaksbranchen bruger netværk, sprog og ansvarsforskydning til at undgå skyld." },
+            { front: "Udvikling hos børn", back: "Tidlig moral disengagement forudsiger lav prosocialitet, mere aggression og antisocial adfærd." },
+            { front: "Personlige og sociale sanktioner", back: "Moralsk handling opstår i samspil mellem personlige standarder og sociale normer." },
+            { front: "Forebyggelse", back: "Humanisering, pluralisme og ansvarlighed modvirker moralsk frakobling og fremmer moral engagement." }
+    ]
 };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
