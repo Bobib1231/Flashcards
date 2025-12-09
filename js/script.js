@@ -2469,7 +2469,19 @@ document.addEventListener('DOMContentLoaded', () => {
   ],
   correctAnswer: "c",
   feedback: "Udvidet kontakt: indirekte viden om venskaber på tværs kan mindske bias.”
-}
+},
+{
+ chapter: "Chapter 13",
+  question: "10. Based on Robber’s Cave, which environment most likely fosters cohesiveness across racial groups, and why?",
+  options: [
+    "Low SES neighborhoods—resources are scarce.",
+    "Military personnel—must cooperate to accomplish shared superordinate goals.",
+    "Online social media users—distance from racial identities.",
+    "College campuses—curve grading creates competition."
+  ],
+  correctAnswer: "b",
+  feedback: "Fælles overordnede mål og samarbejde reducerer intergruppefjendtlighed.”
+    }
     ];
 
     // --- DOM Elements ---
