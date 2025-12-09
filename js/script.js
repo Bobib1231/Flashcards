@@ -2112,7 +2112,367 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     correctAnswer: "d",
                     feedback: "Investeringsmodellen ser på tilfredshed, investering og alternativer som nøglefaktorer for, om et forhold holder."
-                }
+                },
+                    
+// Chapters 11–13 (Aronson et al., Social Psychology)
+
+// Chapter 11 — Prosocial Behavior
+{
+  chapter: "Chapter 11",
+  question: "1. All of the following are examples of altruistic behavior, except:",
+  options: [
+    "Jamie gives $50 to a homeless woman when he was walking down the street alone.",
+    "Muhamad anonymously donates $500 to an animal shelter.",
+    "Lee publicly announces in his class that he will donate $80 toward the class fund.",
+    "Jonathan agrees to be a voluntary organ donor."
+  ],
+  correctAnswer: "c",
+  feedback: "Når motivet omfatter egen synlighed/omdømme, er det ikke rent altruistisk—“altruism” kræver at målet er andres velfærd frem for egen fordel."
+},
+// Rettelse jf. “Fejl i Aronson et al.pdf”: korrekt svar = A
+{
+  chapter: "Chapter 11",
+  question: "2. Evolutionary psychology would have the most trouble explaining which of the following incidents?",
+  options: [
+    "When Usha was in a building that caught on fire, she let everyone else exit before her, even though she didn't know them.",
+    "Clint risks his life to save his nephew who was drowning.",
+    "Natasha runs in front of a moving car to keep her daughter from being hit.",
+    "When Julio had to choose between saving his cousin or his son in a boating accident, he chose to save his son."
+  ],
+  correctAnswer: "a",
+  feedback: "Evolutionsteori forklarer ofte hjælp via slægtskabsselektion og gensidighed; uselvisk hjælp til helt fremmede er sværere at forklare inden for denne ramme."
+},
+{
+  chapter: "Chapter 11",
+  question: "3. According to social exchange theory, which of the following people is most likely to give money to a homeless person?",
+  options: [
+    "Jade, who feels empathy for the homeless person.",
+    "Bill, who wants to impress his date by helping the homeless person.",
+    "Jack, who is related to the homeless person.",
+    "Emma, who has a genetic predisposition for helping people."
+  ],
+  correctAnswer: "b",
+  feedback: "Social udvekslingsteori vægter omkostninger og belønninger—at imponere en date er en forventet belønning, der øger sandsynligheden for hjælp."
+},
+{
+  chapter: "Chapter 11",
+  question: "4. Which one of the following reasons makes Phillip act altruistically?",
+  options: [
+    "Because he feels empathetic for a person in pain.",
+    "Because he wants to be popular among his peers.",
+    "Because he yearns for an esteemed social status.",
+    "Because he wants to feel confident about himself."
+  ],
+  correctAnswer: "a",
+  feedback: "Empati‑altruisme hypotesen: stærk empati kan udløse virkelig altruistisk hjælp.”
+},
+{
+  chapter: "Chapter 11",
+  question: "5. People with high scores on tests of altruism are ___ likely to help another person than people with low scores.",
+  options: [
+    "not that much more",
+    "much more",
+    "certainly more—they overcome situational pressures",
+    "more, because the altruism gene has been identified"
+  ],
+  correctAnswer: "a",
+  feedback: "Personlighed spiller en rolle, men situationelle faktorer kan være stærkere; høj ‘altruism score’ giver ikke garanti for mere hjælp."
+},
+{
+  chapter: "Chapter 11",
+  question: "6. Your friend needs assistance in hosting a party; you help her because ____. You assist your elderly neighbor in crossing the road; you help her because ____.",
+  options: [
+    "it makes you feel good; you empathize with her",
+    "it makes you feel good; it makes an impression",
+    "you empathize with her; it makes you feel good",
+    "it makes an impression; it makes you feel good"
+  ],
+  correctAnswer: "a",
+  feedback: "Små hverdagshjælp kan motiveres af godt humør (feel‑good), mens akut hjælp til sårbare ofte drives af empati."
+},
+{
+  chapter: "Chapter 11",
+  question: "7. Which of the following is not a reason why being in a good mood tends to increase prosocial behavior?",
+  options: [
+    "Good moods make us behave in an ideal manner.",
+    "Helping prolongs good moods.",
+    "Good moods make us see the bright side of life.",
+    "Good moods tend to pass on to others."
+  ],
+  correctAnswer: "d",
+  feedback: "At gode humør ‘smitter’ er rart, men det forklarer ikke direkte hvorfor vi hjælper mere; de tre øvrige forklarer mekanismer der øger hjælpeatfærd."
+},
+{
+  chapter: "Chapter 11",
+  question: "8. Which of the following is true?",
+  options: [
+    "You are less likely to help if you are feeling happy.",
+    "You are less likely to help if you are feeling sad.",
+    "You are more likely to help if you are not feeling confident about something.",
+    "You are more likely to help if you are feeling either happy or sad."
+  ],
+  correctAnswer: "d",
+  feedback: "Både godt humør (feel‑good) og tristhed (feel‑bad, fx skyldreduktion) kan øge hjælpeatfærd—på forskellige mekanismer."
+},
+{
+  chapter: "Chapter 11",
+  question: "9. Prosocial behavior is more common in people living in small towns than in big cities because:",
+  options: [
+    "children in big cities fail to internalize interdependent norms.",
+    "people in small towns are more affected by the bystander effect.",
+    "in urban settings victims and helpers rarely share sociodemographics.",
+    "urban overload: storbyers overstimulation mindsker opmærksomhed og hjælp."
+  ],
+  correctAnswer: "d",
+  feedback: "Urban overload‑hypotesen: stærk sanse‑/social belastning i byer reducerer opmærksomhed på andres behov.”
+},
+{
+  chapter: "Chapter 11",
+  question: "10. Which of the following explains why people may not always like to be helped?",
+  options: [
+    "Most people prefer to do tasks themselves.",
+    "Taking help may not always be ideal.",
+    "Taking help may make people feel incompetent.",
+    "Taking help means interdependence."
+  ],
+  correctAnswer: "c",
+  feedback: "Hjælp kan true selvværd og oplevet kompetence—derfor afviser nogle hjælp.”
+},
+
+// Chapter 12 — Aggression
+{
+  chapter: "Chapter 12",
+  question: "1. Which one of the following factors has been found to be associated with an increase in aggression?",
+  options: [
+    "Economic inequality",
+    "Bodily discomfort",
+    "Mere presence of weapons",
+    "All of the above"
+  ],
+  correctAnswer: "d",
+  feedback: "Aggression påvirkes af strukturelle (ulighed), fysiologiske (ubehag/varme) og situations‑cues (våbeneffekten)."
+},
+{
+  chapter: "Chapter 12",
+  question: "2. What does the research on cultures of honor suggest about the relationship between testosterone and aggression?",
+  options: [
+    "It explains why men are more aggressive than women across cultures.",
+    "Testosterone and aggression are unrelated.",
+    "Culture affects when and why men can be provoked to become aggressive.",
+    "Culture has little effect on the basic biology of testosterone in men."
+  ],
+  correctAnswer: "c",
+  feedback: "‘Culture of honor’ modererer udtryk for aggression—kontekst og normer betyder meget, ikke kun biologi.”
+},
+{
+  chapter: "Chapter 12",
+  question: "3. Relational aggression refers to:",
+  options: [
+    "Behaving violently against one’s relations.",
+    "The negative effects of aggression on one’s relationships.",
+    "Expressing aggression indirectly by manipulating a relationship.",
+    "Having sexual relations with the target of one’s aggression."
+  ],
+  correctAnswer: "c",
+  feedback: "Relationel aggression skader via rygter, udelukkelse og manipulation fremfor fysisk vold."
+},
+{
+  chapter: "Chapter 12",
+  question: "4. In terms of physical aggression, men are more likely than women to:",
+  options: [
+    "Engage in public displays of violence.",
+    "Behave aggressively to defend their honor or status.",
+    "Hit or slap a spouse or partner.",
+    "All of the answers are correct."
+  ],
+  correctAnswer: "b",
+  feedback: "Forskning finder større offentlig, status‑/æresforsvarende fysisk aggression hos mænd.”
+},
+{
+  chapter: "Chapter 12",
+  question: "5. Which of the following statements about the relationship between heat and aggression is true?",
+  options: [
+    "Heat reduces aggression because it makes us tired.",
+    "Crime rates increase on unusually hot days.",
+    "Heat doesn’t make us more aggressive; it’s just more folk ude på varme dage.",
+    "Heat primes “hell” which primes violence concepts."
+  ],
+  correctAnswer: "b",
+  feedback: "Varme øger irritabilitet og arousal—korrelerer med mere vold og kriminalitet.”
+},
+{
+  chapter: "Chapter 12",
+  question: "6. According to social-cognitive learning theory, Xiang is more likely to hit his classmate Robert after being provoked if:",
+  options: [
+    "Xiang learned from another friend that retaliation must be physically violent.",
+    "He thought his probability of winning was high.",
+    "He believed that Robert deserved a punch.",
+    "He assumed Robert will not fight back."
+  ],
+  correctAnswer: "a",
+  feedback: "Observationslæring: modeller og regler, man lærer, former aggressive scripts.”
+},
+{
+  chapter: "Chapter 12",
+  question: "7. What does research suggest is the most reasonable conclusion about the effects of media violence?",
+  options: [
+    "They have an effect, but primarily on children already predisposed to aggression.",
+    "They have a strong effect, making most young children more aggressive.",
+    "They have virtually no effect.",
+    "Effects depend on whether it’s cartoons, TV, or movies."
+  ],
+  correctAnswer: "a",
+  feedback: "Effekter findes, men er størst for dem med forudgående risiko (prædispositioner)."
+},
+{
+  chapter: "Chapter 12",
+  question: "8. Harsh punishment to control aggressive behavior usually backfires because children tend to:",
+  options: [
+    "Become more aggressive and antisocial over time.",
+    "Pass on their aggression to peers.",
+    "Get hooked on violent games to retaliate.",
+    "Stop defending themselves and get bullied."
+  ],
+  correctAnswer: "a",
+  feedback: "Streng straf lærer model af aggression og skaber fjendtlighed—mild, konsistent og hurtig konsekvens virker bedre."
+},
+{
+  chapter: "Chapter 12",
+  question: "9. What does research find about the validity of the catharsis theory?",
+  options: [
+    "Supported: Venting anger gets it out of your system.",
+    "Supported: Violent sports reduce aggression.",
+    "Disconfirmed: Expressing anger often makes people angrier.",
+    "Disconfirmed: Acting out anger is healthy only for the body."
+  ],
+  correctAnswer: "c",
+  feedback: "‘At få det ud’ øger arousal og aggressionsscripts—venting forstærker ofte vrede.”
+},
+{
+  chapter: "Chapter 12",
+  question: "10. Which concept holds that blowing off steam reduces the likelihood of further aggressive behavior?",
+  options: [
+    "Actively enabling",
+    "Catharsis",
+    "Psychic numbing",
+    "Self-awareness"
+  ],
+  correctAnswer: "b",
+  feedback: "Catharsis‑idéen er populær, men empirisk svagt underbygget—se forrige spørgsmål."
+},
+
+// Chapter 13 — Prejudice
+{
+  chapter: "Chapter 13",
+  question: "1. A prejudice is:",
+  options: [
+    "A hostile attitude toward members of a group, based solely on their membership in that group.",
+    "A feeling held by members of a majority group toward members of a minority group.",
+    "Generally unaffected by societal events.",
+    "Usually acquired in childhood and lasts a lifetime."
+  ],
+  correctAnswer: "a",
+  feedback: "Forudindtaget negativ holdning mod gruppemedlemmer—generaliseret fra kategoritilhørsforhold.”
+},
+{
+  chapter: "Chapter 13",
+  question: "2. Stereotypes, emotions, and discrimination all contribute to prejudice. Which refers to the cognitive component?",
+  options: [
+    "Racism",
+    "Stereotypes",
+    "Discrimination",
+    "Bias"
+  ],
+  correctAnswer: "b",
+  feedback: "Stereotyper er kognitive antagelser om grupper; diskrimination er adfærd; følelser er affekt.”
+},
+{
+  chapter: "Chapter 13",
+  question: "3. For a job interview, the director chooses Jack over Jill solely because Jack is a man and hence more capable. This is an example of:",
+  options: [
+    "Hostile sexism.",
+    "Benevolent sexism.",
+    "In-group bias.",
+    "Out-group homogeneity."
+  ],
+  correctAnswer: "a",
+  feedback: "Fjendtlig sexisme: åben negativ evaluering af kvinder som mindre kompetente.”
+},
+{
+  chapter: "Chapter 13",
+  question: "4. When Gordon Allport said “defeated intellectually, prejudice lingers emotionally,” he meant:",
+  options: [
+    "You can’t argue intellectually with a prejudiced person.",
+    "A prejudiced person cannot intellectually defend the attitude.",
+    "Implicit prejudices may decline while explicit prejudices remain.",
+    "Explicit prejudices may decline while implicit prejudices remain."
+  ],
+  correctAnswer: "d",
+  feedback: "Selv ved bevidst afvisning kan implicit bias fortsætte ‘under overfladen.’"
+},
+{
+  chapter: "Chapter 13",
+  question: "5. Which measure of unconscious prejudice describes the IAT?",
+  options: [
+    "Greater distance kept from a disliked group member.",
+    "Slower associations between a target image and positive words than with negative words.",
+    "Subtle slights and put-downs.",
+    "A group ignoring contributions of its lone minority member."
+  ],
+  correctAnswer: "b",
+  feedback: "IAT måler associeringshastighed mellem kategori og valens—langsommere positive kobling indikerer implicit bias.”
+},
+{
+  chapter: "Chapter 13",
+  question: "6. According to realistic conflict theory, which increases prejudice and discrimination?",
+  options: [
+    "Excess resources",
+    "Lack of information",
+    "Social instability",
+    "Limited resources"
+  ],
+  correctAnswer: "d",
+  feedback: "Konkurrence om knappe ressourcer skærper ‘os‑dem’ konflikter.”
+},
+{
+  chapter: "Chapter 13",
+  question: "7. What is social identity threat?",
+  options: [
+    "Fear that a concealable identity will be revealed.",
+    "Anxiety felt by members of a stereotyped group when made aware of a stereotype about them.",
+    "Threats to values/customs that comprise identity.",
+    "Retaliation threats by a minority group."
+  ],
+  correctAnswer: "b",
+  feedback: "Stereotype‑trussel kan svække præstationer ved saliens af negativ stereotype.”
+},
+{
+  chapter: "Chapter 13",
+  question: "8. Which pairing would most people be likely to choose as “remarkably similar” to each other?",
+  options: [
+    "Two in-group members",
+    "Two out-group members",
+    "Themselves and an out-group member",
+    "One in-group member and one out-group member"
+  ],
+  correctAnswer: "b",
+  feedback: "Out‑group homogenitet: “de andre” ses som mere ens end ‘os’.”
+},
+{
+  chapter: "Chapter 13",
+  question: "9. What is implied by the extended contact hypothesis?",
+  options: [
+    "Intergroup contact can be broadcast via media.",
+    "Contact effects extend regionally.",
+    "Knowing that your friend has cross-group friends can reduce your prejudice.",
+    "Contact must be direct to be effective."
+  ],
+  correctAnswer: "c",
+  feedback: "Udvidet kontakt: indirekte viden om venskaber på tværs kan mindske bias.”
+},
+{
+  chapter: "Chapter 13",
+
     ];
 
     // --- DOM Elements ---
