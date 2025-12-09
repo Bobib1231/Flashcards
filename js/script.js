@@ -2114,6 +2114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     feedback: "Investeringsmodellen ser på tilfredshed, investering og alternativer som nøglefaktorer for, om et forhold holder."
                 },
                     
+
 // Chapters 11–13 (Aronson et al., Social Psychology)
 
 // Chapter 11 — Prosocial Behavior
@@ -2164,7 +2165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Because he wants to feel confident about himself."
   ],
   correctAnswer: "a",
-  feedback: "Empati‑altruisme hypotesen: stærk empati kan udløse virkelig altruistisk hjælp.”
+  feedback: "Empati‑altruisme hypotesen: stærk empati kan udløse virkelig altruistisk hjælp."
 },
 {
   chapter: "Chapter 11",
@@ -2224,7 +2225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "urban overload: storbyers overstimulation mindsker opmærksomhed og hjælp."
   ],
   correctAnswer: "d",
-  feedback: "Urban overload‑hypotesen: stærk sanse‑/social belastning i byer reducerer opmærksomhed på andres behov.”
+  feedback: "Urban overload‑hypotesen: stærk sanse-/social belastning i byer reducerer opmærksomhed på andres behov."
 },
 {
   chapter: "Chapter 11",
@@ -2236,7 +2237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Taking help means interdependence."
   ],
   correctAnswer: "c",
-  feedback: "Hjælp kan true selvværd og oplevet kompetence—derfor afviser nogle hjælp.”
+  feedback: "Hjælp kan true selvværd og oplevet kompetence—derfor afviser nogle hjælp."
 },
 
 // Chapter 12 — Aggression
@@ -2262,7 +2263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Culture has little effect on the basic biology of testosterone in men."
   ],
   correctAnswer: "c",
-  feedback: "‘Culture of honor’ modererer udtryk for aggression—kontekst og normer betyder meget, ikke kun biologi.”
+  feedback: "‘Culture of honor’ modererer udtryk for aggression—kontekst og normer betyder meget, ikke kun biologi."
 },
 {
   chapter: "Chapter 12",
@@ -2286,7 +2287,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "All of the answers are correct."
   ],
   correctAnswer: "b",
-  feedback: "Forskning finder større offentlig, status‑/æresforsvarende fysisk aggression hos mænd.”
+  feedback: "Forskning finder større offentlig, status-/æresforsvarende fysisk aggression hos mænd."
 },
 {
   chapter: "Chapter 12",
@@ -2298,7 +2299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Heat primes “hell” which primes violence concepts."
   ],
   correctAnswer: "b",
-  feedback: "Varme øger irritabilitet og arousal—korrelerer med mere vold og kriminalitet.”
+  feedback: "Varme øger irritabilitet og arousal—korrelerer med mere vold og kriminalitet."
 },
 {
   chapter: "Chapter 12",
@@ -2310,7 +2311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "He assumed Robert will not fight back."
   ],
   correctAnswer: "a",
-  feedback: "Observationslæring: modeller og regler, man lærer, former aggressive scripts.”
+  feedback: "Observationslæring: modeller og regler, man lærer, former aggressive scripts."
 },
 {
   chapter: "Chapter 12",
@@ -2319,7 +2320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "They have an effect, but primarily on children already predisposed to aggression.",
     "They have a strong effect, making most young children more aggressive.",
     "They have virtually no effect.",
-    "Effects depend on whether it’s cartoons, TV, or movies."
+    "Their effects depend on whether children are watching cartoons, television, or movies."
   ],
   correctAnswer: "a",
   feedback: "Effekter findes, men er størst for dem med forudgående risiko (prædispositioner)."
@@ -2340,13 +2341,13 @@ document.addEventListener('DOMContentLoaded', () => {
   chapter: "Chapter 12",
   question: "9. What does research find about the validity of the catharsis theory?",
   options: [
-    "Supported: Venting anger gets it out of your system.",
-    "Supported: Violent sports reduce aggression.",
+    "Supported: It is usually beneficial to ventilate anger and get it out of your system.",
+    "Supported: Playing or watching violent sports reduces aggression.",
     "Disconfirmed: Expressing anger often makes people angrier.",
-    "Disconfirmed: Acting out anger is healthy only for the body."
+    "Disconfirmed: Acting out anger is healthy for physical but not psychological reasons."
   ],
   correctAnswer: "c",
-  feedback: "‘At få det ud’ øger arousal og aggressionsscripts—venting forstærker ofte vrede.”
+  feedback: "‘At få det ud’ øger arousal og aggressionsscripts—venting forstærker ofte vrede."
 },
 {
   chapter: "Chapter 12",
@@ -2372,7 +2373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Usually acquired in childhood and lasts a lifetime."
   ],
   correctAnswer: "a",
-  feedback: "Forudindtaget negativ holdning mod gruppemedlemmer—generaliseret fra kategoritilhørsforhold.”
+  feedback: "Forudindtaget negativ holdning mod gruppemedlemmer—generaliseret fra kategoritilhørsforhold."
 },
 {
   chapter: "Chapter 13",
@@ -2384,7 +2385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Bias"
   ],
   correctAnswer: "b",
-  feedback: "Stereotyper er kognitive antagelser om grupper; diskrimination er adfærd; følelser er affekt.”
+  feedback: "Stereotyper er kognitive antagelser om grupper; diskrimination er adfærd; følelser er affekt."
 },
 {
   chapter: "Chapter 13",
@@ -2396,7 +2397,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Out-group homogeneity."
   ],
   correctAnswer: "a",
-  feedback: "Fjendtlig sexisme: åben negativ evaluering af kvinder som mindre kompetente.”
+  feedback: "Fjendtlig sexisme: åben negativ evaluering af kvinder som mindre kompetente."
 },
 {
   chapter: "Chapter 13",
@@ -2420,7 +2421,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "A group ignoring contributions of its lone minority member."
   ],
   correctAnswer: "b",
-  feedback: "IAT måler associeringshastighed mellem kategori og valens—langsommere positive kobling indikerer implicit bias.”
+  feedback: "IAT måler associeringshastighed mellem kategori og valens—langsommere positive kobling indikerer implicit bias."
 },
 {
   chapter: "Chapter 13",
@@ -2432,7 +2433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Limited resources"
   ],
   correctAnswer: "d",
-  feedback: "Konkurrence om knappe ressourcer skærper ‘os‑dem’ konflikter.”
+  feedback: "Konkurrence om knappe ressourcer skærper ‘os‑dem’ konflikter."
 },
 {
   chapter: "Chapter 13",
@@ -2444,7 +2445,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Retaliation threats by a minority group."
   ],
   correctAnswer: "b",
-  feedback: "Stereotype‑trussel kan svække præstationer ved saliens af negativ stereotype.”
+  feedback: "Stereotype‑trussel kan svække præstationer ved saliens af negativ stereotype."
 },
 {
   chapter: "Chapter 13",
@@ -2456,7 +2457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "One in-group member and one out-group member"
   ],
   correctAnswer: "b",
-  feedback: "Out‑group homogenitet: “de andre” ses som mere ens end ‘os’.”
+  feedback: "Out‑group homogenitet: “de andre” ses som mere ens end ‘os’."
 },
 {
   chapter: "Chapter 13",
@@ -2468,10 +2469,10 @@ document.addEventListener('DOMContentLoaded', () => {
     "Contact must be direct to be effective."
   ],
   correctAnswer: "c",
-  feedback: "Udvidet kontakt: indirekte viden om venskaber på tværs kan mindske bias.”
+  feedback: "Udvidet kontakt: indirekte viden om venskaber på tværs kan mindske bias."
 },
 {
- chapter: "Chapter 13",
+  chapter: "Chapter 13",
   question: "10. Based on Robber’s Cave, which environment most likely fosters cohesiveness across racial groups, and why?",
   options: [
     "Low SES neighborhoods—resources are scarce.",
@@ -2480,8 +2481,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "College campuses—curve grading creates competition."
   ],
   correctAnswer: "b",
-  feedback: "Fælles overordnede mål og samarbejde reducerer intergruppefjendtlighed.”
-    }
+  feedback: "Fælles overordnede mål og samarbejde reducerer intergruppefjendtlighed."
+}
     ];
 
     // --- DOM Elements ---
