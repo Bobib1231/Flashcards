@@ -2469,10 +2469,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ],
   correctAnswer: "c",
   feedback: "Udvidet kontakt: indirekte viden om venskaber på tværs kan mindske bias.”
-},
-{
-  chapter: "Chapter 13",
-
+}
     ];
 
     // --- DOM Elements ---
