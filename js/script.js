@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Fysiologiske og emotionelle tilstande", back: "Hvordan man tolker sine følelser (f.eks. nervøsitet) påvirker self-efficacy." },
             { front: "Kognitive processer", back: "Høj self-efficacy fører til positive forestillinger og mål – lav fører til selvtvivl og undgåelse." },
             { front: "Motiverende processer", back: "Self-efficacy påvirker årsagsforklaringer, forventninger og målsætning." },
-            { front: "Casual attributions", back: "Effektive personer tilskriver nederlag manglende indsats – ineffektive tilskriver manglende evne." },
+            { front: "Casual attributions", back: "Personer med høj self-efficacy tilskriver nederlag manglende indsats – Lav self-efficacy tilskriver manglende evne." },
             { front: "Outcome expectancies", back: "Vurdering af realistiske mål baseret på self-efficacy." },
             { front: "Cognized goals", back: "Selvvurdering af fremskridt mod mål driver motivation." },
             { front: "Affektive processer – Coping", back: "Troen på evnen til at håndtere stress og angst mindsker negativ påvirkning." },
