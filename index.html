@@ -3,131 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas' flashkort</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' rx='20' fill='%236366F1'/%3E%3Cpath d='M40 35 C45 30 55 30 60 35 C65 40 60 45 55 45 C50 45 45 40 40 35 Z' fill='%23fff' opacity='0.8'/%3E%3Cpath d='M45 40 C48 37 52 37 55 40 C58 43 55 46 52 46 C49 46 46 43 45 40 Z' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='50' cy='40' r='25' fill='%23FCD34D'/%3E%3Cpath d='M48 65 L52 65 L52 70 L48 70 L48 65 Z' fill='%23FCD34D'/%3E%3Cpath d='M42 65 A8 8 0 0 0 58 65 L58 75 A8 8 0 0 0 42 75 Z' fill='%23F97316'/%3E%3C/svg%3E" type="image/svg+xml">
-    
+    <title>Thomas' Flashkort & Quiz</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Din CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 flex flex-col items-center justify-center min-h-screen p-6">
+<body class="bg-slate-50 flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
 
-    <div class="w-full max-w-3xl mx-auto mb-10">
-        <h1 class="text-5xl font-extrabold text-center text-slate-900 mb-4 tracking-tight">Thomas' flashkort</h1>
-        <p class="text-xl text-center text-slate-700 mb-8 max-w-lg mx-auto">Øv dig i dit studiemateriale og test din viden!</p>
+    <!-- Header -->
+    <div class="w-full max-w-3xl mx-auto mb-8">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-slate-900 mb-4 tracking-tight">Thomas' Flashkort</h1>
+        <p class="text-lg sm:text-xl text-center text-slate-600 mb-8 max-w-lg mx-auto">Vælg mellem terpe-tilstand eller quiz-tilstand.</p>
 
-        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <button id="show-flashcards-btn" class="submit-btn bg-indigo-600 hover:bg-indigo-700 text-lg sm:w-auto w-full">Flashcards</button>
-            <button id="show-quiz-btn" class="submit-btn bg-gray-500 hover:bg-gray-600 text-lg sm:w-auto w-full">Multiple Choice Quiz</button>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <button id="show-flashcards-btn" class="nav-btn active">Flashcards</button>
+            <button id="show-quiz-btn" class="nav-btn">Multiple Choice Quiz</button>
         </div>
     </div>
 
-    <div id="flashcard-section" class="w-full max-w-3xl mx-auto flashcard-section">
-        <h2 class="chapter-title text-center">Flashcards</h2>
-        <div class="mb-8 text-center bg-white rounded-2xl p-6 shadow-md border border-slate-100">
-            <label for="category-select" class="block text-slate-700 text-base font-semibold mb-3">Vælg kategori:</label>
-            <select id="category-select" class="shadow-sm border border-slate-300 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 max-w-xs text-base">
-                </select>
-            <div class="mt-6 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-                <button id="shuffle-btn" class="submit-btn bg-purple-600 hover:bg-purple-700 text-base w-48">
+    <!-- FLASHCARD SEKTION -->
+    <div id="flashcard-section" class="w-full max-w-3xl mx-auto block">
+        
+        <!-- Kontrolpanel -->
+        <div class="mb-8 text-center bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+            <label for="category-select" class="block text-slate-700 text-sm font-bold uppercase tracking-wide mb-2">Vælg Kategori</label>
+            <select id="category-select" class="form-select block w-full max-w-md mx-auto rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-3 px-4 text-base mb-6">
+                <!-- Options indsættes via JS -->
+            </select>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button id="shuffle-btn" class="action-btn bg-purple-600 hover:bg-purple-700 text-white">
                     Bland kort
                 </button>
-                <div class="flex items-center">
-                    <input type="checkbox" id="show-back-first-toggle" class="form-checkbox h-5 w-5 text-blue-600 rounded-md ring-2 ring-blue-300 focus:ring-blue-500">
-                    <label for="show-back-first-toggle" class="ml-3 text-slate-700 select-none text-base">Vis bagside først</label>
+                <div class="flex items-center space-x-2 bg-slate-100 px-4 py-2 rounded-lg">
+                    <input type="checkbox" id="show-back-first-toggle" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                    <label for="show-back-first-toggle" class="text-slate-700 font-medium select-none cursor-pointer">Vis bagside først</label>
                 </div>
             </div>
         </div>
 
-        <div id="card-container-wrapper" class="card-container-wrapper">
-            <div id="flashcard" class="card w-full h-80 md:h-96 rounded-3xl cursor-pointer relative bg-white flex items-center justify-center">
-                <div id="card-display-front" class="card-face card-front-display rounded-3xl text-slate-900">
-                    <p id="card-front-text"></p>
-                </div>
-                <div id="card-display-back" class="card-face card-back-display rounded-3xl bg-blue-600 text-white">
-                    <p id="card-back-text"></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="flashcard-feedback-buttons" class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 hidden">
-            <button id="feedback-correct-btn" class="submit-btn bg-green-600 hover:bg-green-700 text-base w-full sm:w-auto">
-                Rigtigt 😊
-            </button>
-            <button id="feedback-unsure-btn" class="submit-btn bg-yellow-500 hover:bg-yellow-600 text-base w-full sm:w-auto">
-                Ikke sikker 🤔
-            </button>
-            <button id="feedback-incorrect-btn" class="submit-btn bg-red-600 hover:bg-red-700 text-base w-full sm:w-auto">
-                Forkert 😞
-            </button>
-        </div>
-
-        <div class="mt-10 flex items-center justify-between">
-            <button id="prev-btn" class="submit-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 shadow-md disabled:border-gray-200">
-                Forrige
-            </button>
-            <p id="progress-text" class="text-slate-600 text-lg font-medium">Kort 0 / 0</p>
-            <button id="next-btn" class="submit-btn bg-blue-600 text-white hover:bg-blue-700 shadow-md">
-                Næste
-            </button>
-        </div>
-    </div>
-
-    <div id="quiz-section" class="w-full max-w-4xl mx-auto quiz-section">
-        <h2 class="chapter-title">Multiple Choice Quiz</h2>
-        <p class="text-xl text-center text-slate-700 mb-8 max-w-lg mx-auto">Test din viden om Aronson et al. (2021) Social Psychology.</p>
-
-        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <button id="show-all-questions-mode-btn" class="submit-btn bg-indigo-600 hover:bg-indigo-700 text-lg w-full sm:w-auto">Alle spørgsmål</button>
-            <button id="show-one-by-one-mode-btn" class="submit-btn bg-gray-500 hover:bg-gray-600 text-lg w-full sm:w-auto">Et spørgsmål ad gangen</button>
-        </div>
-
-        <div class="mb-10 text-center bg-white rounded-2xl p-6 shadow-md border border-slate-100">
-            <label for="quiz-chapter-select" class="block text-slate-700 text-base font-semibold mb-3">Vælg kapitler:</label>
-            <select id="quiz-chapter-select" multiple class="shadow-sm border border-slate-300 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 max-w-xs h-32 text-base">
-                </select>
-        </div>
-
-        <div id="all-questions-mode-container" class="quiz-mode-container">
-            <div class="text-center mb-8">
-                <button id="start-all-quiz-btn" class="submit-btn bg-indigo-600 text-lg">Start Quiz</button>
-            </div>
-            <div id="quiz-question-container">
-                </div>
-            <div class="text-center mt-10">
-                <button id="submit-quiz-btn" class="submit-btn bg-blue-600 text-lg" disabled>Tjek svar</button>
-                <button id="restart-all-quiz-btn" class="submit-btn bg-orange-500 hover:bg-orange-600 text-lg ml-6 hidden">Start forfra</button>
-            </div>
-            <div id="quiz-results" class="result-message hidden">
-                </div>
-        </div>
-
-        <div id="one-by-one-mode-container" class="quiz-mode-container hidden">
-            <div class="text-center mb-8">
-                <p class="text-slate-700 text-base font-semibold mb-4">Aktive kapitler: <span id="active-chapters-display" class="font-normal text-slate-600">Kapitel 1</span></p>
-                <button id="start-one-by-one-quiz-btn" class="submit-btn bg-indigo-600 text-lg">Start Enkelt Spørgsmål Quiz</button>
-            </div>
-
-            <div id="single-question-display" class="question-card hidden">
-                <p class="font-semibold text-xl mb-6 text-slate-900" id="single-question-text"></p>
-                <div class="options-container" id="single-options-container">
+        <!-- Selve Kortet -->
+        <div id="card-container-wrapper" class="perspective-container mb-6">
+            <div id="flashcard" class="card w-full h-96 cursor-pointer relative">
+                
+                <!-- Forside -->
+                <div class="card-face card-front bg-white text-slate-800 shadow-xl border border-slate-100">
+                    <div class="card-content-scroll">
+                        <p id="card-front-text" class="card-text"></p>
                     </div>
-                <p class="explanation mt-4 hidden" id="single-explanation-text"></p>
-            </div>
-
-            <div class="text-center mt-10">
-                <p id="single-quiz-progress" class="text-slate-600 text-lg font-medium mb-6">Spørgsmål 0 / 0</p>
-                <button id="check-single-answer-btn" class="submit-btn bg-blue-600 text-lg" disabled>Tjek Svar</button>
-                <button id="next-single-question-btn" class="submit-btn bg-blue-600 hover:bg-blue-700 text-lg ml-6 hidden">Næste Spørgsmål</button>
-                <button id="restart-single-quiz-btn" class="submit-btn bg-orange-500 hover:bg-orange-600 text-lg ml-6 hidden">Start Enkelt Spørgsmål Quiz Forfra</button>
-            </div>
-            <div id="single-quiz-results" class="result-message hidden">
+                    <!-- Footer til kapitelnavn -->
+                    <div class="card-footer">
+                        <p id="card-front-footer" class="text-xs font-semibold text-slate-400 uppercase tracking-wider truncate"></p>
+                    </div>
                 </div>
+
+                <!-- Bagside -->
+                <div class="card-face card-back bg-indigo-600 text-white shadow-xl">
+                    <div class="card-content-scroll">
+                        <p id="card-back-text" class="card-text"></p>
+                    </div>
+                    <!-- Footer til kapitelnavn -->
+                    <div class="card-footer" style="background-color: rgba(255,255,255,0.1); border-top: 1px solid rgba(255,255,255,0.2);">
+                        <p id="card-back-footer" class="text-xs font-semibold text-indigo-100 uppercase tracking-wider truncate"></p>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <!-- Feedback Knapper -->
+        <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-4 mb-8 hidden">
+            <button id="feedback-correct-btn" class="feedback-btn bg-green-100 text-green-700 hover:bg-green-200 border-green-200">Rigtigt 😊</button>
+            <button id="feedback-unsure-btn" class="feedback-btn bg-yellow-100 text-yellow-700 hover:bg-yellow-200 border-yellow-200">Ikke sikker 🤔</button>
+            <button id="feedback-incorrect-btn" class="feedback-btn bg-red-100 text-red-700 hover:bg-red-200 border-red-200">Forkert 😞</button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+            <button id="prev-btn" class="nav-arrow-btn">← Forrige</button>
+            <span id="progress-text" class="font-mono text-slate-500 font-medium">0 / 0</span>
+            <button id="next-btn" class="nav-arrow-btn">Næste →</button>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-4">Tip: Brug piletasterne til at navigere og mellemrum til at vende kortet.</p>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- QUIZ SEKTION -->
+    <div id="quiz-section" class="w-full max-w-4xl mx-auto hidden">
+        
+        <!-- Quiz Kontrol -->
+        <div class="mb-8 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+            <div class="flex justify-center space-x-4 mb-6">
+                <button id="show-all-questions-mode-btn" class="mode-btn active">Alle spørgsmål</button>
+                <button id="show-one-by-one-mode-btn" class="mode-btn">Et ad gangen</button>
+            </div>
+            
+            <label class="block text-slate-700 text-sm font-bold uppercase tracking-wide mb-2 text-center">Vælg Kapitler</label>
+            <select id="quiz-chapter-select" multiple class="form-multiselect block w-full rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-40">
+                <!-- Indsættes via JS -->
+            </select>
+            <p class="text-xs text-center text-slate-400 mt-2">Hold Ctrl (Windows) eller Cmd (Mac) nede for at vælge flere.</p>
+        </div>
+
+        <!-- Alle Spørgsmål Mode -->
+        <div id="all-questions-mode-container">
+            <div class="text-center mb-8">
+                <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-8 py-3">Start Quiz</button>
+            </div>
+            <div id="quiz-question-container" class="space-y-6"></div>
+            
+            <div class="text-center mt-10 pb-20">
+                <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white text-lg px-8 disabled:opacity-50 disabled:cursor-not-allowed" disabled>Tjek Svar</button>
+                <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 ml-4 hidden">Prøv igen</button>
+                <div id="quiz-results" class="mt-6 text-2xl font-bold text-slate-800 hidden"></div>
+            </div>
+        </div>
+
+        <!-- Et ad gangen Mode -->
+        <div id="one-by-one-mode-container" class="hidden">
+            <div class="text-center mb-6">
+                <p class="text-slate-500 text-sm">Valgte: <span id="active-chapters-display" class="font-semibold text-slate-700"></span></p>
+                <button id="start-one-by-one-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white mt-4">Start</button>
+            </div>
+
+            <div id="single-question-display" class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hidden">
+                <p id="single-question-text" class="text-xl font-bold text-slate-900 mb-6"></p>
+                <div id="single-options-container" class="space-y-3"></div>
+                <div id="single-explanation-text" class="mt-6 p-4 rounded-lg bg-slate-50 border hidden text-sm leading-relaxed"></div>
+            </div>
+
+            <div class="text-center mt-8 pb-20">
+                <p id="single-quiz-progress" class="text-slate-400 font-mono mb-4"></p>
+                <button id="check-single-answer-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white disabled:opacity-50" disabled>Tjek</button>
+                <button id="next-single-question-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white ml-4 hidden">Næste →</button>
+                <button id="restart-single-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white ml-4 hidden">Start Forfra</button>
+                <div id="single-quiz-results" class="mt-4 font-bold text-xl hidden"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
