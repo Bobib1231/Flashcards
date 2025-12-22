@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed. Initializing app...");
+    console.log("App initializing with FULL data...");
 
-    // --- DATA: Flashcard content opdelt efter kategori ---
+    // ==========================================================
+    // DATA SEKTION (KOMPLET)
+    // ==========================================================
+    
     const allFlashcardCategories = {
         "Keltner 2006 - Evolution & Følelser": [
             { front: "Social-funktionel tilgang", back: "En tilgang hvor psykologiske fænomener ses som havende et socialt formål og en evolutionær funktion for at løse overlevelses- og reproduktionsproblemer." },
@@ -906,7 +909,6 @@ document.addEventListener('DOMContentLoaded', () => {
           ]
   };
 
-    // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
     const quizQuestions = [
         // Chapter 1
         {
@@ -2587,17 +2589,23 @@ document.addEventListener('DOMContentLoaded', () => {
 }
     ];
 
-    // --- DOM Elements ---
-    // Main sections
+  // ==========================================================
+    // HER STARTER DEN NYE LOGIK (Indsæt dette efter dine data)
+    // ==========================================================
+
+    // DOM Elements
     const flashcardSection = document.getElementById('flashcard-section');
     const quizSection = document.getElementById('quiz-section');
     const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
     const showQuizBtn = document.getElementById('show-quiz-btn');
 
-    // Flashcard elements
+    // Flashcard Elements
     const card = document.getElementById('flashcard');
     const frontTextElement = document.getElementById('card-front-text');
     const backTextElement = document.getElementById('card-back-text');
+    const frontFooterElement = document.getElementById('card-front-footer'); // Footer forside
+    const backFooterElement = document.getElementById('card-back-footer');   // Footer bagside
+    
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const progressText = document.getElementById('progress-text');
@@ -2605,195 +2613,154 @@ document.addEventListener('DOMContentLoaded', () => {
     const shuffleBtn = document.getElementById('shuffle-btn');
     const showBackFirstToggle = document.getElementById('show-back-first-toggle');
     const cardContainerWrapper = document.getElementById('card-container-wrapper');
+    const feedbackButtonsContainer = document.getElementById('flashcard-feedback-buttons'); // Hvis du vil bruge feedback knapper
 
-    // --- Nye Flashcard Feedback Elements ---
-    const flashcardFeedbackButtons = document.getElementById('flashcard-feedback-buttons');
-    const feedbackCorrectBtn = document.getElementById('feedback-correct-btn');
-    const feedbackUnsureBtn = document.getElementById('feedback-unsure-btn');
-    const feedbackIncorrectBtn = document.getElementById('feedback-incorrect-btn');
-
-    // Quiz elements (common)
+    // Quiz Elements
     const quizChapterSelect = document.getElementById('quiz-chapter-select');
-
-    // All Questions Mode elements
     const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
+    const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
     const startAllQuizBtn = document.getElementById('start-all-quiz-btn');
     const quizQuestionContainer = document.getElementById('quiz-question-container');
     const submitQuizBtn = document.getElementById('submit-quiz-btn');
-    const restartAllQuizBtn = document.getElementById('restart-all-quiz-btn');
+    const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
-
-    // One Question at a Time Mode elements
-    const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
-    const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
-    const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
-    const activeChaptersDisplay = document.getElementById('active-chapters-display');
-    const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
-    const singleQuestionDisplay = document.getElementById('single-question-display');
-    const singleQuestionText = document.getElementById('single-question-text');
-    const singleOptionsContainer = document.getElementById('single-options-container');
-    const singleExplanationText = document.getElementById('single-explanation-text');
-    const checkSingleAnswerBtn = document.getElementById('check-single-answer-btn');
-    const nextSingleQuestionBtn = document.getElementById('next-single-question-btn');
-    const restartSingleQuizBtn = document.getElementById('restart-single-quiz-btn');
-    const singleQuizProgress = document.getElementById('single-quiz-progress');
-    const singleQuizResults = document.getElementById('single-quiz-results');
-
-
-    // --- Flashcard State ---
-    let currentFlashcards = []; // All flashcards in the currently selected category
+    
+    // State Variables
+    let currentFlashcards = [];
     let currentFlashcardIndex = 0;
     let isFlipped = false;
     let showBackFirst = false;
 
-    // --- Nye Flashcard Feedback State Variabler ---
-    let cardsToReview = []; // Kort markeret som 'Ikke sikker' eller 'Forkert'
-    let masteredCards = []; // Kort markeret som 'Rigtigt' (skal ikke ses igen i denne session)
-    let currentDeck = []; // Den *aktuelle* bunke kort, vi gennemgår (kan indeholde kort fra cardsToReview)
-
-    // --- Quiz State (Common) ---
-    // selectedQuizChapters will be set in populateQuizChapterSelect and filterQuizQuestions
-    let selectedQuizChapters = []; 
-    let filteredQuizQuestions = [];
-
-    // --- All Questions Mode State ---
-    let allUserAnswers = {}; // Store user's selected answers for "all questions" mode
-
-    // --- One Question at a Time Mode State ---
-    let oneByOneActiveQuestions = []; // Questions currently in play for one-by-one mode
-    let currentOneByOneQuestionIndex = 0;
-    let oneByOneCorrectStreaks = {}; // Tracks correct streaks for each question ID
-    let oneByOneUserAnswer = null; // Stores selected answer for current single question
-
-    // --- Section & Mode Visibility ---
-    function showMainSection(sectionId) {
-        console.log(`Showing section: ${sectionId}`);
-        flashcardSection.style.display = 'none';
-        quizSection.style.display = 'none';
-        document.getElementById(sectionId).style.display = 'block';
-
-        if (sectionId === 'flashcard-section') {
-            showFlashcardsBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-            showFlashcardsBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
-            showQuizBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-            showQuizBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
-        } else { // Quiz Section
-            showFlashcardsBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-            showFlashcardsBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
-            showQuizBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-            showQuizBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
-            // Default to all questions mode when quiz section is opened
-            showQuizMode('all_questions');
+    // --- NAVIGATION MELLEM SEKTIONER ---
+    function showSection(section) {
+        if (section === 'flashcards') {
+            flashcardSection.classList.remove('hidden');
+            quizSection.classList.add('hidden');
+            showFlashcardsBtn.classList.add('active');
+            showQuizBtn.classList.remove('active');
+        } else {
+            flashcardSection.classList.add('hidden');
+            quizSection.classList.remove('hidden');
+            showFlashcardsBtn.classList.remove('active');
+            showQuizBtn.classList.add('active');
+            // Init quiz view default
+            document.getElementById('show-all-questions-mode-btn').click();
         }
     }
 
-    function showQuizMode(mode) {
-        console.log(`Showing quiz mode: ${mode}`);
-        allQuestionsModeContainer.style.display = 'none';
-        oneByOneModeContainer.style.display = 'none';
+    showFlashcardsBtn.addEventListener('click', () => showSection('flashcards'));
+    showQuizBtn.addEventListener('click', () => showSection('quiz'));
 
-        if (mode === 'all_questions') {
-            allQuestionsModeContainer.style.display = 'block';
-            showAllQuestionsModeBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-            showAllQuestionsModeBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
-            showOneByOneModeBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-            showOneByOneModeBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
-            // Ensure quiz is rendered only if there are questions selected
-            if (filteredQuizQuestions.length > 0) { // Brug filteredQuizQuestions her
-                 renderQuizAllQuestions();
-            } else {
-                 quizQuestionContainer.innerHTML = '<p class="text-center text-slate-600 text-lg font-medium">Vælg venligst mindst ét kapitel for at starte quizzen.</p>';
-                 submitQuizBtn.disabled = true;
+
+    // ==========================================================
+    // FLASHCARD LOGIK
+    // ==========================================================
+
+    function populateCategorySelect() {
+        categorySelect.innerHTML = '';
+        
+        // Option for at blande alt
+        const allOption = document.createElement('option');
+        allOption.value = 'all_shuffled';
+        allOption.textContent = 'Bland alle kapitler';
+        categorySelect.appendChild(allOption);
+
+        // Sortér kategorier alfabetisk (Dansk sortering)
+        Object.keys(allFlashcardCategories).sort((a, b) => a.localeCompare(b, 'da')).forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            opt.textContent = cat;
+            categorySelect.appendChild(opt);
+        });
+        
+        // Indlæs standard
+        loadCategory('all_shuffled');
+    }
+
+    function loadCategory(categoryName) {
+        currentFlashcards = [];
+        
+        if (categoryName === 'all_shuffled') {
+            // Loop gennem alle kategorier og tilføj kildenavn til kortet
+            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
+                // Vi laver en kopi af kortene og tilføjer 'sourceCategory' property
+                // Dette løser problemet med at vide hvor kortet kommer fra
+                const labeledCards = cards.map(c => ({
+                    ...c,
+                    sourceCategory: catName
+                }));
+                currentFlashcards = currentFlashcards.concat(labeledCards);
             }
-        } else { // one_by_one
-            oneByOneModeContainer.style.display = 'block';
-            showOneByOneModeBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-            showOneByOneModeBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
-            showAllQuestionsModeBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-            showAllQuestionsModeBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
-            updateActiveChaptersDisplay();
-            resetOneByOneQuiz(); // Prepare the one-by-one quiz
+        } else {
+            // Hent specifik kategori og label dem også
+            if (allFlashcardCategories[categoryName]) {
+                currentFlashcards = allFlashcardCategories[categoryName].map(c => ({
+                    ...c,
+                    sourceCategory: categoryName
+                }));
+            }
+        }
+
+        shuffleArray(currentFlashcards);
+        currentFlashcardIndex = 0;
+        isFlipped = false;
+        card.classList.remove('is-flipped');
+        
+        updateCardUI();
+    }
+
+    function updateCardUI() {
+        if (currentFlashcards.length === 0) {
+            frontTextElement.textContent = "Ingen kort fundet.";
+            backTextElement.textContent = "";
+            progressText.textContent = "0 / 0";
+            return;
+        }
+
+        const cardData = currentFlashcards[currentFlashcardIndex];
+        
+        // Sæt tekst baseret på brugerens valg (Vis bagside først?)
+        frontTextElement.textContent = showBackFirst ? cardData.back : cardData.front;
+        backTextElement.textContent = showBackFirst ? cardData.front : cardData.back;
+
+        // **HER ER FIXET TIL KAPITEL I BUNDEN**
+        // Vi bruger .sourceCategory som vi lavede i loadCategory
+        const footerText = cardData.sourceCategory || "";
+        if(frontFooterElement) frontFooterElement.textContent = footerText;
+        if(backFooterElement) backFooterElement.textContent = footerText;
+
+        // Opdater tæller
+        progressText.textContent = `${currentFlashcardIndex + 1} / ${currentFlashcards.length}`;
+
+        // Opdater knap-status
+        prevBtn.disabled = currentFlashcardIndex === 0;
+    }
+
+    function nextCard() {
+        if (currentFlashcardIndex < currentFlashcards.length - 1) {
+            animateCardChange(1);
         }
     }
 
-    // --- Flashcard Functions ---
-    
-// === Alfabetisk dropdown for Flashcards-kategorier ===
-function populateCategorySelect() {
-  console.log("Populating category select...");
-  categorySelect.innerHTML = '';
-
-  // Bevar: "Bland alle kapitler" øverst
-  const allCategoriesOption = document.createElement('option');
-  allCategoriesOption.value = 'all_chapters_shuffled';
-  allCategoriesOption.textContent = 'Bland alle kapitler';
-  categorySelect.appendChild(allCategoriesOption);
-
-  // NYT: Sortér kategorier (dansk locale) og byg options
-  const sortedCategoryNames = Object.keys(allFlashcardCategories)
-    .sort((a, b) => a.localeCompare(b, 'da'));
-
-  sortedCategoryNames.forEach(category => {
-    const option = document.createElement('option');
-    option.value = category;
-    option.textContent = category;
-    categorySelect.appendChild(option);
-  });
-
-  // Standardvalg & indlæsning (samme som før)
-  categorySelect.value = 'all_chapters_shuffled';
-  loadCategory(categorySelect.value);
-}
-
-// === Alfabetisk dropdown for Quiz-kapitler ===
-function populateQuizChapterSelect() {
-  console.log("Populating quiz chapter select...");
-  quizChapterSelect.innerHTML = '';
-
-  // Saml unikke kapitler og sortér (dansk locale)
-  const allChapters = quizQuestions.length > 0
-    ? [...new Set(quizQuestions.map(q => q.chapter))]
-    : [];
-  const sortedQuizChapters = allChapters.slice()
-    .sort((a, b) => a.localeCompare(b, 'da'));
-
-  if (sortedQuizChapters.length > 0) {
-    // Bevar: "Bland alle kapitler" øverst
-    const allQuizChaptersOption = document.createElement('option');
-    allQuizChaptersOption.value = 'all_quiz_chapters_shuffled';
-    allQuizChaptersOption.textContent = 'Bland alle kapitler';
-    quizChapterSelect.appendChild(allQuizChaptersOption);
-
-    // NYT: Byg resten alfabetisk
-    sortedQuizChapters.forEach(chapter => {
-      const option = document.createElement('option');
-      option.value = chapter;
-      option.textContent = chapter;
-
-      // Bevar din default-logik: vælg Kap. 1 hvis ingen er valgt endnu
-      if (parseInt(chapter.replace('Chapter ', '')) === 1 &&
-          selectedQuizChapters.length === 0) {
-        option.selected = true;
-        selectedQuizChapters.push(chapter);
-      }
-
-      quizChapterSelect.appendChild(option);
-    });
-
-    // Bevar fallback: vælg "Bland alle kapitler", hvis intet blev valgt
-    if (selectedQuizChapters.length === 0 && quizQuestions.length > 0) {
-      quizChapterSelect.value = 'all_quiz_chapters_shuffled';
-      selectedQuizChapters = ['all_quiz_chapters_shuffled'];
+    function prevCard() {
+        if (currentFlashcardIndex > 0) {
+            animateCardChange(-1);
+        }
     }
 
-    // Bevar filtrering af spørgsmål
-    filterQuizQuestions();
-  } else {
-    const option = document.createElement('option');
-    option.value = '';
-    option.textContent = 'Ingen quiz-spørgsmål tilgængelige';
-    quizChapterSelect.appendChild(option);
-  }
+    function animateCardChange(direction) {
+        cardContainerWrapper.style.opacity = '0';
+        cardContainerWrapper.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            currentFlashcardIndex += direction;
+            isFlipped = false;
+            card.classList.remove('is-flipped');
+            updateCardUI();
+            
+            cardContainerWrapper.style.opacity = '1';
+            cardContainerWrapper.style.transform = 'scale(1)';
+        }, 200);
     }
 
     function shuffleArray(array) {
@@ -2803,635 +2770,281 @@ function populateQuizChapterSelect() {
         }
     }
 
-    function loadCategory(categoryName) {
-        console.log(`Loading category: ${categoryName}`);
-        if (categoryName === 'all_chapters_shuffled') {
-            // Saml alle kort fra alle kategorier
-            let allCards = [];
-            for (const category in allFlashcardCategories) {
-                allCards = allCards.concat(allFlashcardCategories[category]);
-            }
-            currentFlashcards = allCards;
-        } else {
-            currentFlashcards = [...(allFlashcardCategories[categoryName] || [])];
-        }
-        
-        shuffleArray(currentFlashcards);
-        currentFlashcardIndex = 0;
-        resetFlashcardFeedback(); // Nulstil feedback-status, når ny kategori indlæses
-        updateFlashcardUI();
-    }
+    // Event Listeners for Flashcards
+    categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
+    
+    shuffleBtn.addEventListener('click', () => {
+        loadCategory(categorySelect.value); // Reload = reshuffle
+    });
 
-    function shuffleCurrentCards() {
-        console.log("Shuffling current cards...");
-        if (currentFlashcards.length === 0) {
-            console.log("No cards to shuffle.");
-            return;
-        }
-        // When shuffling, we effectively reset the review process for the current category
-        loadCategory(categorySelect.value); // Reload the category to reset everything
-    }
+    showBackFirstToggle.addEventListener('change', (e) => {
+        showBackFirst = e.target.checked;
+        updateCardUI();
+    });
 
-    // --- RETTET FUNKTION ---
-    function updateCardContent() {
-        if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length) {
-            const cardData = currentFlashcards[currentFlashcardIndex];
-            
-            // Fysisk forside af kortet
-            if (showBackFirst) {
-                frontTextElement.textContent = cardData.back;
-            } else {
-                frontTextElement.textContent = cardData.front;
-            }
-
-            // Fysisk bagside af kortet
-            if (showBackFirst) {
-                backTextElement.textContent = cardData.front;
-            } else {
-                backTextElement.textContent = cardData.back;
-            }
-        } else {
-            frontTextElement.textContent = "Ingen kort i denne kategori.";
-            backTextElement.textContent = "Vælg en kategori for at starte.";
-        }
-    }
-    // --- SLUT PÅ RETTET FUNKTION ---
-
-    function updateFlashcardUI() {
-        console.log(`Updating Flashcard UI. Index: ${currentFlashcardIndex}, Total: ${currentFlashcards.length}`);
-        updateCardContent();
-        if (currentFlashcards.length > 0) {
-            progressText.textContent = `Kort ${currentFlashcardIndex + 1} / ${currentFlashcards.length}`;
-            flashcardFeedbackButtons.classList.remove('hidden'); // Vis feedback-knapper
-        } else {
-            progressText.textContent = `Kort 0 / 0`;
-            flashcardFeedbackButtons.classList.add('hidden'); // Skjul feedback-knapper
-        }
-
-        // Deaktiver feedback-knapperne, hvis der ikke er aktive kort, eller hvis alle kort er gennemgået
-        if (currentFlashcards.length === 0 || currentFlashcardIndex === -1) {
-            feedbackCorrectBtn.disabled = true;
-            feedbackUnsureBtn.disabled = true;
-            feedbackIncorrectBtn.disabled = true;
-        } else {
-            feedbackCorrectBtn.disabled = false;
-            feedbackUnsureBtn.disabled = false;
-            feedbackIncorrectBtn.disabled = false;
-        }
-
-        prevBtn.disabled = currentFlashcardIndex === 0 || currentFlashcards.length === 0;
-        nextBtn.disabled = currentFlashcardIndex === currentFlashcards.length - 1 || currentFlashcards.length === 0 || currentFlashcardIndex === -1;
-        shuffleBtn.disabled = currentFlashcards.length === 0;
-        
-        // Ensure card is not flipped when updating UI initially
-        if (card.classList.contains('is-flipped')) {
-            card.classList.remove('is-flipped');
-            isFlipped = false;
-        }
-    }
-
-    function navigateFlashcards(direction) {
-        console.log(`Navigating flashcards: ${direction}`);
-        if (currentFlashcards.length === 0) return;
-
-        cardContainerWrapper.classList.add('fade-out');
-
-        setTimeout(() => {
-            currentFlashcardIndex += direction;
-            if (currentFlashcardIndex < 0) currentFlashcardIndex = 0;
-            if (currentFlashcardIndex >= currentFlashcards.length) currentFlashcardIndex = currentFlashcards.length - 1;
-            
-            updateFlashcardUI();
-            
-            cardContainerWrapper.classList.remove('fade-out');
-        }, 300);
-    }
-
-    function handleFeedback(feedbackType) {
-        console.log(`Handling feedback: ${feedbackType}`);
-        if (currentFlashcards.length === 0 || currentFlashcardIndex < 0 || currentFlashcardIndex >= currentFlashcards.length) {
-            console.log("No current flashcard to give feedback on.");
-            return;
-        }
-
-        const currentCard = currentFlashcards[currentFlashcardIndex];
-        
-        // Remove the card from cardsToReview and masteredCards first to ensure correct state after feedback
-        cardsToReview = cardsToReview.filter(card => card !== currentCard);
-        masteredCards = masteredCards.filter(card => card !== currentCard);
-
-        switch (feedbackType) {
-            case 'correct':
-                masteredCards.push(currentCard);
-                console.log("Card marked as correct.");
-                break;
-            case 'unsure':
-                cardsToReview.push(currentCard);
-                console.log("Card marked as unsure.");
-                break;
-            case 'incorrect':
-                cardsToReview.push(currentCard);
-                console.log("Card marked as incorrect.");
-                break;
-        }
-
-        // Gå til næste kort
-        navigateToNextFlashcardAfterFeedback();
-    }
-
-    function navigateToNextFlashcardAfterFeedback() {
-        console.log("Navigating to next flashcard after feedback.");
-        cardContainerWrapper.classList.add('fade-out');
-
-        setTimeout(() => {
-            // Update currentDeck based on latest feedback
-            currentDeck = [];
-            // Add cards to review first, then other unmastered cards (that are not already in cardsToReview)
-            currentDeck.push(...cardsToReview);
-            currentDeck.push(...currentFlashcards.filter(card => 
-                !masteredCards.includes(card) && !cardsToReview.includes(card)
-            ));
-            shuffleArray(currentDeck); // Shuffle the deck for next round of review
-
-            console.log(`Current Deck length: ${currentDeck.length}, Mastered Cards: ${masteredCards.length}, Cards To Review: ${cardsToReview.length}`);
-
-            if (currentDeck.length === 0) {
-                // All cards mastered or reviewed
-                frontTextElement.textContent = "Alle kort er gennemgået! Godt arbejde!";
-                backTextElement.textContent = "Du kan blande kortene for at starte forfra eller vælge en ny kategori.";
-                progressText.textContent = "Færdig!";
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-                shuffleBtn.disabled = false; // Allow shuffling to restart
-                flashcardFeedbackButtons.classList.add('hidden');
-                cardContainerWrapper.classList.remove('fade-out');
-                currentFlashcardIndex = -1; // Indicate no card is currently active
-                console.log("All cards completed.");
-                return;
-            }
-
-            // Find the index of the next card in the *original* currentFlashcards array
-            // This ensures currentFlashcardIndex always refers to the original array
-            currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); 
-            console.log(`Next card index in original array: ${currentFlashcardIndex}`);
-            
-            updateFlashcardUI();
-            cardContainerWrapper.classList.remove('fade-out');
-        }, 300);
-    }
-
-    function resetFlashcardFeedback() {
-        console.log("Resetting flashcard feedback and deck.");
-        cardsToReview = [];
-        masteredCards = [];
-        currentDeck = [...currentFlashcards]; // Sæt det aktuelle dæk til alle kort ved start
-        shuffleArray(currentDeck); // Bland kortene i det initiale dæk
-        if (currentDeck.length > 0) {
-            currentFlashcardIndex = currentFlashcards.indexOf(currentDeck[0]); // Sørg for at index peger på første kort i det blandede dæk
-            flashcardFeedbackButtons.classList.remove('hidden'); // Vis knapperne, hvis der er kort
-        } else {
-            currentFlashcardIndex = -1; // Ingen aktive kort
-            flashcardFeedbackButtons.classList.add('hidden'); // Skjul knapperne
-        }
-    }
-
-    // --- Flashcard Event Listeners ---
     card.addEventListener('click', () => {
-        if (currentFlashcards.length > 0 && currentFlashcardIndex !== -1) { // Check if a card is active
-            card.classList.toggle('is-flipped');
-            isFlipped = !isFlipped;
-            // After flipping, update content to show correct side
-            updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
-        }
+        card.classList.toggle('is-flipped');
+        isFlipped = !isFlipped;
     });
 
-    // Genskab event listener for nextBtn for simpel fremad-navigation
-    nextBtn.addEventListener('click', () => {
-        // Hvis der er kort, og vi ikke er ved det sidste kort, navigér.
-        if (currentFlashcards.length > 0 && currentFlashcardIndex < currentFlashcards.length - 1) {
-            navigateFlashcards(1);
-        }
-    });
+    nextBtn.addEventListener('click', nextCard);
+    prevBtn.addEventListener('click', prevCard);
 
-    // Genskab event listener for prevBtn for simpel bagud-navigation
-    prevBtn.addEventListener('click', () => {
-        // Hvis der er kort, og vi ikke er ved det første kort, navigér.
-        if (currentFlashcards.length > 0 && currentFlashcardIndex > 0) {
-            navigateFlashcards(-1);
-        }
-    });
-    
-    categorySelect.addEventListener('change', (event) => loadCategory(event.target.value));
-    shuffleBtn.addEventListener('click', shuffleCurrentCards);
-
-    showBackFirstToggle.addEventListener('change', () => {
-        showBackFirst = showBackFirstToggle.checked;
-        updateFlashcardUI();
-    });
-    
+    // Keyboard support
     document.addEventListener('keydown', (e) => {
-        if (flashcardSection.style.display === 'block' && currentFlashcards.length > 0 && currentFlashcardIndex !== -1) { // Kun respondere hvis flashcard sektionen er aktiv og der er et aktivt kort
-            if (e.key === 'ArrowLeft' && !prevBtn.disabled) { // Pil venstre for 'Forrige'
-                navigateFlashcards(-1);
-            } else if (e.key === 'ArrowRight' && !nextBtn.disabled) { // Pil højre for 'Næste'
-                navigateFlashcards(1);
-            } else if (e.key === ' ') { // Mellemrum til at vende kort
-                e.preventDefault();
-                card.classList.toggle('is-flipped');
-                isFlipped = !isFlipped;
-                // After flipping, update content to show correct side
-                updateCardContent(); // Kald updateCardContent for at sikre korrekt indhold vises efter flip
-            } else if (e.key === '1') { // Tal 1 for Rigtigt
-                e.preventDefault();
-                handleFeedback('correct');
-            } else if (e.key === '2') { // Tal 2 for Ikke sikker
-                e.preventDefault();
-                handleFeedback('unsure');
-            } else if (e.key === '3') { // Tal 3 for Forkert
-                e.preventDefault();
-                handleFeedback('incorrect');
-            }
+        if (flashcardSection.classList.contains('hidden')) return;
+        
+        if (e.code === 'Space') {
+            e.preventDefault(); // Stop scroll
+            card.click();
+        } else if (e.code === 'ArrowRight') {
+            nextCard();
+        } else if (e.code === 'ArrowLeft') {
+            prevCard();
         }
     });
 
-    // --- Flashcard Feedback Event Listeners ---
-    feedbackCorrectBtn.addEventListener('click', () => handleFeedback('correct'));
-    feedbackUnsureBtn.addEventListener('click', () => handleFeedback('unsure'));
-    feedbackIncorrectBtn.addEventListener('click', () => handleFeedback('incorrect'));
 
+    // ==========================================================
+    // QUIZ LOGIK
+    // ==========================================================
+    
+    let currentQuizQuestions = [];
+    let userAnswers = {};
 
-    // --- Quiz Functions (Common) ---
-    function populateQuizChapterSelect() {
-        console.log("Populating quiz chapter select...");
+    function populateQuizChapters() {
+        // Hent unikke kapitler og sorter alfabetisk (Dansk)
+        const chapters = [...new Set(quizQuestions.map(q => q.chapter))].sort((a, b) => a.localeCompare(b, 'da'));
+        
         quizChapterSelect.innerHTML = '';
-
-        // Initialiser allChapters her, lige før brug
-        const allChapters = quizQuestions.length > 0 ? [...new Set(quizQuestions.map(q => q.chapter))] : []; 
-
-        if (allChapters.length > 0) {
-            // Tilføj "Bland alle kapitler" som den første mulighed for quizzen
-            const allQuizChaptersOption = document.createElement('option');
-            allQuizChaptersOption.value = 'all_quiz_chapters_shuffled';
-            allQuizChaptersOption.textContent = 'Bland alle kapitler';
-            quizChapterSelect.appendChild(allQuizChaptersOption);
-
-            allChapters.forEach(chapter => {
-                const option = document.createElement('option');
-                option.value = chapter;
-                option.textContent = chapter;
-                // Select only Chapter 1 by default initially if 'all_quiz_chapters_shuffled' is not selected
-                if (parseInt(chapter.replace('Chapter ', '')) === 1 && selectedQuizChapters.length === 0) { // Kun vælg Kap 1, hvis ingen er valgt
-                    option.selected = true;
-                    selectedQuizChapters.push(chapter); // Tilføj Kapitel 1 til valgte kapitler som standard
-                }
-                quizChapterSelect.appendChild(option);
-            });
-            // Hvis intet kapitel var valgt, og der er quizspørgsmål, vælg "Bland alle kapitler" som standard
-            if (selectedQuizChapters.length === 0 && quizQuestions.length > 0) {
-                quizChapterSelect.value = 'all_quiz_chapters_shuffled';
-                selectedQuizChapters = ['all_quiz_chapters_shuffled'];
-            }
-            filterQuizQuestions();
-        } else {
-            const option = document.createElement('option');
-            option.value = '';
-            option.textContent = 'Ingen quiz-spørgsmål tilgængelige';
-            option.disabled = true;
-            option.selected = true;
-            quizChapterSelect.appendChild(option);
-            // Deaktiver startknapper, hvis ingen spørgsmål
-            startAllQuizBtn.disabled = true;
-            startOneByOneQuizBtn.disabled = true;
-        }
+        chapters.forEach(chap => {
+            const opt = document.createElement('option');
+            opt.value = chap;
+            opt.textContent = chap;
+            opt.selected = true; // Vælg alle som standard
+            quizChapterSelect.appendChild(opt);
+        });
     }
 
-    function filterQuizQuestions() {
-        console.log("Filtering quiz questions...");
-        selectedQuizChapters = Array.from(quizChapterSelect.selectedOptions).map(option => option.value);
-        
-        if (selectedQuizChapters.includes('all_quiz_chapters_shuffled')) {
-            filteredQuizQuestions = [...quizQuestions]; // Inkluder alle spørgsmål
-        } else {
-            filteredQuizQuestions = quizQuestions.filter(q => selectedQuizChapters.includes(q.chapter));
-        }
-        
-        shuffleArray(filteredQuizQuestions); // Shuffle filtered questions
-        
-        // Reset state for both quiz modes
-        resetAllQuestionsQuiz();
-        resetOneByOneQuiz();
-        
-        updateActiveChaptersDisplay(); // Update display for one-by-one mode
+    function getSelectedChapters() {
+        return Array.from(quizChapterSelect.selectedOptions).map(opt => opt.value);
     }
 
-    // --- Quiz Functions (All Questions Mode) ---
-    function renderQuizAllQuestions() {
-        console.log("Rendering all questions quiz...");
+    // --- ALL QUESTIONS MODE ---
+    startAllQuizBtn.addEventListener('click', () => {
+        const chapters = getSelectedChapters();
+        if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
+
+        currentQuizQuestions = quizQuestions.filter(q => chapters.includes(q.chapter));
+        shuffleArray(currentQuizQuestions);
+        
+        renderAllQuiz();
+        startAllQuizBtn.parentElement.classList.add('hidden'); // Skjul start knap
+        document.getElementById('quiz-chapter-select').parentElement.classList.add('hidden'); // Skjul select
+    });
+
+    function renderAllQuiz() {
         quizQuestionContainer.innerHTML = '';
-        if (filteredQuizQuestions.length === 0) {
-            quizQuestionContainer.innerHTML = '<p class="text-center text-slate-600 text-lg font-medium">Vælg venligst mindst ét kapitel for at starte quizzen.</p>';
-            submitQuizBtn.disabled = true;
-            startAllQuizBtn.disabled = true; // Deaktiver startknappen hvis ingen spørgsmål
-            return;
-        }
-        startAllQuizBtn.disabled = false; // Aktiver startknappen, hvis der er spørgsmål
-
-        filteredQuizQuestions.forEach((q, qIndex) => {
-            const questionCard = document.createElement('div');
-            questionCard.className = 'question-card';
-            questionCard.innerHTML = `
-                <p class="font-semibold text-xl mb-6 text-slate-900">${q.question}</p>
-                <div class="options-container">
-                    ${q.options.map((option, oIndex) => `
-                        <label class="answer-option" data-question-index="${qIndex}" data-option-index="${String.fromCharCode(97 + oIndex)}">
-                            <input type="radio" name="question-${qIndex}" value="${String.fromCharCode(97 + oIndex)}" class="form-radio text-blue-600">
-                            <span class="ml-2">${String.fromCharCode(97 + oIndex)}. ${option}</span>
-                        </label>
-                    `).join('')}
-                </div>
-                <p class="explanation mt-4 hidden" id="explanation-${qIndex}"></p>
-            `;
-            quizQuestionContainer.appendChild(questionCard);
-        });
-
-        // Re-attach event listeners for radio buttons to store answers
-        quizQuestionContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', (event) => {
-                const qIndex = event.target.name.split('-')[1];
-                allUserAnswers[qIndex] = event.target.value;
-                checkAllQuestionsAnswered();
-            });
-        });
-        checkAllQuestionsAnswered(); // Initial check
-    }
-
-    function checkAllQuestionsAnswered() {
-        // RETTELSE HER: Brug allUserAnswers for "Alle spørgsmål" tilstand
-        const allAnswered = filteredQuizQuestions.every((_, index) => allUserAnswers.hasOwnProperty(index));
-        submitQuizBtn.disabled = !allAnswered;
-    }
-
-    function submitAllQuestionsQuiz() {
-        console.log("Submitting all questions quiz...");
-        let correctCount = 0;
-        filteredQuizQuestions.forEach((q, qIndex) => {
-            const selectedOption = allUserAnswers[qIndex];
-            const correctOption = q.correctAnswer;
-            const optionsContainer = quizQuestionContainer.querySelector(`[name="question-${qIndex}"]`).closest('.options-container');
-            const explanationElement = document.getElementById(`explanation-${qIndex}`);
-
-            // Disable all radio buttons for this question
-            optionsContainer.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
-
-            optionsContainer.querySelectorAll('.answer-option').forEach(label => {
-                const optionValue = label.querySelector('input').value;
-                if (optionValue === correctOption) {
-                    label.classList.add('correct-answer');
-                }
-                if (optionValue === selectedOption && optionValue !== correctOption) {
-                    label.classList.add('incorrect-answer');
-                }
-            });
-
-            if (selectedOption === correctOption) {
-                correctCount++;
-                explanationElement.textContent = `Korrekt! ${q.feedback}`;
-                explanationElement.classList.add('correct');
-                explanationElement.classList.remove('incorrect');
-            } else {
-                explanationElement.textContent = `Forkert. Det korrekte svar var ${correctOption.toUpperCase()}. ${q.feedback}`;
-                explanationElement.classList.add('incorrect');
-                explanationElement.classList.remove('correct');
-            }
-            explanationElement.classList.remove('hidden');
-        });
-
-        quizResults.textContent = `Du svarede korrekt på ${correctCount} ud af ${filteredQuizQuestions.length} spørgsmål.`;
-        quizResults.classList.remove('hidden');
+        userAnswers = {};
         submitQuizBtn.disabled = true;
-        restartAllQuizBtn.classList.remove('hidden');
+
+        currentQuizQuestions.forEach((q, index) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'bg-white p-6 rounded-xl border border-slate-200 shadow-sm';
+            
+            const title = document.createElement('h3');
+            title.className = 'text-lg font-bold mb-4 text-slate-800';
+            title.textContent = `${index + 1}. ${q.question}`;
+            qDiv.appendChild(title);
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'space-y-2';
+
+            q.options.forEach((opt, i) => {
+                const char = String.fromCharCode(97 + i); // a, b, c...
+                const label = document.createElement('label');
+                label.className = 'question-option';
+                label.innerHTML = `
+                    <input type="radio" name="q${index}" value="${char}" class="mr-3 h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                    <span>${opt}</span>
+                `;
+                
+                label.querySelector('input').addEventListener('change', () => {
+                    // Marker valgt visuelt
+                    optionsDiv.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                    
+                    userAnswers[index] = char;
+                    // Tjek om alle er besvaret
+                    if(Object.keys(userAnswers).length === currentQuizQuestions.length) {
+                        submitQuizBtn.disabled = false;
+                    }
+                });
+
+                optionsDiv.appendChild(label);
+            });
+            qDiv.appendChild(optionsDiv);
+
+            // Explanation container (hidden initially)
+            const expDiv = document.createElement('div');
+            expDiv.id = `exp-${index}`;
+            expDiv.className = 'explanation mt-4 p-4 rounded-lg hidden text-sm';
+            qDiv.appendChild(expDiv);
+
+            quizQuestionContainer.appendChild(qDiv);
+        });
     }
 
-    function resetAllQuestionsQuiz() {
-        console.log("Resetting all questions quiz...");
-        allUserAnswers = {};
-        quizResults.classList.add('hidden');
-        restartAllQuizBtn.classList.add('hidden');
-        renderQuizAllQuestions(); // Re-render quiz with current chapter selection
-        submitQuizBtn.disabled = filteredQuizQuestions.length === 0;
-    }
-
-    // --- Quiz Functions (One Question at a Time Mode) ---
-    function updateActiveChaptersDisplay() {
-        console.log("Updating active chapters display...");
-        if (selectedQuizChapters.length > 0) {
-            // Filtrer "Bland alle kapitler" fra, hvis andre specifikke kapitler er valgt
-            const displayChapters = selectedQuizChapters.filter(chapter => chapter !== 'all_quiz_chapters_shuffled');
-            if (displayChapters.length === 0 && selectedQuizChapters.includes('all_quiz_chapters_shuffled')) {
-                activeChaptersDisplay.textContent = 'Alle kapitler (tilfældigt)';
-            } else if (displayChapters.length > 0) {
-                activeChaptersDisplay.textContent = displayChapters.join(', ');
-            } else {
-                activeChaptersDisplay.textContent = 'Ingen kapitler valgt';
-            }
-        } else {
-            activeChaptersDisplay.textContent = 'Ingen kapitler valgt';
-        }
-    }
-
-    function startOneByOneQuiz() {
-        console.log("Starting one-by-one quiz...");
-        // Reinitialize active questions based on current filtered questions
-        oneByOneActiveQuestions = filteredQuizQuestions.map(q => ({
-            ...q,
-            correctStreak: oneByOneCorrectStreaks[q.question] || 0 // Restore streak if exists
-        }));
+    submitQuizBtn.addEventListener('click', () => {
+        let score = 0;
         
-        // Remove questions already mastered from previous sessions if they meet criterion
-        oneByOneActiveQuestions = oneByOneActiveQuestions.filter(q => q.correctStreak < 2);
+        currentQuizQuestions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            const isCorrect = userAnswer === q.correctAnswer;
+            if(isCorrect) score++;
 
-        shuffleArray(oneByOneActiveQuestions);
-        currentOneByOneQuestionIndex = 0;
+            const expDiv = document.getElementById(`exp-${index}`);
+            expDiv.classList.remove('hidden');
+            expDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
+            expDiv.textContent = isCorrect 
+                ? `Korrekt! ${q.feedback}`
+                : `Forkert. Det rigtige svar var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
 
-        singleQuizResults.classList.add('hidden');
-        restartSingleQuizBtn.classList.add('hidden');
+            // Frys inputs
+            const inputs = document.getElementsByName(`q${index}`);
+            inputs.forEach(inp => inp.disabled = true);
+            
+            // Farv labels
+            const optionsDiv = inputs[0].closest('.space-y-2');
+            optionsDiv.childNodes.forEach((label, i) => {
+                const char = String.fromCharCode(97 + i);
+                if(char === q.correctAnswer) label.classList.add('correct-answer');
+                else if(char === userAnswer && !isCorrect) label.classList.add('incorrect-answer');
+            });
+        });
 
-        if (oneByOneActiveQuestions.length > 0) {
-            singleQuestionDisplay.classList.remove('hidden');
-            renderSingleQuestion(oneByOneActiveQuestions[currentOneByOneQuestionIndex]);
-            updateSingleQuizUI();
-        } else {
-            singleQuestionDisplay.classList.add('hidden');
-            singleQuizProgress.textContent = "Ingen spørgsmål tilgængelige. Vælg kapitler eller start forfra.";
-            checkSingleAnswerBtn.disabled = true;
-            nextSingleQuestionBtn.classList.add('hidden');
-            restartSingleQuizBtn.classList.remove('hidden');
-        }
-    }
+        quizResults.textContent = `Du fik ${score} ud af ${currentQuizQuestions.length} rigtige (${Math.round(score/currentQuizQuestions.length*100)}%)`;
+        quizResults.classList.remove('hidden');
+        submitQuizBtn.classList.add('hidden');
+        restartAllBtn.classList.remove('hidden');
+    });
 
-    function renderSingleQuestion(question) {
-        console.log("Rendering single question...");
-        singleQuestionText.textContent = question.question;
-        singleOptionsContainer.innerHTML = '';
-        singleExplanationText.classList.add('hidden');
-        singleExplanationText.classList.remove('correct', 'incorrect');
-        oneByOneUserAnswer = null; // Reset user answer for the new question
+    restartAllBtn.addEventListener('click', () => {
+        location.reload(); // Nemmeste måde at nulstille alt
+    });
 
-        question.options.forEach((option, oIndex) => {
+
+    // --- ONE BY ONE MODE ---
+    const oneByOneBtn = document.getElementById('show-one-by-one-mode-btn');
+    const allQsBtn = document.getElementById('show-all-questions-mode-btn');
+
+    oneByOneBtn.addEventListener('click', () => {
+        allQuestionsModeContainer.classList.add('hidden');
+        oneByOneModeContainer.classList.remove('hidden');
+        oneByOneBtn.classList.add('active');
+        allQsBtn.classList.remove('active');
+        
+        // Opdater kapitel display
+        const chapters = getSelectedChapters();
+        document.getElementById('active-chapters-display').textContent = chapters.length ? chapters.join(', ') : 'Ingen';
+    });
+    
+    allQsBtn.addEventListener('click', () => {
+        allQuestionsModeContainer.classList.remove('hidden');
+        oneByOneModeContainer.classList.add('hidden');
+        oneByOneBtn.classList.remove('active');
+        allQsBtn.classList.add('active');
+    });
+
+    // Variabler til One-by-One
+    let singleQIndex = 0;
+    let singleQData = [];
+
+    document.getElementById('start-one-by-one-quiz-btn').addEventListener('click', () => {
+        const chapters = getSelectedChapters();
+        if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
+        
+        singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
+        shuffleArray(singleQData);
+        singleQIndex = 0;
+
+        document.getElementById('start-one-by-one-quiz-btn').parentElement.classList.add('hidden');
+        document.getElementById('single-question-display').classList.remove('hidden');
+        
+        showSingleQuestion();
+    });
+
+    function showSingleQuestion() {
+        const q = singleQData[singleQIndex];
+        
+        document.getElementById('single-question-text').textContent = q.question;
+        const optsContainer = document.getElementById('single-options-container');
+        optsContainer.innerHTML = '';
+        
+        document.getElementById('single-explanation-text').classList.add('hidden');
+        document.getElementById('check-single-answer-btn').disabled = true;
+        document.getElementById('next-single-question-btn').classList.add('hidden');
+        document.getElementById('check-single-answer-btn').classList.remove('hidden');
+
+        document.getElementById('single-quiz-progress').textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
+
+        q.options.forEach((opt, i) => {
+            const char = String.fromCharCode(97 + i);
             const label = document.createElement('label');
-            label.className = 'answer-option';
+            label.className = 'question-option w-full';
             label.innerHTML = `
-                <input type="radio" name="single-question-option" value="${String.fromCharCode(97 + oIndex)}" class="form-radio text-blue-600">
-                <span class="ml-2">${String.fromCharCode(97 + oIndex)}. ${option}</span>
+                <input type="radio" name="singleQ" value="${char}" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>${opt}</span>
             `;
             label.addEventListener('click', () => {
-                if (label.querySelector('input').disabled === false) { // Only allow selection if not already checked
-                    oneByOneUserAnswer = String.fromCharCode(97 + oIndex);
-                    checkSingleAnswerBtn.disabled = false; // Enable check button on selection
-                }
+                optsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
+                label.classList.add('selected');
+                document.getElementById('check-single-answer-btn').disabled = false;
             });
-            singleOptionsContainer.appendChild(label);
+            optsContainer.appendChild(label);
         });
-
-        // Enable check button, disable next button
-        checkSingleAnswerBtn.disabled = true; // Initially disabled until an option is chosen
-        nextSingleQuestionBtn.classList.add('hidden');
-        singleQuestionDisplay.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function updateSingleQuizUI() {
-        console.log("Updating single quiz UI...");
-        singleQuizProgress.textContent = `Spørgsmål ${currentOneByOneQuestionIndex + 1} / ${oneByOneActiveQuestions.length}`;
-        // checkSingleAnswerBtn.disabled = (oneByOneUserAnswer === null); // Removed, now enabled by option click
-        if (oneByOneActiveQuestions.length === 0) {
-            singleQuizProgress.textContent = `Færdig! Du har mestret alle ${filteredQuizQuestions.length} spørgsmål i de valgte kapitler.`;
-            singleQuestionDisplay.classList.add('hidden');
-            checkSingleAnswerBtn.classList.add('hidden');
-            nextSingleQuestionBtn.classList.add('hidden');
-            restartSingleQuizBtn.classList.remove('hidden');
-            console.log("All single questions mastered.");
-            return;
-        } else if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length) {
-            currentOneByOneQuestionIndex = oneByOneActiveQuestions.length - 1; // Stay on last question if navigated too far
-        }
-    }
+    document.getElementById('check-single-answer-btn').addEventListener('click', () => {
+        const q = singleQData[singleQIndex];
+        const selected = document.querySelector('input[name="singleQ"]:checked');
+        if(!selected) return;
 
-    function checkSingleAnswer() {
-        console.log("Checking single answer...");
-        const currentQuestion = oneByOneActiveQuestions[currentOneByOneQuestionIndex];
-        const selectedOptionValue = oneByOneUserAnswer;
-        const correctOptionValue = currentQuestion.correctAnswer;
-        const options = singleOptionsContainer.querySelectorAll('.answer-option');
+        const val = selected.value;
+        const isCorrect = val === q.correctAnswer;
+        
+        const exp = document.getElementById('single-explanation-text');
+        exp.classList.remove('hidden');
+        exp.className = `mt-6 p-4 rounded-lg border text-sm leading-relaxed ${isCorrect ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`;
+        exp.textContent = isCorrect ? `Korrekt! ${q.feedback}` : `Forkert. Svaret var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
 
-        // Disable all options and check button after checking
-        options.forEach(label => {
-            label.querySelector('input').disabled = true;
-            const optionValue = label.querySelector('input').value;
-            if (optionValue === correctOptionValue) {
-                label.classList.add('correct-answer');
-            }
-            if (optionValue === selectedOptionValue && optionValue !== correctOptionValue) {
-                label.classList.add('incorrect-answer');
-            }
-        });
-        checkSingleAnswerBtn.disabled = true;
-        nextSingleQuestionBtn.classList.remove('hidden');
-
-        if (selectedOptionValue === correctOptionValue) {
-            singleExplanationText.textContent = `Korrekt! ${currentQuestion.feedback}`;
-            singleExplanationText.classList.add('correct');
-            singleExplanationText.classList.remove('incorrect');
-            currentQuestion.correctStreak = (currentQuestion.correctStreak || 0) + 1;
-            // Store streak globally for persistent tracking across restarts for this mode
-            oneByOneCorrectStreaks[currentQuestion.question] = currentQuestion.correctStreak; 
+        // Disable inputs
+        document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
+        
+        document.getElementById('check-single-answer-btn').classList.add('hidden');
+        
+        if(singleQIndex < singleQData.length - 1) {
+            document.getElementById('next-single-question-btn').classList.remove('hidden');
         } else {
-            singleExplanationText.textContent = `Forkert. Det korrekte svar var ${correctOptionValue.toUpperCase()}. ${currentQuestion.feedback}`;
-            singleExplanationText.classList.add('incorrect');
-            singleExplanationText.classList.remove('correct');
-            currentQuestion.correctStreak = 0; // Reset streak on incorrect answer
-            oneByOneCorrectStreaks[currentQuestion.question] = 0;
+            document.getElementById('restart-single-quiz-btn').classList.remove('hidden');
+            document.getElementById('single-quiz-results').textContent = "Quiz færdig!";
+            document.getElementById('single-quiz-results').classList.remove('hidden');
         }
-        singleExplanationText.classList.remove('hidden');
-    }
+    });
 
-    function nextSingleQuestion() {
-        console.log("Moving to next single question...");
-        const currentQuestion = oneByOneActiveQuestions[currentOneByOneQuestionIndex];
-
-        // If question is mastered (correct twice), remove it from active questions
-        if (currentQuestion.correctStreak >= 2) {
-            oneByOneActiveQuestions.splice(currentOneByOneQuestionIndex, 1);
-            // Adjust index if we removed the last question
-            if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length && oneByOneActiveQuestions.length > 0) {
-                currentOneByOneQuestionIndex = oneByOneActiveQuestions.length - 1;
-            } else if (oneByOneActiveQuestions.length === 0) {
-                currentOneByOneQuestionIndex = 0; // Reset to 0 if all are gone
-            }
-        } else {
-            currentOneByOneQuestionIndex++;
-        }
-
-        // If all questions are done, or no more active questions
-        if (oneByOneActiveQuestions.length === 0) {
-            singleQuizProgress.textContent = `Færdig! Du har mestret alle spørgsmål i de valgte kapitler.`;
-            singleQuestionDisplay.classList.add('hidden');
-            checkSingleAnswerBtn.classList.add('hidden');
-            nextSingleQuestionBtn.classList.add('hidden');
-            restartSingleQuizBtn.classList.remove('hidden');
-            console.log("All single questions mastered.");
-            return;
-        }
-
-        // Loop back to the start if we reach the end and there are still questions
-        if (currentOneByOneQuestionIndex >= oneByOneActiveQuestions.length) {
-            currentOneByOneQuestionIndex = 0; // Loop back to the first remaining question
-            shuffleArray(oneByOneActiveQuestions); // Reshuffle remaining questions for variety
-        }
-
-        renderSingleQuestion(oneByOneActiveQuestions[currentOneByOneQuestionIndex]);
-        updateSingleQuizUI();
-        checkSingleAnswerBtn.classList.remove('hidden');
-        nextSingleQuestionBtn.classList.add('hidden');
-    }
-
-    function resetOneByOneQuiz() {
-        console.log("Resetting one-by-one quiz...");
-        // Reset all streaks for questions in the original filtered set
-        // It's important to reset streaks for the *original* questions, not just the currently active subset
-        filteredQuizQuestions.forEach(q => oneByOneCorrectStreaks[q.question] = 0);
-        startOneByOneQuiz(); // Restart the quiz
-    }
-
-
-    // --- Quiz Event Listeners (Common and Specific) ---
-    // Main Section Navigation
-    showFlashcardsBtn.addEventListener('click', () => showMainSection('flashcard-section'));
-    showQuizBtn.addEventListener('click', () => showMainSection('quiz-section'));
-
-    // Quiz Mode Navigation
-    showAllQuestionsModeBtn.addEventListener('click', () => showQuizMode('all_questions'));
-    showOneByOneModeBtn.addEventListener('click', () => showQuizMode('one_by_one'));
-
-    // Chapter Selection (applies to both quiz modes)
-    quizChapterSelect.addEventListener('change', filterQuizQuestions); // Filter questions when chapter selection changes
-
-    // All Questions Mode Specific
-    startAllQuizBtn.addEventListener('click', renderQuizAllQuestions);
-    submitQuizBtn.addEventListener('click', submitAllQuestionsQuiz);
-    restartAllQuizBtn.addEventListener('click', resetAllQuestionsQuiz);
-
-    // One Question at a Time Mode Specific
-    startOneByOneQuizBtn.addEventListener('click', startOneByOneQuiz);
-    checkSingleAnswerBtn.addEventListener('click', checkSingleAnswer);
-    nextSingleQuestionBtn.addEventListener('click', nextSingleQuestion);
-    restartSingleQuizBtn.addEventListener('click', resetOneByOneQuiz);
+    document.getElementById('next-single-question-btn').addEventListener('click', () => {
+        singleQIndex++;
+        showSingleQuestion();
+    });
     
-    // Initial setup for quiz chapter selection (to be done on page load)
-    populateQuizChapterSelect();
+    document.getElementById('restart-single-quiz-btn').addEventListener('click', () => location.reload());
 
-    // --- Initialisation ---
-    populateCategorySelect(); // Populate flashcard categories
-    showMainSection('flashcard-section'); // Show flashcards by default
-    
-    console.log("App initialization complete.");
-}); // End of DOMContentLoaded listener
+
+    // ==========================================================
+    // INITIALISERING
+    // ==========================================================
+    populateCategorySelect();
+    populateQuizChapters();
+
+    console.log("App ready with ALL original data logic!");
+});
