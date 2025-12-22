@@ -82,7 +82,7 @@ body {
     -webkit-backface-visibility: hidden;
     border-radius: 1.5rem;
     display: flex;
-    flex-direction: column; /* Vigtigt for footer layout */
+    flex-direction: column;
     overflow: hidden;
 }
 
@@ -90,52 +90,53 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Scrollable indhold i kortet */
+/* Stjerne-knap styling */
+.star-btn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+/* Når kortet er gemt (active class styres af JS) */
+.star-btn.active .star-icon {
+    color: #facc15 !important; /* yellow-400 */
+    fill: #facc15 !important;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
 .card-content-scroll {
-    flex-grow: 1; /* Tager alt tilgængelig plads */
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-    overflow-y: auto; /* Scroll hvis teksten er for lang */
+    padding: 2rem 2.5rem; /* Lidt ekstra plads i siderne pga stjernen */
+    overflow-y: auto;
     width: 100%;
 }
 
-/* Tekstformatering på kortet - Løser formateringsproblemet */
 .card-text {
     text-align: center;
     font-size: 1.25rem;
     line-height: 1.6;
-    white-space: pre-wrap; /* Bevarer linjeskift men wrapper tekst */
+    white-space: pre-wrap;
     word-break: break-word;
 }
 
-/* Footer i bunden af kortet */
-.card-footer {
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid rgba(0,0,0,0.05); /* Meget svag border */
-    background-color: rgba(0,0,0,0.02);
-    flex-shrink: 0; /* Må ikke krympe */
-    padding: 0 1rem;
-}
-
-/* Justeringer til mobil */
 @media (max-width: 640px) {
     .card-text {
         font-size: 1rem;
     }
 }
 
-/* --- Feedback Knapper --- */
-.feedback-btn {
-    padding: 0.75rem;
-    border-radius: 0.75rem;
-    border-width: 1px;
-    font-weight: 600;
-    transition: background-color 0.2s;
+.card-footer {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.02);
+    flex-shrink: 0;
+    padding: 0 1rem;
 }
 
 /* --- Quiz Styles --- */
