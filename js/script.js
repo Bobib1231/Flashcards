@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Looking At-perspektiv", back: "At se på en person udefra som en funktionel genstand og vurdere dennes kompetence til at mestre funktioner i de fire kvadranter." },
             { front: "Looking As-perspektiv", back: "At forsøge at sætte sig i en persons sted og forstå, hvordan det opleves for personen at være til stede i de fire kvadranter (indefra og ud)." }
         ],
-        "Aronson Kapitel 1": [
+        "Aronson Kapitel 01": [
             { front: "Construal (Konstruktion)", back: "Måden mennesker ser, forstår og fortolker den sociale verden. Konstrueret ud fra grundmotiverne at 'have det godt med sig selv' og 'at være præcis'." },
             { front: "Behaviorism (Behaviorisme)", back: "Gren af psykologi, der tror, at alle psykologiske fænomener kan forstås ud fra selvforstærkende kræfter i individets omgivelser (belønning/straf)." },
             { front: "Gestalt psykologi", back: "Gren af psykologi, der tydeliggør vigtigheden af at fokusere på, hvordan en situation/objekt anses i det subjektive anliggende fremfor, hvordan den fremstår objektivt." },
             { front: "Naiv realisme", back: "Overbevisningen om at vi ser tingene, som de virkelig er, og en underminering af, hvor meget vi tolker til vores fordel. Kan føre til uvilje mod kompromis i konflikter." },
             { front: "Fundamentale attribution error (Fundamentale attributionsfejl)", back: "Tendensen til at overvurdere interne årsager og undervurdere eksterne (situationelle) årsager, når vi forklarer andres adfærd." }
         ],
-        "Aronson Kapitel 2": [
+        "Aronson Kapitel 02": [
             { front: "Hindsight Bias (Bagklogskabsbias)", back: "Tendensen til at tro, at svaret var åbenlyst, efter man har fået svaret ('Jeg vidste det jo hele tiden!')." },
             { front: "Observationsmetoden", back: "Forskeren beskriver fænomener ved at observere dem. Inkluderer etnografi og arkivanalyse. Begrænset til 'hvad', ikke 'hvorfor'." },
             { front: "Etnografi", back: "Metode hvor forskere undersøger en kultur indefra uden at forcere en forudantagelse over kulturen." },
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Basic research (Grundforskning)", back: "Forskning udelukkende med nysgerrighed som motiv for at forstå et fænomen." },
             { front: "Applied research (Anvendt forskning)", back: "Forskning der forsøger at løse et specifikt samfundsproblem." }
         ],
-        "Aronson Kapitel 4": [
+        "Aronson Kapitel 04": [
             { front: "Social perception", back: "Studiet af hvordan vi former vores indtryk af andre og udleder konklusioner på det. Hjælper os med at forstå og forudse den sociale sfære." },
             { front: "Nonverbal kommunikation", back: "Ansigtsmimik, øjenkontakt, kropssprog, osv. Vigtigt for førstehåndsindtryk og forståelse af følelser. Kan variere kulturelt (emblemer)." },
             { front: "Darwin og ansigtsmimik", back: "Hypotese: Universalitet i ansigtsmimik for grundfølelser som angst, afsky, stolthed (men ikke skam i alle kulturer)." },
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Analytisk tankestil (Vesten)", back: "Fokus på individets autonomi og objektive egenskaber, uden meget hensyn til kontekst eller andre personer." },
             { front: "Holistisk tankestil (Asien)", back: "Fokus på de sociale gruppers autonomi, sammenhænge, relationer og kontekst i vurderingen af fænomener." }
         ],
-        "Larsen kapitel 1": [
+        "Larsen kapitel 01": [
             { front: "Mekanismer (Larsen)", back: "Handler om processen af personlighed: Input -> Beslutningsregler (personlighed) -> Output (reaktion). Ikke bevidst fremprovokeret, men automatisk under rette omstændigheder." },
             { front: "Personlighed 'Inde i individet'", back: "Personlighedens tendens til at være nogenlunde stabil over længere tid, selv ved forsøg på at nulstille den." },
             { front: "Organiseret personlighed", back: "Indre regler/hierarki bestemmer, hvornår og i hvilken rækkefølge lyster/impulser kommer. F.eks. at være vredeshyppig som personlighedstræk, fordi regelsættet oftere resulterer i vrede." },
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Parsimony (parsimoni)", back: "En god teori er overordnet simpel med få antagelser og præmisser, men skal stadig kunne forklare komplekse nuancer." },
             { front: "Kompatibilitet (Larsen)", back: "En god teori passer også ind i andre domæner (f.eks. gener og fysiologi) uden at stride imod velfunderede teorier." }
         ],
-        "Larsen kapitel 8": [
+        "Larsen kapitel 08": [
             { front: "Naturlig selektion", back: "Teorien om, at liv optimeres gennem reproduktion og overlevelse af de bedst tilpassede arter. Egenskaber, der øger overlevelse og reproduktion, nedarves." },
             { front: "Seksuel selektion", back: "Processen hvor visse karakteristika foretrækkes af det modsatte køn (intersexuel selektion) eller giver fordele i konkurrence med samme køn (intrasexuel konkurrence), hvilket øger reproduktionssucces og udbredelse af disse træk." },
             { front: "Intrasexuel konkurrence", back: "Konkurrence mellem medlemmer af samme køn (typisk hanner) om adgang til partnere. De, der vinder, får større reproduktionssucces og videregiver deres gener." },
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Hvad er 'Asteni'?", back: "En tilstand af træthed og passivitet, der udtrykkes som 'Jeg orker ikke noget'." },
             { front: "Hvorfor er OSN genetisk bestemt?", back: "Studier med tvillinger, der er vokset op i forskellige miljøer, viser, at OSN i høj grad er genetisk bestemt og kun påvirkes lidt af miljøet." },
         ],
-        "Larsen kapitel 3": [
+        "Larsen kapitel 03": [
             { front: "To basale formuleringer af personlighedstræk", back: "1. Som **interne, kausale egenskaber** (en drivkraft). 2. Som **udelukkende beskrivende resumeer** (baseret på observeret adfærd)." },
             { front: "Træk som interne, kausale egenskaber", back: "Personlighedstræk er indre lyster og drifter, der driver din adfærd. De definerer din personlighed, selv når de ikke kommer til udtryk." },
             { front: "Træk som udelukkende beskrivende resumeer", back: "Et træk er blot et udtryk for den adfærd, en person har vist, og antager ikke en indre årsag eller drift." },
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Conditional positive regard", back: "De betingelser, andre (især forældre) sætter for at give anerkendelse." },
             { front: "Unconditional positive regard", back: "Betingelsesløs positiv anerkendelse, som er nødvendig for, at et barn kan opnå selvaktualisering." }
         ],
-        "Larsen kapitel 4": [
+        "Larsen kapitel 04": [
             { front: "De tre fundamentale udgangspunkter for trækpsykologi", back: "1. Meningsfulde individuelle forskelle, 2. Konsistens og stabilitet over tid, 3. Stabilitet på tværs af situationer." },
             { front: "Mischels kritik af trækpsykologi", back: "Han mente ikke, at der var statistisk grundlag for at sige noget om personlighedstrækkenes konsistens på tværs af situationer, hvilket førte til **situationisme**." },
             { front: "Person-Situation interaktion", back: "Tanken om, at adfærd er en funktion af både personlighedstræk og situationelle kræfter, symboliseret ved formlen $B = f(P \\bullet S)$." },
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Latent træk vs. manifest variabel", back: "Et latent træk er en underliggende egenskab (f.eks. intelligens), mens en manifest variabel er den synlige adfærd, der bruges til at måle det latente træk (f.eks. en testscore)." },
             { front: "Barnum statements", back: "Generelle udtalelser, der er så brede, at de kan gælde for næsten enhver. De udnyttes ofte i populære personlighedstests som Myers-Briggs (MBTI)." }
        ],
-        "Larsen kapitel 5": [
+        "Larsen kapitel 05": [
             { front: "Personlighedsudvikling", back: "De stabile aspekter af personlighed og hvordan den ændres over tid." },
             { front: "Rankordens stabilitet", back: "Vedligeholdelsen af en persons relative position i en gruppe over tid." },
             { front: "Mean Level Stability", back: "Gennemsnitsniveauet af et personlighedstræk i en bestemt population forbliver stabilt over tid." },
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Begreb – Opfattet self-efficacy", back: "Troen på egen kompetence til at gøre en forskel." },
             { front: "Begreb – Selvregulering", back: "Indflydelse over egen motivation, tanker, følelser og adfærd." }
         ],
-        "Larsen kapitel 6.pdf": [
+        "Larsen kapitel 06": [
             { front: "Arvemasse", back: "Menneskets arvemasse består af 3,2 mia. basepar i DNA-strenge (ACTG) fordelt på 23 kromosompar. Vi har 20.000-50.000 gener, hvoraf kun en lille del koder for egenskaber." },
             { front: "Kromosomer", back: "Alle har 23 kromosomer fra mor og 23 fra far. Mænd har XY, kvinder har XX i det 23. par. Rekombination skaber genetisk variation." },
             { front: "Gen", back: "Et gen er en specifik sekvens af nukleotider, der koder for egenskaber, sygdomme og delvist adfærd." },
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Personlige og sociale sanktioner", back: "Moralsk handling opstår i samspil mellem personlige standarder og sociale normer." },
             { front: "Forebyggelse", back: "Humanisering, pluralisme og ansvarlighed modvirker moralsk frakobling og fremmer moral engagement." }
         ],
-        "Larsen kapitel 2": [
+        "Larsen kapitel 02": [
             { front: "Selvrapportering (S-data)", back: "Personen vurderer sig selv via strukturerede eller ustrukturerede metoder. Fordel: adgang til indre information. Ulempe: risiko for uærlighed." },
             { front: "Observantdata (O-data)", back: "Vurderinger fra personer der kender individet. Kan give adgang til adfærd i sociale kontekster. Inter-rater reliability måler enighed." },
             { front: "Testdata (T-data)", back: "Data fra eksperimenter og målinger, fx fysiologiske tests og fMRI. Kan afsløre træk gennem adfærd." },
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Gyldighed (validity)", back: "Måler testen det, den påstår? Omfatter face, predictive, convergent, discriminant og construct validity." },
             { front: "Generaliserbarhed", back: "Testens evne til at gælde på tværs af grupper, kulturer og situationer." }
         ],  
-        "Aronson kapitel 3": [
+        "Aronson kapitel 03": [
             { front: "Social kognition", back: "Hvordan mennesker tænker om sig selv og den sociale verden – vælger, fortolker og husker information." },
             { front: "Skemaer", back: "Mentale strukturer der organiserer viden og styrer opmærksomhed og hukommelse." },
             { front: "Tilgængelighed (accessibility)", back: "Hvor let et skema eller koncept aktiveres i hukommelsen og bruges i vurdering." },
@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Flow og samfund", back: "Flow kan fremmes i skole, arbejde og fritid – kræver kompleksitet og udvikling." },
             { front: "Begrænsninger ved flow", back: "Flow kan opstå i destruktive aktiviteter og er ikke altid lig med lykke." }
         ],
-        "Aronson kapitel 5": [
+        "Aronson kapitel 05": [
             { front: "Selvkoncept", back: "Det overordnede trossæt om sig selv – udvikles fra 18-24 mdr. og formes af moral mere end kognition." },
             { front: "Uafhængigt selvkoncept (independent)", back: "Selvet defineres ud fra egne tanker og følelser – typisk i vestlige kulturer." },
             { front: "Indbyrdes afhængigt selvkoncept (interdependent)", back: "Selvet defineres ud fra relationer og andres tanker – typisk i asiatiske kulturer." },
@@ -547,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Impression management", back: "Vi forsøger at styre hvordan andre opfatter os – fx via ingratiation eller self-handicapping." },
             { front: "Self-handicapping", back: "Skaber undskyldninger for potentielt nederlag – enten aktivt (behavioral) eller rapporteret." }
         ],  
-        "Aronson kapitel 6": [
+        "Aronson kapitel 06": [
             { front: "Kognitiv dissonans", back: "Ubehag ved at handle i modstrid med egne værdier – trussel mod selvværd." },
             { front: "Reducering af dissonans", back: "Ændring af adfærd, holdning eller tilføjelse af nye kognitioner for at mindske ubehaget." },
             { front: "Postdecision dissonance", back: "Dissonans efter valg – vi opvurderer det valgte og nedvurderer det fravalgte." },
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Terror management theory", back: "Selvværd beskytter mod angst for døden." },
             { front: "Narcissisme", back: "Højt selvværd og stærk dissonansreduktion – kan føre til manglende selvkritik." }
         ],   
-        "Aronson kapitel 7": [
+        "Aronson kapitel 07": [
             { front: "Attituder", back: "Evalueringer af mennesker, objekter eller ideer – kan være kognitive, affektive eller adfærdsmæssige." },
             { front: "Kognitivt baserede attituder", back: "Bygger på objektive egenskaber – fx vurdering af en støvsuger." },
             { front: "Affektivt baserede attituder", back: "Bygger på følelser og værdier – fx holdninger til religion eller politik." },
@@ -581,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Følelser som heuristikker", back: "Vi bruger følelser som mentale genveje – fx 'hvad føler jeg om dette?'" },
             { front: "Fight fire with fire", back: "Affektive attituder ændres bedst med følelsesbaserede argumenter." }
         ],
-        "Larsen kapitel 9": [
+        "Larsen kapitel 09": [
             { front: "Psykisk energi", back: "Den energi der driver al menneskelig aktivitet og adfærd ifølge psykoanalytisk teori." },
             { front: "Libido", back: "Livsinstinktet, ofte forbundet med seksuelle og selvbevarende drifter." },
             { front: "Thanatos", back: "Dødsinstinktet, relateret til aggression og destruktiv adfærd." },
