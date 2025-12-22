@@ -801,8 +801,110 @@ document.addEventListener('DOMContentLoaded', () => {
             { front: "Psykologisk ilt", back: "Omgivelsernes respons er nødvendig for at aktivere individets parathed." },
             { front: "Restaurering af selvet", back: "Stærk identitet kan hjælpe med at genopbygge et svækket selv." },
             { front: "Overkompenseret identitet", back: "Dominerende identitet kan skjule et svagt selv – ufleksibel og sårbar." }
-        ]
-};
+        ],
+        
+        "Aronson kapitel 08": [
+            { front: "Konformitet", back: "Ændring i adfærd grundet ægte eller forestillede påvirkninger fra andre mennesker." },
+            { front: "Informational Social Influence", back: "At afhænge af andre som kilde til information i flertydige situationer; fører til privat accept." },
+            { front: "Normative Social Influence", back: "At konformere for at blive accepteret og undgå udstødelse; fører til offentlig compliance." },
+            { front: "Private Acceptance", back: "Man ændrer sin indre overbevisning, fordi man tror, andre har ret." },
+            { front: "Public Compliance", back: "Man tilpasser sin adfærd offentligt uden at ændre sin indre mening." },
+            { front: "Asch's Eksperiment", back: "Viste at 76% konformerede mindst én gang i en ikke-flertydig situation for at undgå at se dumme ud." },
+            { front: "Hvornår konformerer vi (informational)?", back: "Når situationen er flertydig, en krise, eller når andre er eksperter." },
+            { front: "Hvornår konformerer vi (normativ)?", back: "Når vi ønsker social accept, især hvis gruppen er vigtig, tæt på og stor." },
+            { front: "Social Impact Theory", back: "Konformitet afhænger af gruppens styrke, umiddelbarhed og antal medlemmer." },
+            { front: "Ideosyncrasy Credits", back: "Point man optjener ved at følge normer, som giver frihed til at afvige senere." },
+            { front: "Minority Influence", back: "En konsekvent og enig minoritet kan påvirke flertallet via informational social influence." },
+            { front: "Injunctive Norms", back: "Socialt anerkendte værdier og idealer, man bør leve op til." },
+            { front: "Descriptive Norms", back: "Normer der beskriver, hvordan de fleste handler." },
+            { front: "Boomerang-effekten", back: "Når brug af deskriptive normer får lavt-forbrugere til at øge forbrug." },
+            { front: "Foot-in-the-door teknik", back: "Få en person til at acceptere en lille anmodning først, hvilket øger sandsynligheden for en større senere." },
+            { front: "Door-in-the-face teknik", back: "Start med en stor anmodning, som afvises, og følg op med en mindre, som accepteres." },
+            { front: "Propaganda", back: "Systematisk forsøg på at påvirke folks holdninger og adfærd til egen fordel." },
+            { front: "Lydighed", back: "Ændring i adfærd grundet direkte indflydelse fra en autoritet." },
+            { front: "Milgrams Eksperiment", back: "Viste at mennesker adlyder autoriteter, selv når det medfører skade på andre." },
+            { front: "Årsager til lydighed", back: "Normativ og informational indflydelse, valg af norm, self-justification og frakobling af ansvar." }
+        ],
+
+        "Aronson kapitel 09": [
+            { front: "Hvorfor deltager mennesker i grupper?", back: "For at nå mål, opfylde sociale behov, skabe identitet og definere sociale normer." },
+            { front: "Sociale normer", back: "Implicitte og eksplicitte regler for acceptabel adfærd i en gruppe." },
+            { front: "Sociale roller", back: "Specifikke forventninger til individers adfærd i gruppen; hjælper med struktur men kan føre til tab af identitet." },
+            { front: "Gruppe samhørighed", back: "Kvaliteter, der binder medlemmer sammen og øger deltagelse og loyalitet." },
+            { front: "Gruppe diversitet", back: "Øger problemløsning og effektivitet, men kan skabe friktion og konformitet." },
+            { front: "Social facilitation", back: "Andre menneskers tilstedeværelse øger præstation på simple opgaver, men hæmmer komplekse opgaver." },
+            { front: "Hvorfor skaber tilstedeværelse arousal?", back: "Evaluationsangst, distraktion og øget opmærksomhed på uforudsigelighed." },
+            { front: "Social loafing", back: "Når individer slapper af i grupper, hvilket mindsker indsats på simple opgaver men forbedrer komplekse." },
+            { front: "Deindividuation", back: "Tab af identitet og ansvar i grupper, hvilket kan føre til hæmningsløs adfærd og lydighed mod gruppenormer." },
+            { front: "Process Loss", back: "Når gruppeinteraktion hæmmer god problemløsning, fx ved manglende deling af unik information." },
+            { front: "Transactive memory", back: "Gruppens samlede hukommelse er mere effektiv end individers hukommelse." },
+            { front: "Groupthink", back: "Beslutningsproces hvor sammenhold prioriteres over realistisk vurdering; symptomer: illusion af enighed, usårlighed." },
+            { front: "Forebyggelse af groupthink", back: "Forbliv upartisk, søg eksterne holdninger, lav subgrupper, anonym feedback." },
+            { front: "Gruppepolarisering", back: "Gruppers tendens til at tage mere ekstreme beslutninger end individer; skyldes persuasive arguments og social comparison." },
+            { front: "Great Person Theory", back: "Antagelsen om at dispositionelle træk gør en person til en god leder." },
+            { front: "Transaktionelle ledere", back: "Fokuserer på kortsigtede mål og belønning for opnåelse." },
+            { front: "Transformationelle ledere", back: "Inspirerer til fælles langsigtede mål; kan kombineres med transaktionel stil." },
+            { front: "Contingency theory", back: "Leders effektivitet afhænger af opgave-/relationsorientering og kontrolniveau." },
+            { front: "Agentic vs Communal traits", back: "Agentic: assertiv, dominant (associeret med mænd). Communal: omsorgsfuld, hjælpsom (associeret med kvinder). Barrierer for kvindelige ledere." },
+            { front: "Social dilemmas", back: "Konflikter hvor individuel gevinst skader gruppen; fx Prisoner's Dilemma." },
+            { front: "Tit-for-tat strategi", back: "Start med samarbejde, gengæld modstand; bygger respekt og undgår udnyttelse." },
+            { front: "Integrative løsning", back: "Trade-offs hvor hver part får mest på områder, der er mindst vigtige for modparten." },
+            { front: "Effektiv forhandling", back: "Kræver identifikation af forskellige prioriteter; mediatorer kan hjælpe." }
+        ],
+        
+        "Aronson kapitel 11": [
+            { front: "Prosocial adfærd", back: "Adfærd der udføres med formålet at hjælpe et andet menneske." },
+            { front: "Altruisme", back: "Lysten til at hjælpe andre, selvom det kan have en pris for dig selv." },
+            { front: "Slægtsselektion", back: "Evolutionær tendens til at hjælpe genetiske slægtninge for at sprede egne gener." },
+            { front: "Norm of Reciprocity", back: "Forventningen om at hjælpe andre, fordi det øger sandsynligheden for, at de hjælper os senere." },
+            { front: "Gruppeselektion", back: "Ideen om at hjælpe sin egen gruppe for at øge gruppens overlevelse; dog omdiskuteret." },
+            { front: "Social Exchange Theory", back: "Vi hjælper for at maksimere sociale fordele og minimere omkostninger; en slags social økonomi." },
+            { front: "Empati", back: "Evnen til at sætte sig i en anden persons sted og føle deres oplevelse." },
+            { front: "Empati-altruisme-hypotesen", back: "Når vi føler empati, hjælper vi uden at forvente belønning; ren altruisme." },
+            { front: "Altruistisk personlighed", back: "Kvaliteter der gør en person tilbøjelig til at handle altruistisk." },
+            { front: "Køn og altruisme", back: "Mænd: heroiske, risikofyldte handlinger. Kvinder: omsorg, social støtte og frivillighed." },
+            { front: "Kultur og altruisme", back: "Ind-gruppe: hjælpes af empati. Ud-gruppe: hjælpes for egen fordel. Kulturer med 'simpatia' viser mere hjælpsomhed." },
+            { front: "Religion og prosocial adfærd", back: "Religiøse hjælper mere – men primært dem med samme tro; kan være fjendtlig mod ud-grupper." },
+            { front: "Humør og hjælpsomhed", back: "Feel good, do good: godt humør øger hjælpsomhed. Feel bad, do good: skyld og tristhed kan også øge hjælpsomhed." },
+            { front: "Urban overload hypothesis", back: "Byboere undgår at hjælpe pga. overstimulering; holder sig for sig selv for at reducere stress." },
+            { front: "Residential mobility", back: "Jo længere tid man har boet samme sted, jo mere hjælpsom er man overfor fællesskabet." },
+            { front: "Bystander effect", back: "Jo flere tilskuere, jo mindre sandsynlighed for at nogen hjælper." },
+            { front: "Pluralistic ignorance", back: "Man tror, at andre tolker situationen korrekt, og derfor handler man ikke." },
+            { front: "Diffusion of responsibility", back: "Ansvar spredes mellem tilskuere, hvilket mindsker individets følelse af ansvar." },
+            { front: "Barrierer for at hjælpe", back: "1) Noticing event, 2) Tolke som nødsituation, 3) Tage ansvar, 4) Vide hvordan man hjælper, 5) Implementere hjælp." },
+            { front: "Medier og prosocial adfærd", back: "Spil og musik med positive budskaber kan øge hjælpsomhed." },
+            { front: "Hvordan øge hjælpsomhed?", back: "Bevidsthed om barrierer, træning i at bryde dem, og frivillighedsprogrammer (pas på overjustification effect)." }
+        ],
+
+        
+        "Aronson kapitel 13": [
+            { front: "Fordom (Prejudice)", back: "En negativ eller fjendtlig attitude mod mennesker i en genkendelig gruppe baseret udelukkende på deres medlemskab i gruppen. Indeholder kognitive, emotionelle og adfærdsmæssige komponenter." },
+            { front: "Stereotyper", back: "Generalisering om en gruppe, hvor bestemte træk tilskrives alle medlemmer, uanset individuel variation." },
+            { front: "Positive stereotyper", back: "Kan virke harmløse, men er stadig maladaptive, da de skjuler individet og forvrænger virkeligheden." },
+            { front: "Diskrimination", back: "Ubegrundet negativ eller skadelig handling mod et individ baseret på gruppemedlemskab." },
+            { front: "Institutionel diskrimination", back: "Diskrimination indlejret i systemer og strukturer, fx ansættelsespraksis eller retssystemet." },
+            { front: "Hverdagsdiskrimination", back: "Subtile handlinger som mikroaggressioner, fx kommentarer om sprog eller kortere samtaler." },
+            { front: "Implicitte fordomme", back: "Fordomme vi ikke er bevidste om; kan måles med metoder som IAT (Implicit Association Test)." },
+            { front: "Bogus Pipeline", back: "Metode hvor folk tror, en løgn-detektor overvåger dem, hvilket får dem til at afsløre skjulte fordomme." },
+            { front: "Self-fulfilling prophecy", back: "En forventning om en person, der påvirker adfærd, så forventningen bliver opfyldt." },
+            { front: "Social Identity Threat", back: "Trussel opstået, når man føler sig evalueret som gruppemedlem frem for individ; hæmmer præstation." },
+            { front: "Self-affirmation Theory", back: "Mennesker reducerer trusler mod selvværd ved at bekræfte sig selv i andre positive områder." },
+            { front: "Normativ konformitet", back: "At tilpasse sig gruppens normer for at blive accepteret; kan fastholde eller ændre fordomme." },
+            { front: "Social identitet", back: "Del af selvkoncept baseret på identifikation med sociale grupper." },
+            { front: "Etnocentrisme", back: "Troen på, at ens egen gruppe er bedre end andre; universel og adaptiv tendens." },
+            { front: "Indgruppe bias", back: "Tendens til at favorisere egen gruppe frem for udegrupper." },
+            { front: "Udegruppe homogenitet", back: "Opfattelsen af, at udegruppens medlemmer er mere ens end de faktisk er." },
+            { front: "Blaming the victim", back: "Tendens til at bebrejde offeret for negative hændelser; forstærkes af troen på en retfærdig verden." },
+            { front: "Realistisk konflikt teori", back: "Fordomme opstår, når grupper konkurrerer om begrænsede ressourcer; fx Robbers Cave-eksperimentet." },
+            { front: "Kontakt-hypotesen", back: "Ideen om, at interaktion mellem grupper kan reducere fordomme, hvis visse betingelser er opfyldt." },
+            { front: "Allports 4 betingelser for god kontakt", back: "1) Lige status, 2) Fælles mål, 3) Samarbejde, 4) Understøttelse af normer/love." },
+            { front: "Udvidet kontakt-effekt", back: "At vide, at et indgruppemedlem har en ven i udegruppen, kan reducere fordomme." },
+            { front: "Mediekontakt", back: "Parasocial kontakt (tilknytning til mediefigurer) og vicarious kontakt (observere intergruppe-samarbejde) kan reducere fordomme." },
+            { front: "Interdependence", back: "Når grupper er afhængige af hinanden for at nå fælles mål; reducerer fordomme." },
+            { front: "Jigsaw Classroom", back: "Undervisningsmetode, hvor børn arbejder i små, multikulturelle grupper og er afhængige af hinanden; reducerer fordomme og øger empati." },
+            { front: "IAT (Implicit Association Test)", back: "Måler hastigheden, hvormed folk forbinder ansigter med positive eller negative ord; bruges til at afdække implicitte fordomme." }
+          ]
+  };
 
     // --- QUIZ DATA: Aronson Multiple Choice Spørgsmål (Dette skal du selv indsætte) ---
     const quizQuestions = [
