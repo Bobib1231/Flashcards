@@ -2,19 +2,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Tjek om data.js er indlæst
     if (typeof allFlashcardCategories === 'undefined' || typeof quizQuestions === 'undefined') {
-        alert("FEJL: Kunne ikke finde data.js. Sørg for at filen 'data.js' ligger i mappen 'js' og indeholder dine spørgsmål.");
+        console.error("FEJL: Data ikke fundet. Tjek at data.js indlæses før script.js");
         return;
     }
 
-    console.log("Logik start - Data fundet.");
+    console.log("App starter...");
 
+    // ==========================================================
     // DOM ELEMENTER
+    // ==========================================================
+    
+    // Sektioner
     const flashcardSection = document.getElementById('flashcard-section');
     const quizSection = document.getElementById('quiz-section');
     const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
     const showQuizBtn = document.getElementById('show-quiz-btn');
 
-    // Flashcard DOM
+    // Flashcard Elementer
     const card = document.getElementById('flashcard');
     const frontTextElement = document.getElementById('card-front-text');
     const backTextElement = document.getElementById('card-back-text');
@@ -23,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressText = document.getElementById('progress-text');
     const progressBarFill = document.getElementById('progress-bar-fill');
     const categorySelect = document.getElementById('category-select');
-    const resetDeckBtn = document.getElementById('reset-deck-btn'); // Omdøbt fra shuffle
+    const resetDeckBtn = document.getElementById('reset-deck-btn'); 
     const showBackFirstToggle = document.getElementById('show-back-first-toggle');
     const cardContainerWrapper = document.getElementById('card-container-wrapper');
     const starBtns = document.querySelectorAll('.star-btn');
@@ -34,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnIncorrect = document.getElementById('feedback-incorrect-btn');
     const feedbackContainer = document.getElementById('flashcard-feedback-buttons');
 
-    // Quiz DOM
+    // Quiz Elementer
     const quizChapterSelect = document.getElementById('quiz-chapter-select');
     const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
     const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
@@ -44,9 +48,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
     
+    // Quiz One-by-One Elementer (Sikrer vi henter dem korrekt)
+    const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
+    const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
+    const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
+    const singleQuestionDisplay = document.getElementById('single-question-display');
+    const singleQuestionText = document.getElementById('single-question-text');
+    const singleOptionsContainer = document.getElementById('single-options-container');
+    const singleExplanationText = document.getElementById('single-explanation-text');
+    const checkSingleAnswerBtn = document.getElementById('check-single-answer-btn');
+    const nextSingleQuestionBtn = document.getElementById('next-single-question-btn');
+    const restartSingleQuizBtn = document.getElementById('restart-single-quiz-btn');
+    const singleQuizProgress = document.getElementById('single-quiz-progress');
+    const singleQuizResults = document.getElementById('single-quiz-results');
+    const activeChaptersDisplay = document.getElementById('active-chapters-display');
+
     // State Variables
-    let studyQueue = []; // Den aktive bunke vi øver
-    let originalTotal = 0; // Hvor mange kort var der ved start?
+    let studyQueue = []; 
+    let originalTotal = 0;
     let isFlipped = false;
     let showBackFirst = false;
     let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
@@ -63,19 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
             quizSection.classList.remove('hidden');
             showFlashcardsBtn.classList.remove('active');
             showQuizBtn.classList.add('active');
-            document.getElementById('show-all-questions-mode-btn').click();
+            if(showAllQuestionsModeBtn) showAllQuestionsModeBtn.click();
         }
     }
 
-    showFlashcardsBtn.addEventListener('click', () => showSection('flashcards'));
-    showQuizBtn.addEventListener('click', () => showSection('quiz'));
+    if(showFlashcardsBtn) showFlashcardsBtn.addEventListener('click', () => showSection('flashcards'));
+    if(showQuizBtn) showQuizBtn.addEventListener('click', () => showSection('quiz'));
 
 
     // ==========================================================
-    // FLASHCARD LOGIK (Mastery Learning)
+    // FLASHCARD LOGIK
     // ==========================================================
 
     function populateCategorySelect() {
+        if(!categorySelect) return;
         categorySelect.innerHTML = '';
         
         const savedOption = document.createElement('option');
@@ -128,57 +148,51 @@ document.addEventListener('DOMContentLoaded', () => {
             shuffleArray(tempDeck);
         }
 
-        // Initialiser Study Queue
         studyQueue = [...tempDeck];
         originalTotal = studyQueue.length;
-        
-        // Reset view
         isFlipped = false;
-        card.classList.remove('is-flipped');
+        if(card) card.classList.remove('is-flipped');
         
         updateCardUI();
     }
 
     function updateCardUI() {
+        if (!frontTextElement || !backTextElement) return;
+
         // Er vi færdige?
         if (studyQueue.length === 0) {
             if (originalTotal === 0) {
                 frontTextElement.textContent = "Ingen kort valgt.";
                 return;
             }
-            // Færdig skærm
             frontTextElement.textContent = "🎉 Godt gået! \nDu har været igennem alle kortene.";
             backTextElement.textContent = "Tryk på 'Start forfra' for at prøve igen.";
-            frontFooterElement.textContent = "";
-            backFooterElement.textContent = "";
-            feedbackContainer.classList.add('hidden'); // Skjul knapper
-            progressText.textContent = "Færdig!";
-            progressBarFill.style.width = "100%";
+            if(frontFooterElement) frontFooterElement.textContent = "";
+            if(backFooterElement) backFooterElement.textContent = "";
+            if(feedbackContainer) feedbackContainer.classList.add('hidden');
+            if(progressText) progressText.textContent = "Færdig!";
+            if(progressBarFill) progressBarFill.style.width = "100%";
             return;
         }
 
-        // Vis knapper igen hvis de var skjult
-        feedbackContainer.classList.remove('hidden');
+        if(feedbackContainer) feedbackContainer.classList.remove('hidden');
 
-        // Hent øverste kort i køen (index 0)
         const cardData = studyQueue[0];
         
         frontTextElement.textContent = showBackFirst ? cardData.back : cardData.front;
         backTextElement.textContent = showBackFirst ? cardData.front : cardData.back;
 
         const footerText = cardData.sourceCategory || "";
-        frontFooterElement.textContent = footerText;
-        backFooterElement.textContent = footerText;
+        if(frontFooterElement) frontFooterElement.textContent = footerText;
+        if(backFooterElement) backFooterElement.textContent = footerText;
 
-        // Opdater Progress Bar (Hvor mange er fjernet fra bunken?)
-        // Formel: (Originale - Tilbage) / Originale
         const completed = originalTotal - studyQueue.length;
-        const percentage = (completed / originalTotal) * 100;
+        const percentage = originalTotal > 0 ? (completed / originalTotal) * 100 : 0;
         
-        progressBarFill.style.width = `${percentage}%`;
-        progressText.textContent = `Kort tilbage i bunken: ${studyQueue.length} (Færdig: ${Math.round(percentage)}%)`;
+        if(progressBarFill) progressBarFill.style.width = `${percentage}%`;
+        if(progressText) progressText.textContent = `Kort tilbage: ${studyQueue.length} (Færdig: ${Math.round(percentage)}%)`;
 
-        // Opdater stjerne-status
+        // Stjerne status
         const isSaved = savedCards.some(s => s.front === cardData.front && s.back === cardData.back);
         starBtns.forEach(btn => {
             if (isSaved) {
@@ -191,40 +205,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- FEEDBACK LOGIK (Kernen i systemet) ---
     function handleFeedback(type) {
         if (studyQueue.length === 0) return;
 
-        const currentCard = studyQueue[0]; // Tag det aktuelle kort
+        const currentCard = studyQueue[0];
 
-        // Animation ud
-        cardContainerWrapper.style.opacity = '0';
-        cardContainerWrapper.style.transform = 'scale(0.95)';
+        if(cardContainerWrapper) {
+            cardContainerWrapper.style.opacity = '0';
+            cardContainerWrapper.style.transform = 'scale(0.95)';
+        }
 
         setTimeout(() => {
             if (type === 'correct') {
-                // Rigtigt: Fjern kortet permanent fra denne session
                 studyQueue.shift(); 
             } else if (type === 'incorrect') {
-                // Forkert: Flyt kortet bagest i køen
-                studyQueue.shift(); // Fjern fra start
-                studyQueue.push(currentCard); // Læg i bund
-            } else if (type === 'unsure') {
-                // Usikker: Læg det lidt ind i bunken (random sted eller bund)
                 studyQueue.shift();
-                // Indsæt på tilfældig plads i sidste halvdel af bunken for variation
+                studyQueue.push(currentCard);
+            } else if (type === 'unsure') {
+                studyQueue.shift();
                 const randomIndex = Math.floor(Math.random() * (studyQueue.length));
                 studyQueue.splice(randomIndex, 0, currentCard);
             }
 
-            // Nulstil flip og opdater
             isFlipped = false;
-            card.classList.remove('is-flipped');
+            if(card) card.classList.remove('is-flipped');
             updateCardUI();
 
-            // Animation ind
-            cardContainerWrapper.style.opacity = '1';
-            cardContainerWrapper.style.transform = 'scale(1)';
+            if(cardContainerWrapper) {
+                cardContainerWrapper.style.opacity = '1';
+                cardContainerWrapper.style.transform = 'scale(1)';
+            }
         }, 200);
     }
 
@@ -256,15 +266,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // EVENT LISTENERS
-    categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
-    resetDeckBtn.addEventListener('click', () => loadCategory(categorySelect.value)); // Reset
+    if(categorySelect) categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
+    if(resetDeckBtn) resetDeckBtn.addEventListener('click', () => loadCategory(categorySelect.value));
     
-    showBackFirstToggle.addEventListener('change', (e) => {
+    if(showBackFirstToggle) showBackFirstToggle.addEventListener('change', (e) => {
         showBackFirst = e.target.checked;
         updateCardUI();
     });
 
-    card.addEventListener('click', () => {
+    if(card) card.addEventListener('click', () => {
         if(studyQueue.length > 0) {
             card.classList.toggle('is-flipped');
             isFlipped = !isFlipped;
@@ -273,20 +283,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     starBtns.forEach(btn => btn.addEventListener('click', toggleSaveCard));
 
-    // Feedback Knapper
-    btnCorrect.addEventListener('click', () => handleFeedback('correct'));
-    btnUnsure.addEventListener('click', () => handleFeedback('unsure'));
-    btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
+    if(btnCorrect) btnCorrect.addEventListener('click', () => handleFeedback('correct'));
+    if(btnUnsure) btnUnsure.addEventListener('click', () => handleFeedback('unsure'));
+    if(btnIncorrect) btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
 
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
         if (flashcardSection.classList.contains('hidden')) return;
         
         if (e.code === 'Space') {
             e.preventDefault(); 
-            card.click();
+            if(card) card.click();
         } 
-        // Tal-genveje til feedback
         else if (e.key === '1') handleFeedback('correct');
         else if (e.key === '2') handleFeedback('unsure');
         else if (e.key === '3') handleFeedback('incorrect');
@@ -294,13 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================
-    // QUIZ FUNKTIONER (Uændret, men medtaget for helhed)
+    // QUIZ FUNKTIONER
     // ==========================================================
     
     let currentQuizQuestions = [];
     let userAnswers = {};
 
     function populateQuizChapters() {
+        if(!quizChapterSelect) return;
         const chapters = [...new Set(quizQuestions.map(q => q.chapter))].sort((a, b) => a.localeCompare(b, 'da'));
         quizChapterSelect.innerHTML = '';
         chapters.forEach(chap => {
@@ -316,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return Array.from(quizChapterSelect.selectedOptions).map(opt => opt.value);
     }
 
-    startAllQuizBtn.addEventListener('click', () => {
+    if(startAllQuizBtn) startAllQuizBtn.addEventListener('click', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
         currentQuizQuestions = quizQuestions.filter(q => chapters.includes(q.chapter));
@@ -361,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    submitQuizBtn.addEventListener('click', () => {
+    if(submitQuizBtn) submitQuizBtn.addEventListener('click', () => {
         let score = 0;
         currentQuizQuestions.forEach((q, index) => {
             const userAnswer = userAnswers[index];
@@ -386,91 +394,88 @@ document.addEventListener('DOMContentLoaded', () => {
         restartAllBtn.classList.remove('hidden');
     });
 
-    restartAllBtn.addEventListener('click', () => location.reload());
+    if(restartAllBtn) restartAllBtn.addEventListener('click', () => location.reload());
 
     // --- ONE BY ONE MODE ---
-    const oneByOneBtn = document.getElementById('show-one-by-one-mode-btn');
-    const allQsBtn = document.getElementById('show-all-questions-mode-btn');
-    oneByOneBtn.addEventListener('click', () => {
+    if(showOneByOneModeBtn) showOneByOneModeBtn.addEventListener('click', () => {
         allQuestionsModeContainer.classList.add('hidden');
         oneByOneModeContainer.classList.remove('hidden');
-        oneByOneBtn.classList.add('active');
-        allQsBtn.classList.remove('active');
+        showOneByOneModeBtn.classList.add('active');
+        showAllQuestionsModeBtn.classList.remove('active');
         const chapters = getSelectedChapters();
-        document.getElementById('active-chapters-display').textContent = chapters.length ? chapters.join(', ') : 'Ingen';
+        if(activeChaptersDisplay) activeChaptersDisplay.textContent = chapters.length ? chapters.join(', ') : 'Ingen';
     });
-    allQsBtn.addEventListener('click', () => {
+    
+    if(showAllQuestionsModeBtn) showAllQuestionsModeBtn.addEventListener('click', () => {
         allQuestionsModeContainer.classList.remove('hidden');
         oneByOneModeContainer.classList.add('hidden');
-        oneByOneBtn.classList.remove('active');
-        allQsBtn.classList.add('active');
+        showOneByOneModeBtn.classList.remove('active');
+        showAllQuestionsModeBtn.classList.add('active');
     });
 
     let singleQIndex = 0;
     let singleQData = [];
 
-    document.getElementById('start-one-by-one-quiz-btn').addEventListener('click', () => {
+    if(startOneByOneQuizBtn) startOneByOneQuizBtn.addEventListener('click', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
         singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
         shuffleArray(singleQData);
         singleQIndex = 0;
-        document.getElementById('start-one-by-one-quiz-btn').parentElement.classList.add('hidden');
-        document.getElementById('single-question-display').classList.remove('hidden');
+        startOneByOneQuizBtn.parentElement.classList.add('hidden');
+        singleQuestionDisplay.classList.remove('hidden');
         showSingleQuestion();
     });
 
     function showSingleQuestion() {
         const q = singleQData[singleQIndex];
-        document.getElementById('single-question-text').textContent = q.question;
-        const optsContainer = document.getElementById('single-options-container');
-        optsContainer.innerHTML = '';
-        document.getElementById('single-explanation-text').classList.add('hidden');
-        document.getElementById('check-single-answer-btn').disabled = true;
-        document.getElementById('next-single-question-btn').classList.add('hidden');
-        document.getElementById('check-single-answer-btn').classList.remove('hidden');
-        document.getElementById('single-quiz-progress').textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
+        singleQuestionText.textContent = q.question;
+        singleOptionsContainer.innerHTML = '';
+        singleExplanationText.classList.add('hidden');
+        checkSingleAnswerBtn.disabled = true;
+        nextSingleQuestionBtn.classList.add('hidden');
+        checkSingleAnswerBtn.classList.remove('hidden');
+        singleQuizProgress.textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
         q.options.forEach((opt, i) => {
             const char = String.fromCharCode(97 + i);
             const label = document.createElement('label');
             label.className = 'question-option w-full';
             label.innerHTML = `<input type="radio" name="singleQ" value="${char}" class="mr-3 h-5 w-5 text-indigo-600"><span>${opt}</span>`;
             label.addEventListener('click', () => {
-                optsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
+                singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
                 label.classList.add('selected');
-                document.getElementById('check-single-answer-btn').disabled = false;
+                checkSingleAnswerBtn.disabled = false;
             });
-            optsContainer.appendChild(label);
+            singleOptionsContainer.appendChild(label);
         });
     }
 
-    document.getElementById('check-single-answer-btn').addEventListener('click', () => {
+    if(checkSingleAnswerBtn) checkSingleAnswerBtn.addEventListener('click', () => {
         const q = singleQData[singleQIndex];
         const selected = document.querySelector('input[name="singleQ"]:checked');
         if(!selected) return;
         const val = selected.value;
         const isCorrect = val === q.correctAnswer;
-        const exp = document.getElementById('single-explanation-text');
-        exp.classList.remove('hidden');
-        exp.className = `mt-6 p-4 rounded-lg border text-sm leading-relaxed ${isCorrect ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`;
-        exp.textContent = isCorrect ? `Korrekt! ${q.feedback}` : `Forkert. Svaret var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
+        singleExplanationText.classList.remove('hidden');
+        singleExplanationText.className = `mt-6 p-4 rounded-lg border text-sm leading-relaxed ${isCorrect ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`;
+        singleExplanationText.textContent = isCorrect ? `Korrekt! ${q.feedback}` : `Forkert. Svaret var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
         document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
-        document.getElementById('check-single-answer-btn').classList.add('hidden');
+        checkSingleAnswerBtn.classList.add('hidden');
         if(singleQIndex < singleQData.length - 1) {
-            document.getElementById('next-single-question-btn').classList.remove('hidden');
+            nextSingleQuestionBtn.classList.remove('hidden');
         } else {
-            document.getElementById('restart-single-quiz-btn').classList.remove('hidden');
-            document.getElementById('single-quiz-results').textContent = "Quiz færdig!";
-            document.getElementById('single-quiz-results').classList.remove('hidden');
+            restartSingleQuizBtn.classList.remove('hidden');
+            singleQuizResults.textContent = "Quiz færdig!";
+            singleQuizResults.classList.remove('hidden');
         }
     });
 
-    document.getElementById('next-single-question-btn').addEventListener('click', () => {
+    if(nextSingleQuestionBtn) nextSingleQuestionBtn.addEventListener('click', () => {
         singleQIndex++;
         showSingleQuestion();
     });
     
-    document.getElementById('restart-single-quiz-btn').addEventListener('click', () => location.reload());
+    if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
 
     populateCategorySelect();
     populateQuizChapters();
