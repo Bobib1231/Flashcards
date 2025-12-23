@@ -61,6 +61,10 @@ body {
     perspective: 1000px;
     position: relative;
     z-index: 1;
+    perspective-origin: 50% 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
@@ -73,10 +77,12 @@ body {
     -webkit-transform-origin: 50% 50%;
     will-change: transform;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .card.is-flipped {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .card-face {
@@ -91,11 +97,17 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
+    transform-origin: center center;
+    -webkit-transform-origin: 50% 50%;
 }
 
 .card-back {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    border: 1px solid transparent;
 }
 
 /* Stjerne-knap styling */
