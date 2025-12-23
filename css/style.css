@@ -64,17 +64,21 @@ body {
     perspective: 1000px;
 }
 
+/* FIX: Her er rettelsen til kortet */
 .card {
     position: relative;
     width: 100%;
-    /* FIX: Fast højde matcher Tailwinds 'h-96' (96 * 0.25rem = 24rem) */
-    height: 24rem; 
     
+    /* VIGTIGT: Vi sætter en fast højde her (matcher h-96 fra Tailwind).
+       Uden denne højde kollapser containeren til 0px under rotation,
+       hvilket får den til at 'svinge' fra toppen i stedet for midten. */
+    height: 24rem; 
+
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
     
-    /* FIX: Sikrer at kortet roterer om midten og ikke toppen */
-    transform-origin: center center; 
+    /* VIGTIGT: Tvinger rotation om midten */
+    transform-origin: 50% 50%;
 }
 
 .card.is-flipped {
@@ -86,17 +90,17 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* Safari support */
+    -webkit-backface-visibility: hidden; /* Safari fix */
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: white; /* Default baggrund hvis Tailwind svigter */
+    /* Sikrer baggrundsfarve hvis Tailwind ikke loader hurtigt nok */
+    background-color: white; 
 }
 
 .card-back {
     transform: rotateY(180deg);
-    /* Sørg for at bagsiden vender 'væk' fra starten */
 }
 
 /* Stjerne-knap styling */
@@ -106,7 +110,7 @@ body {
     border: none;
     padding: 0;
 }
-/* Når kortet er gemt */
+/* Når kortet er gemt (active class styres af JS) */
 .star-btn.active .star-icon {
     color: #facc15 !important; /* yellow-400 */
     fill: #facc15 !important;
@@ -118,7 +122,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 2.5rem;
+    padding: 2rem 2.5rem; /* Lidt ekstra plads i siderne pga stjernen */
     overflow-y: auto;
     width: 100%;
 }
