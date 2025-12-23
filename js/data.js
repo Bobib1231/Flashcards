@@ -912,7 +912,7 @@
             { front: "Checkmark-effekt", back: "Ét stykke affald reducerer affald, flere stykker øger det." },
             { front: "Normativt budskab", back: "Kommunikation, der fremhæver normer for at påvirke adfærd." },
             { front: "Hvorfor virker normer?", back: "Reducerer usikkerhed og signalerer sociale konsekvenser (accept eller sanktion)." },
-            { front: "Hvordan skaber man salience?", back: "Brug visuelle cues, priming og klare budskaber om normtypen."
+            { front: "Hvordan skaber man salience?", back: "Brug visuelle cues, priming og klare budskaber om normtypen."  },
             { front: "Timing og kognitiv tilstand", back: "Deskriptive normer virker ved træthed; injunktive kræver mental kapacitet." },
             { front: "Sociale beviser", back: "Vis statistik eller billeder af flertallet, der følger normen." },
             { front: "Studie 1 – Parkeringsgarage", back: "Rent miljø + model følger norm → mindst affald. Pointe: Fokus styrker normadfærd." },
