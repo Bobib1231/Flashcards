@@ -14,16 +14,16 @@ body {
     max-width: 200px;
 }
 .nav-btn.active {
-    background-color: #4f46e5;
+    background-color: #4f46e5; /* indigo-600 */
     color: white;
     box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
 }
 .nav-btn:not(.active) {
-    background-color: #e2e8f0;
-    color: #475569;
+    background-color: #e2e8f0; /* slate-200 */
+    color: #475569; /* slate-600 */
 }
 .nav-btn:not(.active):hover {
-    background-color: #cbd5e1;
+    background-color: #cbd5e1; /* slate-300 */
 }
 
 .action-btn {
@@ -41,73 +41,62 @@ body {
     box-shadow: none;
 }
 
-/* Feedback knapper (NY) */
-.feedback-btn {
-    padding: 0.75rem;
-    border-radius: 0.75rem;
-    border-width: 1px;
+.nav-arrow-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    color: #334155;
     font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: white;
+    transition: background-color 0.2s;
 }
-.feedback-btn:active {
-    transform: scale(0.98);
+.nav-arrow-btn:hover:not(:disabled) {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+.nav-arrow-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* --- Flashcard Styles --- */
 .perspective-container {
     perspective: 1000px;
-    position: relative;
-    z-index: 1;
-    perspective-origin: 50% 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card {
     position: relative;
     width: 100%;
-    height: auto;
+    /* FIX: Fast højde matcher Tailwinds 'h-96' (96 * 0.25rem = 24rem) */
+    height: 24rem; 
+    
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    transform-origin: center center;
-    -webkit-transform-origin: 50% 50%;
-    will-change: transform;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    
+    /* FIX: Sikrer at kortet roterer om midten og ikke toppen */
+    transform-origin: center center; 
 }
 
 .card.is-flipped {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
 }
 
 .card-face {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari support */
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
-    transform-origin: center center;
-    -webkit-transform-origin: 50% 50%;
+    background-color: white; /* Default baggrund hvis Tailwind svigter */
 }
 
 .card-back {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    border: 1px solid transparent;
+    /* Sørg for at bagsiden vender 'væk' fra starten */
 }
 
 /* Stjerne-knap styling */
@@ -117,8 +106,9 @@ body {
     border: none;
     padding: 0;
 }
+/* Når kortet er gemt */
 .star-btn.active .star-icon {
-    color: #facc15 !important;
+    color: #facc15 !important; /* yellow-400 */
     fill: #facc15 !important;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
