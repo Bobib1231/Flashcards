@@ -50,7 +50,7 @@ body {
     transform: none;
 }
 
-/* --- Feedback Knapper (Rettelse: Denne klasse manglede før) --- */
+/* --- Feedback Knapper --- */
 .feedback-btn {
     display: flex;
     align-items: center;
@@ -65,32 +65,40 @@ body {
     width: 100%;
     font-size: 0.9rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    /* Sikrer at knapperne ligger over andet indhold hvis margin driller */
+    position: relative; 
+    z-index: 5;
 }
 .feedback-btn:active {
     transform: scale(0.98);
 }
-/* Specifikke farver styres af Tailwind classes i HTML (bg-green-100 osv), 
-   men grundstrukturen er nu på plads herover. */
 
-
-/* --- Flashcard Styles (Rettelse: Forbedret 3D flip) --- */
+/* --- Flashcard Styles (RETTET HER) --- */
 .perspective-container {
     perspective: 1000px;
     width: 100%;
-    max-width: 40rem; /* Matcher max-w-2xl ca */
+    max-width: 40rem; 
     margin: 0 auto;
+    
+    /* VIGTIG RETTELSE: Fast højde på containeren. 
+       Dette tvinger knapperne ned under kortet. */
+    height: 26rem; 
+    position: relative;
+    z-index: 10;
 }
 
 .card {
-    position: relative;
+    position: absolute; /* Ændret til absolute så den fylder containeren ud */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 24rem; /* Fast højde er vigtig */
+    height: 100%;
     cursor: pointer;
     transform-style: preserve-3d;
-    transform-origin: center center;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
+/* Når klassen 'is-flipped' sættes på via JS, roterer kortet */
 .card.is-flipped {
     transform: rotateY(180deg);
 }
@@ -101,7 +109,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Skjuler bagsiden af elementet */
     -webkit-backface-visibility: hidden;
     border-radius: 1.5rem;
     display: flex;
@@ -109,14 +117,16 @@ body {
     overflow: hidden;
 }
 
+/* FORSIDEN (Spørgsmål) - Hvid */
 .card-front {
     background-color: white;
     z-index: 2;
-    transform: rotateY(0deg);
+    transform: rotateY(0deg); /* Vender mod brugeren */
 }
 
+/* BAGSIDEN (Svar) - Blå */
 .card-back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Vender væk fra brugeren */
     z-index: 1;
 }
 
@@ -126,7 +136,7 @@ body {
     background: transparent;
     border: none;
     padding: 0;
-    z-index: 10;
+    z-index: 20;
 }
 .star-btn.active .star-icon {
     color: #facc15 !important;
@@ -157,8 +167,8 @@ body {
         font-size: 1.1rem;
         padding: 0 1rem;
     }
-    .card {
-        height: 20rem; /* Lidt mindre på mobil */
+    .perspective-container {
+        height: 22rem; /* Lidt mindre højde på mobil */
     }
 }
 
@@ -198,7 +208,7 @@ body {
 
 .question-option {
     display: flex;
-    align-items: center; /* Vigtigt for radio buttons */
+    align-items: center; 
     cursor: pointer;
     padding: 1rem;
     border: 1px solid #e2e8f0;
@@ -220,12 +230,12 @@ body {
 }
 
 .correct-answer {
-    background-color: #dcfce7 !important; /* green-100 */
-    border-color: #22c55e !important;    /* green-500 */
+    background-color: #dcfce7 !important; 
+    border-color: #22c55e !important;   
 }
 .incorrect-answer {
-    background-color: #fee2e2 !important; /* red-100 */
-    border-color: #ef4444 !important;    /* red-500 */
+    background-color: #fee2e2 !important; 
+    border-color: #ef4444 !important;    
 }
 
 .explanation {
