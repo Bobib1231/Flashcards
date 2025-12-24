@@ -9,12 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
-<body class="bg-slate-50 flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
+<body class="bg-slate-50 flex flex-col items-center justify-start min-h-screen p-4 sm:p-6">
 
-    <div class="w-full max-w-3xl mx-auto mb-6">
+    <div class="w-full max-w-3xl mx-auto mb-6 mt-4">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-slate-900 mb-4 tracking-tight">Thomas' Flashkort</h1>
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <button id="show-flashcards-btn" class="nav-btn active">Flashcards</button>
@@ -25,96 +23,102 @@
     <!-- FLASHCARD SEKTION -->
     <div id="flashcard-section" class="w-full max-w-3xl mx-auto block">
         
+        <!-- Controls -->
         <div class="mb-6 text-center bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
             <label for="category-select" class="block text-slate-700 text-sm font-bold uppercase tracking-wide mb-2">Vælg Kategori</label>
-            <select id="category-select" class="form-select block w-full max-w-md mx-auto rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-3 px-4 text-base mb-6"></select>
+            <select id="category-select" class="form-select block w-full max-w-md mx-auto rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-3 px-4 text-base mb-6 bg-slate-50"></select>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button id="reset-deck-btn" class="action-btn bg-purple-600 hover:bg-purple-700 text-white">
-                    Start forfra (Nulstil bunke)
+                <button id="reset-deck-btn" class="action-btn bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-200">
+                    Start forfra
                 </button>
-                <div class="flex items-center space-x-2 bg-slate-100 px-4 py-2 rounded-lg">
-                    <input type="checkbox" id="show-back-first-toggle" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                <div class="flex items-center space-x-2 bg-slate-100 px-4 py-3 rounded-xl border border-slate-200 cursor-pointer" onclick="document.getElementById('show-back-first-toggle').click()">
+                    <input type="checkbox" id="show-back-first-toggle" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500 cursor-pointer">
                     <label for="show-back-first-toggle" class="text-slate-700 font-medium select-none cursor-pointer">Vis bagside først</label>
                 </div>
             </div>
         </div>
 
         <!-- Progress Bar -->
-        <div class="w-full bg-slate-200 rounded-full h-4 mb-2 overflow-hidden relative">
-            <div id="progress-bar-fill" class="bg-indigo-600 h-4 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        <div class="w-full bg-slate-200 rounded-full h-3 mb-2 overflow-hidden relative">
+            <div id="progress-bar-fill" class="bg-indigo-600 h-3 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
         </div>
-        <p id="progress-text" class="text-center text-xs text-slate-500 font-mono mb-4">Kort tilbage: 0</p>
+        <p id="progress-text" class="text-center text-xs text-slate-500 font-mono mb-6">Kort tilbage: 0</p>
 
-        <!-- Kort Container -->
-        <div id="card-container-wrapper" class="perspective-container mb-6">
-            <!-- RETTELSE HER: Tilføjet 'origin-center' og inline style for at tvinge rotation om midten -->
-            <div id="flashcard" class="card w-full h-96 cursor-pointer relative origin-center" style="transform-origin: center center;">
+        <!-- Kort Container (Rettet: Fjernet inline styles der ødelagde CSS) -->
+        <div id="card-container-wrapper" class="perspective-container mb-8">
+            <div id="flashcard" class="card">
                 
                 <!-- Forside -->
-                <div class="card-face card-front bg-white text-slate-800 shadow-xl border border-slate-100 relative group">
-                    <button class="star-btn absolute top-4 right-4 z-20 focus:outline-none" title="Gem til senere">
+                <div class="card-face card-front bg-white text-slate-800 shadow-xl border border-slate-200 relative group">
+                    <button class="star-btn absolute top-5 right-5 z-20 focus:outline-none transition-transform hover:scale-110" title="Gem til senere">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 star-icon text-slate-300 hover:text-yellow-400 transition-colors" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                     </button>
                     <div class="card-content-scroll">
-                        <p id="card-front-text" class="card-text"></p>
+                        <p id="card-front-text" class="card-text font-medium">Henter kort...</p>
                     </div>
-                    <div class="card-footer">
-                        <p id="card-front-footer" class="text-xs font-semibold text-slate-400 uppercase tracking-wider truncate"></p>
+                    <div class="card-footer bg-slate-50 border-t border-slate-100">
+                        <p id="card-front-footer" class="text-xs font-bold text-slate-400 uppercase tracking-widest truncate"></p>
                     </div>
                 </div>
 
                 <!-- Bagside -->
                 <div class="card-face card-back bg-indigo-600 text-white shadow-xl relative group">
-                    <button class="star-btn absolute top-4 right-4 z-20 focus:outline-none" title="Gem til senere">
+                    <button class="star-btn absolute top-5 right-5 z-20 focus:outline-none transition-transform hover:scale-110" title="Gem til senere">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 star-icon text-indigo-400 hover:text-yellow-300 transition-colors" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                     </button>
                     <div class="card-content-scroll">
-                        <p id="card-back-text" class="card-text"></p>
+                        <p id="card-back-text" class="card-text font-medium"></p>
                     </div>
-                    <div class="card-footer" style="background-color: rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.2);">
-                        <p id="card-back-footer" class="text-xs font-semibold text-indigo-200 uppercase tracking-wider truncate"></p>
+                    <div class="card-footer" style="background-color: rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p id="card-back-footer" class="text-xs font-bold text-indigo-200 uppercase tracking-widest truncate"></p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Feedback Knapper -->
-        <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-4 mb-4">
-            <button id="feedback-correct-btn" class="feedback-btn bg-green-100 text-green-700 hover:bg-green-200 border-green-200 transform hover:scale-105 transition-all">Rigtigt (Fjern kort) ✅</button>
-            <button id="feedback-unsure-btn" class="feedback-btn bg-yellow-100 text-yellow-700 hover:bg-yellow-200 border-yellow-200 transform hover:scale-105 transition-all">Ikke sikker 🤔</button>
-            <button id="feedback-incorrect-btn" class="feedback-btn bg-red-100 text-red-700 hover:bg-red-200 border-red-200 transform hover:scale-105 transition-all">Forkert ❌</button>
+        <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-3 sm:gap-4 mb-4">
+            <button id="feedback-correct-btn" class="feedback-btn bg-green-50 text-green-700 hover:bg-green-100 border-green-200 hover:border-green-300">
+                <span class="mr-2">✅</span> Rigtigt
+            </button>
+            <button id="feedback-unsure-btn" class="feedback-btn bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border-yellow-200 hover:border-yellow-300">
+                <span class="mr-2">🤔</span> Usikker
+            </button>
+            <button id="feedback-incorrect-btn" class="feedback-btn bg-red-50 text-red-700 hover:bg-red-100 border-red-200 hover:border-red-300">
+                <span class="mr-2">❌</span> Forkert
+            </button>
         </div>
         
         <!-- Navigation -->
-        <p class="text-center text-xs text-slate-400 mt-2 mb-8">
-            Tip: Klik 'Rigtigt' for at fjerne kortet fra bunken. Klik 'Forkert' for at lægge det bag i køen.
+        <p class="text-center text-xs text-slate-400 mt-4 mb-12">
+            Tip: Klik på kortet eller tryk Mellemrum for at vende. <br class="sm:hidden">Klik 'Rigtigt' (Tast 1) for at fjerne kortet.
         </p>
     </div>
 
     <!-- QUIZ SEKTION -->
-    <div id="quiz-section" class="w-full max-w-4xl mx-auto hidden">
+    <div id="quiz-section" class="w-full max-w-4xl mx-auto hidden pb-12">
         <div class="mb-8 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
             <div class="flex justify-center space-x-4 mb-6">
                 <button id="show-all-questions-mode-btn" class="mode-btn active">Alle spørgsmål</button>
                 <button id="show-one-by-one-mode-btn" class="mode-btn">Et ad gangen</button>
             </div>
-            <label class="block text-slate-700 text-sm font-bold uppercase tracking-wide mb-2 text-center">Vælg Kapitler</label>
-            <select id="quiz-chapter-select" multiple class="form-multiselect block w-full rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-40"></select>
-            <p class="text-xs text-center text-slate-400 mt-2">Hold Ctrl (Windows) eller Cmd (Mac) nede for at vælge flere.</p>
+            <label class="block text-slate-700 text-sm font-bold uppercase tracking-wide mb-3 text-center">Vælg Kapitler</label>
+            <select id="quiz-chapter-select" multiple class="form-multiselect block w-full rounded-xl border-slate-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-48 bg-slate-50 text-sm"></select>
+            <p class="text-xs text-center text-slate-400 mt-2">Hold Ctrl (Windows) eller Cmd (Mac) nede for at vælge flere kapitler.</p>
         </div>
 
         <div id="all-questions-mode-container">
             <div class="text-center mb-8">
-                <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-8 py-3">Start Quiz</button>
+                <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-8 py-3 shadow-lg shadow-indigo-200">Start Quiz</button>
             </div>
             <div id="quiz-question-container" class="space-y-6"></div>
             <div class="text-center mt-10 pb-20">
-                <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white text-lg px-8 disabled:opacity-50 disabled:cursor-not-allowed" disabled>Tjek Svar</button>
+                <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white text-lg px-8 disabled:opacity-50 disabled:cursor-not-allowed hidden" disabled>Tjek Svar</button>
                 <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 ml-4 hidden">Prøv igen</button>
                 <div id="quiz-results" class="mt-6 text-2xl font-bold text-slate-800 hidden"></div>
             </div>
@@ -122,20 +126,21 @@
 
         <div id="one-by-one-mode-container" class="hidden">
             <div class="text-center mb-6">
-                <p class="text-slate-500 text-sm">Valgte: <span id="active-chapters-display" class="font-semibold text-slate-700"></span></p>
-                <button id="start-one-by-one-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white mt-4">Start</button>
+                <p class="text-slate-500 text-sm mb-2">Valgte kapitler:</p> 
+                <p id="active-chapters-display" class="font-semibold text-slate-700 mb-4 text-sm"></p>
+                <button id="start-one-by-one-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200">Start</button>
             </div>
-            <div id="single-question-display" class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hidden">
-                <p id="single-question-text" class="text-xl font-bold text-slate-900 mb-6"></p>
+            <div id="single-question-display" class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8 hidden relative min-h-[300px]">
+                <p id="single-question-text" class="text-lg sm:text-xl font-bold text-slate-900 mb-6 leading-relaxed"></p>
                 <div id="single-options-container" class="space-y-3"></div>
-                <div id="single-explanation-text" class="mt-6 p-4 rounded-lg bg-slate-50 border hidden text-sm leading-relaxed"></div>
+                <div id="single-explanation-text" class="explanation mt-6 hidden text-sm leading-relaxed"></div>
             </div>
             <div class="text-center mt-8 pb-20">
-                <p id="single-quiz-progress" class="text-slate-400 font-mono mb-4"></p>
-                <button id="check-single-answer-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white disabled:opacity-50" disabled>Tjek</button>
-                <button id="next-single-question-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white ml-4 hidden">Næste →</button>
+                <p id="single-quiz-progress" class="text-slate-400 font-mono mb-4 text-sm"></p>
+                <button id="check-single-answer-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white disabled:opacity-50 hidden" disabled>Tjek svar</button>
+                <button id="next-single-question-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white ml-4 hidden">Næste spørgsmål →</button>
                 <button id="restart-single-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white ml-4 hidden">Start Forfra</button>
-                <div id="single-quiz-results" class="mt-4 font-bold text-xl hidden"></div>
+                <div id="single-quiz-results" class="mt-4 font-bold text-xl text-slate-800 hidden"></div>
             </div>
         </div>
     </div>
