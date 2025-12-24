@@ -686,26 +686,58 @@
             { front: "Social sammenligning", back: "Tunge brugere tror andre har bedre liv – kan føre til jalousi og stress." },
             { front: "Personlighed og jobrekruttering", back: "Fordelagtige billeder på sociale medier → flere jobsamtaler." }
         ],
-        "Larsen kapitel 18": [
-            { front: "Stress definition", back: "Subjektiv følelse af trussel eller manglende kontrol." },
-            { front: "Stressors", back: "Situationer der udløser stress." },
+        "Kapitel 18 – Stress, coping, justeringer og helbred": [
+            { front: "Stress", back: "Subjektiv følelse af trussel eller manglende kontrol i en situation." },
+            { front: "Stressors", back: "Begivenheder eller situationer, der udløser stress." },
+            { front: "Homeodynamic balance", back: "Fleksibel tilpasning til indre og ydre forandringer for at bevare stabilitet." },
+          
+            // Modeller
             { front: "Interactional model", back: "Personlighed påvirker coping og dermed sygdomsrisiko." },
-            { front: "Transactional model", back: "Personlighed påvirker både begivenhed, tolkning og coping." },
-            { front: "Health behaviour model", back: "Personlighed påvirker helbred gennem adfærd – ikke direkte." },
+            { front: "Transactional model", back: "Personlighed påvirker begivenhed, tolkning og coping." },
+            { front: "Health behaviour model", back: "Personlighed påvirker helbred via adfærd – ikke direkte." },
             { front: "Predisposition model", back: "En tredje variabel (fx gener) påvirker både personlighed og sygdom." },
             { front: "Illness behaviour model", back: "Personlighed påvirker opfattelse og fortolkning af symptomer." },
+          
+            // Stressrespons og fysiologi
             { front: "General Adaptation Syndrome (GAS)", back: "Alarm → Modstand → Udmattelse – fysiologisk stressrespons." },
+            { front: "Hormenosis", back: "Lav stress = gavnlig respons; høj stress = skadelig respons." },
+          
+            // Typer af stress
+            { front: "Acute stress", back: "Kortvarig stress ved pludselige krav; symptomer: hovedpine, uro." },
+            { front: "Episodic acute stress", back: "Gentagne episoder af akut stress; kan føre til migræne, angst, depression." },
+            { front: "Traumatic stress (PTSD)", back: "Massiv stress med langvarige symptomer som flashbacks og følelsesfladhed." },
+            { front: "Chronic stress", back: "Vedvarende stress; øger risiko for diabetes, hjerte-kar-sygdomme." },
+          
+            // Livsbegivenheder og dagligdags stress
             { front: "Major life events", back: "Store begivenheder kræver omstrukturering og kan forudsige sygdom." },
             { front: "Daily hassles", back: "Dagligdags stressfaktorer har stor indflydelse på helbred." },
-            { front: "Primær og sekundær appraisal", back: "Vurdering af trussel og evne til coping – afgør stressrespons." },
+          
+            // Appraisal og coping
+            { front: "Primær appraisal", back: "Vurdering af om en begivenhed truer ens mål." },
+            { front: "Sekundær appraisal", back: "Vurdering af om man har ressourcer til at cope." },
+            { front: "Coping strategier", back: "Positive reappraisal, problemløsning, skabelse af positive begivenheder." },
+          
+            // Optimisme og attribution
             { front: "Attributional stil", back: "Optimist: ekstern, ustabil, specifik; Pessimist: intern, stabil, global." },
             { front: "Dispositional optimisme", back: "Forventning om flere gode end dårlige begivenheder." },
+            { front: "Optimistic bias", back: "Tendens til at undervurdere egen risiko for negative begivenheder." },
+          
+            // Positive følelser og ressourcer
             { front: "Broaden and build theory", back: "Positive følelser udvider kognition og bygger ressourcer." },
-            { front: "Coping strategier", back: "Positive reappraisal, problemløsning, skabelse af positive begivenheder." },
             { front: "Post-traumatic growth", back: "Positiv udvikling efter traume – nyt perspektiv på livet." },
             { front: "Emotionel modstandsdygtighed", back: "De fleste mennesker kommer sig hurtigt efter traumer." },
+          
+            // Følelseshåndtering og disclosure
             { front: "Fortrængelse af følelser", back: "Kan føre til dårligere helbred og relationer." },
             { front: "Disclosure", back: "Åbenhed om svære oplevelser forbedrer helbred og velvære." },
+          
+            // Personlighed og helbred
+            { front: "Type A", back: "Konkurrencedygtig, fjendtlig – øget risiko for hjerte-kar-sygdom." },
+            { front: "Type B", back: "Rolig og afslappet." },
+            { front: "Type C", back: "Detaljeorienteret, undertrykker egne behov." },
+            { front: "Type D", back: "Negativt syn, frygt for afvisning, tilbøjelig til depression." },
+          
+            // Neurotic Cascade
             { front: "Neurotic Cascade", back: "Høj neuroticisme → angst, depression via flere mekanismer." }
         ],
         "Ryan and Deci (2000)": [
