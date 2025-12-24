@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tjek om data.js er indlæst
     if (typeof allFlashcardCategories === 'undefined' || typeof quizQuestions === 'undefined') {
         console.error("FEJL: Data ikke fundet. Tjek at data.js indlæses før script.js");
+        document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px; color:red;'>Fejl: Kunne ikke indlæse data.js</h1>";
         return;
     }
 
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
     
-    // Quiz One-by-One Elementer (Sikrer vi henter dem korrekt)
+    // Quiz One-by-One Elementer
     const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
     const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
     const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allOption = document.createElement('option');
         allOption.value = 'all_shuffled';
-        allOption.textContent = 'Bland alle kapitler';
+        allOption.textContent = '🔀 Bland alle kapitler';
         allOption.selected = true; 
         categorySelect.appendChild(allOption);
 
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (categoryName === 'saved_cards') {
             if (savedCards.length === 0) {
-                alert("Ingen gemte kort endnu.");
+                alert("Du har ingen gemte kort endnu. Klik på stjernen på et kort for at gemme det.");
                 categorySelect.value = 'all_shuffled';
                 loadCategory('all_shuffled');
                 return;
@@ -150,8 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         studyQueue = [...tempDeck];
         originalTotal = studyQueue.length;
+        
+        // Reset state
         isFlipped = false;
-        if(card) card.classList.remove('is-flipped');
+        if(card) {
+            card.classList.remove('is-flipped');
+            // Sikrer at vi ikke har mærkelige rotationer ved reset
+            setTimeout(() => card.classList.remove('is-flipped'), 50); 
+        }
         
         updateCardUI();
     }
@@ -169,7 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
             backTextElement.textContent = "Tryk på 'Start forfra' for at prøve igen.";
             if(frontFooterElement) frontFooterElement.textContent = "";
             if(backFooterElement) backFooterElement.textContent = "";
+            
+            // Gem knapper ved afslutning
             if(feedbackContainer) feedbackContainer.classList.add('hidden');
+            
             if(progressText) progressText.textContent = "Færdig!";
             if(progressBarFill) progressBarFill.style.width = "100%";
             return;
@@ -179,18 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cardData = studyQueue[0];
         
+        // Sæt tekst baseret på toggle
         frontTextElement.textContent = showBackFirst ? cardData.back : cardData.front;
         backTextElement.textContent = showBackFirst ? cardData.front : cardData.back;
 
+        // Kategori i bunden
         const footerText = cardData.sourceCategory || "";
         if(frontFooterElement) frontFooterElement.textContent = footerText;
         if(backFooterElement) backFooterElement.textContent = footerText;
 
+        // Progress
         const completed = originalTotal - studyQueue.length;
         const percentage = originalTotal > 0 ? (completed / originalTotal) * 100 : 0;
         
         if(progressBarFill) progressBarFill.style.width = `${percentage}%`;
-        if(progressText) progressText.textContent = `Kort tilbage: ${studyQueue.length} (Færdig: ${Math.round(percentage)}%)`;
+        if(progressText) progressText.textContent = `Kort tilbage: ${studyQueue.length} (Gennemført: ${Math.round(percentage)}%)`;
 
         // Stjerne status
         const isSaved = savedCards.some(s => s.front === cardData.front && s.back === cardData.back);
@@ -210,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentCard = studyQueue[0];
 
+        // Lille animation når kortet skiftes
         if(cardContainerWrapper) {
             cardContainerWrapper.style.opacity = '0';
             cardContainerWrapper.style.transform = 'scale(0.95)';
@@ -217,18 +231,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             if (type === 'correct') {
-                studyQueue.shift(); 
+                studyQueue.shift(); // Fjern kort
             } else if (type === 'incorrect') {
                 studyQueue.shift();
-                studyQueue.push(currentCard);
+                studyQueue.push(currentCard); // Læg bag i køen
             } else if (type === 'unsure') {
                 studyQueue.shift();
+                // Indsæt tilfældigt i resten af bunken
                 const randomIndex = Math.floor(Math.random() * (studyQueue.length));
                 studyQueue.splice(randomIndex, 0, currentCard);
             }
 
+            // Vend kortet om hvis det var flippet
             isFlipped = false;
             if(card) card.classList.remove('is-flipped');
+            
             updateCardUI();
 
             if(cardContainerWrapper) {
@@ -239,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function toggleSaveCard(e) {
-        e.stopPropagation();
+        e.stopPropagation(); // Stop kortet fra at flippe
         if (studyQueue.length === 0) return;
 
         const currentCard = studyQueue[0];
@@ -252,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
         
+        // Opdater dropdown tekst
         const savedOption = categorySelect.querySelector('option[value="saved_cards"]');
         if(savedOption) savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
 
@@ -265,12 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // EVENT LISTENERS
+    // EVENT LISTENERS FLASHCARDS
     if(categorySelect) categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
     if(resetDeckBtn) resetDeckBtn.addEventListener('click', () => loadCategory(categorySelect.value));
     
     if(showBackFirstToggle) showBackFirstToggle.addEventListener('change', (e) => {
         showBackFirst = e.target.checked;
+        isFlipped = false;
+        card.classList.remove('is-flipped');
         updateCardUI();
     });
 
@@ -292,7 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (e.code === 'Space') {
             e.preventDefault(); 
-            if(card) card.click();
+            if(card && studyQueue.length > 0) {
+                card.classList.toggle('is-flipped');
+                isFlipped = !isFlipped;
+            }
         } 
         else if (e.key === '1') handleFeedback('correct');
         else if (e.key === '2') handleFeedback('unsure');
@@ -315,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const opt = document.createElement('option');
             opt.value = chap;
             opt.textContent = chap;
-            opt.selected = true; 
+            opt.selected = true; // Vælg alle som standard
             quizChapterSelect.appendChild(opt);
         });
     }
@@ -324,47 +347,79 @@ document.addEventListener('DOMContentLoaded', () => {
         return Array.from(quizChapterSelect.selectedOptions).map(opt => opt.value);
     }
 
+    // --- ALL QUESTIONS MODE ---
     if(startAllQuizBtn) startAllQuizBtn.addEventListener('click', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
+        
         currentQuizQuestions = quizQuestions.filter(q => chapters.includes(q.chapter));
         shuffleArray(currentQuizQuestions);
+        
         renderAllQuiz();
         startAllQuizBtn.parentElement.classList.add('hidden');
         document.getElementById('quiz-chapter-select').parentElement.classList.add('hidden');
+        submitQuizBtn.parentElement.classList.remove('hidden'); // Vis knapper
     });
 
     function renderAllQuiz() {
         quizQuestionContainer.innerHTML = '';
         userAnswers = {};
         submitQuizBtn.disabled = true;
+        submitQuizBtn.classList.remove('hidden');
+        
         currentQuizQuestions.forEach((q, index) => {
             const qDiv = document.createElement('div');
-            qDiv.className = 'bg-white p-6 rounded-xl border border-slate-200 shadow-sm';
+            qDiv.className = 'bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md';
+            
             const title = document.createElement('h3');
             title.className = 'text-lg font-bold mb-4 text-slate-800';
             title.textContent = `${index + 1}. ${q.question}`;
             qDiv.appendChild(title);
+            
             const optionsDiv = document.createElement('div');
-            optionsDiv.className = 'space-y-2';
+            optionsDiv.className = 'space-y-3';
+            
             q.options.forEach((opt, i) => {
-                const char = String.fromCharCode(97 + i); 
+                const char = String.fromCharCode(97 + i); // a, b, c, d
                 const label = document.createElement('label');
-                label.className = 'question-option';
-                label.innerHTML = `<input type="radio" name="q${index}" value="${char}" class="mr-3 h-5 w-5 text-indigo-600 focus:ring-indigo-500"><span>${opt}</span>`;
-                label.querySelector('input').addEventListener('change', () => {
+                label.className = 'question-option group';
+                
+                // Input styling
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = `q${index}`;
+                input.value = char;
+                input.className = 'mr-3 h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300';
+                
+                const span = document.createElement('span');
+                span.textContent = opt;
+                span.className = 'text-slate-700 group-hover:text-slate-900';
+
+                label.appendChild(input);
+                label.appendChild(span);
+
+                input.addEventListener('change', () => {
+                    // Fjern 'selected' fra andre i samme gruppe
                     optionsDiv.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
                     label.classList.add('selected');
                     userAnswers[index] = char;
-                    if(Object.keys(userAnswers).length === currentQuizQuestions.length) submitQuizBtn.disabled = false;
+                    
+                    // Tjek om alle er besvaret
+                    if(Object.keys(userAnswers).length === currentQuizQuestions.length) {
+                        submitQuizBtn.disabled = false;
+                        submitQuizBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
                 });
                 optionsDiv.appendChild(label);
             });
             qDiv.appendChild(optionsDiv);
+            
+            // Forklaring boks (skjult)
             const expDiv = document.createElement('div');
             expDiv.id = `exp-${index}`;
-            expDiv.className = 'explanation mt-4 p-4 rounded-lg hidden text-sm';
+            expDiv.className = 'explanation mt-4 hidden text-sm leading-relaxed';
             qDiv.appendChild(expDiv);
+            
             quizQuestionContainer.appendChild(qDiv);
         });
     }
@@ -375,26 +430,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const userAnswer = userAnswers[index];
             const isCorrect = userAnswer === q.correctAnswer;
             if(isCorrect) score++;
+            
+            // Vis forklaring
             const expDiv = document.getElementById(`exp-${index}`);
             expDiv.classList.remove('hidden');
             expDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
-            expDiv.textContent = isCorrect ? `Korrekt! ${q.feedback}` : `Forkert. Det rigtige svar var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
+            
+            // Byg feedback tekst
+            const answerText = q.correctAnswer.toUpperCase();
+            expDiv.innerHTML = isCorrect 
+                ? `<strong class="block mb-1">✅ Korrekt!</strong> ${q.feedback}` 
+                : `<strong class="block mb-1">❌ Forkert.</strong> Det rigtige svar var <strong>${answerText}</strong>.<br>${q.feedback}`;
+            
+            // Lås inputs og farv dem
             const inputs = document.getElementsByName(`q${index}`);
-            inputs.forEach(inp => inp.disabled = true);
-            const optionsDiv = inputs[0].closest('.space-y-2');
-            optionsDiv.childNodes.forEach((label, i) => {
-                const char = String.fromCharCode(97 + i);
-                if(char === q.correctAnswer) label.classList.add('correct-answer');
-                else if(char === userAnswer && !isCorrect) label.classList.add('incorrect-answer');
+            inputs.forEach(inp => {
+                inp.disabled = true;
+                const label = inp.closest('label');
+                const char = inp.value;
+                
+                if(char === q.correctAnswer) {
+                    label.classList.add('correct-answer');
+                } else if(char === userAnswer && !isCorrect) {
+                    label.classList.add('incorrect-answer');
+                }
             });
         });
-        quizResults.textContent = `Du fik ${score} ud af ${currentQuizQuestions.length} rigtige (${Math.round(score/currentQuizQuestions.length*100)}%)`;
+        
+        quizResults.textContent = `Resultat: ${score} / ${currentQuizQuestions.length} rigtige (${Math.round(score/currentQuizQuestions.length*100)}%)`;
         quizResults.classList.remove('hidden');
         submitQuizBtn.classList.add('hidden');
         restartAllBtn.classList.remove('hidden');
+        
+        // Scroll til resultater
+        quizResults.scrollIntoView({ behavior: 'smooth' });
     });
 
     if(restartAllBtn) restartAllBtn.addEventListener('click', () => location.reload());
+
 
     // --- ONE BY ONE MODE ---
     if(showOneByOneModeBtn) showOneByOneModeBtn.addEventListener('click', () => {
@@ -402,8 +475,9 @@ document.addEventListener('DOMContentLoaded', () => {
         oneByOneModeContainer.classList.remove('hidden');
         showOneByOneModeBtn.classList.add('active');
         showAllQuestionsModeBtn.classList.remove('active');
+        
         const chapters = getSelectedChapters();
-        if(activeChaptersDisplay) activeChaptersDisplay.textContent = chapters.length ? chapters.join(', ') : 'Ingen';
+        if(activeChaptersDisplay) activeChaptersDisplay.textContent = chapters.length ? chapters.join(', ') : 'Ingen valgt';
     });
     
     if(showAllQuestionsModeBtn) showAllQuestionsModeBtn.addEventListener('click', () => {
@@ -419,9 +493,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if(startOneByOneQuizBtn) startOneByOneQuizBtn.addEventListener('click', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
+        
         singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
         shuffleArray(singleQData);
         singleQIndex = 0;
+        
         startOneByOneQuizBtn.parentElement.classList.add('hidden');
         singleQuestionDisplay.classList.remove('hidden');
         showSingleQuestion();
@@ -431,20 +507,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = singleQData[singleQIndex];
         singleQuestionText.textContent = q.question;
         singleOptionsContainer.innerHTML = '';
+        
         singleExplanationText.classList.add('hidden');
+        singleExplanationText.className = 'explanation mt-6 hidden text-sm leading-relaxed'; // Reset classes
+        
+        // Buttons reset
         checkSingleAnswerBtn.disabled = true;
-        nextSingleQuestionBtn.classList.add('hidden');
         checkSingleAnswerBtn.classList.remove('hidden');
+        nextSingleQuestionBtn.classList.add('hidden');
+        restartSingleQuizBtn.classList.add('hidden');
+        singleQuizResults.classList.add('hidden');
+        
         singleQuizProgress.textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
+        
         q.options.forEach((opt, i) => {
             const char = String.fromCharCode(97 + i);
             const label = document.createElement('label');
-            label.className = 'question-option w-full';
-            label.innerHTML = `<input type="radio" name="singleQ" value="${char}" class="mr-3 h-5 w-5 text-indigo-600"><span>${opt}</span>`;
+            label.className = 'question-option w-full group';
+            
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = "singleQ";
+            input.value = char;
+            input.className = 'mr-3 h-5 w-5 text-indigo-600';
+            
+            const span = document.createElement('span');
+            span.textContent = opt;
+            
+            label.appendChild(input);
+            label.appendChild(span);
+            
             label.addEventListener('click', () => {
-                singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
-                label.classList.add('selected');
-                checkSingleAnswerBtn.disabled = false;
+                // Kun hvis ikke allerede besvaret (knappen er synlig)
+                if(!checkSingleAnswerBtn.classList.contains('hidden')) {
+                    singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                    input.checked = true;
+                    checkSingleAnswerBtn.disabled = false;
+                }
             });
             singleOptionsContainer.appendChild(label);
         });
@@ -452,20 +552,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(checkSingleAnswerBtn) checkSingleAnswerBtn.addEventListener('click', () => {
         const q = singleQData[singleQIndex];
-        const selected = document.querySelector('input[name="singleQ"]:checked');
-        if(!selected) return;
-        const val = selected.value;
+        const selectedInput = document.querySelector('input[name="singleQ"]:checked');
+        if(!selectedInput) return;
+        
+        const val = selectedInput.value;
         const isCorrect = val === q.correctAnswer;
+        
         singleExplanationText.classList.remove('hidden');
-        singleExplanationText.className = `mt-6 p-4 rounded-lg border text-sm leading-relaxed ${isCorrect ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`;
-        singleExplanationText.textContent = isCorrect ? `Korrekt! ${q.feedback}` : `Forkert. Svaret var ${q.correctAnswer.toUpperCase()}. ${q.feedback}`;
+        singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
+        singleExplanationText.innerHTML = isCorrect 
+            ? `<strong>Korrekt!</strong> ${q.feedback}` 
+            : `<strong>Forkert.</strong> Svaret var ${q.correctAnswer.toUpperCase()}.<br>${q.feedback}`;
+        
+        // Lås inputs
         document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
+        
+        // Vis styling på labels
+        const labels = singleOptionsContainer.querySelectorAll('label');
+        labels.forEach((label, i) => {
+            const char = String.fromCharCode(97 + i);
+            if (char === q.correctAnswer) label.classList.add('correct-answer');
+            else if (char === val && !isCorrect) label.classList.add('incorrect-answer');
+        });
+
         checkSingleAnswerBtn.classList.add('hidden');
+        
         if(singleQIndex < singleQData.length - 1) {
             nextSingleQuestionBtn.classList.remove('hidden');
         } else {
             restartSingleQuizBtn.classList.remove('hidden');
-            singleQuizResults.textContent = "Quiz færdig!";
+            singleQuizResults.textContent = "Du har gennemført alle valgte spørgsmål!";
             singleQuizResults.classList.remove('hidden');
         }
     });
@@ -477,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
 
+    // Init
     populateCategorySelect();
     populateQuizChapters();
-    console.log("App ready!");
 });
