@@ -45,11 +45,11 @@
         </div>
         <p id="progress-text" class="text-center text-xs text-slate-500 font-mono mb-6">Kort tilbage: 0</p>
 
-        <!-- Kort Container (Rettet: Fjernet inline styles der ødelagde CSS) -->
+        <!-- Kort Container (Dette element har nu en fast højde i CSS) -->
         <div id="card-container-wrapper" class="perspective-container mb-8">
             <div id="flashcard" class="card">
                 
-                <!-- Forside -->
+                <!-- Forside (Hvid) -->
                 <div class="card-face card-front bg-white text-slate-800 shadow-xl border border-slate-200 relative group">
                     <button class="star-btn absolute top-5 right-5 z-20 focus:outline-none transition-transform hover:scale-110" title="Gem til senere">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 star-icon text-slate-300 hover:text-yellow-400 transition-colors" viewBox="0 0 20 20" fill="currentColor">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <!-- Bagside -->
+                <!-- Bagside (Blå) -->
                 <div class="card-face card-back bg-indigo-600 text-white shadow-xl relative group">
                     <button class="star-btn absolute top-5 right-5 z-20 focus:outline-none transition-transform hover:scale-110" title="Gem til senere">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 star-icon text-indigo-400 hover:text-yellow-300 transition-colors" viewBox="0 0 20 20" fill="currentColor">
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Feedback Knapper -->
-        <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-3 sm:gap-4 mb-4">
+        <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-3 sm:gap-4 mb-4 pt-4">
             <button id="feedback-correct-btn" class="feedback-btn bg-green-50 text-green-700 hover:bg-green-100 border-green-200 hover:border-green-300">
                 <span class="mr-2">✅</span> Rigtigt
             </button>
