@@ -1158,7 +1158,35 @@
             { front: "Moderationseffekt", back: "Individuelle forskelle (fx personlighed) ændrer styrken af relationen mellem subjektive vurderinger og VE." },
             { front: "Praktiske implikationer", back: "Forebyggelse skal målrette psykologiske mekanismer (fx trussel, GRD) frem for kun strukturelle forhold." },
             { front: "Counter-narratives", back: "Effektive strategier korrigerer misperceptioner (fx status-tab) og reducerer støtte til vold." }
-          ]
+          ],
+
+        "Kapitel 10 – Attraction and Relationships": [
+            { front: "Propinquity effect", back: "Jo mere vi ser og interagerer med mennesker, desto større sandsynlighed for, at vi bliver venner." },
+            { front: "Mere exposure effect", back: "Jo mere vi eksponeres for et stimulus, desto mere kan vi lide det – fordi det øger genkendelighed." },
+            { front: "Similarity", back: "Vi tiltrækkes af personer med lignende holdninger, værdier, interesser, baggrund og personlighed." },
+            { front: "Perceived vs. actual similarity", back: "Opfattet lighed forudsiger tiltrækning bedre end faktisk lighed." },
+            { front: "Reciprocal liking", back: "Vi kan lide dem, der kan lide os – så stærkt, at det kan opveje manglende lighed." },
+            { front: "Physical attractiveness", back: "Den stærkeste indikator for gensidig interesse ved blinddates; gælder for begge køn." },
+            { front: "Hvad er attraktivt?", back: "Store øjne, symmetri, tydelige kindben, stort smil; composite ansigter opfattes som mest attraktive." },
+            { front: "Halo-effekt", back: "Antagelsen om, at attraktive personer også har andre positive egenskaber (fx social kompetence)." },
+            { front: "Self-fulfilling prophecy", back: "Forventninger til attraktive personer kan fremkalde bedre sociale færdigheder." },
+            { front: "Evolutionær forklaring", back: "Mænd prioriterer fysisk attraktivitet (reproduktiv fitness), kvinder prioriterer ressourcer og status." },
+            { front: "Alternative perspektiver", back: "Kulturel påvirkning og økonomisk ulighed kan forklare kønsforskelle i partnerpræferencer." },
+            { front: "Finkel & Eastwick speed-dating studie", back: "Kvinders selektivitet forsvinder, når de selv tager initiativet – selektivitet påvirkes af sociale normer." },
+            { front: "Digital tilstedeværelse", back: "En mobiltelefon til stede under samtale reducerer tillid, empati og følelsen af forbindelse." },
+            { front: "Online dating", back: "Tiltrækning baseret på lighed og popularitet; profiler er ofte idealiserede og indeholder subtile løgne." },
+            { front: "Companionate love", back: "Intimitet og affektion uden passion; typisk i langvarige forhold eller tætte venskaber." },
+            { front: "Passionate love", back: "Intens længsel og fysiologisk arousal – forelskelse." },
+            { front: "Triangular theory of love", back: "Kærlighed består af Intimacy, Passion og Commitment." },
+            { front: "Kultur og kærlighed", back: "Individualistiske kulturer vægter passioneret kærlighed; kollektivistiske kulturer vægter companionate love." },
+            { front: "Attachment styles", back: "Secure: stabile forhold; Avoidant: følelsesmæssig distance; Anxious: kortvarige, intense forhold." },
+            { front: "Hjernen i kærlighed", back: "Romantisk kærlighed aktiverer belønningscentre (VTA og Caudate Nucleus) – ligner afhængighed." },
+            { front: "Social Exchange Theory", back: "Tilfredshed afhænger af opfattede gevinster, omkostninger og sammenligningsniveauer." },
+            { front: "Investment model", back: "Forholdets stabilitet øges med investeringer, der går tabt ved brud." },
+            { front: "Equity theory", back: "Ligevægt i belønninger og omkostninger giver de mest stabile og lykkelige forhold." },
+            { front: "Exchange relationships", back: "Forhold baseret på regnskab og kompensation – typisk nye relationer." },
+            { front: "Communal relationships", back: "Forhold baseret på omsorg og behovsopfyldelse uden krav om direkte gengæld – typisk intime relationer." }
+      ]
   };
 
     const quizQuestions = [
