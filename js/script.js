@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const listModal = document.getElementById('flashcard-list-modal');
     const listContent = document.getElementById('flashcard-list-content');
     const listModalTitle = document.getElementById('list-modal-title');
+    const listSearchInput = document.getElementById('list-search-input'); // Nyt søgefelt
     const closeListModalBtn = document.getElementById('close-list-modal-btn');
     const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
 
@@ -84,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isFlipped = false;
     let showBackFirst = false;
     let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
+    
+    // Variabel til at holde listen i modalen
+    let currentModalCards = [];
 
     // Tracker for incorrect questions
     let incorrectQuestionsList = [];
@@ -289,36 +293,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // LIST MODAL LOGIK (NY)
-    if(showListBtn) showListBtn.addEventListener('click', () => {
-        const categoryName = categorySelect.value;
-        let cardsToShow = [];
+    // =========================================================
+    // INTELLIGENT SØGNING (Levenshtein Distance)
+    // =========================================================
+    function calculateLevenshteinDistance(a, b) {
+        const matrix = [];
 
-        // Hent de rigtige kort
-        if (categoryName === 'saved_cards') {
-            cardsToShow = savedCards;
-            listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
-        } else if (categoryName === 'all_shuffled') {
-            // Saml alt
-            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
-                const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
-                cardsToShow = cardsToShow.concat(labeledCards);
-            }
-            listModalTitle.textContent = `Alle kort (${cardsToShow.length})`;
-        } else {
-            // Enkelt kategori
-            if (allFlashcardCategories[categoryName]) {
-                cardsToShow = allFlashcardCategories[categoryName];
-                listModalTitle.textContent = `${categoryName} (${cardsToShow.length})`;
-            }
+        // Initialiser matrix
+        for (let i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        for (let j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
         }
 
-        // Generer HTML listen
+        // Fyld matrix
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1, // Erstatning
+                        Math.min(
+                            matrix[i][j - 1] + 1, // Indsættelse
+                            matrix[i - 1][j] + 1  // Sletning
+                        )
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
+    function renderListHTML(cards) {
         listContent.innerHTML = '';
-        if (cardsToShow.length === 0) {
-            listContent.innerHTML = '<p class="text-center text-gray-500 py-4">Ingen kort fundet i denne kategori.</p>';
+        if (cards.length === 0) {
+            listContent.innerHTML = '<p class="text-center text-gray-500 py-4">Ingen kort fundet.</p>';
         } else {
-            cardsToShow.forEach((c, i) => {
+            cards.forEach((c, i) => {
                 const item = document.createElement('div');
                 item.className = 'bg-slate-50 border border-slate-200 rounded-xl p-4';
                 item.innerHTML = `
@@ -337,10 +350,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 listContent.appendChild(item);
             });
         }
+    }
+
+    // LIST MODAL LOGIK
+    if(showListBtn) showListBtn.addEventListener('click', () => {
+        const categoryName = categorySelect.value;
+        currentModalCards = []; // Reset liste
+
+        // Hent de rigtige kort
+        if (categoryName === 'saved_cards') {
+            currentModalCards = savedCards;
+            listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
+        } else if (categoryName === 'all_shuffled') {
+            // Saml alt
+            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
+                const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
+                currentModalCards = currentModalCards.concat(labeledCards);
+            }
+            listModalTitle.textContent = `Alle kort (${currentModalCards.length})`;
+        } else {
+            // Enkelt kategori
+            if (allFlashcardCategories[categoryName]) {
+                currentModalCards = allFlashcardCategories[categoryName];
+                listModalTitle.textContent = `${categoryName} (${currentModalCards.length})`;
+            }
+        }
+
+        // Ryd søgefelt og vis alle
+        if(listSearchInput) listSearchInput.value = '';
+        renderListHTML(currentModalCards);
 
         listModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Forhindr scroll på baggrunden
+        document.body.style.overflow = 'hidden'; 
     });
+
+    // Søge Event Listener
+    if(listSearchInput) {
+        listSearchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query === '') {
+                renderListHTML(currentModalCards);
+                return;
+            }
+
+            const filteredCards = currentModalCards.filter(card => {
+                const term = card.front.toLowerCase();
+                
+                // 1. Direkte match (substring)
+                if (term.includes(query)) return true;
+
+                // 2. Fuzzy match (kun hvis søgeord er > 2 tegn)
+                if (query.length > 2) {
+                    const distance = calculateLevenshteinDistance(term, query);
+                    // Tillad 2 fejl hvis ordet er langt, ellers 1
+                    const allowedErrors = term.length > 5 ? 2 : 1; 
+                    // Hvis afstanden er lille nok i forhold til søgeordets længde
+                    if (distance <= allowedErrors) return true;
+                }
+                
+                return false;
+            });
+
+            renderListHTML(filteredCards);
+        });
+    }
 
     function closeListModal() {
         listModal.classList.add('hidden');
