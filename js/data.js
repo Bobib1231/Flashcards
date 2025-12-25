@@ -16,7 +16,7 @@
             { front: "Dispositionel oplevelse af følelser", back: "En persons vedvarende tendens til at opleve en bestemt følelse. Dette kan forudsige langsigtede livsresultater (f.eks. vrede i barndommen -> lavere uddannelse)." },
             { front: "Orbitofrontal cortex' funktion", back: "Central for social adfærd og følelsesmæssig regulering. Skader her kan føre til antisocial adfærd og mangel på f.eks. forlegenhed." }
         ],
-        "Kapitel 13 – Følelser": [
+        "Larsen kapitel 13": [
             { front: "Emotion", back: "Kortvarig, intens reaktion med fysiologiske, adfærdsmæssige og kognitive komponenter." },
             { front: "Mood vs. Affect", back: "Mood: længerevarende og mindre intens. Affect: bred følelsesmæssig tilstand." },
             { front: "Evolutionært formål", back: "Følelser fremmer overlevelse, reproduktion og social samhørighed." },
@@ -712,7 +712,7 @@
             { front: "Social sammenligning", back: "Tunge brugere tror andre har bedre liv – kan føre til jalousi og stress." },
             { front: "Personlighed og jobrekruttering", back: "Fordelagtige billeder på sociale medier → flere jobsamtaler." }
         ],
-        "Kapitel 18 – Stress, coping, justeringer og helbred": [
+        "Larsen kapitel 18´": [
             { front: "Stress", back: "Subjektiv følelse af trussel eller manglende kontrol i en situation." },
             { front: "Stressors", back: "Begivenheder eller situationer, der udløser stress." },
             { front: "Homeodynamic balance", back: "Fleksibel tilpasning til indre og ydre forandringer for at bevare stabilitet." },
@@ -1218,7 +1218,7 @@
             { front: "Counter-narratives", back: "Effektive strategier korrigerer misperceptioner (fx status-tab) og reducerer støtte til vold." }
           ],
 
-        "Kapitel 10 – Attraction and Relationships": [
+        "Aronson kapitel 10": [
             { front: "Propinquity effect", back: "Jo mere vi ser og interagerer med mennesker, desto større sandsynlighed for, at vi bliver venner." },
             { front: "Mere exposure effect", back: "Jo mere vi eksponeres for et stimulus, desto mere kan vi lide det – fordi det øger genkendelighed." },
             { front: "Similarity", back: "Vi tiltrækkes af personer med lignende holdninger, værdier, interesser, baggrund og personlighed." },
