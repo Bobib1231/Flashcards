@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainerWrapper = document.getElementById('card-container-wrapper');
     const starBtns = document.querySelectorAll('.star-btn');
     
+    // NYT: Liste knap og modal
+    const showListBtn = document.getElementById('show-list-btn');
+    const listModal = document.getElementById('flashcard-list-modal');
+    const listContent = document.getElementById('flashcard-list-content');
+    const listModalTitle = document.getElementById('list-modal-title');
+    const closeListModalBtn = document.getElementById('close-list-modal-btn');
+    const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
+
     // Feedback Knapper
     const btnCorrect = document.getElementById('feedback-correct-btn');
     const btnUnsure = document.getElementById('feedback-unsure-btn');
@@ -49,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
     
-    // New Retry Button (All Questions Mode)
+    // Retry Button (All Questions Mode)
     const retryIncorrectAllBtn = document.getElementById('retry-incorrect-all-btn');
 
     // Quiz One-by-One Elementer
@@ -67,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const singleQuizResults = document.getElementById('single-quiz-results');
     const activeChaptersDisplay = document.getElementById('active-chapters-display');
     
-    // New Retry Button (One by One Mode)
+    // Retry Button (One by One Mode)
     const retryIncorrectSingleBtn = document.getElementById('retry-incorrect-single-btn');
 
     // State Variables
@@ -110,13 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const savedOption = document.createElement('option');
         savedOption.value = 'saved_cards';
-        // Fjernet emoji
         savedOption.textContent = `Gemte kort (${savedCards.length})`;
         categorySelect.appendChild(savedOption);
 
         const allOption = document.createElement('option');
         allOption.value = 'all_shuffled';
-        // Fjernet emoji
         allOption.textContent = 'Bland alle kapitler';
         allOption.selected = true; 
         categorySelect.appendChild(allOption);
@@ -167,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
         isFlipped = false;
         if(card) {
             card.classList.remove('is-flipped');
-            // Sikrer at vi ikke har mærkelige rotationer ved reset
             setTimeout(() => card.classList.remove('is-flipped'), 50); 
         }
         
@@ -177,19 +182,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCardUI() {
         if (!frontTextElement || !backTextElement) return;
 
-        // Er vi færdige?
         if (studyQueue.length === 0) {
             if (originalTotal === 0) {
                 frontTextElement.textContent = "Ingen kort valgt.";
                 return;
             }
-            // Fjernet emoji
             frontTextElement.textContent = "Godt gået! \nDu har været igennem alle kortene.";
             backTextElement.textContent = "Tryk på 'Start forfra' for at prøve igen.";
             if(frontFooterElement) frontFooterElement.textContent = "";
             if(backFooterElement) backFooterElement.textContent = "";
             
-            // Gem knapper ved afslutning
             if(feedbackContainer) feedbackContainer.classList.add('hidden');
             
             if(progressText) progressText.textContent = "Færdig!";
@@ -201,23 +203,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cardData = studyQueue[0];
         
-        // Sæt tekst baseret på toggle
         frontTextElement.textContent = showBackFirst ? cardData.back : cardData.front;
         backTextElement.textContent = showBackFirst ? cardData.front : cardData.back;
 
-        // Kategori i bunden
         const footerText = cardData.sourceCategory || "";
         if(frontFooterElement) frontFooterElement.textContent = footerText;
         if(backFooterElement) backFooterElement.textContent = footerText;
 
-        // Progress
         const completed = originalTotal - studyQueue.length;
         const percentage = originalTotal > 0 ? (completed / originalTotal) * 100 : 0;
         
         if(progressBarFill) progressBarFill.style.width = `${percentage}%`;
         if(progressText) progressText.textContent = `Kort tilbage: ${studyQueue.length} (Gennemført: ${Math.round(percentage)}%)`;
 
-        // Stjerne status
         const isSaved = savedCards.some(s => s.front === cardData.front && s.back === cardData.back);
         starBtns.forEach(btn => {
             if (isSaved) {
@@ -235,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentCard = studyQueue[0];
 
-        // Lille animation når kortet skiftes
         if(cardContainerWrapper) {
             cardContainerWrapper.style.opacity = '0';
             cardContainerWrapper.style.transform = 'scale(0.95)';
@@ -243,18 +240,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             if (type === 'correct') {
-                studyQueue.shift(); // Fjern kort
+                studyQueue.shift(); 
             } else if (type === 'incorrect') {
                 studyQueue.shift();
-                studyQueue.push(currentCard); // Læg bag i køen
+                studyQueue.push(currentCard); 
             } else if (type === 'unsure') {
                 studyQueue.shift();
-                // Indsæt tilfældigt i resten af bunken
                 const randomIndex = Math.floor(Math.random() * (studyQueue.length));
                 studyQueue.splice(randomIndex, 0, currentCard);
             }
 
-            // Vend kortet om hvis det var flippet
             isFlipped = false;
             if(card) card.classList.remove('is-flipped');
             
@@ -268,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function toggleSaveCard(e) {
-        e.stopPropagation(); // Stop kortet fra at flippe
+        e.stopPropagation(); 
         if (studyQueue.length === 0) return;
 
         const currentCard = studyQueue[0];
@@ -281,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
         
-        // Opdater dropdown tekst
         const savedOption = categorySelect.querySelector('option[value="saved_cards"]');
         if(savedOption) savedOption.textContent = `Gemte kort (${savedCards.length})`;
 
@@ -294,6 +288,73 @@ document.addEventListener('DOMContentLoaded', () => {
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
+
+    // LIST MODAL LOGIK (NY)
+    if(showListBtn) showListBtn.addEventListener('click', () => {
+        const categoryName = categorySelect.value;
+        let cardsToShow = [];
+
+        // Hent de rigtige kort
+        if (categoryName === 'saved_cards') {
+            cardsToShow = savedCards;
+            listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
+        } else if (categoryName === 'all_shuffled') {
+            // Saml alt
+            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
+                const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
+                cardsToShow = cardsToShow.concat(labeledCards);
+            }
+            listModalTitle.textContent = `Alle kort (${cardsToShow.length})`;
+        } else {
+            // Enkelt kategori
+            if (allFlashcardCategories[categoryName]) {
+                cardsToShow = allFlashcardCategories[categoryName];
+                listModalTitle.textContent = `${categoryName} (${cardsToShow.length})`;
+            }
+        }
+
+        // Generer HTML listen
+        listContent.innerHTML = '';
+        if (cardsToShow.length === 0) {
+            listContent.innerHTML = '<p class="text-center text-gray-500 py-4">Ingen kort fundet i denne kategori.</p>';
+        } else {
+            cardsToShow.forEach((c, i) => {
+                const item = document.createElement('div');
+                item.className = 'bg-slate-50 border border-slate-200 rounded-xl p-4';
+                item.innerHTML = `
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-indigo-500 uppercase tracking-wide">Forside</span>
+                            <p class="font-medium text-slate-800 mt-1">${c.front}</p>
+                        </div>
+                        <div class="hidden md:block w-px bg-slate-200"></div>
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-purple-500 uppercase tracking-wide">Bagside</span>
+                            <p class="text-slate-600 mt-1">${c.back}</p>
+                        </div>
+                    </div>
+                `;
+                listContent.appendChild(item);
+            });
+        }
+
+        listModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Forhindr scroll på baggrunden
+    });
+
+    function closeListModal() {
+        listModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    if(closeListModalBtn) closeListModalBtn.addEventListener('click', closeListModal);
+    if(closeModalFooterBtn) closeModalFooterBtn.addEventListener('click', closeListModal);
+    
+    // Luk hvis man klikker udenfor boksen
+    if(listModal) listModal.addEventListener('click', (e) => {
+        if (e.target === listModal) closeListModal();
+    });
+
 
     // EVENT LISTENERS FLASHCARDS
     if(categorySelect) categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
@@ -334,26 +395,21 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === '3') handleFeedback('incorrect');
         }
 
-        // --- NYE GENVEJE TIL QUIZ ONE-BY-ONE ---
+        // --- GENVEJE TIL QUIZ ONE-BY-ONE ---
         if (!oneByOneModeContainer.classList.contains('hidden')) {
-            // Tast 1-4 for at vælge svarmuligheder
             if (['1', '2', '3', '4'].includes(e.key)) {
                 const index = parseInt(e.key) - 1;
                 const options = singleOptionsContainer.querySelectorAll('input');
-                // Simuler klik på label for den valgte option
                 if(options[index] && !options[index].disabled) {
                     options[index].parentElement.click(); 
                 }
             }
 
-            // Tast Enter for at Tjekke Svar / Gå til næste
             if (e.key === 'Enter') {
-                e.preventDefault(); // Undgå standard submit
-                // Hvis "Tjek svar" knappen er synlig og ikke deaktiveret
+                e.preventDefault(); 
                 if (!checkSingleAnswerBtn.classList.contains('hidden') && !checkSingleAnswerBtn.disabled) {
                     checkSingleAnswerBtn.click();
                 }
-                // Hvis "Næste" knappen er synlig
                 else if (!nextSingleQuestionBtn.classList.contains('hidden')) {
                     nextSingleQuestionBtn.click();
                 }
@@ -397,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderAllQuiz();
         startAllQuizBtn.parentElement.classList.add('hidden');
         document.getElementById('quiz-chapter-select').parentElement.classList.add('hidden');
-        submitQuizBtn.parentElement.classList.remove('hidden'); // Vis knapper
+        submitQuizBtn.parentElement.classList.remove('hidden'); 
     });
 
     function renderAllQuiz() {
@@ -422,11 +478,10 @@ document.addEventListener('DOMContentLoaded', () => {
             optionsDiv.className = 'space-y-3';
             
             q.options.forEach((opt, i) => {
-                const char = String.fromCharCode(97 + i); // a, b, c, d
+                const char = String.fromCharCode(97 + i); 
                 const label = document.createElement('label');
                 label.className = 'question-option group';
                 
-                // Input styling
                 const input = document.createElement('input');
                 input.type = 'radio';
                 input.name = `q${index}`;
@@ -441,12 +496,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 label.appendChild(span);
 
                 input.addEventListener('change', () => {
-                    // Fjern 'selected' fra andre i samme gruppe
                     optionsDiv.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
                     label.classList.add('selected');
                     userAnswers[index] = char;
                     
-                    // Tjek om alle er besvaret
                     if(Object.keys(userAnswers).length === currentQuizQuestions.length) {
                         submitQuizBtn.disabled = false;
                         submitQuizBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -456,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             qDiv.appendChild(optionsDiv);
             
-            // Forklaring boks (skjult)
             const expDiv = document.createElement('div');
             expDiv.id = `exp-${index}`;
             expDiv.className = 'explanation mt-4 hidden text-sm leading-relaxed';
@@ -468,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(submitQuizBtn) submitQuizBtn.addEventListener('click', () => {
         let score = 0;
-        incorrectQuestionsList = []; // Reset incorrect list
+        incorrectQuestionsList = []; 
 
         currentQuizQuestions.forEach((q, index) => {
             const userAnswer = userAnswers[index];
@@ -476,21 +528,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if(isCorrect) {
                 score++;
             } else {
-                incorrectQuestionsList.push(q); // Tilføj til listen over fejl
+                incorrectQuestionsList.push(q); 
             }
             
-            // Vis forklaring
             const expDiv = document.getElementById(`exp-${index}`);
             expDiv.classList.remove('hidden');
             expDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
             
-            // Byg feedback tekst uden emojis
             const answerText = q.correctAnswer.toUpperCase();
             expDiv.innerHTML = isCorrect 
                 ? `<strong class="block mb-1">Korrekt!</strong> ${q.feedback}` 
                 : `<strong class="block mb-1">Forkert.</strong> Det rigtige svar var <strong>${answerText}</strong>.<br>${q.feedback}`;
             
-            // Lås inputs og farv dem
             const inputs = document.getElementsByName(`q${index}`);
             inputs.forEach(inp => {
                 inp.disabled = true;
@@ -510,22 +559,17 @@ document.addEventListener('DOMContentLoaded', () => {
         submitQuizBtn.classList.add('hidden');
         restartAllBtn.classList.remove('hidden');
 
-        // Vis "Prøv fejl igen" hvis der er fejl
         if(incorrectQuestionsList.length > 0) {
             retryIncorrectAllBtn.classList.remove('hidden');
             retryIncorrectAllBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
         }
         
-        // Scroll til resultater
         quizResults.scrollIntoView({ behavior: 'smooth' });
     });
 
     if(retryIncorrectAllBtn) retryIncorrectAllBtn.addEventListener('click', () => {
-        // Sæt spørgsmål til kun at være de forkerte
         currentQuizQuestions = [...incorrectQuestionsList];
-        // Render quiz igen
         renderAllQuiz();
-        // Scroll til toppen
         quizQuestionContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
@@ -560,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
         singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
         shuffleArray(singleQData);
         singleQIndex = 0;
-        incorrectQuestionsList = []; // Reset tracking
+        incorrectQuestionsList = []; 
         
         startOneByOneQuizBtn.parentElement.classList.add('hidden');
         singleQuestionDisplay.classList.remove('hidden');
@@ -573,9 +617,8 @@ document.addEventListener('DOMContentLoaded', () => {
         singleOptionsContainer.innerHTML = '';
         
         singleExplanationText.classList.add('hidden');
-        singleExplanationText.className = 'explanation mt-6 hidden text-sm leading-relaxed'; // Reset classes
+        singleExplanationText.className = 'explanation mt-6 hidden text-sm leading-relaxed'; 
         
-        // Buttons reset
         checkSingleAnswerBtn.disabled = true;
         checkSingleAnswerBtn.classList.remove('hidden');
         nextSingleQuestionBtn.classList.add('hidden');
@@ -603,7 +646,6 @@ document.addEventListener('DOMContentLoaded', () => {
             label.appendChild(span);
             
             label.addEventListener('click', () => {
-                // Kun hvis ikke allerede besvaret (knappen er synlig)
                 if(!checkSingleAnswerBtn.classList.contains('hidden')) {
                     singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
                     label.classList.add('selected');
@@ -624,20 +666,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const isCorrect = val === q.correctAnswer;
         
         if(!isCorrect) {
-            incorrectQuestionsList.push(q); // Gem fejl
+            incorrectQuestionsList.push(q); 
         }
 
         singleExplanationText.classList.remove('hidden');
         singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
-        // Fjernet emojis
         singleExplanationText.innerHTML = isCorrect 
             ? `<strong>Korrekt!</strong> ${q.feedback}` 
             : `<strong>Forkert.</strong> Svaret var ${q.correctAnswer.toUpperCase()}.<br>${q.feedback}`;
         
-        // Lås inputs
         document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
         
-        // Vis styling på labels
         const labels = singleOptionsContainer.querySelectorAll('label');
         labels.forEach((label, i) => {
             const char = String.fromCharCode(97 + i);
@@ -654,7 +693,6 @@ document.addEventListener('DOMContentLoaded', () => {
             singleQuizResults.textContent = "Du har gennemført alle valgte spørgsmål!";
             singleQuizResults.classList.remove('hidden');
 
-            // Vis "Prøv fejl igen" hvis der er fejl
             if(incorrectQuestionsList.length > 0) {
                 retryIncorrectSingleBtn.classList.remove('hidden');
                 retryIncorrectSingleBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
@@ -668,9 +706,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     if(retryIncorrectSingleBtn) retryIncorrectSingleBtn.addEventListener('click', () => {
-        // Reset Single Mode med kun de forkerte spørgsmål
         singleQData = [...incorrectQuestionsList];
-        incorrectQuestionsList = []; // Nulstil fejl-listen så vi kan tracke den nye runde
+        incorrectQuestionsList = []; 
         singleQIndex = 0;
         showSingleQuestion();
     });
