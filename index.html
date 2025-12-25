@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas' flashkort</title>
+    <title>Thomas' Flashkort</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style.css"> 
 
     <style>
-        /* Fallback styles */
+        /* Samme styles som før */
         :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #ec4899; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -183,7 +183,7 @@
 
     <div class="w-full max-w-3xl mx-auto mb-8 mt-6">
         <h1 class="text-4xl sm:text-6xl font-extrabold text-center mb-2 tracking-tight gradient-text pb-2">Thomas' Flashkort</h1>
-        <p class="text-center text-slate-500 font-medium mb-8">Baseret på OneNote noter, så vær' skeptisk</p>
+        <p class="text-center text-slate-500 font-medium mb-8">Master din psykologi viden</p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 bg-white/50 p-2 rounded-full backdrop-blur-sm max-w-fit mx-auto shadow-sm">
             <button id="show-flashcards-btn" class="nav-btn active">Flashcards</button>
@@ -341,17 +341,22 @@
         </div>
     </div>
 
-    <!-- LISTE MODAL (NY) -->
+    <!-- LISTE MODAL (MED INTELLIGENT SØGNING) -->
     <div id="flashcard-list-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
         <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col overflow-hidden max-h-[85vh]">
-            <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-                <h2 id="list-modal-title" class="text-2xl font-bold text-slate-800">Oversigt</h2>
-                <button id="close-list-modal-btn" class="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+            <div class="p-6 border-b border-gray-100 flex flex-col gap-4 bg-gray-50">
+                <div class="flex justify-between items-center">
+                    <h2 id="list-modal-title" class="text-2xl font-bold text-slate-800">Oversigt</h2>
+                    <button id="close-list-modal-btn" class="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-200 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- SØGEFELT -->
+                <input type="text" id="list-search-input" placeholder="Søg i begreber (forsiden)..." class="w-full p-3 rounded-xl border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all text-slate-700 placeholder-gray-400">
             </div>
+            
             <div id="flashcard-list-content" class="p-6 overflow-y-auto space-y-4 bg-white">
                 <!-- Listen indsættes her via JS -->
             </div>
