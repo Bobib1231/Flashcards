@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnIncorrect) btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
 
     document.addEventListener('keydown', (e) => {
-        // FIX: Ignorer genveje hvis man skriver i et inputfelt (så mellemrum virker i søgning)
+        // VIGTIGT FIX: Stop genveje hvis man skriver i søgefelt eller textarea
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
         // Hvis flashcard-sektionen er aktiv:
@@ -833,115 +833,4 @@ document.addEventListener('DOMContentLoaded', () => {
         singleQIndex = 0;
         incorrectQuestionsList = []; 
         
-        startOneByOneQuizBtn.parentElement.classList.add('hidden');
-        singleQuestionDisplay.classList.remove('hidden');
-        showSingleQuestion();
-    });
-
-    function showSingleQuestion() {
-        const q = singleQData[singleQIndex];
-        singleQuestionText.textContent = q.question;
-        singleOptionsContainer.innerHTML = '';
-        
-        singleExplanationText.classList.add('hidden');
-        singleExplanationText.className = 'explanation mt-6 hidden text-sm leading-relaxed'; 
-        
-        checkSingleAnswerBtn.disabled = true;
-        checkSingleAnswerBtn.classList.remove('hidden');
-        nextSingleQuestionBtn.classList.add('hidden');
-        restartSingleQuizBtn.classList.add('hidden');
-        singleQuizResults.classList.add('hidden');
-        retryIncorrectSingleBtn.classList.add('hidden');
-        
-        singleQuizProgress.textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
-        
-        q.options.forEach((opt, i) => {
-            const char = String.fromCharCode(97 + i);
-            const label = document.createElement('label');
-            label.className = 'question-option w-full group';
-            
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = "singleQ";
-            input.value = char;
-            input.className = 'mr-3 h-5 w-5 text-indigo-600';
-            
-            const span = document.createElement('span');
-            span.textContent = opt;
-            
-            label.appendChild(input);
-            label.appendChild(span);
-            
-            label.addEventListener('click', () => {
-                if(!checkSingleAnswerBtn.classList.contains('hidden')) {
-                    singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
-                    label.classList.add('selected');
-                    input.checked = true;
-                    checkSingleAnswerBtn.disabled = false;
-                }
-            });
-            singleOptionsContainer.appendChild(label);
-        });
-    }
-
-    if(checkSingleAnswerBtn) checkSingleAnswerBtn.addEventListener('click', () => {
-        const q = singleQData[singleQIndex];
-        const selectedInput = document.querySelector('input[name="singleQ"]:checked');
-        if(!selectedInput) return;
-        
-        const val = selectedInput.value;
-        const isCorrect = val === q.correctAnswer;
-        
-        if(!isCorrect) {
-            incorrectQuestionsList.push(q); 
-        }
-
-        singleExplanationText.classList.remove('hidden');
-        singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
-        singleExplanationText.innerHTML = isCorrect 
-            ? `<strong>Korrekt!</strong> ${q.feedback}` 
-            : `<strong>Forkert.</strong> Svaret var ${q.correctAnswer.toUpperCase()}.<br>${q.feedback}`;
-        
-        document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
-        
-        const labels = singleOptionsContainer.querySelectorAll('label');
-        labels.forEach((label, i) => {
-            const char = String.fromCharCode(97 + i);
-            if (char === q.correctAnswer) label.classList.add('correct-answer');
-            else if (char === val && !isCorrect) label.classList.add('incorrect-answer');
-        });
-
-        checkSingleAnswerBtn.classList.add('hidden');
-        
-        if(singleQIndex < singleQData.length - 1) {
-            nextSingleQuestionBtn.classList.remove('hidden');
-        } else {
-            restartSingleQuizBtn.classList.remove('hidden');
-            singleQuizResults.textContent = "Du har gennemført alle valgte spørgsmål!";
-            singleQuizResults.classList.remove('hidden');
-
-            if(incorrectQuestionsList.length > 0) {
-                retryIncorrectSingleBtn.classList.remove('hidden');
-                retryIncorrectSingleBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
-            }
-        }
-    });
-
-    if(nextSingleQuestionBtn) nextSingleQuestionBtn.addEventListener('click', () => {
-        singleQIndex++;
-        showSingleQuestion();
-    });
-    
-    if(retryIncorrectSingleBtn) retryIncorrectSingleBtn.addEventListener('click', () => {
-        singleQData = [...incorrectQuestionsList];
-        incorrectQuestionsList = []; 
-        singleQIndex = 0;
-        showSingleQuestion();
-    });
-
-    if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
-
-    // Init
-    populateCategorySelect();
-    populateQuizChapters();
-});
+        startOneByOn
