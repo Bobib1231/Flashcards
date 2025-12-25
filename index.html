@@ -13,9 +13,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
+    <!-- Din eksisterende CSS -->
+    <link rel="stylesheet" href="style.css"> 
+    
+    <!-- Fallback hvis style.css ikke loader, eller hvis du vil beholde stilen i HTML -->
     <style>
-        /* --- MODERNE CSS STYLES --- */
-        
+        /* --- MODERNE CSS STYLES (Fra din fil) --- */
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
@@ -24,9 +27,8 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif; /* Mere moderne font end Inter */
+            font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
-            /* Animeret baggrund */
             background: linear-gradient(-45deg, #e0e7ff, #f3e8ff, #eef2ff, #fff1f2);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -39,14 +41,12 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Overskrift Gradient */
         .gradient-text {
             background: linear-gradient(to right, #4f46e5, #9333ea);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Glassmorphism Panel */
         .glass-panel {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
@@ -55,10 +55,10 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
-        /* Navigationsknapper - Pill shape */
+        /* Navigationsknapper */
         .nav-btn {
             padding: 0.75rem 1.5rem;
-            border-radius: 9999px; /* Fuld runding */
+            border-radius: 9999px;
             font-weight: 700;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
@@ -86,7 +86,7 @@
             transform: translateY(-1px);
         }
 
-        /* Action knapper (Start, etc) */
+        /* Action knapper */
         .action-btn {
             display: inline-flex;
             align-items: center;
@@ -115,18 +115,16 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
-            border: none; /* Fjernet border for renere look */
+            border: none; 
             width: 100%;
             font-size: 0.95rem;
             position: relative; 
             z-index: 5;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            /* Soft colors override */
         }
         .feedback-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(0,0,0,0.1); }
         .feedback-btn:active { transform: scale(0.96); }
 
-        /* Specifik feedback styling */
         #feedback-correct-btn { background: #dcfce7; color: #15803d; }
         #feedback-correct-btn:hover { background: #bbf7d0; }
         
@@ -136,14 +134,14 @@
         #feedback-incorrect-btn { background: #fee2e2; color: #b91c1c; }
         #feedback-incorrect-btn:hover { background: #fecaca; }
 
-        /* --- FLASHCARD 3D --- */
+        /* Perspective Container */
         .perspective-container {
-            perspective: 1200px; /* Lidt dybere perspektiv */
+            perspective: 1200px; 
             width: 100%;
             max-width: 42rem; 
             margin: 0 auto;
             position: relative;
-            height: 420px !important; /* Lidt højere for luft */
+            height: 420px !important; 
             min-height: 420px;
             z-index: 10;
             display: block; 
@@ -157,7 +155,7 @@
             height: 100%;
             cursor: pointer;
             transform-style: preserve-3d;
-            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy flip effect */
+            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-origin: center center;
         }
 
@@ -177,7 +175,6 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* Moderne skygge */
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
@@ -189,7 +186,6 @@
         }
 
         .card-back {
-            /* Lækker gradient baggrund */
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
             transform: rotateY(180deg);
@@ -206,7 +202,6 @@
             width: 100%;
         }
 
-        /* Custom scrollbar til kortet */
         .card-content-scroll::-webkit-scrollbar { width: 6px; }
         .card-content-scroll::-webkit-scrollbar-track { background: transparent; }
         .card-content-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
@@ -292,7 +287,7 @@
             display: flex;
             align-items: center;
             padding: 1.2rem;
-            border: 2px solid transparent; /* Usynlig border default */
+            border: 2px solid transparent;
             border-radius: 1rem;
             background-color: white;
             width: 100%;
@@ -438,6 +433,7 @@
             <p class="text-xs text-center text-slate-400 mt-3 font-medium">Hold Ctrl / Cmd nede for at vælge flere</p>
         </div>
 
+        <!-- ALL QUESTIONS MODE -->
         <div id="all-questions-mode-container">
             <div class="text-center mb-10">
                 <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl shadow-indigo-200 py-4 px-10 text-base">🚀 Start Quiz</button>
@@ -445,11 +441,16 @@
             <div id="quiz-question-container" class="space-y-6"></div>
             <div class="text-center mt-12 pb-20">
                 <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white shadow-xl shadow-green-200 py-4 px-10 hidden" disabled>✅ Tjek Svar</button>
-                <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-200 py-4 px-10 ml-4 hidden">↺ Prøv igen</button>
+                
+                <!-- NY KNAP: Prøv igen (Kun fejl) -->
+                <button id="retry-incorrect-all-btn" class="action-btn bg-pink-500 hover:bg-pink-600 text-white shadow-xl shadow-pink-200 py-4 px-10 ml-4 hidden">🔁 Prøv fejlslagne igen</button>
+
+                <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-200 py-4 px-10 ml-4 hidden">↺ Start helt forfra</button>
                 <div id="quiz-results" class="mt-8 text-3xl font-extrabold text-slate-800 hidden gradient-text"></div>
             </div>
         </div>
 
+        <!-- ONE BY ONE MODE -->
         <div id="one-by-one-mode-container" class="hidden">
             <div class="text-center mb-8">
                 <p class="text-slate-400 text-xs uppercase font-bold mb-2">Valgte kapitler</p> 
@@ -465,6 +466,10 @@
                 <p id="single-quiz-progress" class="text-indigo-400 font-bold mb-6 text-xs uppercase tracking-widest"></p>
                 <button id="check-single-answer-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white disabled:opacity-50 hidden shadow-lg shadow-green-200" disabled>Tjek svar</button>
                 <button id="next-single-question-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white ml-4 hidden shadow-lg shadow-indigo-200">Næste →</button>
+                
+                <!-- NY KNAP: Prøv igen (Kun fejl) - OneByOne -->
+                <button id="retry-incorrect-single-btn" class="action-btn bg-pink-500 hover:bg-pink-600 text-white ml-4 hidden shadow-lg shadow-pink-200">🔁 Prøv fejlslagne igen</button>
+
                 <button id="restart-single-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white ml-4 hidden shadow-lg shadow-orange-200">Start Forfra</button>
                 <div id="single-quiz-results" class="mt-6 font-extrabold text-2xl text-slate-800 hidden"></div>
             </div>
@@ -475,441 +480,6 @@
     <script src="js/data.js"></script>
 
     <!-- JS LOGIK -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        if (typeof allFlashcardCategories === 'undefined' || typeof quizQuestions === 'undefined') {
-            console.error("FEJL: Data ikke fundet. Tjek at js/data.js eksisterer.");
-            document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px; color:red;'>Fejl: Kunne ikke indlæse data.js</h1>";
-            return;
-        }
-
-        console.log("App starter med Modern Design...");
-
-        // DOM Elementer
-        const flashcardSection = document.getElementById('flashcard-section');
-        const quizSection = document.getElementById('quiz-section');
-        const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
-        const showQuizBtn = document.getElementById('show-quiz-btn');
-
-        const card = document.getElementById('flashcard');
-        const frontTextElement = document.getElementById('card-front-text');
-        const backTextElement = document.getElementById('card-back-text');
-        const frontFooterElement = document.getElementById('card-front-footer');
-        const backFooterElement = document.getElementById('card-back-footer');
-        const progressText = document.getElementById('progress-text');
-        const progressBarFill = document.getElementById('progress-bar-fill');
-        const categorySelect = document.getElementById('category-select');
-        const resetDeckBtn = document.getElementById('reset-deck-btn'); 
-        const showBackFirstToggle = document.getElementById('show-back-first-toggle');
-        const cardContainerWrapper = document.getElementById('card-container-wrapper');
-        
-        const btnCorrect = document.getElementById('feedback-correct-btn');
-        const btnUnsure = document.getElementById('feedback-unsure-btn');
-        const btnIncorrect = document.getElementById('feedback-incorrect-btn');
-        const feedbackContainer = document.getElementById('flashcard-feedback-buttons');
-
-        // Quiz DOM
-        const quizChapterSelect = document.getElementById('quiz-chapter-select');
-        const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
-        const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
-        const startAllQuizBtn = document.getElementById('start-all-quiz-btn');
-        const quizQuestionContainer = document.getElementById('quiz-question-container');
-        const submitQuizBtn = document.getElementById('submit-quiz-btn');
-        const restartAllBtn = document.getElementById('restart-all-quiz-btn');
-        const quizResults = document.getElementById('quiz-results');
-        const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
-        const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
-        const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
-        const singleQuestionDisplay = document.getElementById('single-question-display');
-        const singleQuestionText = document.getElementById('single-question-text');
-        const singleOptionsContainer = document.getElementById('single-options-container');
-        const singleExplanationText = document.getElementById('single-explanation-text');
-        const checkSingleAnswerBtn = document.getElementById('check-single-answer-btn');
-        const nextSingleQuestionBtn = document.getElementById('next-single-question-btn');
-        const restartSingleQuizBtn = document.getElementById('restart-single-quiz-btn');
-        const singleQuizProgress = document.getElementById('single-quiz-progress');
-        const singleQuizResults = document.getElementById('single-quiz-results');
-        const activeChaptersDisplay = document.getElementById('active-chapters-display');
-
-        // Variables
-        let studyQueue = []; 
-        let originalTotal = 0;
-        let isFlipped = false;
-        let showBackFirst = false;
-        let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
-
-        // NAVIGATION
-        function showSection(section) {
-            if (section === 'flashcards') {
-                flashcardSection.classList.remove('hidden');
-                quizSection.classList.add('hidden');
-                showFlashcardsBtn.classList.add('active');
-                showQuizBtn.classList.remove('active');
-            } else {
-                flashcardSection.classList.add('hidden');
-                quizSection.classList.remove('hidden');
-                showFlashcardsBtn.classList.remove('active');
-                showQuizBtn.classList.add('active');
-                if(showAllQuestionsModeBtn) showAllQuestionsModeBtn.click();
-            }
-        }
-        showFlashcardsBtn.addEventListener('click', () => showSection('flashcards'));
-        showQuizBtn.addEventListener('click', () => showSection('quiz'));
-
-        // FLASHCARD LOGIC
-        function populateCategorySelect() {
-            categorySelect.innerHTML = '';
-            
-            const savedOption = document.createElement('option');
-            savedOption.value = 'saved_cards';
-            savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
-            categorySelect.appendChild(savedOption);
-
-            const allOption = document.createElement('option');
-            allOption.value = 'all_shuffled';
-            allOption.textContent = '🔀 Bland alle kapitler';
-            allOption.selected = true; 
-            categorySelect.appendChild(allOption);
-
-            Object.keys(allFlashcardCategories).sort((a, b) => a.localeCompare(b, 'da')).forEach(cat => {
-                const opt = document.createElement('option');
-                opt.value = cat;
-                opt.textContent = cat;
-                categorySelect.appendChild(opt);
-            });
-            loadCategory('all_shuffled');
-        }
-
-        function loadCategory(categoryName) {
-            let tempDeck = [];
-            if (categoryName === 'saved_cards') {
-                if (savedCards.length === 0) {
-                    alert("Ingen gemte kort.");
-                    categorySelect.value = 'all_shuffled';
-                    loadCategory('all_shuffled');
-                    return;
-                }
-                tempDeck = [...savedCards];
-            } else if (categoryName === 'all_shuffled') {
-                for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
-                    tempDeck = tempDeck.concat(cards.map(c => ({ ...c, sourceCategory: catName })));
-                }
-                shuffleArray(tempDeck);
-            } else {
-                if (allFlashcardCategories[categoryName]) {
-                    tempDeck = allFlashcardCategories[categoryName].map(c => ({...c, sourceCategory: categoryName}));
-                }
-                shuffleArray(tempDeck);
-            }
-            studyQueue = [...tempDeck];
-            originalTotal = studyQueue.length;
-            isFlipped = false;
-            card.classList.remove('is-flipped');
-            updateCardUI();
-        }
-
-        function updateCardUI() {
-            document.querySelectorAll('.star-btn').forEach(btn => {
-                btn.onclick = toggleSaveCard;
-            });
-
-            if (studyQueue.length === 0) {
-                frontTextElement.textContent = originalTotal === 0 ? "Ingen kort valgt." : "🎉 Godt gået! Du er igennem bunken.";
-                backTextElement.textContent = "Start forfra?";
-                feedbackContainer.classList.add('hidden');
-                progressText.textContent = "Færdig!";
-                progressBarFill.style.width = "100%";
-                return;
-            }
-            feedbackContainer.classList.remove('hidden');
-            const cardData = studyQueue[0];
-            
-            frontTextElement.textContent = showBackFirst ? cardData.back : cardData.front;
-            backTextElement.textContent = showBackFirst ? cardData.front : cardData.back;
-            const footer = cardData.sourceCategory || "";
-            frontFooterElement.textContent = footer;
-            backFooterElement.textContent = footer;
-
-            const completed = originalTotal - studyQueue.length;
-            const pct = originalTotal > 0 ? (completed / originalTotal) * 100 : 0;
-            progressBarFill.style.width = `${pct}%`;
-            progressText.textContent = `${studyQueue.length} tilbage`;
-
-            const isSaved = savedCards.some(s => s.front === cardData.front && s.back === cardData.back);
-            document.querySelectorAll('.star-btn').forEach(btn => {
-                if (isSaved) btn.classList.add('active'); else btn.classList.remove('active');
-            });
-        }
-
-        function handleFeedback(type) {
-            if (studyQueue.length === 0) return;
-            const currentCard = studyQueue[0];
-            
-            // Animation
-            cardContainerWrapper.style.opacity = '0';
-            cardContainerWrapper.style.transform = 'scale(0.9) translateY(20px)';
-            cardContainerWrapper.style.transition = 'all 0.2s';
-
-            setTimeout(() => {
-                if (type === 'correct') studyQueue.shift();
-                else if (type === 'incorrect') { studyQueue.shift(); studyQueue.push(currentCard); }
-                else if (type === 'unsure') { 
-                    studyQueue.shift(); 
-                    const idx = Math.floor(Math.random() * studyQueue.length);
-                    studyQueue.splice(idx, 0, currentCard);
-                }
-                isFlipped = false;
-                card.classList.remove('is-flipped');
-                updateCardUI();
-                cardContainerWrapper.style.opacity = '1';
-                cardContainerWrapper.style.transform = 'scale(1) translateY(0)';
-            }, 200);
-        }
-
-        function toggleSaveCard(e) {
-            e.stopPropagation();
-            if (studyQueue.length === 0) return;
-            const currentCard = studyQueue[0];
-            const idx = savedCards.findIndex(s => s.front === currentCard.front && s.back === currentCard.back);
-            if (idx > -1) savedCards.splice(idx, 1);
-            else savedCards.push(currentCard);
-            localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
-            
-            const savedOpt = categorySelect.querySelector('option[value="saved_cards"]');
-            if(savedOpt) savedOpt.textContent = `⭐ Gemte kort (${savedCards.length})`;
-            updateCardUI();
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        // LISTENERS
-        categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
-        resetDeckBtn.addEventListener('click', () => loadCategory(categorySelect.value));
-        showBackFirstToggle.addEventListener('change', (e) => {
-            showBackFirst = e.target.checked;
-            isFlipped = false;
-            card.classList.remove('is-flipped');
-            updateCardUI();
-        });
-        card.addEventListener('click', () => {
-            if(studyQueue.length > 0) {
-                card.classList.toggle('is-flipped');
-                isFlipped = !isFlipped;
-            }
-        });
-        btnCorrect.addEventListener('click', () => handleFeedback('correct'));
-        btnUnsure.addEventListener('click', () => handleFeedback('unsure'));
-        btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
-        document.addEventListener('keydown', (e) => {
-            if (flashcardSection.classList.contains('hidden')) return;
-            if (e.code === 'Space') { e.preventDefault(); if(studyQueue.length>0) { card.classList.toggle('is-flipped'); isFlipped=!isFlipped; } }
-            else if (e.key === '1') handleFeedback('correct');
-            else if (e.key === '2') handleFeedback('unsure');
-            else if (e.key === '3') handleFeedback('incorrect');
-        });
-
-        // QUIZ LOGIC 
-        function populateQuizChapters() {
-            const chapters = [...new Set(quizQuestions.map(q => q.chapter))].sort();
-            quizChapterSelect.innerHTML = '';
-            chapters.forEach(chap => {
-                const opt = document.createElement('option');
-                opt.value = chap; opt.textContent = chap; opt.selected = true;
-                quizChapterSelect.appendChild(opt);
-            });
-        }
-        
-        startAllQuizBtn.addEventListener('click', () => {
-             const chapters = Array.from(quizChapterSelect.selectedOptions).map(o=>o.value);
-             if(!chapters.length) return alert("Vælg kapitel");
-             currentQuizQuestions = quizQuestions.filter(q=>chapters.includes(q.chapter));
-             shuffleArray(currentQuizQuestions);
-             renderAllQuiz();
-             startAllQuizBtn.parentElement.classList.add('hidden');
-             // Hide entire container of chapter select for clean look
-             quizChapterSelect.closest('.glass-panel').classList.add('hidden');
-        });
-
-        function renderAllQuiz() {
-            quizQuestionContainer.innerHTML = '';
-            userAnswers = {};
-            submitQuizBtn.classList.remove('hidden');
-            submitQuizBtn.disabled = true;
-            submitQuizBtn.style.opacity = '0.5';
-
-            currentQuizQuestions.forEach((q, i) => {
-                const div = document.createElement('div');
-                div.className = "glass-panel p-8 rounded-2xl mb-6 bg-white transition-all hover:shadow-md";
-                div.innerHTML = `<h3 class="text-xl font-bold mb-6 text-slate-800">${i+1}. ${q.question}</h3>`;
-                const optsDiv = document.createElement('div');
-                optsDiv.className = "space-y-3";
-                q.options.forEach((opt, idx) => {
-                    const char = String.fromCharCode(97+idx);
-                    const label = document.createElement('label');
-                    label.className = "question-option group";
-                    label.innerHTML = `
-                        <div class="w-6 h-6 rounded-full border-2 border-slate-300 mr-4 flex items-center justify-center group-hover:border-indigo-400 transition-colors">
-                            <div class="w-3 h-3 rounded-full bg-indigo-600 hidden check-dot"></div>
-                        </div>
-                        <input type="radio" name="q${i}" value="${char}" class="hidden">
-                        <span class="text-slate-700">${opt}</span>
-                    `;
-                    label.onclick = () => {
-                        div.querySelectorAll('.question-option').forEach(l=>{
-                            l.classList.remove('selected');
-                            l.querySelector('.check-dot').classList.add('hidden');
-                            l.querySelector('.w-6').classList.remove('border-indigo-600');
-                        });
-                        label.classList.add('selected');
-                        label.querySelector('.check-dot').classList.remove('hidden');
-                        label.querySelector('.w-6').classList.add('border-indigo-600');
-                        userAnswers[i] = char;
-                        if(Object.keys(userAnswers).length === currentQuizQuestions.length) {
-                             submitQuizBtn.disabled = false; submitQuizBtn.style.opacity = '1'; submitQuizBtn.style.cursor='pointer';
-                        }
-                    };
-                    optsDiv.appendChild(label);
-                });
-                div.appendChild(optsDiv);
-                const exp = document.createElement('div');
-                exp.id = `exp-${i}`; exp.className = "explanation hidden";
-                div.appendChild(exp);
-                quizQuestionContainer.appendChild(div);
-            });
-        }
-
-        submitQuizBtn.addEventListener('click', () => {
-            let score = 0;
-            currentQuizQuestions.forEach((q, i) => {
-                const ans = userAnswers[i];
-                const correct = ans === q.correctAnswer;
-                if(correct) score++;
-                const exp = document.getElementById(`exp-${i}`);
-                exp.classList.remove('hidden');
-                exp.classList.add(correct?'correct':'incorrect');
-                exp.innerHTML = (correct?'<strong class="block mb-1">✅ Korrekt!</strong>':'<strong class="block mb-1">❌ Forkert.</strong>') + q.feedback;
-                
-                // Highlight
-                const inputs = document.getElementsByName(`q${i}`);
-                inputs.forEach(inp => {
-                    inp.disabled = true;
-                    if(inp.value === q.correctAnswer) inp.parentElement.classList.add('correct-answer');
-                    else if(inp.value === ans && !correct) inp.parentElement.classList.add('incorrect-answer');
-                });
-            });
-            quizResults.textContent = `Du fik ${score} ud af ${currentQuizQuestions.length} rigtige`;
-            quizResults.classList.remove('hidden');
-            submitQuizBtn.classList.add('hidden');
-            restartAllBtn.classList.remove('hidden');
-            quizResults.scrollIntoView({behavior: 'smooth'});
-        });
-        
-        restartAllBtn.onclick = () => location.reload();
-
-        // One-by-One logic setup
-        showOneByOneModeBtn.onclick = () => {
-             allQuestionsModeContainer.classList.add('hidden');
-             oneByOneModeContainer.classList.remove('hidden');
-             showOneByOneModeBtn.classList.add('active');
-             showAllQuestionsModeBtn.classList.remove('active');
-        };
-        showAllQuestionsModeBtn.onclick = () => {
-             allQuestionsModeContainer.classList.remove('hidden');
-             oneByOneModeContainer.classList.add('hidden');
-             showAllQuestionsModeBtn.classList.add('active');
-             showOneByOneModeBtn.classList.remove('active');
-        };
-
-        let singleQIndex = 0; 
-        let singleQData = [];
-        startOneByOneQuizBtn.onclick = () => {
-             const chapters = Array.from(quizChapterSelect.selectedOptions).map(o=>o.value);
-             if(!chapters.length) return alert("Vælg kapitel");
-             singleQData = quizQuestions.filter(q=>chapters.includes(q.chapter));
-             shuffleArray(singleQData);
-             singleQIndex = 0;
-             startOneByOneQuizBtn.parentElement.classList.add('hidden');
-             singleQuestionDisplay.classList.remove('hidden');
-             renderSingleQ();
-        };
-
-        function renderSingleQ() {
-             const q = singleQData[singleQIndex];
-             singleQuestionText.textContent = q.question;
-             singleOptionsContainer.innerHTML = '';
-             singleExplanationText.classList.add('hidden');
-             checkSingleAnswerBtn.classList.remove('hidden');
-             checkSingleAnswerBtn.disabled = true;
-             checkSingleAnswerBtn.style.opacity = '0.5';
-             nextSingleQuestionBtn.classList.add('hidden');
-             restartSingleQuizBtn.classList.add('hidden');
-             singleQuizResults.classList.add('hidden');
-             singleQuizProgress.textContent = `SPØRGSMÅL ${singleQIndex+1} AF ${singleQData.length}`;
-             
-             q.options.forEach((opt, i) => {
-                 const char = String.fromCharCode(97+i);
-                 const label = document.createElement('label');
-                 label.className = "question-option group";
-                 label.innerHTML = `
-                    <div class="w-6 h-6 rounded-full border-2 border-slate-300 mr-4 flex items-center justify-center group-hover:border-indigo-400 transition-colors">
-                            <div class="w-3 h-3 rounded-full bg-indigo-600 hidden check-dot"></div>
-                    </div>
-                    <input type="radio" name="singleQ" value="${char}" class="hidden">
-                    <span>${opt}</span>
-                 `;
-                 label.onclick = () => {
-                     if(!checkSingleAnswerBtn.disabled && checkSingleAnswerBtn.classList.contains('hidden')) return;
-                     singleOptionsContainer.querySelectorAll('.question-option').forEach(l=>{
-                         l.classList.remove('selected');
-                         l.querySelector('.check-dot').classList.add('hidden');
-                     });
-                     label.classList.add('selected');
-                     label.querySelector('.check-dot').classList.remove('hidden');
-                     label.querySelector('input').checked = true;
-                     checkSingleAnswerBtn.disabled = false;
-                     checkSingleAnswerBtn.style.opacity = '1';
-                 };
-                 singleOptionsContainer.appendChild(label);
-             });
-        }
-        
-        checkSingleAnswerBtn.onclick = () => {
-             const q = singleQData[singleQIndex];
-             const sel = document.querySelector('input[name="singleQ"]:checked');
-             const val = sel.value;
-             const correct = val === q.correctAnswer;
-             
-             singleExplanationText.classList.remove('hidden');
-             singleExplanationText.classList.remove('correct','incorrect');
-             singleExplanationText.classList.add(correct?'correct':'incorrect');
-             singleExplanationText.innerHTML = (correct?'<strong class="block mb-2">✅ Korrekt!</strong>':'<strong class="block mb-2">❌ Forkert.</strong>') + q.feedback;
-             
-             // Lock
-             document.querySelectorAll('input[name="singleQ"]').forEach(i=>i.disabled=true);
-             
-             // Color
-             singleOptionsContainer.querySelectorAll('label').forEach((lbl, idx) => {
-                 const char = String.fromCharCode(97+idx);
-                 if(char === q.correctAnswer) lbl.classList.add('correct-answer');
-                 else if(char === val && !correct) lbl.classList.add('incorrect-answer');
-             });
-
-             checkSingleAnswerBtn.classList.add('hidden');
-             if(singleQIndex < singleQData.length -1) nextSingleQuestionBtn.classList.remove('hidden');
-             else { restartSingleQuizBtn.classList.remove('hidden'); singleQuizResults.textContent="Godt klaret! Du er færdig."; singleQuizResults.classList.remove('hidden'); }
-        };
-        nextSingleQuestionBtn.onclick = () => { singleQIndex++; renderSingleQ(); };
-        restartSingleQuizBtn.onclick = () => location.reload();
-
-        // INIT
-        populateCategorySelect();
-        populateQuizChapters();
-    });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
