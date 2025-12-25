@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentModalCards = [];
     let incorrectQuestionsList = [];
+    let currentQuizQuestions = [];
+    let userAnswers = {};
 
     // --- NAVIGATION ---
     function showSection(section) {
@@ -452,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aiPromptText.value = contextText;
             
             const originalText = useFlashcardDataBtn.textContent;
-            // Fjernet emoji fra knap-feedback tekst
             useFlashcardDataBtn.textContent = "Data indlæst!";
             useFlashcardDataBtn.classList.add('bg-green-100', 'text-green-700');
             setTimeout(() => {
@@ -507,7 +508,6 @@ document.addEventListener('DOMContentLoaded', () => {
             sourceInstruction = "VIGTIGT: Brug KUN den nedenstående tekst som kilde. Du må ikke opfinde fakta uden for teksten.";
         }
 
-        // --- OPDATERET "STRENG PROFESSOR" PROMPT ---
         const prompt = `
             Du er en professionel eksamens-konstruktør til psykologi på kandidatniveau.
             Din opgave er at lave en multiple choice quiz, der tester dybdeforståelse og eliminerer gættestrategier.
@@ -521,18 +521,12 @@ document.addEventListener('DOMContentLoaded', () => {
             KRAV TIL SVÆRHEDSGRAD & DISTRAKTORER (MEGET VIGTIGT):
             1. Niveauet skal være højt. Brug fagtermer korrekt.
             2. Fokusér på applikation/anvendelse frem for simpel genkaldelse (Undgå "Hvad er X?", brug "Hvilket begreb forklarer bedst situationen Y?").
-            3. De forkerte svarmuligheder (distraktorerne) SKAL være fagligt plausible. De skal ligne det rigtige svar for en person, der ikke har læst stoffet grundigt.
+            3. De forkerte svarmuligheder (distraktorerne) SKAL være fagligt plausible.
             
-            ANTI-BIAS INSTRUKTIONER (VIGTIGT FOR AT UNDGÅ GÆTTERI):
-            1. Det rigtige svar må IKKE være markant længere eller mere detaljeret end de forkerte svar.
-            2. Alle 4 svarmuligheder skal have CIRKA SAMME LÆNGDE (antal ord). Hvis det rigtige svar er langt, skal de forkerte også være lange (fyld dem ud med fagligt plausible detaljer).
-            3. Undgå absolutte ord som "altid" eller "aldrig" i de forkerte svar (det er for nemt at gennemskue).
-            4. Undgå at det rigtige svar er det eneste, der indeholder en nuance eller undtagelse.
-
             TEKNISKE KRAV:
             - Sproget skal være DANSK.
             - Der skal være 4 svarmuligheder pr. spørgsmål.
-            - Du MÅ KUN svare med et råt JSON array. Ingen markdown, ingen \`\`\`json tags.
+            - Du MÅ KUN svare med et råt JSON array. Ingen markdown.
             
             FORMAT (JSON):
             [
@@ -571,8 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let content = data.candidates[0].content.parts[0].text;
-
-        // Rens JSON for markdown
         content = content.replace(/```json/g, '').replace(/```/g, '').trim();
 
         try {
@@ -609,10 +601,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnIncorrect) btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
 
     document.addEventListener('keydown', (e) => {
-        // VIGTIGT FIX: Stop genveje hvis man skriver i søgefelt eller textarea
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-        // Hvis flashcard-sektionen er aktiv:
         if (!flashcardSection.classList.contains('hidden')) {
             if (e.code === 'Space') {
                 e.preventDefault(); 
@@ -626,7 +616,6 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === '3') handleFeedback('incorrect');
         }
 
-        // --- GENVEJE TIL QUIZ ONE-BY-ONE ---
         if (!oneByOneModeContainer.classList.contains('hidden')) {
             if (['1', '2', '3', '4'].includes(e.key)) {
                 const index = parseInt(e.key) - 1;
@@ -833,4 +822,122 @@ document.addEventListener('DOMContentLoaded', () => {
         singleQIndex = 0;
         incorrectQuestionsList = []; 
         
-        startOneByOn
+        startOneByOneQuizBtn.parentElement.classList.add('hidden');
+        singleQuestionDisplay.classList.remove('hidden');
+        renderSingleQ();
+    });
+
+    function renderSingleQ() {
+        const q = singleQData[singleQIndex];
+        singleQuestionText.textContent = q.question;
+        singleOptionsContainer.innerHTML = '';
+        singleExplanationText.classList.add('hidden');
+        singleExplanationText.className = 'explanation mt-6 hidden text-sm leading-relaxed'; 
+        
+        checkSingleAnswerBtn.classList.remove('hidden');
+        checkSingleAnswerBtn.disabled = true;
+        checkSingleAnswerBtn.style.opacity = '0.5';
+        
+        nextSingleQuestionBtn.classList.add('hidden');
+        restartSingleQuizBtn.classList.add('hidden');
+        retryIncorrectSingleBtn.classList.add('hidden');
+        singleQuizResults.classList.add('hidden');
+        
+        singleQuizProgress.textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
+        
+        q.options.forEach((opt, i) => {
+            const char = String.fromCharCode(97 + i);
+            const label = document.createElement('label');
+            label.className = 'question-option w-full group';
+            
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = "singleQ";
+            input.value = char;
+            input.className = 'mr-3 h-5 w-5 text-indigo-600';
+            
+            const span = document.createElement('span');
+            span.textContent = opt;
+            
+            label.appendChild(input);
+            label.appendChild(span);
+            
+            label.addEventListener('click', () => {
+                if(!checkSingleAnswerBtn.classList.contains('hidden')) {
+                    singleOptionsContainer.querySelectorAll('.question-option').forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                    input.checked = true;
+                    checkSingleAnswerBtn.disabled = false;
+                    checkSingleAnswerBtn.style.opacity = '1';
+                }
+            });
+            singleOptionsContainer.appendChild(label);
+        });
+    }
+
+    if(checkSingleAnswerBtn) checkSingleAnswerBtn.addEventListener('click', () => {
+        const q = singleQData[singleQIndex];
+        const selectedInput = document.querySelector('input[name="singleQ"]:checked');
+        if(!selectedInput) return;
+        
+        const val = selectedInput.value;
+        const isCorrect = val === q.correctAnswer;
+        
+        if (!isCorrect) {
+            incorrectQuestionsList.push(q);
+        }
+        
+        singleExplanationText.classList.remove('hidden');
+        singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
+        singleExplanationText.innerHTML = isCorrect 
+            ? `<strong>Korrekt!</strong> ${q.feedback}` 
+            : `<strong>Forkert.</strong> Svaret var ${q.correctAnswer.toUpperCase()}.<br>${q.feedback}`;
+        
+        document.querySelectorAll('input[name="singleQ"]').forEach(i => i.disabled = true);
+        
+        const labels = singleOptionsContainer.querySelectorAll('label');
+        labels.forEach((label, i) => {
+            const char = String.fromCharCode(97 + i);
+            if (char === q.correctAnswer) label.classList.add('correct-answer');
+            else if (char === val && !isCorrect) label.classList.add('incorrect-answer');
+        });
+
+        checkSingleAnswerBtn.classList.add('hidden');
+        
+        if(singleQIndex < singleQData.length - 1) {
+            nextSingleQuestionBtn.classList.remove('hidden');
+        } else {
+            finishSingleQuiz();
+        }
+    });
+
+    if(nextSingleQuestionBtn) nextSingleQuestionBtn.addEventListener('click', () => {
+        singleQIndex++;
+        renderSingleQ();
+    });
+    
+    function finishSingleQuiz() {
+        restartSingleQuizBtn.classList.remove('hidden');
+        singleQuizResults.textContent = `Du er færdig! Du fik ${singleQData.length - incorrectQuestionsList.length} ud af ${singleQData.length} rigtige.`;
+        singleQuizResults.classList.remove('hidden');
+
+        if(incorrectQuestionsList.length > 0) {
+            retryIncorrectSingleBtn.classList.remove('hidden');
+            retryIncorrectSingleBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
+        }
+    }
+
+    if(retryIncorrectSingleBtn) retryIncorrectSingleBtn.addEventListener('click', () => {
+        singleQData = [...incorrectQuestionsList];
+        incorrectQuestionsList = [];
+        singleQIndex = 0;
+        
+        renderSingleQ();
+    });
+
+    if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
+
+    // Init
+    populateCategorySelect();
+    populateQuizChapters();
+});
