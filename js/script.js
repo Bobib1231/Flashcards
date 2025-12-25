@@ -110,12 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const savedOption = document.createElement('option');
         savedOption.value = 'saved_cards';
-        savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
+        // Fjernet emoji
+        savedOption.textContent = `Gemte kort (${savedCards.length})`;
         categorySelect.appendChild(savedOption);
 
         const allOption = document.createElement('option');
         allOption.value = 'all_shuffled';
-        allOption.textContent = '🔀 Bland alle kapitler';
+        // Fjernet emoji
+        allOption.textContent = 'Bland alle kapitler';
         allOption.selected = true; 
         categorySelect.appendChild(allOption);
 
@@ -181,7 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 frontTextElement.textContent = "Ingen kort valgt.";
                 return;
             }
-            frontTextElement.textContent = "🎉 Godt gået! \nDu har været igennem alle kortene.";
+            // Fjernet emoji
+            frontTextElement.textContent = "Godt gået! \nDu har været igennem alle kortene.";
             backTextElement.textContent = "Tryk på 'Start forfra' for at prøve igen.";
             if(frontFooterElement) frontFooterElement.textContent = "";
             if(backFooterElement) backFooterElement.textContent = "";
@@ -280,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Opdater dropdown tekst
         const savedOption = categorySelect.querySelector('option[value="saved_cards"]');
-        if(savedOption) savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
+        if(savedOption) savedOption.textContent = `Gemte kort (${savedCards.length})`;
 
         updateCardUI();
     }
@@ -317,18 +320,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnIncorrect) btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
 
     document.addEventListener('keydown', (e) => {
-        if (flashcardSection.classList.contains('hidden')) return;
-        
-        if (e.code === 'Space') {
-            e.preventDefault(); 
-            if(card && studyQueue.length > 0) {
-                card.classList.toggle('is-flipped');
-                isFlipped = !isFlipped;
+        // Hvis flashcard-sektionen er aktiv:
+        if (!flashcardSection.classList.contains('hidden')) {
+            if (e.code === 'Space') {
+                e.preventDefault(); 
+                if(card && studyQueue.length > 0) {
+                    card.classList.toggle('is-flipped');
+                    isFlipped = !isFlipped;
+                }
+            } 
+            else if (e.key === '1') handleFeedback('correct');
+            else if (e.key === '2') handleFeedback('unsure');
+            else if (e.key === '3') handleFeedback('incorrect');
+        }
+
+        // --- NYE GENVEJE TIL QUIZ ONE-BY-ONE ---
+        if (!oneByOneModeContainer.classList.contains('hidden')) {
+            // Tast 1-4 for at vælge svarmuligheder
+            if (['1', '2', '3', '4'].includes(e.key)) {
+                const index = parseInt(e.key) - 1;
+                const options = singleOptionsContainer.querySelectorAll('input');
+                // Simuler klik på label for den valgte option
+                if(options[index] && !options[index].disabled) {
+                    options[index].parentElement.click(); 
+                }
             }
-        } 
-        else if (e.key === '1') handleFeedback('correct');
-        else if (e.key === '2') handleFeedback('unsure');
-        else if (e.key === '3') handleFeedback('incorrect');
+
+            // Tast Enter for at Tjekke Svar / Gå til næste
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Undgå standard submit
+                // Hvis "Tjek svar" knappen er synlig og ikke deaktiveret
+                if (!checkSingleAnswerBtn.classList.contains('hidden') && !checkSingleAnswerBtn.disabled) {
+                    checkSingleAnswerBtn.click();
+                }
+                // Hvis "Næste" knappen er synlig
+                else if (!nextSingleQuestionBtn.classList.contains('hidden')) {
+                    nextSingleQuestionBtn.click();
+                }
+            }
+        }
     });
 
 
@@ -454,11 +484,11 @@ document.addEventListener('DOMContentLoaded', () => {
             expDiv.classList.remove('hidden');
             expDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
             
-            // Byg feedback tekst
+            // Byg feedback tekst uden emojis
             const answerText = q.correctAnswer.toUpperCase();
             expDiv.innerHTML = isCorrect 
-                ? `<strong class="block mb-1">✅ Korrekt!</strong> ${q.feedback}` 
-                : `<strong class="block mb-1">❌ Forkert.</strong> Det rigtige svar var <strong>${answerText}</strong>.<br>${q.feedback}`;
+                ? `<strong class="block mb-1">Korrekt!</strong> ${q.feedback}` 
+                : `<strong class="block mb-1">Forkert.</strong> Det rigtige svar var <strong>${answerText}</strong>.<br>${q.feedback}`;
             
             // Lås inputs og farv dem
             const inputs = document.getElementsByName(`q${index}`);
@@ -483,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Vis "Prøv fejl igen" hvis der er fejl
         if(incorrectQuestionsList.length > 0) {
             retryIncorrectAllBtn.classList.remove('hidden');
-            retryIncorrectAllBtn.textContent = `🔁 Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
+            retryIncorrectAllBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
         }
         
         // Scroll til resultater
@@ -599,6 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         singleExplanationText.classList.remove('hidden');
         singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
+        // Fjernet emojis
         singleExplanationText.innerHTML = isCorrect 
             ? `<strong>Korrekt!</strong> ${q.feedback}` 
             : `<strong>Forkert.</strong> Svaret var ${q.correctAnswer.toUpperCase()}.<br>${q.feedback}`;
@@ -626,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Vis "Prøv fejl igen" hvis der er fejl
             if(incorrectQuestionsList.length > 0) {
                 retryIncorrectSingleBtn.classList.remove('hidden');
-                retryIncorrectSingleBtn.textContent = `🔁 Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
+                retryIncorrectSingleBtn.textContent = `Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
             }
         }
     });
