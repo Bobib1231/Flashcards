@@ -33,14 +33,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainerWrapper = document.getElementById('card-container-wrapper');
     const starBtns = document.querySelectorAll('.star-btn');
     
-    // NYT: Liste knap og modal
+    // Liste knap og modal
     const showListBtn = document.getElementById('show-list-btn');
     const listModal = document.getElementById('flashcard-list-modal');
     const listContent = document.getElementById('flashcard-list-content');
     const listModalTitle = document.getElementById('list-modal-title');
-    const listSearchInput = document.getElementById('list-search-input'); // Nyt søgefelt
+    const listSearchInput = document.getElementById('list-search-input');
     const closeListModalBtn = document.getElementById('close-list-modal-btn');
     const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
+
+    // AI Modal Elementer
+    const aiModal = document.getElementById('ai-modal');
+    const openAiModalBtn = document.getElementById('open-ai-modal-btn');
+    const closeAiModalBtn = document.getElementById('close-ai-modal');
+    const generateAiBtn = document.getElementById('generate-ai-btn');
+    const aiApiKeyInput = document.getElementById('ai-api-key');
+    const aiPromptText = document.getElementById('ai-prompt-text');
+    const aiQuestionCount = document.getElementById('ai-question-count');
+    const aiBtnText = document.getElementById('ai-btn-text');
+    const aiLoader = document.getElementById('ai-loader');
+    const useFlashcardDataBtn = document.getElementById('use-flashcard-data-btn');
 
     // Feedback Knapper
     const btnCorrect = document.getElementById('feedback-correct-btn');
@@ -86,10 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let showBackFirst = false;
     let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
     
-    // Variabel til at holde listen i modalen
     let currentModalCards = [];
-
-    // Tracker for incorrect questions
     let incorrectQuestionsList = [];
 
     // --- NAVIGATION ---
@@ -298,27 +307,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================
     function calculateLevenshteinDistance(a, b) {
         const matrix = [];
+        for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+        for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
 
-        // Initialiser matrix
-        for (let i = 0; i <= b.length; i++) {
-            matrix[i] = [i];
-        }
-        for (let j = 0; j <= a.length; j++) {
-            matrix[0][j] = j;
-        }
-
-        // Fyld matrix
         for (let i = 1; i <= b.length; i++) {
             for (let j = 1; j <= a.length; j++) {
                 if (b.charAt(i - 1) === a.charAt(j - 1)) {
                     matrix[i][j] = matrix[i - 1][j - 1];
                 } else {
                     matrix[i][j] = Math.min(
-                        matrix[i - 1][j - 1] + 1, // Erstatning
-                        Math.min(
-                            matrix[i][j - 1] + 1, // Indsættelse
-                            matrix[i - 1][j] + 1  // Sletning
-                        )
+                        matrix[i - 1][j - 1] + 1,
+                        Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1)
                     );
                 }
             }
@@ -355,28 +354,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // LIST MODAL LOGIK
     if(showListBtn) showListBtn.addEventListener('click', () => {
         const categoryName = categorySelect.value;
-        currentModalCards = []; // Reset liste
+        currentModalCards = []; 
 
-        // Hent de rigtige kort
         if (categoryName === 'saved_cards') {
             currentModalCards = savedCards;
             listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
         } else if (categoryName === 'all_shuffled') {
-            // Saml alt
             for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
                 const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
                 currentModalCards = currentModalCards.concat(labeledCards);
             }
             listModalTitle.textContent = `Alle kort (${currentModalCards.length})`;
         } else {
-            // Enkelt kategori
             if (allFlashcardCategories[categoryName]) {
                 currentModalCards = allFlashcardCategories[categoryName];
                 listModalTitle.textContent = `${categoryName} (${currentModalCards.length})`;
             }
         }
 
-        // Ryd søgefelt og vis alle
         if(listSearchInput) listSearchInput.value = '';
         renderListHTML(currentModalCards);
 
@@ -384,34 +379,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden'; 
     });
 
-    // Søge Event Listener
     if(listSearchInput) {
         listSearchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
-            
             if (query === '') {
                 renderListHTML(currentModalCards);
                 return;
             }
-
             const filteredCards = currentModalCards.filter(card => {
                 const term = card.front.toLowerCase();
-                
-                // 1. Direkte match (substring)
                 if (term.includes(query)) return true;
-
-                // 2. Fuzzy match (kun hvis søgeord er > 2 tegn)
                 if (query.length > 2) {
                     const distance = calculateLevenshteinDistance(term, query);
-                    // Tillad 2 fejl hvis ordet er langt, ellers 1
                     const allowedErrors = term.length > 5 ? 2 : 1; 
-                    // Hvis afstanden er lille nok i forhold til søgeordets længde
                     if (distance <= allowedErrors) return true;
                 }
-                
                 return false;
             });
-
             renderListHTML(filteredCards);
         });
     }
@@ -424,10 +408,180 @@ document.addEventListener('DOMContentLoaded', () => {
     if(closeListModalBtn) closeListModalBtn.addEventListener('click', closeListModal);
     if(closeModalFooterBtn) closeModalFooterBtn.addEventListener('click', closeListModal);
     
-    // Luk hvis man klikker udenfor boksen
     if(listModal) listModal.addEventListener('click', (e) => {
         if (e.target === listModal) closeListModal();
     });
+
+
+    // ==========================================================
+    // AI QUIZ INTEGRATION (GOOGLE GEMINI)
+    // ==========================================================
+    
+    if (openAiModalBtn) {
+        openAiModalBtn.addEventListener('click', () => {
+            aiModal.classList.remove('hidden');
+            // Tjek lokal storage efter nøgle
+            const savedKey = localStorage.getItem('gemini_api_key');
+            if(savedKey) aiApiKeyInput.value = savedKey;
+        });
+    }
+
+    if (closeAiModalBtn) {
+        closeAiModalBtn.addEventListener('click', () => aiModal.classList.add('hidden'));
+    }
+
+    // --- NY FUNKTION: Indlæs flashkort data til AI ---
+    if (useFlashcardDataBtn) {
+        useFlashcardDataBtn.addEventListener('click', () => {
+            let contextText = "Her er mine studienoter (Flashkort):\n";
+            
+            // Saml alle kort
+            let allCards = [];
+            for (const [category, cards] of Object.entries(allFlashcardCategories)) {
+                cards.forEach(c => allCards.push(`Begreb: ${c.front}. Forklaring: ${c.back}.`));
+            }
+            
+            // Bland kortene
+            allCards.sort(() => Math.random() - 0.5);
+            
+            // Tag max 80 kort for at undgå at ramme token limit
+            const selectedCards = allCards.slice(0, 80);
+            
+            contextText += selectedCards.join("\n");
+            
+            aiPromptText.value = contextText;
+            
+            const originalText = useFlashcardDataBtn.textContent;
+            // Fjernet emoji fra knap-feedback tekst
+            useFlashcardDataBtn.textContent = "Data indlæst!";
+            useFlashcardDataBtn.classList.add('bg-green-100', 'text-green-700');
+            setTimeout(() => {
+                useFlashcardDataBtn.textContent = originalText;
+                useFlashcardDataBtn.classList.remove('bg-green-100', 'text-green-700');
+            }, 2000);
+        });
+    }
+
+    if (generateAiBtn) {
+        generateAiBtn.addEventListener('click', async () => {
+            const apiKey = aiApiKeyInput.value.trim();
+            const topic = aiPromptText.value.trim();
+            const count = aiQuestionCount.value;
+
+            if (!apiKey) { alert("Indtast venligst en API nøgle"); return; }
+            if (!topic) { alert("Indtast venligst et emne eller en tekst"); return; }
+
+            localStorage.setItem('gemini_api_key', apiKey);
+
+            generateAiBtn.disabled = true;
+            aiBtnText.textContent = "Tænker...";
+            aiLoader.classList.remove('hidden');
+
+            try {
+                const questions = await fetchQuestionsFromGemini(apiKey, topic, count);
+                
+                if (questions) {
+                    currentQuizQuestions = questions;
+                    aiModal.classList.add('hidden');
+                    document.getElementById('quiz-chapter-select').parentElement.parentElement.classList.add('hidden');
+                    document.getElementById('start-all-quiz-btn').parentElement.classList.add('hidden');
+                    renderAllQuiz();
+                    quizQuestionContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Der skete en fejl: " + error.message);
+            } finally {
+                generateAiBtn.disabled = false;
+                aiBtnText.textContent = "Generer";
+                aiLoader.classList.add('hidden');
+            }
+        });
+    }
+
+    async function fetchQuestionsFromGemini(apiKey, topic, count) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        
+        let sourceInstruction = "";
+        if (topic.length > 100) {
+            sourceInstruction = "VIGTIGT: Brug KUN den nedenstående tekst som kilde. Du må ikke opfinde fakta uden for teksten.";
+        }
+
+        // --- OPDATERET "STRENG PROFESSOR" PROMPT ---
+        const prompt = `
+            Du er en professionel eksamens-konstruktør til psykologi på kandidatniveau.
+            Din opgave er at lave en multiple choice quiz, der tester dybdeforståelse og eliminerer gættestrategier.
+
+            OPGAVE:
+            Lav ${count} spørgsmål baseret på:
+            "${topic}"
+            
+            ${sourceInstruction}
+
+            KRAV TIL SVÆRHEDSGRAD & DISTRAKTORER (MEGET VIGTIGT):
+            1. Niveauet skal være højt. Brug fagtermer korrekt.
+            2. Fokusér på applikation/anvendelse frem for simpel genkaldelse (Undgå "Hvad er X?", brug "Hvilket begreb forklarer bedst situationen Y?").
+            3. De forkerte svarmuligheder (distraktorerne) SKAL være fagligt plausible. De skal ligne det rigtige svar for en person, der ikke har læst stoffet grundigt.
+            
+            ANTI-BIAS INSTRUKTIONER (VIGTIGT FOR AT UNDGÅ GÆTTERI):
+            1. Det rigtige svar må IKKE være markant længere eller mere detaljeret end de forkerte svar.
+            2. Alle 4 svarmuligheder skal have CIRKA SAMME LÆNGDE (antal ord). Hvis det rigtige svar er langt, skal de forkerte også være lange (fyld dem ud med fagligt plausible detaljer).
+            3. Undgå absolutte ord som "altid" eller "aldrig" i de forkerte svar (det er for nemt at gennemskue).
+            4. Undgå at det rigtige svar er det eneste, der indeholder en nuance eller undtagelse.
+
+            TEKNISKE KRAV:
+            - Sproget skal være DANSK.
+            - Der skal være 4 svarmuligheder pr. spørgsmål.
+            - Du MÅ KUN svare med et råt JSON array. Ingen markdown, ingen \`\`\`json tags.
+            
+            FORMAT (JSON):
+            [
+                {
+                    "chapter": "AI Genereret",
+                    "question": "Spørgsmålstekst...",
+                    "options": ["Mulighed A", "Mulighed B", "Mulighed C", "Mulighed D"],
+                    "correctAnswer": "a", 
+                    "feedback": "Forklaring..."
+                }
+            ]
+            Bemærk: 'correctAnswer' skal være et lille bogstav: 'a', 'b', 'c' eller 'd'.
+        `;
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error.message || "Kunne ikke forbinde til Google Gemini");
+        }
+
+        const data = await response.json();
+        
+        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+            throw new Error("AI'en sendte et tomt svar. Prøv igen.");
+        }
+
+        let content = data.candidates[0].content.parts[0].text;
+
+        // Rens JSON for markdown
+        content = content.replace(/```json/g, '').replace(/```/g, '').trim();
+
+        try {
+            return JSON.parse(content);
+        } catch (e) {
+            console.error("Raw content:", content);
+            throw new Error("AI'en returnerede ikke gyldig JSON. Prøv igen med en kortere tekst.");
+        }
+    }
 
 
     // EVENT LISTENERS FLASHCARDS
@@ -455,6 +609,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnIncorrect) btnIncorrect.addEventListener('click', () => handleFeedback('incorrect'));
 
     document.addEventListener('keydown', (e) => {
+        // FIX: Ignorer genveje hvis man skriver i et inputfelt (så mellemrum virker i søgning)
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
         // Hvis flashcard-sektionen er aktiv:
         if (!flashcardSection.classList.contains('hidden')) {
             if (e.code === 'Space') {
@@ -496,9 +653,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // QUIZ FUNKTIONER
     // ==========================================================
     
-    let currentQuizQuestions = [];
-    let userAnswers = {};
-
     function populateQuizChapters() {
         if(!quizChapterSelect) return;
         const chapters = [...new Set(quizQuestions.map(q => q.chapter))].sort((a, b) => a.localeCompare(b, 'da'));
@@ -507,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const opt = document.createElement('option');
             opt.value = chap;
             opt.textContent = chap;
-            opt.selected = true; // Vælg alle som standard
+            opt.selected = true; 
             quizChapterSelect.appendChild(opt);
         });
     }
@@ -516,7 +670,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return Array.from(quizChapterSelect.selectedOptions).map(opt => opt.value);
     }
 
-    // --- ALL QUESTIONS MODE ---
     if(startAllQuizBtn) startAllQuizBtn.addEventListener('click', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
