@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    console.log("App starter...");
+    console.log("App starter (Uden AI)...");
 
     // ==========================================================
     // DOM ELEMENTER
@@ -42,18 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeListModalBtn = document.getElementById('close-list-modal-btn');
     const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
 
-    // AI Modal Elementer
-    const aiModal = document.getElementById('ai-modal');
-    const openAiModalBtn = document.getElementById('open-ai-modal-btn');
-    const closeAiModalBtn = document.getElementById('close-ai-modal');
-    const generateAiBtn = document.getElementById('generate-ai-btn');
-    const aiApiKeyInput = document.getElementById('ai-api-key');
-    const aiPromptText = document.getElementById('ai-prompt-text');
-    const aiQuestionCount = document.getElementById('ai-question-count');
-    const aiBtnText = document.getElementById('ai-btn-text');
-    const aiLoader = document.getElementById('ai-loader');
-    const useFlashcardDataBtn = document.getElementById('use-flashcard-data-btn');
-
     // Feedback Knapper
     const btnCorrect = document.getElementById('feedback-correct-btn');
     const btnUnsure = document.getElementById('feedback-unsure-btn');
@@ -69,8 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitQuizBtn = document.getElementById('submit-quiz-btn');
     const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
-    
-    // Retry Button (All Questions Mode)
     const retryIncorrectAllBtn = document.getElementById('retry-incorrect-all-btn');
 
     // Quiz One-by-One Elementer
@@ -87,8 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const singleQuizProgress = document.getElementById('single-quiz-progress');
     const singleQuizResults = document.getElementById('single-quiz-results');
     const activeChaptersDisplay = document.getElementById('active-chapters-display');
-    
-    // Retry Button (One by One Mode)
     const retryIncorrectSingleBtn = document.getElementById('retry-incorrect-single-btn');
 
     // State Variables
@@ -133,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const savedOption = document.createElement('option');
         savedOption.value = 'saved_cards';
-        savedOption.textContent = `Gemte kort (${savedCards.length})`;
+        savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
         categorySelect.appendChild(savedOption);
 
         const allOption = document.createElement('option');
         allOption.value = 'all_shuffled';
-        allOption.textContent = 'Bland alle kapitler';
+        allOption.textContent = '🔀 Bland alle kapitler';
         allOption.selected = true; 
         categorySelect.appendChild(allOption);
 
@@ -202,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 frontTextElement.textContent = "Ingen kort valgt.";
                 return;
             }
-            frontTextElement.textContent = "Godt gået! \nDu har været igennem alle kortene.";
+            frontTextElement.textContent = "🎉 Godt gået! \nDu har været igennem alle kortene.";
             backTextElement.textContent = "Tryk på 'Start forfra' for at prøve igen.";
             if(frontFooterElement) frontFooterElement.textContent = "";
             if(backFooterElement) backFooterElement.textContent = "";
@@ -292,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
         
         const savedOption = categorySelect.querySelector('option[value="saved_cards"]');
-        if(savedOption) savedOption.textContent = `Gemte kort (${savedCards.length})`;
+        if(savedOption) savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
 
         updateCardUI();
     }
@@ -327,12 +311,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return matrix[b.length][a.length];
     }
 
+    // OPRETTELSE AF LISTE MED KILDE (OPDATERET FUNKTION)
     function renderListHTML(cards) {
         listContent.innerHTML = '';
         if (cards.length === 0) {
             listContent.innerHTML = '<p class="text-center text-gray-500 py-4">Ingen kort fundet.</p>';
         } else {
             cards.forEach((c, i) => {
+                const source = c.sourceCategory || "Ukendt kilde"; // Hent kilden eller default
                 const item = document.createElement('div');
                 item.className = 'bg-slate-50 border border-slate-200 rounded-xl p-4';
                 item.innerHTML = `
@@ -340,6 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="flex-1">
                             <span class="text-xs font-bold text-indigo-500 uppercase tracking-wide">Forside</span>
                             <p class="font-medium text-slate-800 mt-1">${c.front}</p>
+                            <!-- Her er tilføjelsen: Kilde under begrebet -->
+                            <p class="text-xs text-slate-400 mt-1 italic">${source}</p>
                         </div>
                         <div class="hidden md:block w-px bg-slate-200"></div>
                         <div class="flex-1">
@@ -363,13 +351,18 @@ document.addEventListener('DOMContentLoaded', () => {
             listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
         } else if (categoryName === 'all_shuffled') {
             for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
+                // Sørg for at 'sourceCategory' er med på alle kort
                 const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
                 currentModalCards = currentModalCards.concat(labeledCards);
             }
             listModalTitle.textContent = `Alle kort (${currentModalCards.length})`;
         } else {
             if (allFlashcardCategories[categoryName]) {
-                currentModalCards = allFlashcardCategories[categoryName];
+                // Her skal vi også tilføje kilden manuelt til objekterne til listen
+                currentModalCards = allFlashcardCategories[categoryName].map(c => ({
+                    ...c,
+                    sourceCategory: categoryName
+                }));
                 listModalTitle.textContent = `${categoryName} (${currentModalCards.length})`;
             }
         }
@@ -416,165 +409,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================
-    // AI QUIZ INTEGRATION (GOOGLE GEMINI)
+    // EVENTS OG GENVEJE
     // ==========================================================
-    
-    if (openAiModalBtn) {
-        openAiModalBtn.addEventListener('click', () => {
-            aiModal.classList.remove('hidden');
-            // Tjek lokal storage efter nøgle
-            const savedKey = localStorage.getItem('gemini_api_key');
-            if(savedKey) aiApiKeyInput.value = savedKey;
-        });
-    }
-
-    if (closeAiModalBtn) {
-        closeAiModalBtn.addEventListener('click', () => aiModal.classList.add('hidden'));
-    }
-
-    // --- NY FUNKTION: Indlæs flashkort data til AI ---
-    if (useFlashcardDataBtn) {
-        useFlashcardDataBtn.addEventListener('click', () => {
-            let contextText = "Her er mine studienoter (Flashkort):\n";
-            
-            // Saml alle kort
-            let allCards = [];
-            for (const [category, cards] of Object.entries(allFlashcardCategories)) {
-                cards.forEach(c => allCards.push(`Begreb: ${c.front}. Forklaring: ${c.back}.`));
-            }
-            
-            // Bland kortene
-            allCards.sort(() => Math.random() - 0.5);
-            
-            // Tag max 80 kort for at undgå at ramme token limit
-            const selectedCards = allCards.slice(0, 80);
-            
-            contextText += selectedCards.join("\n");
-            
-            aiPromptText.value = contextText;
-            
-            const originalText = useFlashcardDataBtn.textContent;
-            useFlashcardDataBtn.textContent = "Data indlæst!";
-            useFlashcardDataBtn.classList.add('bg-green-100', 'text-green-700');
-            setTimeout(() => {
-                useFlashcardDataBtn.textContent = originalText;
-                useFlashcardDataBtn.classList.remove('bg-green-100', 'text-green-700');
-            }, 2000);
-        });
-    }
-
-    if (generateAiBtn) {
-        generateAiBtn.addEventListener('click', async () => {
-            const apiKey = aiApiKeyInput.value.trim();
-            const topic = aiPromptText.value.trim();
-            const count = aiQuestionCount.value;
-
-            if (!apiKey) { alert("Indtast venligst en API nøgle"); return; }
-            if (!topic) { alert("Indtast venligst et emne eller en tekst"); return; }
-
-            localStorage.setItem('gemini_api_key', apiKey);
-
-            generateAiBtn.disabled = true;
-            aiBtnText.textContent = "Tænker...";
-            aiLoader.classList.remove('hidden');
-
-            try {
-                const questions = await fetchQuestionsFromGemini(apiKey, topic, count);
-                
-                if (questions) {
-                    currentQuizQuestions = questions;
-                    aiModal.classList.add('hidden');
-                    document.getElementById('quiz-chapter-select').parentElement.parentElement.classList.add('hidden');
-                    document.getElementById('start-all-quiz-btn').parentElement.classList.add('hidden');
-                    renderAllQuiz();
-                    quizQuestionContainer.scrollIntoView({ behavior: 'smooth' });
-                }
-            } catch (error) {
-                console.error(error);
-                alert("Der skete en fejl: " + error.message);
-            } finally {
-                generateAiBtn.disabled = false;
-                aiBtnText.textContent = "Generer";
-                aiLoader.classList.add('hidden');
-            }
-        });
-    }
-
-    async function fetchQuestionsFromGemini(apiKey, topic, count) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-        
-        let sourceInstruction = "";
-        if (topic.length > 100) {
-            sourceInstruction = "VIGTIGT: Brug KUN den nedenstående tekst som kilde. Du må ikke opfinde fakta uden for teksten.";
-        }
-
-        const prompt = `
-            Du er en professionel eksamens-konstruktør til psykologi på kandidatniveau.
-            Din opgave er at lave en multiple choice quiz, der tester dybdeforståelse og eliminerer gættestrategier.
-
-            OPGAVE:
-            Lav ${count} spørgsmål baseret på:
-            "${topic}"
-            
-            ${sourceInstruction}
-
-            KRAV TIL SVÆRHEDSGRAD & DISTRAKTORER (MEGET VIGTIGT):
-            1. Niveauet skal være højt. Brug fagtermer korrekt.
-            2. Fokusér på applikation/anvendelse frem for simpel genkaldelse (Undgå "Hvad er X?", brug "Hvilket begreb forklarer bedst situationen Y?").
-            3. De forkerte svarmuligheder (distraktorerne) SKAL være fagligt plausible.
-            
-            TEKNISKE KRAV:
-            - Sproget skal være DANSK.
-            - Der skal være 4 svarmuligheder pr. spørgsmål.
-            - Du MÅ KUN svare med et råt JSON array. Ingen markdown.
-            
-            FORMAT (JSON):
-            [
-                {
-                    "chapter": "AI Genereret",
-                    "question": "Spørgsmålstekst...",
-                    "options": ["Mulighed A", "Mulighed B", "Mulighed C", "Mulighed D"],
-                    "correctAnswer": "a", 
-                    "feedback": "Forklaring..."
-                }
-            ]
-            Bemærk: 'correctAnswer' skal være et lille bogstav: 'a', 'b', 'c' eller 'd'.
-        `;
-
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{ text: prompt }]
-                }]
-            })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error.message || "Kunne ikke forbinde til Google Gemini");
-        }
-
-        const data = await response.json();
-        
-        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
-            throw new Error("AI'en sendte et tomt svar. Prøv igen.");
-        }
-
-        let content = data.candidates[0].content.parts[0].text;
-        content = content.replace(/```json/g, '').replace(/```/g, '').trim();
-
-        try {
-            return JSON.parse(content);
-        } catch (e) {
-            console.error("Raw content:", content);
-            throw new Error("AI'en returnerede ikke gyldig JSON. Prøv igen med en kortere tekst.");
-        }
-    }
-
 
     // EVENT LISTENERS FLASHCARDS
     if(categorySelect) categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
