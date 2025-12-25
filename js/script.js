@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartAllBtn = document.getElementById('restart-all-quiz-btn');
     const quizResults = document.getElementById('quiz-results');
     
+    // New Retry Button (All Questions Mode)
+    const retryIncorrectAllBtn = document.getElementById('retry-incorrect-all-btn');
+
     // Quiz One-by-One Elementer
     const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
     const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
@@ -63,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const singleQuizProgress = document.getElementById('single-quiz-progress');
     const singleQuizResults = document.getElementById('single-quiz-results');
     const activeChaptersDisplay = document.getElementById('active-chapters-display');
+    
+    // New Retry Button (One by One Mode)
+    const retryIncorrectSingleBtn = document.getElementById('retry-incorrect-single-btn');
 
     // State Variables
     let studyQueue = []; 
@@ -70,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isFlipped = false;
     let showBackFirst = false;
     let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
+
+    // Tracker for incorrect questions
+    let incorrectQuestionsList = [];
 
     // --- NAVIGATION ---
     function showSection(section) {
@@ -366,6 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnswers = {};
         submitQuizBtn.disabled = true;
         submitQuizBtn.classList.remove('hidden');
+        restartAllBtn.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        retryIncorrectAllBtn.classList.add('hidden');
         
         currentQuizQuestions.forEach((q, index) => {
             const qDiv = document.createElement('div');
@@ -426,10 +438,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(submitQuizBtn) submitQuizBtn.addEventListener('click', () => {
         let score = 0;
+        incorrectQuestionsList = []; // Reset incorrect list
+
         currentQuizQuestions.forEach((q, index) => {
             const userAnswer = userAnswers[index];
             const isCorrect = userAnswer === q.correctAnswer;
-            if(isCorrect) score++;
+            if(isCorrect) {
+                score++;
+            } else {
+                incorrectQuestionsList.push(q); // Tilføj til listen over fejl
+            }
             
             // Vis forklaring
             const expDiv = document.getElementById(`exp-${index}`);
@@ -461,9 +479,24 @@ document.addEventListener('DOMContentLoaded', () => {
         quizResults.classList.remove('hidden');
         submitQuizBtn.classList.add('hidden');
         restartAllBtn.classList.remove('hidden');
+
+        // Vis "Prøv fejl igen" hvis der er fejl
+        if(incorrectQuestionsList.length > 0) {
+            retryIncorrectAllBtn.classList.remove('hidden');
+            retryIncorrectAllBtn.textContent = `🔁 Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
+        }
         
         // Scroll til resultater
         quizResults.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    if(retryIncorrectAllBtn) retryIncorrectAllBtn.addEventListener('click', () => {
+        // Sæt spørgsmål til kun at være de forkerte
+        currentQuizQuestions = [...incorrectQuestionsList];
+        // Render quiz igen
+        renderAllQuiz();
+        // Scroll til toppen
+        quizQuestionContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
     if(restartAllBtn) restartAllBtn.addEventListener('click', () => location.reload());
@@ -497,6 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
         singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
         shuffleArray(singleQData);
         singleQIndex = 0;
+        incorrectQuestionsList = []; // Reset tracking
         
         startOneByOneQuizBtn.parentElement.classList.add('hidden');
         singleQuestionDisplay.classList.remove('hidden');
@@ -517,6 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextSingleQuestionBtn.classList.add('hidden');
         restartSingleQuizBtn.classList.add('hidden');
         singleQuizResults.classList.add('hidden');
+        retryIncorrectSingleBtn.classList.add('hidden');
         
         singleQuizProgress.textContent = `Spørgsmål ${singleQIndex + 1} af ${singleQData.length}`;
         
@@ -558,6 +593,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const val = selectedInput.value;
         const isCorrect = val === q.correctAnswer;
         
+        if(!isCorrect) {
+            incorrectQuestionsList.push(q); // Gem fejl
+        }
+
         singleExplanationText.classList.remove('hidden');
         singleExplanationText.classList.add(isCorrect ? 'correct' : 'incorrect');
         singleExplanationText.innerHTML = isCorrect 
@@ -583,6 +622,12 @@ document.addEventListener('DOMContentLoaded', () => {
             restartSingleQuizBtn.classList.remove('hidden');
             singleQuizResults.textContent = "Du har gennemført alle valgte spørgsmål!";
             singleQuizResults.classList.remove('hidden');
+
+            // Vis "Prøv fejl igen" hvis der er fejl
+            if(incorrectQuestionsList.length > 0) {
+                retryIncorrectSingleBtn.classList.remove('hidden');
+                retryIncorrectSingleBtn.textContent = `🔁 Prøv de ${incorrectQuestionsList.length} fejlslagne igen`;
+            }
         }
     });
 
@@ -591,6 +636,14 @@ document.addEventListener('DOMContentLoaded', () => {
         showSingleQuestion();
     });
     
+    if(retryIncorrectSingleBtn) retryIncorrectSingleBtn.addEventListener('click', () => {
+        // Reset Single Mode med kun de forkerte spørgsmål
+        singleQData = [...incorrectQuestionsList];
+        incorrectQuestionsList = []; // Nulstil fejl-listen så vi kan tracke den nye runde
+        singleQIndex = 0;
+        showSingleQuestion();
+    });
+
     if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
 
     // Init
