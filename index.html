@@ -13,313 +13,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-    <style>
-        /* --- STYLES --- */
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #ec4899;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background: linear-gradient(-45deg, #e0e7ff, #f3e8ff, #eef2ff, #fff1f2);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #1e293b;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #4f46e5, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Knapper */
-        .nav-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            width: 100%;
-            max-width: 200px;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.025em;
-            position: relative;
-            overflow: hidden;
-        }
-        .nav-btn.active {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
-            transform: translateY(-1px);
-        }
-        .nav-btn:not(.active) {
-            background-color: white;
-            color: #64748b;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .nav-btn:not(.active):hover {
-            background-color: #f8fafc;
-            color: #334155;
-            transform: translateY(-1px);
-        }
-
-        .action-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.875rem 2rem;
-            border-radius: 1rem;
-            font-weight: 700;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-        }
-        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .action-btn:active { transform: translateY(0); }
-        .action-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
-
-        /* Feedback Knapper */
-        .feedback-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            border-radius: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: none;
-            width: 100%;
-            font-size: 0.95rem;
-            position: relative; 
-            z-index: 5;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .feedback-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(0,0,0,0.1); }
-        .feedback-btn:active { transform: scale(0.96); }
-
-        #feedback-correct-btn { background: #dcfce7; color: #15803d; }
-        #feedback-correct-btn:hover { background: #bbf7d0; }
-        
-        #feedback-unsure-btn { background: #fef9c3; color: #a16207; }
-        #feedback-unsure-btn:hover { background: #fde047; }
-        
-        #feedback-incorrect-btn { background: #fee2e2; color: #b91c1c; }
-        #feedback-incorrect-btn:hover { background: #fecaca; }
-
-        /* KORT / 3D */
-        .perspective-container {
-            perspective: 1200px;
-            width: 100%;
-            max-width: 42rem; 
-            margin: 0 auto;
-            position: relative;
-            height: 420px !important;
-            min-height: 420px;
-            z-index: 10;
-            display: block; 
-        }
-
-        .card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            transform-style: preserve-3d;
-            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-origin: center center;
-        }
-
-        .card.is-flipped {
-            transform: rotateY(180deg);
-        }
-
-        .card-face {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-front {
-            background-color: white;
-            z-index: 2;
-            transform: rotateY(0deg);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .card-back {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: white;
-            transform: rotateY(180deg);
-            z-index: 1;
-        }
-
-        .card-content-scroll {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2.5rem 3rem;
-            overflow-y: auto;
-            width: 100%;
-        }
-
-        .card-content-scroll::-webkit-scrollbar { width: 6px; }
-        .card-content-scroll::-webkit-scrollbar-track { background: transparent; }
-        .card-content-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
-        .card-back .card-content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
-
-        .card-text {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 500;
-            line-height: 1.5;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        @media (max-width: 640px) {
-            .perspective-container {
-                height: 360px !important;
-                min-height: 360px;
-            }
-            .card-text {
-                font-size: 1.15rem;
-                padding: 0 0.5rem;
-            }
-        }
-
-        .card-footer {
-            height: 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            padding: 0 1rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-
-        .star-btn {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            z-index: 20;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .star-btn:hover { transform: scale(1.2); }
-        .star-btn.active .star-icon {
-            color: #fbbf24 !important;
-            fill: #fbbf24 !important;
-            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));
-        }
-        
-        .custom-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 1rem center;
-            background-repeat: no-repeat;
-            background-size: 1.5em 1.5em;
-        }
-
-        /* Quiz Styles */
-        .mode-btn {
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.75rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 2px solid transparent;
-            background: rgba(255,255,255,0.5);
-            color: #64748b;
-            transition: all 0.2s;
-        }
-        .mode-btn:hover { background: white; }
-        .mode-btn.active {
-            background: #eff6ff;
-            color: #4f46e5;
-            border-color: #4f46e5;
-        }
-        
-        .question-option {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            border: 2px solid transparent;
-            border-radius: 1rem;
-            background-color: white;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-            font-weight: 500;
-        }
-        .question-option:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
-            border-color: #e2e8f0;
-        }
-        .question-option.selected {
-            border-color: #6366f1;
-            background-color: #eef2ff;
-            color: #4338ca;
-            font-weight: 600;
-        }
-        
-        .correct-answer { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #14532d !important; }
-        .incorrect-answer { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #7f1d1d !important; }
-        
-        .explanation {
-            margin-top: 1.5rem; padding: 1.5rem; border-radius: 1rem; border: 1px solid;
-            line-height: 1.6;
-        }
-        .explanation.correct { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
-        .explanation.incorrect { background-color: #fef2f2; border-color: #fecaca; color: #991b1b; }
-
-        /* Modal Styles */
-        .modal-overlay {
-            background-color: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-        }
-        .modal-content {
-            max-height: 85vh;
-        }
-    </style>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="flex flex-col items-center justify-start min-h-screen p-4 sm:p-6">
 
@@ -345,7 +40,7 @@
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button id="reset-deck-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200 w-full sm:w-auto">
-                    Start forfra
+                    <span class="mr-2">↺</span> Start forfra
                 </button>
                 
                 <button id="show-list-btn" class="action-btn bg-slate-500 hover:bg-slate-600 text-white shadow-lg shadow-slate-200 w-full sm:w-auto">
@@ -406,14 +101,17 @@
 
         <!-- Feedback Knapper -->
         <div id="flashcard-feedback-buttons" class="grid grid-cols-3 gap-4 mb-8">
-            <button id="feedback-correct-btn" class="feedback-btn shadow-green-100">
-                Rigtigt
+            <button id="feedback-correct-btn" class="feedback-btn shadow-green-100" style="background: #dcfce7; color: #15803d;">
+                <span class="text-2xl mr-2">😎</span> 
+                <span class="hidden sm:inline">Rigtigt</span>
             </button>
-            <button id="feedback-unsure-btn" class="feedback-btn shadow-yellow-100">
-                Usikker
+            <button id="feedback-unsure-btn" class="feedback-btn shadow-yellow-100" style="background: #fef9c3; color: #a16207;">
+                <span class="text-2xl mr-2">🤔</span> 
+                <span class="hidden sm:inline">Usikker</span>
             </button>
-            <button id="feedback-incorrect-btn" class="feedback-btn shadow-red-100">
-                Forkert
+            <button id="feedback-incorrect-btn" class="feedback-btn shadow-red-100" style="background: #fee2e2; color: #b91c1c;">
+                <span class="text-2xl mr-2">😬</span> 
+                <span class="hidden sm:inline">Forkert</span>
             </button>
         </div>
         
@@ -430,14 +128,6 @@
                 <button id="show-all-questions-mode-btn" class="mode-btn active">Alle spørgsmål</button>
                 <button id="show-one-by-one-mode-btn" class="mode-btn">Et ad gangen</button>
             </div>
-            
-            <!-- AI KNAP -->
-            <div class="text-center mb-6">
-                <button id="open-ai-modal-btn" class="action-btn bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg hover:shadow-purple-200 transform hover:-translate-y-1">
-                    ✨ AI Quiz (Gemini)
-                </button>
-            </div>
-
             <label class="block text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 text-center">Vælg Kapitler</label>
             <div class="relative">
                 <select id="quiz-chapter-select" multiple class="block w-full rounded-2xl border-0 bg-white/50 shadow-inner p-4 h-56 text-sm focus:ring-2 focus:ring-indigo-500 font-medium"></select>
@@ -445,34 +135,25 @@
             <p class="text-xs text-center text-slate-400 mt-3 font-medium">Hold Ctrl / Cmd nede for at vælge flere</p>
         </div>
 
-        <!-- ALL QUESTIONS MODE -->
         <div id="all-questions-mode-container">
             <div class="text-center mb-10">
-                <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl shadow-indigo-200 py-4 px-10 text-base">Start Quiz</button>
+                <button id="start-all-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl shadow-indigo-200 py-4 px-10 text-base">🚀 Start Quiz</button>
             </div>
             <div id="quiz-question-container" class="space-y-6"></div>
             <div class="text-center mt-12 pb-20">
-                <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white shadow-xl shadow-green-200 py-4 px-10 hidden" disabled>Tjek Svar</button>
-                
-                <button id="retry-incorrect-all-btn" class="action-btn bg-pink-500 hover:bg-pink-600 text-white shadow-xl shadow-pink-200 py-4 px-10 ml-4 hidden">Prøv fejlslagne igen</button>
-
-                <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-200 py-4 px-10 ml-4 hidden">Start helt forfra</button>
+                <button id="submit-quiz-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white shadow-xl shadow-green-200 py-4 px-10 hidden" disabled>✅ Tjek Svar</button>
+                <button id="retry-incorrect-all-btn" class="action-btn bg-pink-500 hover:bg-pink-600 text-white shadow-xl shadow-pink-200 py-4 px-10 ml-4 hidden">↺ Prøv fejlslagne igen</button>
+                <button id="restart-all-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-200 py-4 px-10 ml-4 hidden">↺ Start helt forfra</button>
                 <div id="quiz-results" class="mt-8 text-3xl font-extrabold text-slate-800 hidden gradient-text"></div>
             </div>
         </div>
 
-        <!-- ONE BY ONE MODE -->
         <div id="one-by-one-mode-container" class="hidden">
             <div class="text-center mb-8">
                 <p class="text-slate-400 text-xs uppercase font-bold mb-2">Valgte kapitler</p> 
                 <p id="active-chapters-display" class="font-bold text-slate-800 mb-6 text-sm bg-white/60 inline-block px-4 py-2 rounded-xl"></p>
-                <button id="start-one-by-one-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200">Start</button>
+                <button id="start-one-by-one-quiz-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200">🚀 Start</button>
             </div>
-            
-            <p class="text-center text-xs font-semibold text-slate-400/80 mb-6 bg-white/40 inline-block px-4 py-2 rounded-full mx-auto backdrop-blur-sm">
-               Tastatur: [1-4] Vælg svar · [Enter] Tjek/Næste
-            </p>
-
             <div id="single-question-display" class="glass-panel rounded-3xl p-8 sm:p-10 hidden relative min-h-[350px]">
                 <p id="single-question-text" class="text-xl sm:text-2xl font-bold text-slate-800 mb-8 leading-snug"></p>
                 <div id="single-options-container" class="space-y-4"></div>
@@ -482,9 +163,7 @@
                 <p id="single-quiz-progress" class="text-indigo-400 font-bold mb-6 text-xs uppercase tracking-widest"></p>
                 <button id="check-single-answer-btn" class="action-btn bg-green-600 hover:bg-green-700 text-white disabled:opacity-50 hidden shadow-lg shadow-green-200" disabled>Tjek svar</button>
                 <button id="next-single-question-btn" class="action-btn bg-indigo-600 hover:bg-indigo-700 text-white ml-4 hidden shadow-lg shadow-indigo-200">Næste →</button>
-                
                 <button id="retry-incorrect-single-btn" class="action-btn bg-pink-500 hover:bg-pink-600 text-white ml-4 hidden shadow-lg shadow-pink-200">Prøv fejlslagne igen</button>
-
                 <button id="restart-single-quiz-btn" class="action-btn bg-orange-500 hover:bg-orange-600 text-white ml-4 hidden shadow-lg shadow-orange-200">Start Forfra</button>
                 <div id="single-quiz-results" class="mt-6 font-extrabold text-2xl text-slate-800 hidden"></div>
             </div>
@@ -516,54 +195,10 @@
         </div>
     </div>
 
-    <!-- AI MODAL (Gemini) -->
-    <div id="ai-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
-        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6">
-            <h2 class="text-2xl font-bold text-slate-800 mb-4">Generer Quiz med Gemini</h2>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">1. Gemini API Nøgle</label>
-                    <input type="password" id="ai-api-key" placeholder="Indsæt din Google Gemini API nøgle..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 text-sm">
-                    <p class="text-xs text-slate-400 mt-1">Nøglen gemmes lokalt i din browser, så du ikke skal skrive den hver gang.</p>
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">2. Kilde (Emne eller Tekst)</label>
-                    
-                    <!-- Kildevalg: Flashkort -->
-                    <button id="use-flashcard-data-btn" class="mb-2 text-xs font-bold bg-indigo-100 text-indigo-700 py-2 px-3 rounded-lg hover:bg-indigo-200 transition-colors w-full text-left flex items-center justify-between group">
-                        <span>📥 Indlæs alle mine flashkort som kilde</span>
-                        <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
-
-                    <textarea id="ai-prompt-text" rows="4" placeholder="Skriv et emne, indsæt tekst fra en bog, eller tryk på knappen ovenover for at bruge dine kort..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 text-sm"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">3. Antal spørgsmål</label>
-                    <select id="ai-question-count" class="w-full p-3 rounded-xl border border-gray-300">
-                        <option value="3">3 spørgsmål</option>
-                        <option value="5" selected>5 spørgsmål</option>
-                        <option value="10">10 spørgsmål</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="mt-6 flex justify-end gap-3">
-                <button id="close-ai-modal" class="nav-btn bg-gray-100">Annuller</button>
-                <button id="generate-ai-btn" class="action-btn bg-purple-600 text-white hover:bg-purple-700">
-                    <span id="ai-btn-text">Generer</span>
-                    <span id="ai-loader" class="hidden ml-2">⏳</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- HENTER DINE DATA -->
     <script src="js/data.js"></script>
-
     <!-- JS LOGIK -->
     <script src="js/script.js"></script>
+
 </body>
 </html>
