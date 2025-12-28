@@ -1254,6 +1254,35 @@
             { front: "Samfundsniveau", back: "Normer og strukturer kan fremme eller begrænse kulturel integration." },
             { front: "Forskningens implikationer", back: "Behov for nye målemetoder og modeller, der fanger globaliseringens kompleksitet." }
           ],
+        
+        "Social Identity Complexity – Roccas & Brewer (2002)": [
+            { front: "Social identitet", back: "Del af selvkonceptet baseret på medlemskab i sociale grupper." },
+            { front: "Social Identity Complexity", back: "Subjektiv opfattelse af relationerne mellem flere indgruppeidentiteter." },
+            { front: "Lav kompleksitet", back: "Indgrupper opfattes som overlappende → én samlet indgruppe." },
+            { front: "Høj kompleksitet", back: "Indgrupper opfattes som forskellige → mere inkluderende og differentieret identitet." },
+            { front: "Fire modeller", back: "Intersection, Dominance, Compartmentalization, Merger." },
+            { front: "Intersection-modellen", back: "Indgruppen = fællesmængden af identiteter (fx kvindelig advokat). Eksklusiv og simpel." },
+            { front: "Dominance-modellen", back: "Én identitet dominerer (fx profession > køn). Simpel struktur." },
+            { front: "Compartmentalization-modellen", back: "Identiteter holdes adskilt og aktiveres kontekstuelt (fx arbejde vs. hjem). Moderat kompleksitet." },
+            { front: "Merger-modellen", back: "Alle identiteter anerkendes samtidigt i en inkluderende struktur. Høj kompleksitet." },
+            { front: "Kognitiv kompleksitet", back: "Kræver både differentiering (erkendelse af forskelle) og integration (forsoning af forskelle). Tetlock (1983)." },
+            { front: "Paralleller til konsistensmekanismer", back: "Intersection = differentiering, Dominance = bolstering, Compartmentalization = isolation, Merger = transcendens." },
+            { front: "To dimensioner af kompleksitet", back: "1) Overlap i prototypiske karakteristika. 2) Overlap i medlemskab." },
+            { front: "Operationalisering", back: "Måles via opfattelse af overlap i prototyper og medlemskab mellem indgrupper." },
+            { front: "Forskel fra self-complexity", back: "Self-complexity = personlige attributter; Social identity complexity = indgrupper." },
+            { front: "Antecedenter", back: "Sociale erfaringer, værdier, tolerance for tvetydighed, behov for closure, uncertainty orientation." },
+            { front: "Need for Closure", back: "Ønske om hurtige, klare svar → foretrækker simple identiteter." },
+            { front: "Uncertainty Orientation", back: "Usikkerhedsorienterede personer er mere åbne for kompleks identitet." },
+            { front: "Værdier og kompleksitet", back: "Konservatisme og magt → lav kompleksitet; Åbenhed og universalisme → høj kompleksitet." },
+            { front: "Situationsfaktorer", back: "Stress, kognitiv belastning og indgruppe-trussel reducerer kompleksitet midlertidigt." },
+            { front: "Effekt af stress", back: "Reducerer kompleksitet → indgrupper opfattes som mere ens og overlappende." },
+            { front: "Effekt af trussel", back: "Øger saliens af én indgruppe → simplere identitetsstruktur." },
+            { front: "Konsekvenser af kompleksitet", back: "Reducerer indgruppefavorisering og øger tolerance over for udegrupper." },
+            { front: "Mekanismer for reduceret bias", back: "Kognitiv reduktion, motivationel reduktion og kognitiv balance." },
+            { front: "Buffer-effekt", back: "Høj kompleksitet beskytter mod negative effekter af trusler mod én identitet." },
+            { front: "Empiriske fund", back: "USA og Israel: Høj kompleksitet → større tolerance; Stress og trussel → lavere kompleksitet." },
+            { front: "Bikulturalisme som eksempel", back: "Hyphenated identity = intersection; Assimilation = dominance; Alternating biculturalism = compartmentalization; Intercultural identity = merger." }
+          ],
 
         "Aronson kapitel 10": [
             { front: "Propinquity effect", back: "Jo mere vi ser og interagerer med mennesker, desto større sandsynlighed for, at vi bliver venner." },
