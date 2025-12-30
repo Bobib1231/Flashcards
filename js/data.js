@@ -1254,7 +1254,30 @@
             { front: "Samfundsniveau", back: "Normer og strukturer kan fremme eller begrænse kulturel integration." },
             { front: "Forskningens implikationer", back: "Behov for nye målemetoder og modeller, der fanger globaliseringens kompleksitet." }
           ],
-        
+
+        "Bertelsen, 2013 – Tilværelsespsykologi": [
+            { front: "Tilværelsespsykologi", back: "Studiet af menneskers bestræbelser på at få et godt nok greb om egen og fælles tilværelse." },
+            { front: "Al tings forbundethed", back: "Mennesker og omgivelser former hinanden i et indvendigt forhold – de er uadskillelige." },
+            { front: "Vertikal indvendighed", back: "Nedefra-og-op: Elementer konstituerer strukturen. Oppefra-og-ned: Strukturen organiserer elementerne." },
+            { front: "Konstituering", back: "Elementerne skaber den struktur, de er en del af. Strukturen afhænger af elementerne." },
+            { front: "Organisering", back: "Strukturen organiserer elementerne til deres funktion og skaber konteksten for deres ageren." },
+            { front: "Intern forbundethed", back: "Sammenhæng mellem elementerne i strukturen (fx legoklodser i et hus)." },
+            { front: "Ekstern forbundethed", back: "Sammenhæng mellem strukturen og dens omgivelser." },
+            { front: "Svagt forhold", back: "Kun konstituering, ingen organisering. Adfærd defineres af kognitive strukturer. Fungerer ikke." },
+            { front: "Medium forhold", back: "Konstituering og organisering påvirker hinanden. Tilværelsesprojekter er frigjort, men ikke løsrevet fra biologisk og socialt grundlag." },
+            { front: "Stærkt forhold", back: "Kun organisering. Holdninger og oplevelser konstrueres ud fra principper uden selvstændig eksistens. Fungerer ikke." },
+            { front: "Kausale forklaringer", back: "Forklarer fysiske processer, men utilstrækkelig til levende organismer." },
+            { front: "Funktionelle forklaringer", back: "Forklarer organismers strukturer og generel adfærd, men ikke individets intentionelle handlinger." },
+            { front: "Intentionel adfærd", back: "Adfærd rettet mod et mål, der ikke er opnået. Bestemt af omgivelsernes muligheder." },
+            { front: "Handling", back: "Refleksiv aktivitet, hvor man kunne have valgt anderledes. Indbegrebet af frihed." },
+            { front: "Tilværelsesrettede handlinger", back: "Handlinger rettet mod at opretholde, udvikle eller skabe egen og fælles tilværelse." },
+            { front: "Fire dimensioner", back: "Omgivelserne, Intrapsykologi, Biopsykologi, Strukturer (udefra-og-ind) og Position/refleksion (oppefra-og-ned)." },
+            { front: "Indefra-og-ud", back: "Behov (kropsligt, mentalt), motivation og selvrealisering." },
+            { front: "Nedefra-og-op", back: "Biopsykiske processer – kroppen og biologien." },
+            { front: "Oppefra-og-ned", back: "Position, refleksion og perspektiv i forhold til omgivelserne." },
+            { front: "Metodisk reduktion", back: "Man kan reducere til én dimension, men ikke ontologisk – så går det galt." }
+          ],
+
         "Aronson kapitel 10": [
             { front: "Propinquity effect", back: "Jo mere vi ser og interagerer med mennesker, desto større sandsynlighed for, at vi bliver venner." },
             { front: "Mere exposure effect", back: "Jo mere vi eksponeres for et stimulus, desto mere kan vi lide det – fordi det øger genkendelighed." },
