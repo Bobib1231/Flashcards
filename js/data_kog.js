@@ -363,7 +363,25 @@ const kogFlashcardCategories = {
         { front: "Glemsel – adaptive funktioner", back: "Glemsel reducerer belastning, fremmer fleksibilitet og forhindrer interferens fra irrelevante minder." },
         { front: "Decay i LTM – status", back: "Fysisk nedbrydning af spor sandsynligvis mindre vigtig end interferens og manglende cues." },
         { front: "Cue-afhængig glemsel", back: "Ofte er minder tilgængelige men ikke tilgængelige uden passende retrieval cues." }
-   ]
+  ],
+
+  "Cabeza & Moscovitch 2013 – Memory Systems, Modes & Components (kort version)": [
+        { front: "Artikelens hovedpointe", back: "Neuroimaging-data støtter bedst component process‑rammen frem for memory systems og processing modes." },
+        { front: "Tre frameworks", back: "Memory systems (deklarativ vs non-deklarativ), processing modes (konceptuel vs perceptuel), component process (mange delprocesser kombineres fleksibelt)." },
+        { front: "Problem for memory systems", back: "Hippocampus, PFC og MTL aktiveres i både eksplicitte og implicitte opgaver → systemgrænser holder ikke." },
+        { front: "Problem for processing modes", back: "Konceptuel/perceptuel opdeling kan ikke forklare dissociationer inden for samme ‘mode’ (fx to konceptuelle regioner opfører sig forskelligt)." },
+        { front: "Component process – kerneidé", back: "Hukommelse består af mange funktionelle komponenter i specifikke hjerneregioner, som rekrutteres i forskellige kombinationer." },
+        { front: "Region-specifikke teorier", back: "Hjerneområder defineres af deres funktion (fx hippocampus = relationel hukommelse) uafhængigt af system/mode." },
+        { front: "MTL-eksempel", back: "Hippocampus støtter relationel bearbejdning i både eksplicitte og implicitte opgaver; perirhinal cortex integrerer perceptuelle features." },
+        { front: "PFC-eksempel", back: "Venstre VLPFC styrer adgang til semantiske repræsentationer i både semantik, episodisk hukommelse og konceptuel priming." },
+        { front: "Parietal cortex", back: "Ventral parietal cortex forklares bedst som bottom‑up opmærksomhed mod hukommelsesindhold, ikke som ‘episodisk system’." },
+        { front: "Process-specific alliances (PSA)", back: "Midlertidige funktionelle ‘teams’ af hjerneregioner der opstår ved opgavekrav, fx VLPFC–hippocampus ved episodisk encoding." },
+        { front: "Samme region i mange PSAs", back: "Et område kan udføre samme kernefunktion (fx kontrol) men bruges forskelligt afhængigt af alliance-partnere." },
+        { front: "Indflydelse på kognitive teorier", back: "Fund har sløret grænserne mellem episodisk, arbejdshukommelse og perception og peger mod fælles komponenter." },
+        { front: "Episodisk vs autobiografisk hukommelse", back: "Neuroimaging viser kun delvist overlap → laboratorietests fanger ikke hele den episodiske/autobiografiske kompleksitet." },
+        { front: "Fortid og fremtid", back: "Hippocampus bruges både til at huske fortiden og forestille sig fremtiden → episodisk hukommelse er konstruktiv." },
+        { front: "Overordnet konklusion", back: "System- og mode-modeller er for simple; component process + PSAs giver den mest fleksible og datakonsistente forklaring." }
+    ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
