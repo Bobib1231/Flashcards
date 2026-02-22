@@ -99,7 +99,52 @@ const kogFlashcardCategories = {
         { front: "Cross-modal attention", back: "Opmærksomhed i én modalitet påvirker behandling i en anden (fx visuel opmærksomhed → ændret auditiv behandling)." },
         { front: "Ventriloquism effect", back: "Lyd lokaliseres mod den visuelle kilde pga. antagelsen om fælles årsag." },
         { front: "Colavita effect", back: "Visuelle stimuli dominerer ofte over auditive ved samtidighed." }
-      ]
+      ],
+
+    "Kapitel 7 – Long-term Memory Systems": [
+        { front: "Langtidshukommelse – hovedidé", back: "Langtidshukommelse består af flere systemer (episodisk, semantisk, perceptuel repræsentation, procedurel) fremfor ét samlet lager." },
+        { front: "Amnesi – definition", back: "Alvorlig svækkelse i langtidshukommelsen, primært i deklarativ hukommelse, typisk grundet hjerneskade." },
+        { front: "Korsakoff’s syndrom", back: "Alkoholrelateret amnesi pga. thiaminmangel; giver både retrograd og anterograd amnesi." },
+        { front: "Anterograd amnesi", back: "Manglende evne til at danne nye langtidshukommelser efter skaden." },
+        { front: "Retrograd amnesi", back: "Tab af minder erhvervet før skadens opståen." },
+        { front: "Case HM – hovedpointer", back: "Fjernet hippocampus → alvorligt episodisk hukommelsestab; intakt procedurale færdigheder; viste at LTM består af flere systemer og at hippocampus ikke lagrer minder permanent." },
+        { front: "Deklarativ hukommelse", back: "Bevidst adgang til viden; inkluderer episodisk (personlige begivenheder) og semantisk (fakta, sprog, koncepter)." },
+        { front: "Non-deklarativ hukommelse", back: "Ubevidst hukommelse; inkluderer priming, procedural læring, klassisk betingning m.m." },
+        { front: "Episodisk hukommelse – definition", back: "Hukommelse for specifikke begivenheder i tid og sted; muliggør 'mental time travel'." },
+        { front: "De tre W'er i episodisk hukommelse", back: "What, When, Where – indhold, tidspunkt og sted." },
+        { front: "Semantisk hukommelse – definition", back: "Fakta og generel viden; ikke knyttet til specifikke oplevelser." },
+        { front: "Episodisk vs. semantisk udvikling", back: "Semantisk hukommelse udvikles tidligere; episodisk kræver mere moden hippocampus." },
+        { front: "Developmental amnesia", back: "Hippocampal skade tidligt i livet → svær episodisk svækkelse men relativt bevaret semantisk viden." },
+        { front: "Perirhinal/entorhinal cortex – rolle", back: "Understøtter semantisk læring og associationsdannelse; kan forklare bevaret semantisk viden ved hippocampusskade." },
+        { front: "Retrograd amnesi i episodisk vs. semantisk hukommelse", back: "Episodisk hukommelse tabes typisk over mange år; semantisk oftest bevaret, især ældre viden." },
+        { front: "Semantisk demens", back: "Degeneration i anterior temporal lobe; svær semantisk svækkelse men bevaret episodisk hukommelse i tidlige stadier." },
+        { front: "Double dissociation – amnesi vs. semantisk demens", back: "Amnesi: episodisk dårlig, semantisk bevaret; semantisk demens: semantisk dårlig, episodisk relativt bevaret." },
+        { front: "Interdependens mellem episodisk og semantisk hukommelse", back: "De to systemer påvirker og understøtter hinanden; mange minder har både episoder og fakta." },
+        { front: "Personal semantics", back: "Personspecifik viden der både har episodiske og semantiske elementer." },
+        { front: "Semanticisation", back: "Episodiske minder mister detaljer over tid og omdannes til mere abstrakt semantisk viden." },
+        { front: "Episodisk hukommelse – recallsformer", back: "1) Fri recall; 2) Seriel recall; 3) Cued recall." },
+        { front: "Fri recall", back: "Genkaldelse uden hints; sværest og mest krævende." },
+        { front: "Cued recall", back: "Genkaldelse med en ledetråd." },
+        { front: "Recognition memory – to processer", back: "1) Familiarity (fornemmelse af genkendelse); 2) Recollection (bevidst hentning af kontekst)." },
+        { front: "Remember/Know-proceduren", back: "'Remember' = recollection; 'Know' = familiarity uden konteksthukommelse." },
+        { front: "Binding-of-item-and-context model (Diana 2007)", back: "Perirhinal → hvad; Parahippocampal → hvor/kontekst; Hippocampus → binding af hvad + hvor → recollection." },
+        { front: "Hippocampus – rolle i recollection", back: "Nødvendig for kontekstbindingsprocesser; skader her giver stærkt nedsat recollection." },
+        { front: "Perirhinal cortex – rolle i familiarity", back: "Nødvendig for genkendelse baseret på genkendelsesstyrke uden kontekst." },
+        { front: "Double dissociation mellem familiarity og recollection", back: "Nogle patienter mister familiarity, andre mister recollection → separate systemer." },
+        { front: "Constructive episodic memory", back: "Episodisk hukommelse er fleksibel og fejlbarlig; genskaber oplevelser snarere end at afspille dem." },
+        { front: "Episodisk hukommelse og fremtidstankning", back: "De samme systemer bruges til at forestille sig fremtidige scenarier som til at huske fortiden." },
+        { front: "Hippocampusskade og fremtidssimulering", back: "Amnesipatienter kan ofte ikke generere detaljerede forestillede fremtidsscenarier." },
+        { front: "Semantic schemas (skemaer)", back: "Generaliserede vidensstrukturer; ventromedial præfrontal cortex vigtigt for behandling." },
+        { front: "Priming – definition", back: "Tidligere eksponering for et stimulus forbedrer efterfølgende processering af samme eller relaterede stimuli." },
+        { front: "Perceptuel priming", back: "Forbedret genkendelse af stimulus’ fysiske form." },
+        { front: "Conceptual priming", back: "Hurtigere behandling af stimulus’ betydning." },
+        { front: "Priming i amnesi", back: "Amnesipatienter har typisk intakt priming selv med kraftigt episodisk hukommelsestab." },
+        { front: "Procedural hukommelse – definition", back: "Viden om hvordan man udfører handlinger; ofte motoriske færdigheder; kræver ikke bevidsthed." },
+        { front: "Serial reaction time task", back: "Implicit læringsopgave hvor reaktionsmønstre forbedres uden bevidst indsigt." },
+        { front: "Hvad amnesi afslører om hukommelsessystemer?", back: "Deklarative og non-deklarative systemer er adskilte; hippocampus nødvendig for deklarativ indkodning, ikke for procedurer eller priming." },
+        { front: "Hippocampus vs. basalganglier i læring", back: "Hippocampus → deklarativ viden; Basalganglier → procedurale færdigheder og vaner." },
+        { front: "Hvorfor flere hukommelsessystemer?", back: "Forskellige typer information kræver forskellige lærings- og lagringsmekanismer (episoder vs. fakta vs. motorik)." }
+    ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
