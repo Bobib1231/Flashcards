@@ -1,19 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Tjek om data.js er indlæst
-    if (typeof allFlashcardCategories === 'undefined' || typeof quizQuestions === 'undefined') {
-        console.error("FEJL: Data ikke fundet. Tjek at data.js indlæses før script.js");
-        document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px; color:red;'>Fejl: Kunne ikke indlæse data.js</h1>";
+    // Tjek at mindst ét af datasættene er indlæst
+    if (typeof allFlashcardCategories === 'undefined' && typeof kogFlashcardCategories === 'undefined') {
+        console.error("FEJL: Ingen data fundet.");
+        document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px; color:red;'>Fejl: Kunne ikke indlæse datafiler.</h1>";
         return;
     }
 
-    console.log("App starter (Uden AI)...");
-
     // ==========================================================
-    // DOM ELEMENTER
+    // GLOBALE VARIABLER (Håndtering af fag-skift)
     // ==========================================================
+    let currentSubject = 'social'; 
+    let activeCategories = typeof allFlashcardCategories !== 'undefined' ? allFlashcardCategories : {};
+    let activeQuiz = typeof quizQuestions !== 'undefined' ? quizQuestions : [];
     
-    // Sektioner
+    // Separate localStorage for hver sit fag
+    let savedCardsSocial = JSON.parse(localStorage.getItem('flashcard_favorites')) || [];
+    let savedCardsKog = JSON.parse(localStorage.getItem('flashcard_favorites_kog')) || [];
+    let savedCards = savedCardsSocial; // Starter som social
+
+    // DOM ELEMENTER
+    const tabSocial = document.getElementById('tab-social');
+    const tabKog = document.getElementById('tab-kog');
+    const subjectTitle = document.getElementById('subject-title');
+
     const flashcardSection = document.getElementById('flashcard-section');
     const quizSection = document.getElementById('quiz-section');
     const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
@@ -33,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainerWrapper = document.getElementById('card-container-wrapper');
     const starBtns = document.querySelectorAll('.star-btn');
     
-    // Liste knap og modal
+    // Liste
     const showListBtn = document.getElementById('show-list-btn');
     const listModal = document.getElementById('flashcard-list-modal');
     const listContent = document.getElementById('flashcard-list-content');
@@ -42,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeListModalBtn = document.getElementById('close-list-modal-btn');
     const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
 
-    // Feedback Knapper
+    // Feedback
     const btnCorrect = document.getElementById('feedback-correct-btn');
     const btnUnsure = document.getElementById('feedback-unsure-btn');
     const btnIncorrect = document.getElementById('feedback-incorrect-btn');
     const feedbackContainer = document.getElementById('flashcard-feedback-buttons');
 
-    // Quiz Elementer
+    // Quiz
     const quizChapterSelect = document.getElementById('quiz-chapter-select');
     const allQuestionsModeContainer = document.getElementById('all-questions-mode-container');
     const oneByOneModeContainer = document.getElementById('one-by-one-mode-container');
@@ -59,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizResults = document.getElementById('quiz-results');
     const retryIncorrectAllBtn = document.getElementById('retry-incorrect-all-btn');
 
-    // Quiz One-by-One Elementer
     const showAllQuestionsModeBtn = document.getElementById('show-all-questions-mode-btn');
     const showOneByOneModeBtn = document.getElementById('show-one-by-one-mode-btn');
     const startOneByOneQuizBtn = document.getElementById('start-one-by-one-quiz-btn');
@@ -75,17 +84,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeChaptersDisplay = document.getElementById('active-chapters-display');
     const retryIncorrectSingleBtn = document.getElementById('retry-incorrect-single-btn');
 
-    // State Variables
     let studyQueue = []; 
     let originalTotal = 0;
     let isFlipped = false;
     let showBackFirst = false;
-    let savedCards = JSON.parse(localStorage.getItem('flashcard_favorites')) || []; 
-    
     let currentModalCards = [];
     let incorrectQuestionsList = [];
     let currentQuizQuestions = [];
     let userAnswers = {};
+
+
+    // ==========================================================
+    // FAG/TABS LOGIK
+    // ==========================================================
+
+    function switchSubject(subject) {
+        currentSubject = subject;
+        if (subject === 'social') {
+            activeCategories = typeof allFlashcardCategories !== 'undefined' ? allFlashcardCategories : {};
+            activeQuiz = typeof quizQuestions !== 'undefined' ? quizQuestions : [];
+            savedCards = savedCardsSocial;
+
+            tabSocial.classList.add('active', 'shadow-md');
+            tabKog.classList.remove('active', 'shadow-md');
+            subjectTitle.textContent = "Social- og Personlighedspsykologi";
+        } else {
+            activeCategories = typeof kogFlashcardCategories !== 'undefined' ? kogFlashcardCategories : {};
+            activeQuiz = typeof kogQuizQuestions !== 'undefined' ? kogQuizQuestions : [];
+            savedCards = savedCardsKog;
+
+            tabKog.classList.add('active', 'shadow-md');
+            tabSocial.classList.remove('active', 'shadow-md');
+            subjectTitle.textContent = "Kognitionspsykologi";
+        }
+
+        // Skjul/vis quiz-knap baseret på om der er quiz-spørgsmål
+        if (activeQuiz.length === 0) {
+            showQuizBtn.style.display = 'none';
+            showSection('flashcards'); // Tving tilbage til flashcards
+        } else {
+            showQuizBtn.style.display = 'inline-block';
+        }
+
+        // Genindlæs dropdowns og kort
+        populateCategorySelect();
+        populateQuizChapters();
+        loadCategory('all_shuffled');
+    }
+
+    if (tabSocial) tabSocial.addEventListener('click', () => switchSubject('social'));
+    if (tabKog) tabKog.addEventListener('click', () => switchSubject('kog'));
+
 
     // --- NAVIGATION ---
     function showSection(section) {
@@ -126,14 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
         allOption.selected = true; 
         categorySelect.appendChild(allOption);
 
-        Object.keys(allFlashcardCategories).sort((a, b) => a.localeCompare(b, 'da')).forEach(cat => {
+        // Bruger aktiv data
+        Object.keys(activeCategories).sort((a, b) => a.localeCompare(b, 'da')).forEach(cat => {
             const opt = document.createElement('option');
             opt.value = cat;
             opt.textContent = cat;
             categorySelect.appendChild(opt);
         });
-        
-        loadCategory('all_shuffled');
     }
 
     function loadCategory(categoryName) {
@@ -149,15 +197,15 @@ document.addEventListener('DOMContentLoaded', () => {
             tempDeck = [...savedCards];
         } 
         else if (categoryName === 'all_shuffled') {
-            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
+            for (const [catName, cards] of Object.entries(activeCategories)) {
                 const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
                 tempDeck = tempDeck.concat(labeledCards);
             }
             shuffleArray(tempDeck);
         } 
         else {
-            if (allFlashcardCategories[categoryName]) {
-                tempDeck = allFlashcardCategories[categoryName].map(c => ({
+            if (activeCategories[categoryName]) {
+                tempDeck = activeCategories[categoryName].map(c => ({
                     ...c,
                     sourceCategory: categoryName
                 }));
@@ -273,7 +321,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             savedCards.push(currentCard);
         }
-        localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
+        
+        // Gemmer i den korrekte localStorage
+        if (currentSubject === 'social') {
+            localStorage.setItem('flashcard_favorites', JSON.stringify(savedCards));
+        } else {
+            localStorage.setItem('flashcard_favorites_kog', JSON.stringify(savedCards));
+        }
         
         const savedOption = categorySelect.querySelector('option[value="saved_cards"]');
         if(savedOption) savedOption.textContent = `⭐ Gemte kort (${savedCards.length})`;
@@ -288,9 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // =========================================================
-    // INTELLIGENT SØGNING (Levenshtein Distance)
-    // =========================================================
     function calculateLevenshteinDistance(a, b) {
         const matrix = [];
         for (let i = 0; i <= b.length; i++) matrix[i] = [i];
@@ -311,14 +362,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return matrix[b.length][a.length];
     }
 
-    // OPRETTELSE AF LISTE MED KILDE (OPDATERET FUNKTION)
     function renderListHTML(cards) {
         listContent.innerHTML = '';
         if (cards.length === 0) {
             listContent.innerHTML = '<p class="text-center text-gray-500 py-4">Ingen kort fundet.</p>';
         } else {
             cards.forEach((c, i) => {
-                const source = c.sourceCategory || "Ukendt kilde"; // Hent kilden eller default
+                const source = c.sourceCategory || "Ukendt kilde"; 
                 const item = document.createElement('div');
                 item.className = 'bg-slate-50 border border-slate-200 rounded-xl p-4';
                 item.innerHTML = `
@@ -326,7 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="flex-1">
                             <span class="text-xs font-bold text-indigo-500 uppercase tracking-wide">Forside</span>
                             <p class="font-medium text-slate-800 mt-1">${c.front}</p>
-                            <!-- Her er tilføjelsen: Kilde under begrebet -->
                             <p class="text-xs text-slate-400 mt-1 italic">${source}</p>
                         </div>
                         <div class="hidden md:block w-px bg-slate-200"></div>
@@ -341,7 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // LIST MODAL LOGIK
     if(showListBtn) showListBtn.addEventListener('click', () => {
         const categoryName = categorySelect.value;
         currentModalCards = []; 
@@ -350,16 +398,14 @@ document.addEventListener('DOMContentLoaded', () => {
             currentModalCards = savedCards;
             listModalTitle.textContent = `Gemte kort (${savedCards.length})`;
         } else if (categoryName === 'all_shuffled') {
-            for (const [catName, cards] of Object.entries(allFlashcardCategories)) {
-                // Sørg for at 'sourceCategory' er med på alle kort
+            for (const [catName, cards] of Object.entries(activeCategories)) {
                 const labeledCards = cards.map(c => ({ ...c, sourceCategory: catName }));
                 currentModalCards = currentModalCards.concat(labeledCards);
             }
             listModalTitle.textContent = `Alle kort (${currentModalCards.length})`;
         } else {
-            if (allFlashcardCategories[categoryName]) {
-                // Her skal vi også tilføje kilden manuelt til objekterne til listen
-                currentModalCards = allFlashcardCategories[categoryName].map(c => ({
+            if (activeCategories[categoryName]) {
+                currentModalCards = activeCategories[categoryName].map(c => ({
                     ...c,
                     sourceCategory: categoryName
                 }));
@@ -402,15 +448,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(closeListModalBtn) closeListModalBtn.addEventListener('click', closeListModal);
     if(closeModalFooterBtn) closeModalFooterBtn.addEventListener('click', closeListModal);
-    
     if(listModal) listModal.addEventListener('click', (e) => {
         if (e.target === listModal) closeListModal();
     });
 
-
-    // ==========================================================
-    // EVENTS OG GENVEJE
-    // ==========================================================
 
     // EVENT LISTENERS FLASHCARDS
     if(categorySelect) categorySelect.addEventListener('change', (e) => loadCategory(e.target.value));
@@ -460,7 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     options[index].parentElement.click(); 
                 }
             }
-
             if (e.key === 'Enter') {
                 e.preventDefault(); 
                 if (!checkSingleAnswerBtn.classList.contains('hidden') && !checkSingleAnswerBtn.disabled) {
@@ -480,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function populateQuizChapters() {
         if(!quizChapterSelect) return;
-        const chapters = [...new Set(quizQuestions.map(q => q.chapter))].sort((a, b) => a.localeCompare(b, 'da'));
+        const chapters = [...new Set(activeQuiz.map(q => q.chapter))].sort((a, b) => a.localeCompare(b, 'da'));
         quizChapterSelect.innerHTML = '';
         chapters.forEach(chap => {
             const opt = document.createElement('option');
@@ -499,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
         
-        currentQuizQuestions = quizQuestions.filter(q => chapters.includes(q.chapter));
+        currentQuizQuestions = activeQuiz.filter(q => chapters.includes(q.chapter));
         shuffleArray(currentQuizQuestions);
         
         renderAllQuiz();
@@ -625,8 +665,15 @@ document.addEventListener('DOMContentLoaded', () => {
         quizQuestionContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
-    if(restartAllBtn) restartAllBtn.addEventListener('click', () => location.reload());
-
+    if(restartAllBtn) restartAllBtn.addEventListener('click', () => {
+        startAllQuizBtn.parentElement.classList.remove('hidden');
+        document.getElementById('quiz-chapter-select').parentElement.classList.remove('hidden');
+        submitQuizBtn.parentElement.classList.add('hidden');
+        quizQuestionContainer.innerHTML = '';
+        restartAllBtn.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        retryIncorrectAllBtn.classList.add('hidden');
+    });
 
     // --- ONE BY ONE MODE ---
     if(showOneByOneModeBtn) showOneByOneModeBtn.addEventListener('click', () => {
@@ -653,7 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const chapters = getSelectedChapters();
         if(chapters.length === 0) { alert("Vælg mindst ét kapitel"); return; }
         
-        singleQData = quizQuestions.filter(q => chapters.includes(q.chapter));
+        singleQData = activeQuiz.filter(q => chapters.includes(q.chapter));
         shuffleArray(singleQData);
         singleQIndex = 0;
         incorrectQuestionsList = []; 
@@ -767,13 +814,21 @@ document.addEventListener('DOMContentLoaded', () => {
         singleQData = [...incorrectQuestionsList];
         incorrectQuestionsList = [];
         singleQIndex = 0;
-        
         renderSingleQ();
     });
 
-    if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => location.reload());
+    if(restartSingleQuizBtn) restartSingleQuizBtn.addEventListener('click', () => {
+        startOneByOneQuizBtn.parentElement.classList.remove('hidden');
+        singleQuestionDisplay.classList.add('hidden');
+        restartSingleQuizBtn.classList.add('hidden');
+        singleQuizResults.classList.add('hidden');
+        retryIncorrectSingleBtn.classList.add('hidden');
+        nextSingleQuestionBtn.classList.add('hidden');
+        checkSingleAnswerBtn.classList.add('hidden');
+    });
 
-    // Init
+    // Start programmet
     populateCategorySelect();
     populateQuizChapters();
+    loadCategory('all_shuffled'); // Loader første sæt
 });
