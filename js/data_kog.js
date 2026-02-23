@@ -206,7 +206,7 @@ const kogFlashcardCategories = {
         { front: "Anvendt hukommelsesforskning – Læring", back: "Brug af hukommelsesprincipper (fx testeffekt, spacing, elaboration) til at optimere undervisning og studieteknik." }
     ],
 
-    "Bartlett – Remembering (kort version)": [
+    "Bartlett – Remembering": [
         { front: "Formålet med Bartletts forskning", back: "At forstå hvordan mennesker faktisk husker i naturlige situationer, ikke blot i kunstige laboratorietests." },
         { front: "Kritik af Ebbinghaus", back: "Nonsensstavelser giver kunstige hukommelsesvaner og siger lidt om virkelig hukommelse, hvor mening og attitude spiller stor rolle." },
         { front: "Hukommelse som konstruktion", back: "At huske er en aktiv rekonstruktion, ikke en ordret genkaldelse." },
@@ -227,7 +227,7 @@ const kogFlashcardCategories = {
         { front: "Hovedkonklusion", back: "Hukommelse er formet af mening, social kontekst, kultur, attitude og aktive schemaer – ikke lagrede kopier." }
     ],
 
-    "Smallwood & Schooler (2015) – Mind Wandering (kort version)": [
+    "Smallwood & Schooler (2015) – Mind Wandering": [
         { front: "Mind wandering – definition", back: "Skift i tankeindhold væk fra en igangværende opgave til selv-genererede tanker." },
         { front: "Self-generated thought", back: "Mentalt indhold der opstår uden direkte sensorisk input; kan være både opgaverelateret og opgave‑uafhængigt." },
         { front: "Perceptual decoupling", back: "Opmærksomhed løsriver sig fra ydre stimuli, hvilket muliggør intern tænkning." },
@@ -254,7 +254,7 @@ const kogFlashcardCategories = {
         { front: "Dagligliv – kreative gevinster", back: "Eksperter rapporterer flere aha‑ideer under mind wandering end under fokuseret arbejde." }
     ],
 
-    "Berntsen 2021 – Involuntary Autobiographical Memories (kort version)": [
+    "Berntsen 2021 – Involuntary Autobiographical Memories": [
         { front: "Definition", back: "Spontane minder om personlige begivenheder, der dukker op uden bevidst søgning." },
         { front: "Frekvens i hverdagen", back: "Forekommer meget ofte og typisk oftere end viljestyrede erindringer." },
         { front: "Retrieval effort", back: "Hurtigere og mindre krævende end voluntære minder, med lavere præfrontal involvering." },
@@ -312,7 +312,7 @@ const kogFlashcardCategories = {
         { front: "Økologisk validitet – kritik", back: "Laboratorieopgaver afspejler ikke altid virkelige kognitive situationer; nutidig forskning kombinerer lab og real‑life metoder." }
     ],
 
-    "Kapitel 6 – Læring, hukommelse og glemsel (udvidet)": [
+    "Kapitel 6 – Læring, hukommelse og glemsel": [
         { front: "Hukommelsens tre hovedfaser", back: "Indkodning (bearbejdning af input), lagring (vedligeholdelse af spor), og genkaldelse (hentning). Fejl i retrieval er en hyppig årsag til glemsel." },
         { front: "Encoding – centrale processer", back: "Omfatter opmærksomhed, elaboration, dybde af bearbejdning, strukturel/semantisk koding og relationsdannelse." },
         { front: "Storage – stabilitet over tid", back: "Indeholder både midlertidige aktiveringer og mere varige ændringer i forbindelser; afhænger af konsolidering og interferens." },
@@ -365,7 +365,7 @@ const kogFlashcardCategories = {
         { front: "Cue-afhængig glemsel", back: "Ofte er minder tilgængelige men ikke tilgængelige uden passende retrieval cues." }
   ],
 
-  "Cabeza & Moscovitch 2013 – Memory Systems, Modes & Components (kort version)": [
+  "Cabeza & Moscovitch 2013 – Memory Systems, Modes & Components": [
         { front: "Artikelens hovedpointe", back: "Neuroimaging-data støtter bedst component process‑rammen frem for memory systems og processing modes." },
         { front: "Tre frameworks", back: "Memory systems (deklarativ vs non-deklarativ), processing modes (konceptuel vs perceptuel), component process (mange delprocesser kombineres fleksibelt)." },
         { front: "Problem for memory systems", back: "Hippocampus, PFC og MTL aktiveres i både eksplicitte og implicitte opgaver → systemgrænser holder ikke." },
