@@ -637,7 +637,75 @@ const kogFlashcardCategories = {
           { front: "Identitet og skemaer", back: "Terapeutisk fokus på bestemte forklaringsrammer kan ændre klientens selvforståelse og skabe erindringsillusioner baseret på skemaaktivering." },
           { front: "Kernekonflikt", back: "Klinisk praksis ser tilbagekaldte traumer som sandhed; forskningen viser hukommelsen som fleksibel, fejlbarlig og rekonstruktiv." },
           { front: "Berntsens teoretiske pointe", back: "Hukommelsen må forstås inden for en konstruktivistisk ramme; terapeuter må tage højde for falske erindringer som naturligt produkt af hukommelsesprocesser." }
-        ]
+        ],
+
+            "Cant et al. 2012 – Near-Death Experiences (teori)": [
+          { front: "NDE – definition", back: "Usædvanlige erindringer oplevet i forbindelse med livstruende tilstande, ofte under bevidstløshed." },
+          { front: "Kerneelementer i NDE", back: "Kognitive (tidsforvrængning, livsgennemgang), affektive (fred, glæde), perceptuelle (lys, skærpede sanser), og transcendente (grænse, entiteter)." },
+          { front: "Forekomst", back: "4–9% i befolkningen og op til ca. 20% blandt patienter i kritiske tilstande; kan også forekomme ved subjektiv livsfare." },
+          { front: "Måleinstrumenter", back: "Greyson NDE Scale og Ring’s Weighted Core Experience Index anvendes til at afgøre om en oplevelse kvalificerer som NDE." },
+          { front: "Neurokemiske forklaringer", back: "Foreslåede mekanismer inkluderer endorfinfrigivelse, hypoksi, hyperkapni, REM-intrusion, temporal-lobe-aktivitet og ketaminlignende processer." },
+          { front: "Begrænsninger ved fysiologiske modeller", back: "Hvis fysiologi alene forklarede NDE, burde alle nær-døds-tilstande udløse dem; variation peger på individuelle forskelle eller flere mekanismer." },
+          { front: "Psykologiske forklaringer", back: "NDE kan ses som dissociation, ønsketænkende hallucinationer eller rekonstruktion af fragmentariske minder efter bevidstløshed." },
+          { front: "Veridikal perception – teoretisk udfordring", back: "Nogle NDE-rapporter inkluderer præcis viden uden sensorisk adgang, hvilket udfordrer rent neurologiske modeller." },
+          { front: "Psykologiske eftervirkninger", back: "Typisk rapporteres mindre dødsangst, øget livstilfredshed og ændrede værdier; enkelte får negative reaktioner som PTSD." },
+          { front: "Klinisk relevans", back: "Sundhedspersonale bør støtte neutral samtale om NDE og facilitere tryghed, refleksion og eventuel rådgivning." }
+        ],
+        
+        "Mueller & Oppenheimer 2014 – Longhand vs Laptop Notetagning (teori)": [
+          { front: "Hovedfund", back: "Longhand-noter fører til bedre konceptuel læring end laptop-noter – selv uden distraktion." },
+          { front: "Encoding vs external storage", back: "Noter hjælper via dyb bearbejdning (encoding) og via lagring til senere brug (external storage). Laptop forskellen skyldes encoding." },
+          { front: "Generativ vs verbatim notetagning", back: "Generativ notetagning (omskrivning) giver dyb behandling; verbatim notetagning giver overfladisk behandling." },
+          { front: "Laptopbrug og verbatim-overlap", back: "Laptopbrugere skriver hurtigere og transskriberer derfor mere ordret, hvilket reducerer konceptuel bearbejdning." },
+          { front: "Notemængde vs note-kvalitet", back: "Flere noter hjælper, men kun hvis de ikke er tankeløs transskription; kvalitet og bearbejdning er vigtigere end volumen." },
+          { front: "Interventionstest", back: "Instruktion om at undgå transskription reducerer ikke verbatim-indhold; typet hastighed overstyrer intention." },
+          { front: "Effekt ved forsinkede tests", back: "Longhand-noter giver bedre præstationer både på faktuelle og konceptuelle spørgsmål efter forsinkelse." },
+          { front: "Teoretisk forklaret", back: "Longhand tvinger til valg, organisering og omskrivning, hvilket forbedrer dyb bearbejdning (Levels of Processing)." },
+          { front: "Konsekvens for undervisning", back: "Selv korrekt brugte laptops (uden distraktion) kan skade læring, hvorfor longhand ofte bør foretrækkes." }
+        ],
+
+        "Baumeister et al. 2011 – Do Conscious Thoughts Cause Behavior? (teori)": [
+              { front: "Hovedpointe", back: "Bevidste tanker har kausal effekt på adfærd, primært indirekte, forsinket og i samspil med ubevidste processer." },
+              { front: "To typer bevidsthed", back: "Fenomenal bevidsthed (oplevelser) og refleksiv bevidsthed (refleksion, ræsonnement, selvforståelse). Artiklen fokuserer på den refleksive del." },
+              { front: "Fejlslutning om kausalitet", back: "At en ubevidst proces kommer først, udelukker ikke at en senere bevidst proces kan være nødvendig for handlingens udfald." },
+              { front: "Direkte vs. indirekte kontrol", back: "Bevidstheden styrer sjældent muskelbevægelser direkte, men ændrer adfærd ved planlægning, valg og evaluering." },
+              { front: "Causal chain argument", back: "Bevidste tanker kan være et nødvendigt led i en årsagskæde selv hvis andre led er ubevidste." },
+              { front: "Mental simulation – funktion", back: "At forestille sig en fremtidig handling øger sandsynligheden for senere udførsel, især når simulationen fokuserer på processen frem for resultatet." },
+              { front: "Mental practice – teori", back: "Mentalt øver man motoriske sekvenser og beslutningsforløb, hvilket forbedrer senere udførsel, især i tidlige læringsfaser." },
+              { front: "Implementation intentions", back: "\"Hvis X – så Y\"-planer skaber stærke koblinger mellem situation og handling, hvilket øger målrettet adfærd ud over almindelige intentioner." },
+              { front: "Anticipated emotion", back: "Forventede fremtidige følelser (særligt fortrydelse og skyld) styrer valg bedre end aktuelle følelser." },
+              { front: "Repetitive thought – funktion", back: "Vedvarende refleksion kan forbedre planlægning og problemløsning, men kan også give negative emotioner afhængigt af indhold og stil." },
+              { front: "Refleksion over fortiden", back: "Analyse af tidligere erfaringer forbedrer fremtidig adfærd; ren genoplevelse uden analyse fastholder negative følelser." },
+              { front: "Counterfactual thinking", back: "‘Hvis bare’-tanker påvirker fremtidig adfærd ved at fremkalde intentioner og ændrede strategier, især når fokus er på forbedring." },
+              { front: "Evaluativ vs. refleksiv stil", back: "Evaluativ refleksion (analyse) fremmer forbedring; ren genoplevelse (replay) har mindre læringsværdi." },
+              { front: "Logical reasoning – afhængighed af bevidsthed", back: "Logisk ræsonnement kræver bevidst bearbejdning; kognitiv belastning svækker evnen til at følge logiske regler." },
+              { front: "Unconscious thought – kritik", back: "Påstande om ubevidst overlegenhed bygger ofte på metodiske fejl; bevidst tænkning klarer bedre komplekse, regelbaserede problemer." },
+              { front: "Verbalization & explanation", back: "At forklare sin tænkning forbedrer problemløsning, da det fremmer struktureret, bevidst analyse." },
+              { front: "Accountability", back: "Forventning om at skulle forklare sine valg øger kvaliteten af beslutninger gennem mere bevidst informationsbehandling." },
+              { front: "Maladaptive effekter", back: "Bevidst tænkning kan give negative effekter som overkontrol, rumination, eller ‘choking under pressure’, især ved rutinefærdigheder." },
+              { front: "Verbal overshadowing", back: "Bevidst verbalisation kan forstyrre ikke‑verbale færdigheder og indsigtbaseret problemløsning." },
+              { front: "Choking under pressure", back: "Bevidste forsøg på at kontrollere automatiserede færdigheder svækker præcision og timing." },
+              { front: "Perspective taking – funktion", back: "At simulere andres perspektiv fremmer fleksible, sociale og stereotypekonsistente adfærdsmønstre." },
+              { front: "Empathy vs. perspective taking", back: "Empati handler om følelser; perspektivtagning om kognition. Perspektivtagning giver bredere adfærdsændringer." },
+              { front: "Vicarious depletion", back: "At tage perspektiv på en person under selvkontrol kan dræne egne selvkontrolressourcer." },
+              { front: "Self-concept manipulations", back: "Feedback, værdiafklaring og selvfremstilling ændrer adfærd gennem justering af identitetsmål." },
+              { front: "Self-affirmation", back: "Fokusering på kerneværdier reducerer defensivitet, øger åbenhed og forbedrer præstation under trussel." },
+              { front: "Moral licensing", back: "At tænke på egne gode handlinger kan efterfølgende legitimere mindre moralsk adfærd." },
+              { front: "Mental framing", back: "Hvordan en situation fortolkes (fx som mulighed, trussel, læring) ændrer adfærd og kognition." },
+              { front: "Goal framing", back: "Mastery-rammer øger læring; performance-rammer øger sårbarhed ved modstand." },
+              { front: "Approach vs avoidance", back: "Approach-orientering fremmer læring og udholdenhed; avoidance øger stress og fejl." },
+              { front: "Communication – funktion", back: "Bevidste tanker muliggør sprog, instruktion, forklaring og samarbejde, hvilket ubevidste processer ikke kan håndtere alene." },
+              { front: "Syntax og komplekse budskaber", back: "Forståelse af komplekse sætninger kræver bevidst behandling." },
+              { front: "Mutual understanding", back: "Bevidst simulation af andres mentale tilstande gør koordinering og sociale institutioner mulige." },
+              { front: "Overriding automatic responses", back: "Bevidsthed kan hæmme impulser, vaner, stereotypiske reaktioner og følelsesdrevne handlinger." },
+              { front: "Cognitive load effekter", back: "Belastning reducerer bevidst kontrol og gør adfærd mere impulsivt og automatisk." },
+              { front: "Habit disruption", back: "Når vaner brydes (fx flytning), får bevidste værdier større betydning for adfærd." },
+              { front: "Temporal integration", back: "Bevidsthed integrerer fortid, nutid og fremtid og gør langsigtet planlægning mulig." },
+              { front: "Abstract → concrete translation", back: "Bevidsthed oversætter abstrakte værdier til konkrete handlinger (implementation intentions, planlægning)." },
+              { front: "Cultural learning", back: "Sprog, normer og sociale regler kræver bevidst behandling og deles gennem kommunikation." },
+              { front: "Multiple possibilities", back: "Bevidsthed håndterer situationer med flere potentielle udfald og vælger mellem dem." },
+              { front: "Bevidsthed + det ubevidste", back: "Adfærd udspringer typisk af samspil—ikke enten eller—mellem bevidste og ubevidste processer." },
+             ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
