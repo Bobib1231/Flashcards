@@ -381,7 +381,157 @@ const kogFlashcardCategories = {
         { front: "Episodisk vs autobiografisk hukommelse", back: "Neuroimaging viser kun delvist overlap → laboratorietests fanger ikke hele den episodiske/autobiografiske kompleksitet." },
         { front: "Fortid og fremtid", back: "Hippocampus bruges både til at huske fortiden og forestille sig fremtiden → episodisk hukommelse er konstruktiv." },
         { front: "Overordnet konklusion", back: "System- og mode-modeller er for simple; component process + PSAs giver den mest fleksible og datakonsistente forklaring." }
-    ]
+  ],
+  "Kapitel 8 – Everyday memory (Komplet)":[
+    {
+      front: "Everyday memory vs. traditionel hukommelse",
+      back: "Hverdagens hukommelse er personlig og formålsdrevet (motiveret af egne mål), mens traditionel laboratorieforskning oftest er drevet af forsøgslederens krav om præcision."
+    },
+    {
+      front: "Økologisk validitet (Ecological validity)",
+      back: "Forskningens relevans for virkeligheden. Består af repræsentativitet (hvor naturlig opgaven er) og generaliserbarhed (om resultaterne gælder i den virkelige verden)."
+    },
+    {
+      front: "Saying-is-believing effekten",
+      back: "Når man bevidst tilpasser en fortælling for at underholde et publikum, hvilket efterfølgende skaber reelle forvrængninger og unøjagtigheder i ens egen hukommelse om begivenheden."
+    },
+    {
+      front: "Selvbiografisk hukommelse (AM)",
+      back: "Langtidshukommelse for episoder og viden fra ens eget liv. Den adskiller sig fra ren episodisk hukommelse ved at være mere kompleks, afgørende for ens identitet og indeholde semantiske elementer."
+    },
+    {
+      front: "Mentalisering (Mentalising)",
+      back: "Evnen til at opfatte og fortolke adfærd ud fra mentale tilstande (mål og behov). Neurologisk overlapper de hjernenetværk, der bruges til mentalisering, i høj grad med selvbiografisk hukommelse."
+    },
+    {
+      front: "Selvbiografisk hukommelses funktioner",
+      back: "Opdeles typisk i fire funktioner: Social funktion (skabe bånd), styrende funktion (bruge fortiden som guide), selv-funktion (kontinuitet i identitet) og selvforstærkning (self-enhancement)."
+    },
+    {
+      front: "Highly Superior Autobiographical Memory (HSAM)",
+      back: "En ekstremt sjælden evne til at huske næsten alle dage i sit liv i detaljer. Ofte ledsaget af tvangsprægede (OCD-lignende) tendenser til at tænke på fortiden og atypisk hjerneaktivitet (f.eks. større amygdala)."
+    },
+    {
+      front: "Flashbulb memories (Projektørhukommelse)",
+      back: "Levende, detaljerede minder om dramatiske begivenheder (f.eks. 9/11). Vidner har ekstremt høj tillid til disse minder, selvom forskning viser, at selve nøjagtigheden falmer ligesom ved almindelige hverdagsminder."
+    },
+    {
+      front: "Spædbarnsamnesi (Infantile amnesia)",
+      back: "Voksnes manglende evne til at huske de første 2-3 år af livet. Forklares teoretisk via fraværet af et 'kognitivt selv', manglende sprogudvikling og 'hippocampal neurogenesis' (nye neuroner erstatter gamle)."
+    },
+    {
+      front: "Reminiscence bump",
+      back: "Tendensen hos ældre til at huske uforholdsmæssigt meget fra deres ungdom og tidlige voksenalder (15-25 år), da dette er en periode med mange store, identitetsskabende overgange."
+    },
+    {
+      front: "Livs-script (Life script)",
+      back: "Kulturelle forventninger til rækkefølgen af store livsbegivenheder (uddannelse, ægteskab, børn). Teorien forklarer 'reminiscence bump', idet vores minder struktureres og styres af dette forventede manuskript."
+    },
+    {
+      front: "Self-memory system modellen (Conway & Pleydell-Pearce)",
+      back: "Teori om at selvbiografisk viden er gemt hierarkisk i tre niveauer: livsperioder, generelle begivenheder og begivenhedsspecifik viden. Alle niveauer interagerer med personens 'working self' (aktuelle mål)."
+    },
+    {
+      front: "Coherence vs. Correspondence (Hukommelse)",
+      back: "Mennesker ønsker at minderne er i overensstemmelse med deres nutidige selvbillede (coherence), men også at de er historisk korrekte (correspondence). Over tid vinder 'coherence' ofte, hvilket ændrer mindet."
+    },
+    {
+      front: "Generativ vs. Direkte genkaldelse",
+      back: "Generativ genkaldelse er en bevidst, eforfuld søgning efter minder ud fra aktuelle mål (top-down). Direkte genkaldelse sker ubesværet og automatisk, når den trigges af en bestemt ledetråd (bottom-up)."
+    },
+    {
+      front: "Over-generel hukommelse og depression",
+      back: "En kognitiv bias hos deprimerede, hvor de husker negative, brede kategorier (\"hver gang jeg fejler\") i stedet for specifikke episoder. Dette gør det sværere at løse problemer og fastholder depressionen."
+    },
+    {
+      front: "MEST og MemFlex (Interventioner)",
+      back: "Kognitive træningsprogrammer for depression. MEST træner patienter i at huske specifikke detaljer for at modvirke over-generel hukommelse. MemFlex træner balance, uddybning og fleksibilitet i minderne."
+    },
+    {
+      front: "Bekræftelsesbias hos øjenvidner",
+      back: "Når øjenvidners hukommelse forvrænges af forventninger og skemaer. F.eks. vil vidner ofte huske, at en bankrøver var mand og bar maske, selvom det ikke var tilfældet, fordi det passer med deres røveri-skema."
+    },
+    {
+      front: "Misinformations-effekten",
+      back: "Den forvrængende effekt, der opstår, når et vidne eksponeres for vildledende information (f.eks. ledende spørgsmål) efter en hændelse, hvilket får dem til at inkorporere forkerte detaljer i deres forklaring."
+    },
+    {
+      front: "Kildemisattribuering (Source misattribution)",
+      back: "En forklaring på misinformations-effekten. Øjenvidnet husker den forkerte information, men glemmer kilden, og tror fejlagtigt, at informationen stammer fra selve forbrydelsen og ikke fra de senere spørgsmål."
+    },
+    {
+      front: "Våbenfokus-effekten (Weapon focus effect)",
+      back: "Tendensen til, at vidner fokuserer intenst på et våben, hvilket drastisk forringer deres evne til at huske andre detaljer som gerningsmandens ansigt eller tøj."
+    },
+    {
+      front: "Easterbrooks hypotese (Attentional narrowing)",
+      back: "Teorien om, at høj stress og angst (f.eks. ved vold eller våben) indsnævrer personens opmærksomhed til udelukkende at fokusere på de mest centrale trusler, hvilket sletter hukommelsen for perifere detaljer."
+    },
+    {
+      front: "Ubevidst overførsel (Unconscious transference)",
+      back: "En hukommelsesfejl, hvor et vidne fejlagtigt udpeger et velkendt, men uskyldigt ansigt (f.eks. en tilfældig forbipasserende) som gerningsmanden i en line-up."
+    },
+    {
+      front: "Own-age bias og Other-race effect",
+      back: "Øjenvidner er bedst til at genkende og skelne ansigter, der har samme alder (own-age) og tilhører samme etniske gruppe (other-race) som dem selv, oftest på grund af større ekspertise/daglig eksponering."
+    },
+    {
+      front: "Post-identifikations feedback-effekten",
+      back: "Når politiet giver bekræftende feedback efter en udpegning (\"Godt, du fandt ham\"), stiger vidnets selvsikkerhed kunstigt meget, hvilket gør dem skråsikre i retten, selvom de oprindeligt var i tvivl."
+    },
+    {
+      front: "Estimator- vs. Systemvariabler",
+      back: "Estimatorvariabler er faktorer uden for politiets kontrol (belysning, stress under forbrydelsen). Systemvariabler er faktorer politiet kan kontrollere (interviewteknik, line-up procedure)."
+    },
+    {
+      front: "Dobbeltblind line-up",
+      back: "En line-up procedure, hvor hverken vidnet eller administratoren ved, hvem den egentlige mistænkte er. Dette forhindrer administratoren i at påvirke vidnet via ubevidste kropslige eller verbale signaler."
+    },
+    {
+      front: "Simultane vs. sekventielle line-ups",
+      back: "Simultane (alle vises på én gang) giver flest korrekte, men også flere forkerte udpegninger. Sekventielle (én ad gangen) får vidnet til at bruge en strengere vurdering, hvilket mindsker fejlagtige udpegninger."
+    },
+    {
+      front: "Det kognitive interview (CI)",
+      back: "Maksimaliserer vidners hukommelse via fire regler: (1) Mental genskabelse af konteksten, (2) Rapportering af alle detaljer, (3) Genkaldelse i omvendt rækkefølge, (4) Skift af fysisk/visuelt perspektiv."
+    },
+    {
+      front: "Encoding specificity principle i CI",
+      back: "Princippet om at genkaldelse er bedst, når testkonteksten matcher læringskonteksten. Dette er det teoretiske fundament for, hvorfor 'mental genskabelse af gerningsstedet' virker i det kognitive interview."
+    },
+    {
+      front: "Retrospektiv vs. Prospektiv hukommelse",
+      back: "Retrospektiv er at huske viden og episoder fra fortiden (mange eksterne ledetråde). Prospektiv er at huske at udføre en planlagt intention i fremtiden (fokus på timing, få eksterne ledetråde)."
+    },
+    {
+      front: "Tidsbaseret vs. Hændelsesbaseret prospektiv hukommelse",
+      back: "Tidsbaseret: Handlingen skal udføres på et specifikt tidspunkt (kræver indre overvågning). Hændelsesbaseret: Handlingen udløses af en bestemt situation (f.eks. at aflevere en besked, når man ser personen)."
+    },
+    {
+      front: "Stadier i prospektiv hukommelse",
+      back: "Zogg et al. opdeler processen i 5 faser: (1) Intentionsdannelse, (2) Retentionsinterval (vente), (3) Cue-detektion (opdage ledetråden), (4) Intentionsgenkaldelse, (5) Intentionsudførelse."
+    },
+    {
+      front: "Afbrydelser og Habit capture",
+      back: "Når folk udfører faste rutiner (f.eks. piloter), kan afbrydelser forårsage farlige prospektive fejl. Årsagen er ofte 'habit capture', hvor den indlærte vane kører videre på autopilot, og den afbrudte intention glemmes."
+    },
+    {
+      front: "Meta-hukommelse og OCD",
+      back: "Personer med OCD (tvangstanker) har en defekt meta-hukommelse (lav tillid til egne minder). Selvom deres faktiske hukommelse fejler intet, tvivler de på, om de låste døren, hvilket fører til gentagen tjekke-adfærd."
+    },
+    {
+      front: "Multiprocess framework (Fokal vs. non-fokal)",
+      back: "Teori om prospektiv hukommelse. Fokale opgaver har direkte overlap med intentionen og aktiverer spontan/automatisk genkaldelse. Non-fokale opgaver mangler overlap og kræver top-down strategisk overvågning."
+    },
+    {
+      front: "Dynamic multiprocess framework (Shelton & Scullin)",
+      back: "Bygger videre på multiprocess modellen og understreger, at vores valg mellem spontan genkaldelse og strategisk overvågning interagerer dynamisk og er stærkt styret af vores meta-kognition og forventninger."
+    },
+    {
+      front: "Implementeringsintentioner (Implementation intentions)",
+      back: "En effektiv strategi til at forbedre prospektiv hukommelse ved at skabe specifikke 'hvis-så' handlingsplaner (f.eks. 'Hvis jeg ser bageren, så køber jeg brød'). Dette gør handlingen automatiseret og frigiver kognitiv kapacitet."
+    }
+  ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
