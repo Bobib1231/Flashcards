@@ -531,7 +531,56 @@ const kogFlashcardCategories = {
           front: "Implementeringsintentioner (Implementation intentions)",
           back: "En effektiv strategi til at forbedre prospektiv hukommelse ved at skabe specifikke 'hvis-så' handlingsplaner (f.eks. 'Hvis jeg ser bageren, så køber jeg brød'). Dette gør handlingen automatiseret og frigiver kognitiv kapacitet."
         }
-      ]
+      ],
+
+        "Roediger & Butler 2011 – Retrieval Practice": [
+      { front: "Hovedpointe", back: "Retrieval practice er en stærk læringsmekanisme, der giver bedre langtidsretention end gentagen studietid." },
+      { front: "Testing effect", back: "Testning forbedrer senere hukommelse mere end genlæsning eller ingen re-eksponering." },
+      { front: "Aktiv vs passiv gentagelse", back: "Aktiv genkaldelse styrker hukommelsen bedre end passiv gennemlæsning." },
+      { front: "Antal retrievals", back: "5–7 succesfulde retrievals giver typisk optimal langtidsretention." },
+      { front: "Spacing", back: "Retrieval med længere intervaller mellem tests giver bedre retention end korte intervaller." },
+      { front: "Expanding retrieval", back: "Hurtig første retrieval + gradvist længere intervaller kan hjælpe på kort sigt, men lige intervaller virker bedst på langt sigt." },
+      { front: "Retrieval effort hypothesis", back: "Sværere retrieval → stærkere lagring; let retrieval giver minimal langtidseffekt." },
+      { front: "Feedback", back: "Feedback forstærker effekten af testning; særligt vigtigt ved multiple choice for at undgå læring af fejl." },
+      { front: "Forsinket feedback", back: "Forsinket feedback kan give bedre retention end øjeblikkelig feedback (spacing-effekt)." },
+      { front: "Transfer", back: "Retrieval practice forbedrer evnen til at anvende læring i nye situationer (nær og fjern transfer)." },
+      { front: "Teori – storage vs retrieval strength", back: "Retrieval styrker lagringsstyrke mest, når retrieval strength er lav (Bjork & Bjork)." },
+      { front: "Uddannelse", back: "Hyppige quizzer, aktive tests, spacing og feedback kan markant øge læring og fastholdelse." }
+    ],
+    
+    "Rubin 2005 – Basic-Systems Approach to Autobiographical Memory": [
+      { front: "Grundidé", back: "Autobiografisk hukommelse består af flere basale systemer (sanse-, rumlige-, emotionelle-, narrative-, sproglige- og bindingssystemer)." },
+      { front: "Multimodalitet", back: "Autobiografiske minder er komplekse og involverer flere sanser, følelser og personlige narrativer." },
+      { front: "Selvet som distribueret", back: "Selvet består af flere systemer; det er ikke en enkelt hukommelsesstruktur." },
+      { front: "Kulturelle life scripts", back: "Livshistorier påvirkes af kulturelle forventninger om typiske livsforløb." },
+      { front: "Recollection – vigtigste faktor", back: "Visuel vividness er den stærkeste prædiktor for oplevet genleving." },
+      { front: "Belief in accuracy", back: "Rumlig klarhed og narrativ koherens forudsiger tro på at mindet er korrekt." },
+      { front: "Blindfold-eksperiment", back: "Manglende visuel input mindsker senere recollection; senere visuelle cues hjælper kun hvis de passer til eksisterende hukommelse." },
+      { front: "Visuel amnesi", back: "Tab af visuel hukommelse fører ofte til omfattende autobiografisk amnesi, inkl. tab af barndomsminder." },
+      { front: "Depression og hukommelse", back: "Depressive personer producerer overgenerelle minder frem for specifikke." },
+      { front: "PTSD – vividness", back: "Traumeminder er ofte ekstremt visuelle og følelsesstærke, hvilket øger recollection." },
+      { front: "PTSD – narrativ sammenhæng", back: "Traumeminder er ikke nødvendigvis incoherente; det er traumets centralitet i livshistorien, der forudsiger PTSD." },
+      { front: "Neuroimaging", back: "Autobiografisk recall aktiverer bl.a. amygdala, hippocampus, PFC og sensoriske områder." },
+      { front: "Foto-paradigme", back: "Egne fotos giver stærkere hippocampal, parahippocampal og selv-relateret aktivitet end andres fotos." },
+      { front: "Konklusion", back: "Autobiografisk hukommelse bør forstås som interaktion mellem basale systemer frem for én samlet mekanisme." }
+    ],
+    
+    "Corkin 2002 – H.M. og den Mediale Temporallap": [
+      { front: "H.M.’s operation", back: "Bilateral medial temporallaps-resektion i 1953 reducerede epilepsi, men skabte alvorlig anterograd amnesi." },
+      { front: "Anterograd vs retrograd amnesi", back: "Ny episodisk og semantisk læring stærkt svækket; retrograd amnesi strækker sig ca. 11 år tilbage før operationen." },
+      { front: "Intakt STM", back: "Korttidshukommelse og arbejdshukommelse er relativt normal hos H.M." },
+      { front: "Deklarativ vs non-deklarativ", back: "Ny deklarativ hukommelse er tabt, men non-deklarativ læring som motorisk læring og priming er delvist bevaret." },
+      { front: "Spejltegning", back: "H.M. bliver bedre fra dag til dag uden at kunne huske tidligere træning." },
+      { front: "Priming", back: "Perceptuel priming er bevaret; konceptuel priming kræver eksisterende leksikon og er svækket for post-1953-ord." },
+      { front: "Granola–Jacuzzi-eksperimentet", back: "H.M. viser svag stem-priming for ord indlært efter operationen, men intakt perceptuel priming." },
+      { front: "Bevaret MTL-væv", back: "Caudal perirhinal og parahippocampal cortex er bevaret og understøtter residual funktion." },
+      { front: "Topografisk hukommelse", back: "H.M. kunne lære og tegne plantegningen af sit hus efter operationen, via langsom kortikal læring." },
+      { front: "Kompleks visuel genkendelse", back: "H.M. kan genkende billeder over måneder, sandsynligvis via familiarity, ikke recollection." },
+      { front: "fMRI", back: "Bevaret parahippocampal region viser opgave-relateret aktivering under encoding." },
+      { front: "Sprog og semantik", back: "Præmorbid semantisk viden og grammatik intakte; ny semantisk læring er begrænset men ikke nul." },
+      { front: "Selv-begreb", back: "H.M. har humor, moral og indsigt i sin tilstand – frontallapper understøtter et stabilt selv trods amnesi." },
+      { front: "Teoretisk betydning", back: "Casen viser at MTL er essentiel for ny deklarativ hukommelse, mens implicit læring og langsom semantik kan understøttes af andre netværk." }
+    ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
