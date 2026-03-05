@@ -580,7 +580,64 @@ const kogFlashcardCategories = {
       { front: "Sprog og semantik", back: "Præmorbid semantisk viden og grammatik intakte; ny semantisk læring er begrænset men ikke nul." },
       { front: "Selv-begreb", back: "H.M. har humor, moral og indsigt i sin tilstand – frontallapper understøtter et stabilt selv trods amnesi." },
       { front: "Teoretisk betydning", back: "Casen viser at MTL er essentiel for ny deklarativ hukommelse, mens implicit læring og langsom semantik kan understøttes af andre netværk." }
-    ]
+    ],
+
+          "Schacter et al. 2017 – Episodic Future Thinking": [
+          { front: "Episodic future thinking – definition", back: "Evnen til at forestille sig eller simulere specifikke personlige begivenheder, der kan ske i ens fremtid." },
+          { front: "Prospection – fire grundformer", back: "Simulation (konkrete scenarier), prediction (sandsynlighedsvurdering), intention (mål­sætning) og planning (trin mod mål) langs et episodisk–semantisk kontinuum." },
+          { front: "Constructive Episodic Simulation Hypothesis", back: "Episodisk hukommelse bruges til fleksibelt at hente og recombinere elementer fra fortiden til nye fremtidsscenarier – en proces der også kan skabe fejlerindringer." },
+          { front: "Autobiographical Interview (AI)", back: "Metode hvor udsagn deles i interne/episodiske detaljer (hvad, hvor, hvornår) og eksterne/semantiske detaljer; bruges til at sammenligne fortid og fremtid." },
+          { front: "AI-fund hos ældre og kliniske grupper", back: "Ældre og flere patientgrupper (fx depression, PTSD, MTL-skader) producerer færre episodiske detaljer og flere semantiske for både fortid og fremtid." },
+          { front: "Ikke-episodiske faktorer", back: "Narrativ stil, generelle sproglige evner og kognitiv kontrol kan påvirke både erindring, fremtidssimulering og billedbeskrivelse; derfor må rene episodiske bidrag isoleres." },
+          { front: "Episodic Specificity Induction (ESI)", back: "Kort træning i at fokusere på konkrete detaljer i fortidige episoder; øger episodiske detaljer selektivt i opgaver der kræver episodisk retrieval (fortid, fremtid, problemløsning)." },
+          { front: "Semantisk scaffolding-hypotese", back: "Semantisk viden giver en ramme for fremtidssimulering; ved semantisk demens kan fortid huskes nogenlunde, mens fremtidstænkning er stærkt reduceret." },
+          { front: "Core network / default mode network", back: "MTL (hippocampus m.fl.), posterior cingulate/retrosplenial, medial PFC samt lateral temporal og parietal cortex aktiveres både ved episodisk hukommelse og fremtidssimulering." },
+          { front: "Forskelle mellem fortid og fremtid i hjernen", back: "Nogle core-netværksområder er mere aktive ved fremtid (fx visse PFC/parietale regioner), andre ved fortid (fx parahippocampus/retrosplenial – stærkere kontekstbehandling)." },
+          { front: "Repetition suppression-paradigme", back: "Ved gentagen simulering af samme personer, objekter eller steder ses signalreduktion i de regioner der koder netop disse elementer; bruges til at identificere indholdsspecifikke processer." },
+          { front: "Hippocampus’ rolle", back: "Særligt fornyede/novelle kombinationer af person–sted–handling; involveret i scene construction, detaljerecombination og encoding af fremtidssimulationer til LTM." },
+          { front: "vmPFC’s rolle (Box 2)", back: "Tilgå skematiseret viden og kalkulere forventet affektiv værdi af de forestillede scenarier; understøtter både konstruktion og værdisætning af fremtidige episoder." },
+          { front: "Funktion – beslutningstagning (delay discounting)", back: "Når personer forestiller sig konkrete, personlige fremtidige belønninger (fx købe computer), reduceres tilbøjeligheden til at vælge små, umiddelbare belønninger." },
+          { front: "Funktion – sundhedsadfærd", back: "Fremtidssimulation af sundhedsrelaterede mål (fx ønsket vægt) kan reducere kalorieindtag, alkoholforbrug og cigaretrygning i eksperimentelle studier." },
+          { front: "Funktion – emotion regulation", back: "ESI før bekymringsopgaver øger konstruktive løsningsforslag, bedre reappraisal og højere velbefindende; supression af frygtede scenarier kan omvendt reducere angst og vividness." },
+          { front: "Funktion – prospektiv hukommelse", back: "At simulere udførelsen af en fremtidig intention (fx hente brød på vej hjem) forbedrer sandsynligheden for, at intentionen huskes og gennemføres." },
+          { front: "Funktion – navigation (Box 3)", back: "Mentale simuleringer af ruter er tidsmæssigt komprimerede og forudsiger mere effektiv navigation; hippocampus og relaterede områder repræsenterer fremtidige mål." },
+          { front: "Funktion – identitet og kreativitet", back: "Fremtidssimulering bidrager til opbygning af selvfortællingen og hænger sammen med divergent tænkning og kognitiv fleksibilitet." }
+        ],
+            "Magnussen 2009 – Vidnepsykologi (teori)": [
+          { front: "Vidnepsykologi – fokus", back: "Undersøger menneskers perception, hukommelse, vurderinger og beslutninger i retslige kontekster." },
+          { front: "Pålidelighed vs troværdighed", back: "Pålidelighed = hvor godt udsagn stemmer med virkeligheden; Troværdighed = hvor sandfærdigt vidnet fremstår. De to er uafhængige." },
+          { front: "Grundantagelse i forskningen", back: "Hukommelse er rekonstruktiv og påvirkelig; selv oprigtige vidner laver fejl." },
+          { front: "Perceptionsbegrænsninger", back: "Vidner opfatter selektivt, baseret på opmærksomhed, forventninger og kontekst; dette påvirker senere hukommelse." },
+          { front: "Hukommelsesstruktur", back: "Erindringer lagres ikke som præcise kopier, men genskabes ud fra fragmenter og generel viden." },
+          { front: "Fejlattribution", back: "Ved genkaldelse kan kilder sammenblandes: detaljer fra senere information, andre mennesker eller egne forventninger inkorporeres." },
+          { front: "Indflydelse af tid", back: "Hukommelse forringes over tid; detaljetab øger risikoen for udfyldninger og fejlinformation." },
+          { front: "Ledende spørgsmål", back: "Formuleringen af spørgsmål kan ændre vidners erindring og skabe falske detaljer." },
+          { front: "Genkendelse vs genkaldelse", back: "Fri genkaldelse giver færre detaljer men færre fejl; genkendelse er mere påvirkelig af bias og forventninger." },
+          { front: "Cross‑race-effekt", back: "Folk genkender ansigter fra egen etnisk gruppe bedre end ansigter fra andre grupper." },
+          { front: "Forskningstyper", back: "Laboratorieeksperimenter giver kontrol; kvasinaturalistiske studier simulerer virkelighed; naturalistiske studier undersøger faktiske hændelser." },
+          { front: "Økologisk validitet", back: "Laboratoriefund og real-life fund stemmer generelt overens; kritikken af kunstighed er overdrevet." },
+          { front: "Rekonstruktive processer", back: "Erindringer formes af både oprindelige oplevelser og efterfølgende kognition, sociale påvirkninger og forventninger." },
+          { front: "Børns hukommelse (teori)", back: "Børn er mere suggestible og dårligere til kilde-monitorering; de påvirkes lettere af spørgsmål og gentagne afhøringer." },
+          { front: "Voksnes fejltyper", back: "Selvsikre voksne kan lave alvorlige fejl pga. bias, manglende kildekontrol, selektiv perception og konfabulation." },
+          { front: "Kritisk pointe", back: "Retssystemer må ikke basere domme på intuition om vidners sikkerhed; de må basere sig på empirisk viden om hukommelsens begrænsninger." }
+        ],
+        
+        "Berntsen 1998 – Falske erindringer og terapi (teori)": [
+          { front: "Artiklens fokus", back: "Konflikten mellem klinisk traumeteori og eksperimentel hukommelsesforskning om 'genfundne' incest-erindringer." },
+          { front: "Dissociation vs fortrængning", back: "Klinisk trauma-ætiologi ser dissociation som splitting af traumatiske oplevelser; hukommelsesforskning ser hukommelse som rekonstruktiv og integreret." },
+          { front: "Traumemodellen (klinisk)", back: "Antager at ekstreme traumer lagres særskilt og kan blive utilgængelige i årevis, for senere at dukke op næsten uændret i terapi." },
+          { front: "Kognitiv model (eksperimentel)", back: "Erindringer konstrueres ud fra schemata; der findes ikke komplette, uforanderlige spor der kan 'genfindes' intakte." },
+          { front: "Source monitoring", back: "Folk kan forveksle forestillinger, fortællinger og suggestioner med egne oplevelser; centralt i falske erindringer." },
+          { front: "Suggestibilitet", back: "Mennesker, især i terapeutiske kontekster, er modtagelige for påvirkning via løse hypoteser, visualisering og ledende spørgsmål." },
+          { front: "Genkaldelsesterapi – teoretisk problem", back: "Antagelsen om, at dissocierede traumer kan genfindes præcist, har ingen støtte i hukommelsesforskningen." },
+          { front: "Schematisering", back: "Gentagne hændelser danner generelle, robuste skemaer, ikke total amnesi; uforeneligt med massiv glemsel af langvarige overgreb." },
+          { front: "Emotion og hukommelse", back: "Stærkt følelsesladede oplevelser huskes ofte bedre; det taler imod at voldsomme traumer glemmes totalt." },
+          { front: "Barndomsamnesi", back: "Minder fra før 2–3-årsalderen kan ikke lagres stabilt; detaljerede tidlige barndomserindringer i terapi er derfor tvivlsomme." },
+          { front: "Kulturel kontekst", back: "Erindringer formes af samtidige narrativer og sociale forklaringsmodeller, som kan skabe rammer for falske erindringer." },
+          { front: "Identitet og skemaer", back: "Terapeutisk fokus på bestemte forklaringsrammer kan ændre klientens selvforståelse og skabe erindringsillusioner baseret på skemaaktivering." },
+          { front: "Kernekonflikt", back: "Klinisk praksis ser tilbagekaldte traumer som sandhed; forskningen viser hukommelsen som fleksibel, fejlbarlig og rekonstruktiv." },
+          { front: "Berntsens teoretiske pointe", back: "Hukommelsen må forstås inden for en konstruktivistisk ramme; terapeuter må tage højde for falske erindringer som naturligt produkt af hukommelsesprocesser." }
+        ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
