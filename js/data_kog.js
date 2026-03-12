@@ -705,7 +705,78 @@ const kogFlashcardCategories = {
               { front: "Cultural learning", back: "Sprog, normer og sociale regler kræver bevidst behandling og deles gennem kommunikation." },
               { front: "Multiple possibilities", back: "Bevidsthed håndterer situationer med flere potentielle udfald og vælger mellem dem." },
               { front: "Bevidsthed + det ubevidste", back: "Adfærd udspringer typisk af samspil—ikke enten eller—mellem bevidste og ubevidste processer." },
-             ]
+             ],
+  
+    "Eysenck og Keane – Kapitel 16: Bevidsthed": [
+              { front: "Bevidsthed: Indhold vs. niveau", back: "Indhold = hvad vi er bevidste om; niveau = hvor vågne/alerte vi er. Niveau er en tilstand, indhold er oplevelsens materiale." },
+              { front: "Access consciousness", back: "Bevidsthedstype hvor indhold kan rapporteres og bruges i andre mentale processer som opmærksomhed og hukommelse." },
+              { front: "Phenomenal consciousness", back: "Den rå, subjektive oplevelse – hvordan noget føles. Ikke nødvendigvis rapporterbart i detaljer." },
+              { front: "Problemer med adskillelsen (access vs. phenomenal)", back: "Vi kender kun andres oplevelser via selvrapport, hvilket gør grænsen mellem typerne uklar." },
+              { front: "Højere vs. basal bevidsthed", back: "Basal = oplevelser i nuet; højere = selvrefleksion, ræsonnering og forståelse af eget sind." },
+            
+              // Funktioner af bevidsthed
+              { front: "Funktion: Perception", back: "Bevidsthed hjælper os med at opfatte og fortolke omgivelserne." },
+              { front: "Funktion: Social forståelse", back: "At forstå andres mentale tilstande bygger på samme mekanismer som vores egen selvbevidsthed." },
+              { front: "Funktion: Handlingskontrol", back: "Bevidsthed er involveret i valg, planlægning og handling – dog i samspil med ubevidste processer." },
+              { front: "Funktion: At tænke ud over nuet", back: "Bevidste tanker vandrer ofte, hvilket hjælper med planlægning og problemløsning." },
+              { front: "Funktion: Integration af information", back: "Bevidsthed kombinerer komplekse informationer til brugbare helheder." },
+            
+              // Ubevidste processer
+              { front: "Yes-It-Can-princippet (Hassin)", back: "Påstand om at ubevidste processer kan udføre alle højere kognitive funktioner. Men forskning viser begrænsninger." },
+              { front: "Eksempel: Ubevidste mål", back: "Subliminale mål kan påvirke adfærd, men effekten kræver ofte relevans for personen." },
+            
+              // Sense of agency og fri vilje
+              { front: "Sense of agency", back: "Følelsen af at være ophav til egne handlinger. Kan manipuleres eksperimentelt." },
+              { front: "Illusion of conscious will (Wegner)", back: "Vi tror vores bevidste intention skaber handlinger, selv når de reelt udløses ubevidst." },
+              { front: "Libet-studiet", back: "Hjernens forberedelsessignal kommer før bevidst intention, men fortolkning er omstridt." },
+            
+              // Vurdering af bevidst oplevelse
+              { front: "Under-rapportering", back: "Vi oplever mere end vi kan rapportere – fx i ikonisk hukommelse." },
+              { front: "Over-rapportering", back: "Vi tror vi ser mere detaljeret end muligt, bl.a. pga. top‑down udfyldning." },
+              { front: "Sperlings ikoniske hukommelse", back: "Folk ser mange flere bogstaver end de når at rapportere." },
+              { front: "Change blindness", back: "Vi opdager ofte ikke ændringer, selv store, når opmærksomheden er væk." },
+            
+              // Vegetativ tilstand og minimal bevidsthed
+              { front: "Vegetativ tilstand", back: "Vågenhed uden tegn på bevidsthed." },
+              { front: "Minimalt bevidsthedsniveau", back: "Nogle tegn på bevidsthed, men stærkt reducerede." },
+              { front: "Neuroimaging i vegetativ tilstand", back: "Nogle patienter viser bevidsthed i neurodata trods manglende adfærdsmæssige signaler." },
+            
+              // Neural correlates of consciousness (NCC)
+              { front: "NCC: Problem", back: "Hjernens aktivitet viser både bevidsthed og andre processer – svært at adskille." },
+              { front: "Tidlig vs. sen aktivering", back: "Tidlige visuelle processer ligner hinanden for bevidste og ubevidste stimuli; forskelle opstår først senere." },
+              { front: "Recurrent processing", back: "Top‑down signalering der binder information sammen og normalt er nødvendig for bevidst perception." },
+              { front: "Feedforward processing", back: "Hurtig fremadrettet bearbejdning uden bevidst oplevelse." },
+            
+              // Maskering og TMS
+              { front: "Backward masking", back: "Efterfølgende stimulus forhindrer rekurrent bearbejdning og dermed bevidst perception." },
+              { front: "TMS og bevidsthed", back: "Forstyrrelse af visuelle områder kan fjerne bevidst oplevelse uden at påvirke tidlige processer." },
+            
+              // Global Workspace Theory
+              { front: "Global Workspace Theory (GWT)", back: "Bevidsthed opstår, når information bliver globalt tilgængelig via udbredt hjerneaktivering." },
+              { front: "Ignition (GWT)", back: "Pludselig synkronisering mellem flere hjerneområder, som gør information bevidst." },
+              { front: "Rolle: Prefrontal cortex", back: "Ofte aktiv ved bevidsthed, men måske ikke nødvendig i alle tilfælde." },
+              { front: "Attention → consciousness", back: "GWT antager opmærksomhed typisk går forud for bevidsthed." },
+            
+              // Integrated Information Theory (IIT)
+              { front: "Integrated Information Theory (IIT)", back: "Bevidsthed = graden af integreret information i et system." },
+              { front: "Φ (phi)", back: "Mål for hvor integreret systemets information er – høj Φ = høj bevidsthed." },
+            
+              // Opmærksomhed og bevidsthed
+              { front: "Opmærksomhed uden bevidsthed", back: "Muligt, fx påvirker subliminale stimuli opmærksomhed." },
+              { front: "Bevidsthed uden opmærksomhed?", back: "Debatteret. Mange undersøgelser tyder på nej, men ikke entydigt." },
+            
+              // Split-brain – er bevidsthed delt?
+              { front: "Split-brain: grundidé", back: "Corpus callosum kappes, hvilket kan skabe to semi-uafhængige systemer." },
+              { front: "To bevidstheder (Sperry)", back: "Hver hemisfære har sin egen bevidsthed og kan udføre separate funktioner." },
+              { front: "Interpreter (venstre hemisfære)", back: "Venstre hjernehalvdel skaber forklaringer for adfærd også udløst af højre hemisfære." },
+              { front: "Beviser for to strømme", back: "Hver hånd kan give forskellige svar; nogle patienter oplever konflikt mellem hænder." },
+              { front: "Beviser for én strøm", back: "Patienter rapporterer typisk en sammenhængende oplevelse – hverdag fungerer normalt." },
+              { front: "Hemisfærers plasticitet", back: "Den resterende hemisfære kan overtage funktioner efter skade eller kirurgi." },
+            
+              // Generelle konklusioner
+              { front: "Bevidsthed = integreret aktivitet", back: "De fleste teorier er enige om at bevidsthed kræver omfattende, koordineret hjerneaktivitet." },
+              { front: "Bevidsthedens udfordringer", back: "Adskillelse af bevidst oplevelse, opmærksomhed og rapportering er komplekst." }
+       ]
 };
 
 // Tomt array til quiz-spørgsmål. Når dette er tomt, skjules "Quiz Mode" knappen automatisk.
