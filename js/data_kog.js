@@ -707,7 +707,7 @@ const kogFlashcardCategories = {
               { front: "Bevidsthed + det ubevidste", back: "Adfærd udspringer typisk af samspil—ikke enten eller—mellem bevidste og ubevidste processer." },
              ],
   
-    "Eysenck og Keane – Kapitel 16: Bevidsthed": [
+    "Kapitel 16 - Bevidsthed": [
               { front: "Bevidsthed: Indhold vs. niveau", back: "Indhold = hvad vi er bevidste om; niveau = hvor vågne/alerte vi er. Niveau er en tilstand, indhold er oplevelsens materiale." },
               { front: "Access consciousness", back: "Bevidsthedstype hvor indhold kan rapporteres og bruges i andre mentale processer som opmærksomhed og hukommelse." },
               { front: "Phenomenal consciousness", back: "Den rå, subjektive oplevelse – hvordan noget føles. Ikke nødvendigvis rapporterbart i detaljer." },
