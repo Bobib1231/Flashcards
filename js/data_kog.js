@@ -382,7 +382,7 @@ const kogFlashcardCategories = {
         { front: "Fortid og fremtid", back: "Hippocampus bruges både til at huske fortiden og forestille sig fremtiden → episodisk hukommelse er konstruktiv." },
         { front: "Overordnet konklusion", back: "System- og mode-modeller er for simple; component process + PSAs giver den mest fleksible og datakonsistente forklaring." }
   ],
-  "Kapitel 8 – Everyday memory (Komplet)":[
+  "Kapitel 8 – Everyday memory":[
         {
           front: "Everyday memory vs. traditionel hukommelse",
           back: "Hverdagens hukommelse er personlig og formålsdrevet (motiveret af egne mål), mens traditionel laboratorieforskning oftest er drevet af forsøgslederens krav om præcision."
@@ -548,7 +548,7 @@ const kogFlashcardCategories = {
       { front: "Uddannelse", back: "Hyppige quizzer, aktive tests, spacing og feedback kan markant øge læring og fastholdelse." }
     ],
     
-    "Rubin 2005 – Basic-Systems Approach to Autobiographical Memory": [
+    "Rubin 2005 – Autobiographical Memory": [
       { front: "Grundidé", back: "Autobiografisk hukommelse består af flere basale systemer (sanse-, rumlige-, emotionelle-, narrative-, sproglige- og bindingssystemer)." },
       { front: "Multimodalitet", back: "Autobiografiske minder er komplekse og involverer flere sanser, følelser og personlige narrativer." },
       { front: "Selvet som distribueret", back: "Selvet består af flere systemer; det er ikke en enkelt hukommelsesstruktur." },
@@ -565,7 +565,7 @@ const kogFlashcardCategories = {
       { front: "Konklusion", back: "Autobiografisk hukommelse bør forstås som interaktion mellem basale systemer frem for én samlet mekanisme." }
     ],
     
-    "Corkin 2002 – H.M. og den Mediale Temporallap": [
+    "Corkin 2002 – H.M.": [
       { front: "H.M.’s operation", back: "Bilateral medial temporallaps-resektion i 1953 reducerede epilepsi, men skabte alvorlig anterograd amnesi." },
       { front: "Anterograd vs retrograd amnesi", back: "Ny episodisk og semantisk læring stærkt svækket; retrograd amnesi strækker sig ca. 11 år tilbage før operationen." },
       { front: "Intakt STM", back: "Korttidshukommelse og arbejdshukommelse er relativt normal hos H.M." },
@@ -603,7 +603,7 @@ const kogFlashcardCategories = {
           { front: "Funktion – navigation (Box 3)", back: "Mentale simuleringer af ruter er tidsmæssigt komprimerede og forudsiger mere effektiv navigation; hippocampus og relaterede områder repræsenterer fremtidige mål." },
           { front: "Funktion – identitet og kreativitet", back: "Fremtidssimulering bidrager til opbygning af selvfortællingen og hænger sammen med divergent tænkning og kognitiv fleksibilitet." }
         ],
-            "Magnussen 2009 – Vidnepsykologi (teori)": [
+            "Magnussen 2009 – Vidnepsykologi": [
           { front: "Vidnepsykologi – fokus", back: "Undersøger menneskers perception, hukommelse, vurderinger og beslutninger i retslige kontekster." },
           { front: "Pålidelighed vs troværdighed", back: "Pålidelighed = hvor godt udsagn stemmer med virkeligheden; Troværdighed = hvor sandfærdigt vidnet fremstår. De to er uafhængige." },
           { front: "Grundantagelse i forskningen", back: "Hukommelse er rekonstruktiv og påvirkelig; selv oprigtige vidner laver fejl." },
@@ -622,7 +622,7 @@ const kogFlashcardCategories = {
           { front: "Kritisk pointe", back: "Retssystemer må ikke basere domme på intuition om vidners sikkerhed; de må basere sig på empirisk viden om hukommelsens begrænsninger." }
         ],
         
-        "Berntsen 1998 – Falske erindringer og terapi (teori)": [
+        "Berntsen 1998 – Falske erindringer og terapi": [
           { front: "Artiklens fokus", back: "Konflikten mellem klinisk traumeteori og eksperimentel hukommelsesforskning om 'genfundne' incest-erindringer." },
           { front: "Dissociation vs fortrængning", back: "Klinisk trauma-ætiologi ser dissociation som splitting af traumatiske oplevelser; hukommelsesforskning ser hukommelse som rekonstruktiv og integreret." },
           { front: "Traumemodellen (klinisk)", back: "Antager at ekstreme traumer lagres særskilt og kan blive utilgængelige i årevis, for senere at dukke op næsten uændret i terapi." },
@@ -639,7 +639,7 @@ const kogFlashcardCategories = {
           { front: "Berntsens teoretiske pointe", back: "Hukommelsen må forstås inden for en konstruktivistisk ramme; terapeuter må tage højde for falske erindringer som naturligt produkt af hukommelsesprocesser." }
         ],
 
-            "Cant et al. 2012 – Near-Death Experiences (teori)": [
+            "Cant et al. 2012 – Near-Death Experiences": [
           { front: "NDE – definition", back: "Usædvanlige erindringer oplevet i forbindelse med livstruende tilstande, ofte under bevidstløshed." },
           { front: "Kerneelementer i NDE", back: "Kognitive (tidsforvrængning, livsgennemgang), affektive (fred, glæde), perceptuelle (lys, skærpede sanser), og transcendente (grænse, entiteter)." },
           { front: "Forekomst", back: "4–9% i befolkningen og op til ca. 20% blandt patienter i kritiske tilstande; kan også forekomme ved subjektiv livsfare." },
@@ -652,7 +652,7 @@ const kogFlashcardCategories = {
           { front: "Klinisk relevans", back: "Sundhedspersonale bør støtte neutral samtale om NDE og facilitere tryghed, refleksion og eventuel rådgivning." }
         ],
         
-        "Mueller & Oppenheimer 2014 – Longhand vs Laptop Notetagning (teori)": [
+        "Mueller & Oppenheimer 2014 – Notetagning ": [
           { front: "Hovedfund", back: "Longhand-noter fører til bedre konceptuel læring end laptop-noter – selv uden distraktion." },
           { front: "Encoding vs external storage", back: "Noter hjælper via dyb bearbejdning (encoding) og via lagring til senere brug (external storage). Laptop forskellen skyldes encoding." },
           { front: "Generativ vs verbatim notetagning", back: "Generativ notetagning (omskrivning) giver dyb behandling; verbatim notetagning giver overfladisk behandling." },
@@ -664,7 +664,7 @@ const kogFlashcardCategories = {
           { front: "Konsekvens for undervisning", back: "Selv korrekt brugte laptops (uden distraktion) kan skade læring, hvorfor longhand ofte bør foretrækkes." }
         ],
 
-        "Baumeister et al. 2011 – Do Conscious Thoughts Cause Behavior? (teori)": [
+        "Baumeister et al. 2011 – Do Conscious Thoughts Cause Behavior": [
               { front: "Hovedpointe", back: "Bevidste tanker har kausal effekt på adfærd, primært indirekte, forsinket og i samspil med ubevidste processer." },
               { front: "To typer bevidsthed", back: "Fenomenal bevidsthed (oplevelser) og refleksiv bevidsthed (refleksion, ræsonnement, selvforståelse). Artiklen fokuserer på den refleksive del." },
               { front: "Fejlslutning om kausalitet", back: "At en ubevidst proces kommer først, udelukker ikke at en senere bevidst proces kan være nødvendig for handlingens udfald." },
