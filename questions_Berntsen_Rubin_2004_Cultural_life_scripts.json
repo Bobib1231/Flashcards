@@ -1,0 +1,247 @@
+{
+  "source": "Berntsen & Rubin (2004)",
+  "chapter": "Cultural life scripts structure recall from autobiographical memory",
+  "total_questions": 20,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Hvad er en 'life script' ifølge Berntsen og Rubin (2004)?",
+      "options": [
+        "A) En individuel persons unikke livsfortælling baseret på personlige erindringer",
+        "B) En kulturelt delt repræsentation af rækkefølgen og timingen af vigtige livsbegivenheder",
+        "C) En neurologisk struktur i hippocampus der organiserer episodiske minder",
+        "D) En terapeutisk teknik til at rekonstruere traumatiske minder"
+      ],
+      "correct_answer": "B",
+      "explanation": "Berntsen og Rubin definerer life scripts som kulturelt delte forventninger til rækkefølgen og timingen af vigtige livsbegivenheder i et prototypisk livsforløb inden for en given kultur."
+    },
+    {
+      "id": 2,
+      "question": "Hvad er 'reminiscence bump' i forskning om autobiografisk hukommelse?",
+      "options": [
+        "A) En tendens til at huske begivenheder fra de seneste 5 år bedre end ældre begivenheder",
+        "B) En stigning i antallet af erindringer fra det andet og tredje årti af livet",
+        "C) En forøget hukommelse for traumatiske begivenheder i alderdommen",
+        "D) En tendens til at overvurdere vigtigheden af barndomsminder"
+      ],
+      "correct_answer": "B",
+      "explanation": "Reminiscence bump refererer til den observerede stigning i antallet af autobiografiske minder fra det andet og tredje årti af livet (ca. 15-30 år), som afviger fra en monotont aftagende kurve."
+    },
+    {
+      "id": 3,
+      "question": "Hvilken central forskel fandt Berntsen og Rubin (2002) mellem positive og negative minder i relation til reminiscence bump?",
+      "options": [
+        "A) Positive minder var mere detaljerede end negative minder i bump-perioden",
+        "B) Der var et tydeligt bump for positive minder, men ikke for negative minder",
+        "C) Negative minder viste et stærkere bump end positive minder",
+        "D) Både positive og negative minder viste et lignende bump i 20'erne"
+      ],
+      "correct_answer": "B",
+      "explanation": "Berntsen og Rubin (2002) fandt et klart bump i 20'erne for de vigtigste og lykkeligste minder, mens data for de tristeste og mest traumatiske minder kunne forklares ved en monotont aftagende retentionsfunktion."
+    },
+    {
+      "id": 4,
+      "question": "Hvad er den grundlæggende forskel mellem en 'life script' og en 'life story' ifølge Berntsen og Rubin?",
+      "options": [
+        "A) En life script er kortere end en life story",
+        "B) En life script er kulturelt delt semantisk viden, mens en life story er unik, individuel og del af episodisk viden",
+        "C) En life script fokuserer på negative begivenheder, mens en life story fokuserer på positive",
+        "D) En life script dannes i barndommen, mens en life story dannes i voksenalderen"
+      ],
+      "correct_answer": "B",
+      "explanation": "Life scripts er kulturelt delt semantisk viden, der måles ved at bede om begivenheder i et stereotypisk liv. Life stories er unikke, individuelle og del af autobiografisk viden, der måles ved at bede en person fortælle om sit eget liv."
+    },
+    {
+      "id": 5,
+      "question": "Hvilken type begivenheder inkluderes primært i life scripts ifølge teorien?",
+      "options": [
+        "A) Biologisk bestemte begivenheder som pubertet og menopause",
+        "B) Tilfældige og uventede begivenheder som ulykker og lottogevinster",
+        "C) Kulturelt vigtige, forventede overgangsbegivenheder med aldersnormer",
+        "D) Traumatiske begivenheder der markerer vendepunkter i livet"
+      ],
+      "correct_answer": "C",
+      "explanation": "Life scripts inkluderer kun begivenheder der betragtes som vigtige, forventede overgangsbegivenheder i den kulturelle kontekst, med tilhørende aldersnormer. Begivenheder som ulykker eller lottogevinster har ingen aldersnormer og indgår ikke."
+    },
+    {
+      "id": 6,
+      "question": "Hvad viste Studie 1 med 1.485 danske respondenter om aldersestimaterne for positive versus negative begivenheder?",
+      "options": [
+        "A) Standardafvigelserne var større for positive begivenheder end for negative",
+        "B) Respondenter var mere sikre på aldersestimaterne for negative begivenheder",
+        "C) Standardafvigelserne var signifikant mindre for positive begivenheder (vigtigste, lykkeligste, mest forelsket) end for negative",
+        "D) Der var ingen forskel i standardafvigelser mellem positive og negative begivenheder"
+      ],
+      "correct_answer": "C",
+      "explanation": "I Studie 1 var standardafvigelserne for aldersestimaterne signifikant lavere for de tre positive begivenheder (vigtigste: 14.63, lykkeligste: 13.76, mest forelsket: 9.19) end for de tre negative (tristeste: 20.33, mest bange: 22.33, mest traumatiske: 17.83)."
+    },
+    {
+      "id": 7,
+      "question": "Hvad var den metodologiske procedure i Studie 1 (Berntsen & Rubin, 2004)?",
+      "options": [
+        "A) Deltagerne blev bedt om at huske deres egne vigtigste livsbegivenheder",
+        "B) Deltagerne estimerede alderen for en hypotetisk 100-årig persons emotionelle begivenheder",
+        "C) Deltagerne rangordnede en liste af forudbestemte livsbegivenheder efter vigtighed",
+        "D) Deltagerne gennemgik strukturerede interviews om deres autobiografiske minder"
+      ],
+      "correct_answer": "B",
+      "explanation": "I Studie 1 estimerede 1.485 danske respondenter alderen for en hypotetisk 100-årig persons begivenheder (lykkeligste, tristeste, vigtigste, mest traumatiske, mest bange og mest forelskede oplevelse). Dette design adskiller life script-viden fra personlige minder."
+    },
+    {
+      "id": 8,
+      "question": "Hvad var den primære opgave for deltagerne i Studie 2 (Berntsen & Rubin, 2004)?",
+      "options": [
+        "A) At rangordne 20 forudbestemte livsbegivenheder efter sandsynlighed",
+        "B) At skrive de syv vigtigste begivenheder de forestillede sig ville ske i et prototypisk spædbarn's liv",
+        "C) At estimere alderen for emotionelle begivenheder i en 100-årig persons liv",
+        "D) At genkalde deres egne syv vigtigste livsbegivenheder"
+      ],
+      "correct_answer": "B",
+      "explanation": "I Studie 2 blev 103 psykologistuderende bedt om at forestille sig et prototypisk spædbarn og skrive de syv vigtigste begivenheder, de forestillede sig ville ske i dette barns liv, i den rækkefølge de kom til dem."
+    },
+    {
+      "id": 9,
+      "question": "Hvilke to faktorer var de stærkeste prædiktorer for, hvor hyppigt en begivenhed blev nævnt i Studie 2?",
+      "options": [
+        "A) Prævalens og vigtighed",
+        "B) Alder ved begivenheden og prævalens",
+        "C) Valens og om begivenheden var placeret i bump-perioden (15-30 år)",
+        "D) Vigtighed og alder ved begivenheden"
+      ],
+      "correct_answer": "C",
+      "explanation": "Den multiple regressionsanalyse i Studie 2 viste, at valens (β=.34) og om begivenheden var placeret i bump-perioden (β=.29) var de eneste signifikante prædiktorer. Prævalens, vigtighed og alder ved begivenheden var ikke signifikante."
+    },
+    {
+      "id": 10,
+      "question": "Hvilken begivenhed blev nævnt hyppigst i Studie 2 med 93 ud af 103 deltagere?",
+      "options": [
+        "A) Ægteskab",
+        "B) At begynde i skole",
+        "C) At få børn",
+        "D) At forlade hjemmet"
+      ],
+      "correct_answer": "C",
+      "explanation": "'At få børn' (Having children) blev nævnt af 93 ud af 103 deltagere og var dermed den hyppigst nævnte begivenhed, efterfulgt af ægteskab (77) og at begynde i skole (68)."
+    },
+    {
+      "id": 11,
+      "question": "Hvad er den 'selvnarrative' forklaring på reminiscence bump, og hvorfor kritiserer Berntsen og Rubin den?",
+      "options": [
+        "A) Den forklarer bumpen ved biologiske ændringer i hjernen; kritiseres fordi den ignorerer kulturelle faktorer",
+        "B) Den forklarer bumpen ved dannelsen af en stabil selvfortælling i ungdommen; kritiseres fordi den ikke kan forklare fraværet af bump for negative minder uden yderligere antagelser",
+        "C) Den forklarer bumpen ved øget rehearsal af minder; kritiseres fordi rehearsal ikke er målbart",
+        "D) Den forklarer bumpen ved bedre indkodning i ungdommen; kritiseres fordi indkodning er ens for alle aldersgrupper"
+      ],
+      "correct_answer": "B",
+      "explanation": "Den selvnarrative forklaring (Fitzgerald, 1988) hævder at bumpen afspejler dannelsen af en stabil selvfortælling i det andet og tredje årti. Berntsen og Rubin kritiserer den fordi narrativer typisk inkluderer problematiske begivenheder, og forklaringen kan kun redegøre for fraværet af bump for negative minder ved at tilføje antagelser om fortrængning eller social censur."
+    },
+    {
+      "id": 12,
+      "question": "Hvad viste reanalysen af Neugarten et al. (1965) om aldersnormer for overgangsbegivenheder?",
+      "options": [
+        "A) Aldersspændene for overgangsbegivenheder var bredere end for aldersstatusser",
+        "B) Aldersspændene for overgangsbegivenheder (gennemsnit 4.1 år) var smallere end for aldersgrader (9.2 år) og aldersstatusser (14.2 år)",
+        "C) Der var ingen forskel i aldersspænd mellem de tre kategorier",
+        "D) Overgangsbegivenheder var primært forventet at ske efter 30-årsalderen"
+      ],
+      "correct_answer": "B",
+      "explanation": "Reanalysen af Neugarten et al. (1965) viste at aldersspændene for overgangsbegivenheder (2-5 år, gennemsnit 4.1 år) var markant smallere end for aldersgrader (4-15 år, gennemsnit 9.2 år) og aldersstatusser (5-15 år, gennemsnit 14.2 år), hvilket indikerer større enighed om timingen af overgangsbegivenheder."
+    },
+    {
+      "id": 13,
+      "question": "Hvilken af de følgende er IKKE en af de 10 formelle egenskaber ved life scripts ifølge Berntsen og Rubin?",
+      "options": [
+        "A) Life scripts er semantisk viden om kulturelle forventninger, ikke episodisk hukommelse",
+        "B) Life scripts er en serie af temporalt ordnede begivenheder",
+        "C) Life scripts repræsenterer et gennemsnitligt liv inklusive skilsmisse og ulykker",
+        "D) Life scripts er forvrænget til fordel for positive begivenheder"
+      ],
+      "correct_answer": "C",
+      "explanation": "En central egenskab ved life scripts er at de repræsenterer et IDEALISERET liv, ikke et gennemsnitligt liv. Mange almindelige men kulturelt uventede begivenheder (som skilsmisse) er udeladt. Et gennemsnitligt liv ville inkludere mange begivenheder der ikke er kulturelt forventede."
+    },
+    {
+      "id": 14,
+      "question": "Hvordan adskiller life scripts sig fra Schank og Abelsons (1977) originale script-begreb?",
+      "options": [
+        "A) Life scripts har ingen hierarkisk struktur, i modsætning til event scripts",
+        "B) Life scripts er ikke lært fra personlige handlinger i gentagne kontekster, men overleveres via tradition",
+        "C) Life scripts fokuserer på kortvarige episoder, mens event scripts dækker hele livsforløb",
+        "D) Life scripts er udelukkende baseret på individuelle erfaringer"
+      ],
+      "correct_answer": "B",
+      "explanation": "En vigtig forskel er at life scripts ikke er lært fra personlige handlinger i gentagne kontekster (som restaurant-scriptet), men overleveres fra ældre generationer, fortællinger og observationer af andres adfærd. Unge mennesker kender life scriptet for deres kultur, selvom de kun har levet en lille del af det."
+    },
+    {
+      "id": 15,
+      "question": "Hvad viste korrelationsanalyserne i Studie 1 om forholdet mellem life script-estimater og faktiske autobiografiske minder?",
+      "options": [
+        "A) Der var ingen signifikant korrelation mellem estimater og faktiske minder",
+        "B) Korrelationerne var høje for positive begivenheder (r = .93-.98) men ikke for negative",
+        "C) Korrelationerne var høje for negative begivenheder men ikke for positive",
+        "D) Korrelationerne var moderate for alle typer begivenheder (r ≈ .50)"
+      ],
+      "correct_answer": "B",
+      "explanation": "Korrelationerne mellem aldersestimaterne fra Studie 1 og faktiske recall-data fra tidligere undersøgelser var meget høje for de tre positive begivenheder: vigtigste (r=.96), lykkeligste (r=.93) og mest forelsket (r=.98), alle p<.001. For negative begivenheder var korrelationerne ikke signifikante."
+    },
+    {
+      "id": 16,
+      "question": "Hvad er den teoretiske implikation af at life scripts er 'semantisk viden' snarere end 'episodisk hukommelse'?",
+      "options": [
+        "A) Life scripts kan ikke påvirke indkodning af personlige minder",
+        "B) Life scripts er kulturelt delte og kan måles uafhængigt af individuelle livshistorier",
+        "C) Life scripts er kun tilgængelige for ældre voksne der har levet hele livsforløbet",
+        "D) Life scripts er identiske på tværs af alle kulturer"
+      ],
+      "correct_answer": "B",
+      "explanation": "Fordi life scripts er semantisk viden (ikke episodisk), er de kulturelt delte og kan måles uafhængigt af individuelle livshistorier. Dette giver metodologiske fordele: man kan forudsige individuel recall baseret på mål der er uafhængige af den pågældendes eget liv."
+    },
+    {
+      "id": 17,
+      "question": "Hvilken af følgende forklaringer på, hvorfor life scripts påvirker indkodning og vedligeholdelse af minder, nævnes IKKE af Berntsen og Rubin?",
+      "options": [
+        "A) Life script-begivenheder er forbundet med mange 'første oplevelser' der er vigtige for organisering af autobiografisk hukommelse",
+        "B) Life script-begivenheder vedligeholdes via eksterne registreringer som fotografier og videoer",
+        "C) Life script-begivenheder aktiverer specifikke neurale netværk i hippocampus",
+        "D) Life script-begivenheder deles og rehearseres i sociale sammenhænge"
+      ],
+      "correct_answer": "C",
+      "explanation": "Berntsen og Rubin nævner seks grunde til at life script-begivenheder er bedre indkodet og rehearseret: (1) kulturelt aftalt konsekventialitet, (2) eksterne registreringer, (3) social deling og rehearsal, (4) mange første oplevelser, (5) vigtig rolleændring, (6) engangsoplevelser med intense emotioner. Neurale netværk i hippocampus nævnes ikke."
+    },
+    {
+      "id": 18,
+      "question": "Hvad viste Studie 2 om forholdet mellem rækkefølgen hvori begivenheder blev genereret og deres estimerede alder?",
+      "options": [
+        "A) Der var ingen sammenhæng mellem genereringsrækkefølge og estimeret alder",
+        "B) Begivenheder der forventedes at ske sidst i livet blev genereret først",
+        "C) Der var en signifikant positiv korrelation (gennemsnitlig Spearman r = 0.55) mellem genereringsrækkefølge og estimeret alder",
+        "D) Begivenheder fra bump-perioden blev altid genereret sidst"
+      ],
+      "correct_answer": "C",
+      "explanation": "Rangordenkorrelationerne mellem alder ved begivenhed og genereringsrækkefølge var beregnet inden for hver deltager. Den gennemsnitlige Spearman-korrelation på tværs af 103 deltagere var 0.55 (t(102)=11.09, p<.0001), hvilket indikerer at deltagerne genererede begivenheder i kronologisk rækkefølge, konsistent med life scripts' temporale struktur."
+    },
+    {
+      "id": 19,
+      "question": "Hvad er den vigtigste metodologiske fordel ved life script-forklaringen sammenlignet med tidligere forklaringer på reminiscence bump?",
+      "options": [
+        "A) Den kræver færre deltagere i eksperimentelle studier",
+        "B) Den kan forudsige individuel recall baseret på mål der er uafhængige af den pågældendes eget liv",
+        "C) Den er lettere at operationalisere i laboratorieeksperimenter",
+        "D) Den er baseret på neurologiske data frem for adfærdsdata"
+      ],
+      "correct_answer": "B",
+      "explanation": "En central metodologisk fordel ved life script-forklaringen er at den kan forudsige individuel recall baseret på mål der er uafhængige af den pågældendes eget liv. Derudover kan den lave specifikke, testbare forudsigelser om, hvor i livsforløbet bumps for forskellige typer minder vil være placeret."
+    },
+    {
+      "id": 20,
+      "question": "Hvad konkluderer Berntsen og Rubin om forholdet mellem life scripts og ordkuede minder (word-cued memories)?",
+      "options": [
+        "A) Life scripts strukturerer primært retrieval af ordkuede minder via associative processer",
+        "B) Life scripts er usandsynlige til at strukturere retrieval af ordkuede minder, men kan påvirke indkodning og vedligeholdelse",
+        "C) Ordkuede minder viser det samme mønster af positive/negative dissociation som emotionelt kuede minder",
+        "D) Life scripts har ingen indflydelse på ordkuede minder overhovedet"
+      ],
+      "correct_answer": "B",
+      "explanation": "Berntsen og Rubin argumenterer for at life scripts er usandsynlige til at strukturere retrieval af ordkuede minder, fordi disse bringes til bevidsthed via en associativ, ikke-strategisk søgeproces. Dog kan life scripts påvirke indkodning og vedligeholdelse ved at give begivenheder der passer til scriptet mere kulturel vigtighed og flere muligheder for rehearsal."
+    }
+  ]
+}
